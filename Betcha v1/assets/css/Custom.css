@@ -405,7 +405,7 @@ input {
   background-color: rgb(18, 120, 69);
 }
 
-.file-input {
+.file-input2 {
   margin: 0;
   text-align: center;
   font-size: 0.875rem;
@@ -415,9 +415,10 @@ input {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #127845;
 }
 
-.file-input:hover {
+.file-input2:hover {
   color: #ffffff;
 }
 
@@ -741,5 +742,9 @@ th, td {
   border-radius: .5rem;
   border-bottom: 0px!important;
   background-color: rgba(180,203,104,0.27);
+}
+
+.table td, .table th {
+  vertical-align: middle;
 }
 

@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="SAdmin-Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="SAdmin-Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="SAdmin-AuditTrails.html"><i class="fa fa-list"></i><span class="m-3">Audit Trails</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="SAdmin-AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="SAdmin-Transactions.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                 </ul>
             </div>
@@ -94,10 +94,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-7 col-xl-6">
+                        <div class="col-6">
                             <div class="card">
                                 <div class="card-header py-3">
-                                    <h6><strong>Earnings Overview</strong></h6>
+                                    <h6><strong>Top Units Overview</strong></h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -105,12 +105,12 @@
                                             <div id="Tabs">
                                                 <div>
                                                     <ul class="nav nav-tabs" role="tablist">
-                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1">Month</a></li>
-                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2">Year</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Month</a></li>
+                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Year</a></li>
                                                     </ul>
                                                     <div class="tab-content">
-                                                        <div class="tab-pane" role="tabpanel" id="tab-1">
-                                                            <div class="text-md-end d-flex justify-content-xxl-end dataTables_filter gap-2" id="dataTable_filter-completed"><label class="form-label"></label>
+                                                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                                            <div class="text-md-end d-flex justify-content-xxl-end dataTables_filter gap-2"><label class="form-label"></label>
                                                                 <div class="dropdown"><button class="btn dropdown-toggle btn-secondary" aria-expanded="false" data-bs-toggle="dropdown" type="button">Month</button>
                                                                     <div class="dropdown-menu"><a class="dropdown-item" href="#">January</a><a class="dropdown-item" href="#">February</a><a class="dropdown-item" href="#">March</a><a class="dropdown-item" href="#">April</a><a class="dropdown-item" href="#">May</a><a class="dropdown-item" href="#">June</a><a class="dropdown-item" href="#">July</a><a class="dropdown-item" href="#">August</a><a class="dropdown-item" href="#">September</a><a class="dropdown-item" href="#">October</a><a class="dropdown-item" href="#">November</a><a class="dropdown-item" href="#">December</a></div>
                                                                 </div>
@@ -118,7 +118,7 @@
                                                                     <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="table-responsive table mt-2" id="tbl-transaction-pending-1" role="grid" aria-describedby="dataTable_info">
+                                                            <div class="table-responsive table mt-2" id="tbl-top-units-month" role="grid" aria-describedby="dataTable_info">
                                                                 <table class="table my-0" id="dataTable">
                                                                     <thead>
                                                                         <tr>
@@ -130,10 +130,34 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td class="text-end" id="tbl-rank">Rank</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location">Status</td>
-                                                                            <td id="tbl-rank-total-earnings">₱0.00</td>
+                                                                            <td class="text-end" id="tbl-rank-6">1</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-6">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-6">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-6">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-7">2</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-7">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-7">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-7">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-8">3</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-8">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-8">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-8">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-9">4</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-9">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-9">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-9">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-10">5</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-10">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-10">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-10">₱0.00</td>
                                                                         </tr>
                                                                     </tbody>
                                                                     <tfoot>
@@ -147,13 +171,13 @@
                                                                 </table>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane active" role="tabpanel" id="tab-2">
-                                                            <div class="text-md-end d-flex justify-content-xxl-end dataTables_filter gap-2" id="dataTable_filter-completed-1"><label class="form-label"></label>
+                                                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                                                            <div class="text-md-end d-flex justify-content-xxl-end dataTables_filter gap-2"><label class="form-label"></label>
                                                                 <div class="dropdown"><button class="btn dropdown-toggle btn-secondary" aria-expanded="false" data-bs-toggle="dropdown" type="button">Year</button>
                                                                     <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="table-responsive table mt-2" id="tbl-transaction-pending-2" role="grid" aria-describedby="dataTable_info">
+                                                            <div class="table-responsive table mt-2" id="tbl-top-units-year" role="grid" aria-describedby="dataTable_info">
                                                                 <table class="table my-0" id="dataTable">
                                                                     <thead>
                                                                         <tr>
@@ -165,10 +189,34 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td class="text-end" id="tbl-rank-1">Rank</td>
+                                                                            <td class="text-end" id="tbl-rank-1">1</td>
                                                                             <td class="text-start" id="tbl-rank-unit-name-1">Unit Name</td>
                                                                             <td class="text-start" id="tbl-rank-location-1">Status</td>
                                                                             <td id="tbl-rank-total-earnings-1">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-2">2</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-2">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-2">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-2">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-3">3</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-3">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-3">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-3">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-4">4</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-4">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-4">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-4">₱0.00</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-rank-5">5</td>
+                                                                            <td class="text-start" id="tbl-rank-unit-name-5">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-rank-location-5">Status</td>
+                                                                            <td id="tbl-rank-total-earnings-5">₱0.00</td>
                                                                         </tr>
                                                                     </tbody>
                                                                     <tfoot>
@@ -190,21 +238,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Revenue Sources</h6>
-                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
-                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
-                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
-                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
-                                        </div>
-                                    </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header py-3">
+                                    <h6><strong>Messages</strong></h6>
                                 </div>
-                                <div class="card-body">
-                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
-                                    <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Direct</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Social</span><span class="me-2"><i class="fas fa-circle text-info"></i>&nbsp;Refferal</span></div>
-                                </div>
+                                <div class="card-body"></div>
                             </div>
                         </div>
                     </div>
@@ -218,8 +257,6 @@
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/ChangeProfile.js"></script>
     <script src="assets/js/Dropdown.js"></script>
     <script src="assets/js/FileUpload.js"></script>

@@ -33,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="SAdmin-Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="SAdmin-Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="SAdmin-AuditTrails.html"><i class="fa fa-list"></i><span class="m-3">Audit Trails</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="SAdmin-AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="SAdmin-Transactions.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                 </ul>
             </div>
@@ -68,11 +68,11 @@
                                     <div id="Tabs">
                                         <div>
                                             <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Completed</a></li>
-                                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Pending</a></li>
+                                                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1">Completed</a></li>
+                                                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2">Pending</a></li>
                                             </ul>
                                             <div class="tab-content">
-                                                <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                                <div class="tab-pane" role="tabpanel" id="tab-1">
                                                     <div class="text-md-end dataTables_filter" id="dataTable_filter-completed"><label class="form-label"><input type="search" id="input_search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                                                     <div class="table-responsive table mt-2" id="tbl-transaction-pending-1" role="grid" aria-describedby="dataTable_info">
                                                         <table class="table my-0" id="dataTable">
@@ -81,12 +81,8 @@
                                                                     <th class="text-end">Reference No.</th>
                                                                     <th class="text-start">Name</th>
                                                                     <th class="text-start">Unit Name</th>
-                                                                    <th class="text-start">Start Date</th>
-                                                                    <th class="text-start">End Date</th>
+                                                                    <th class="text-start">Date</th>
                                                                     <th class="text-start">Payment Mode</th>
-                                                                    <th>Reservation Fee</th>
-                                                                    <th>Price Per Pax</th>
-                                                                    <th class="text-start">Additional Pax</th>
                                                                     <th>Total Amount</th>
                                                                     <th class="text-start">Status</th>
                                                                     <th id="UnitActionsTbl-2"></th>
@@ -97,12 +93,8 @@
                                                                     <td class="text-end" id="tbl-transactions-reference">Reference No.</td>
                                                                     <td class="text-start" id="tbl-transactions-name">Name</td>
                                                                     <td class="text-start" id="tbl-transactions-unit-name">Unit Name</td>
-                                                                    <td class="text-start" id="tbl-transactions-start-date">Date</td>
-                                                                    <td class="text-start" id="tbl-transactions-end-date">Date</td>
+                                                                    <td class="text-start" id="tbl-transactions-date">Date</td>
                                                                     <td class="text-start" id="tbl-transactions-MOP">Mode</td>
-                                                                    <td id="tbl-transactions-reservation">₱0.00</td>
-                                                                    <td id="tbl-transactions-price-per-pax">₱0.00</td>
-                                                                    <td class="text-start" id="tbl-transactions-additional-pax">00</td>
                                                                     <td id="tbl-transactions-total-amount">₱0.00</td>
                                                                     <td class="text-start" id="tbl-transactions-status">Status</td>
                                                                     <td><a class="btn btn-secondary" role="button" href="SAdmin-Transactions-View.html">View Details</a></td>
@@ -118,16 +110,12 @@
                                                                     <td></td>
                                                                     <td></td>
                                                                     <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
-                                                                    <td></td>
                                                                 </tr>
                                                             </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" role="tabpanel" id="tab-2">
+                                                <div class="tab-pane active" role="tabpanel" id="tab-2">
                                                     <div class="text-md-end dataTables_filter" id="dataTable_filter-pending"><label class="form-label"><input type="search" id="input_search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label>
                                                         <div class="table-responsive table mt-2" id="tbl-transaction-pending" role="grid" aria-describedby="dataTable_info">
                                                             <table class="table my-0" id="dataTable">
@@ -137,11 +125,7 @@
                                                                         <th class="text-start">Name</th>
                                                                         <th class="text-start">Unit Name</th>
                                                                         <th class="text-start">Start Date</th>
-                                                                        <th class="text-start">End Date</th>
                                                                         <th class="text-start">Payment Mode</th>
-                                                                        <th>Reservation Fee</th>
-                                                                        <th>Price Per Pax</th>
-                                                                        <th class="text-start">Additional Pax</th>
                                                                         <th>Total Amount</th>
                                                                         <th class="text-start">Status</th>
                                                                         <th id="UnitActionsTbl-1"></th>
@@ -152,30 +136,15 @@
                                                                         <td class="text-end" id="tbl-transactions-reference-1">Reference No.</td>
                                                                         <td class="text-start" id="tbl-transactions-name-1">Name</td>
                                                                         <td class="text-start" id="tbl-transactions-unit-name-1">Unit Name</td>
-                                                                        <td class="text-start" id="tbl-transactions-start-date-1">Date</td>
-                                                                        <td class="text-start" id="tbl-transactions-end-date-1">Date</td>
+                                                                        <td class="text-start" id="tbl-transactions-date-1">Date</td>
                                                                         <td class="text-start" id="tbl-transactions-MOP-1">Mode</td>
-                                                                        <td id="tbl-transactions-reservation-1">₱0.00</td>
-                                                                        <td id="tbl-transactions-price-per-pax-1">₱0.00</td>
-                                                                        <td class="text-start" id="tbl-transactions-additional-pax-1">00</td>
                                                                         <td id="tbl-transactions-total-amount-1">₱0.00</td>
                                                                         <td class="text-start" id="tbl-transactions-status-1">Status</td>
-                                                                        <td><a class="btn btn-secondary" role="button" href="SAdmin-Transactions-View.html">View Details</a></td>
+                                                                        <td class="text-end"><a class="btn btn-secondary" role="button" href="SAdmin-Transactions-View.html">View Details</a></td>
                                                                     </tr>
                                                                 </tbody>
                                                                 <tfoot>
                                                                     <tr>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
-                                                                        <td></td>
                                                                         <td></td>
                                                                     </tr>
                                                                 </tfoot>
@@ -200,7 +169,6 @@
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/ChangeProfile.js"></script>
     <script src="assets/js/Dropdown.js"></script>
     <script src="assets/js/FileUpload.js"></script>
