@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>View Transactions - Brand</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/Calendar.css">
+    <link rel="stylesheet" href="../assets/css/Custom.css">
+    <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
+    <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
+                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
+                    <div class="sidebar-brand-text mx-3">
+                        <p class="m-0" style="text-align: left;">Betcha</p>
+                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/SAdmin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-expand bg-white mb-4 topbar" id="sidebarTop">
+                    <div class="container-fluid">
+                        <div id="sidebarToggle" class="hamburger-menu"><span></span><span></span><span></span></div>
+                        <div style="margin-left:32px;color:#050316;">
+                            <h2 class="mb-0" style="font-weight: bold;border-color: #212529;">View Transaction</h2>
+                        </div>
+                        <ul class="navbar-nav flex-nowrap ms-auto" id="profileDetail">
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="Username">Valerie Luna</span><img class="rounded-circle border img-profile" id="profile-picture" src="../assets/img/avatars/default-profile-pic.jpg"></a>
+                                    <div class="shadow dropdown-menu dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="/Admin/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i> Profile</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-xxl-flex justify-content-xxl-end mb-3"><button class="btn-close" type="button" aria-label="Close"></button></div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card mb-3">
+                                <div class="card-header py-3">
+                                    <h5><strong>Transaction Details</strong></h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Reference No.</strong></label>
+                                                <p id="view-transaction-reference">Reference No.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Unit Name</strong></label>
+                                                <p id="view-transaction-unit-name">Unit Name</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Start Date</strong></label>
+                                                <p id="view-transaction-start-date">Date</p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>End Date</strong></label>
+                                                <p id="view-transaction-end-date">Date</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Booking Date</strong></label>
+                                                <p id="view-transaction-booking-date">Date</p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Status</strong></label>
+                                                <p id="view-transaction-status">Status</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="d-flex justify-content-end gap-2"><button class="btn btn-danger" type="button" data-bs-target="#modal-transaction-cancel-booking" data-bs-toggle="modal">Cancel Booking</button><a class="btn btn-primary" role="button" href="Transactions-Edit.html"><i class="fas fa-pen icon"></i></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-3">
+                                <div class="card-header py-3">
+                                    <h5><strong>Payment Details</strong></h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row" id="payment-mode">
+                                        <div class="col-xxl-6">
+                                            <div class="mb-3"><label class="form-label"><strong>Payment Mode</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <p class="text-end" id="view-transaction-payment-mode-2">Mode</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="line-1">
+                                        <div class="col">
+                                            <div class="mb-3 line-div"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="Price-per-day">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Price Per Day</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-xxl-flex justify-content-xxl-end mb-3">
+                                                <p class="text-end" id="view-transaction-price-per-day"><span style="color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); background-color: var(--bs-table-bg);">₱0.00</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="days-of-stay">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Days of Stay</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-xxl-flex justify-content-xxl-end mb-3">
+                                                <p class="text-end" id="view-transaction-price-per-day-1">x 00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="line-2">
+                                        <div class="col">
+                                            <div class="mb-3 line-div"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="price-per-pax">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Price Per Pax</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-xxl-flex justify-content-xxl-end mb-3">
+                                                <p class="text-end" id="view-transaction-price-per-pax"><span style="color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); background-color: var(--bs-table-bg);">₱0.00</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="additional-pax">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Additional Pax</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-xxl-flex justify-content-xxl-end mb-3">
+                                                <p class="text-end" id="view-transaction-additional-pax">x 00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="line-3">
+                                        <div class="col">
+                                            <div class="mb-3 line-div"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="reservation-fee">
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label"><strong>Reservation Fee</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-xxl-flex justify-content-xxl-end mb-3">
+                                                <p class="text-end" id="view-transaction-reservation-2"><span style="color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); background-color: var(--bs-table-bg);">₱0.00</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="line-4">
+                                        <div class="col">
+                                            <div class="mb-3 line-div"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="total">
+                                        <div class="col">
+                                            <div class="mb-3" style="font-size: 24px;"><label class="form-label" style="color: #127845;"><strong>Total Amount</strong></label></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <p class="text-end" id="view-transaction-additional-pax-1" style="font-size: 24px;color: #212529;"><strong>₱0.00</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Betcha 2024</span></div>
+                </div>
+            </footer>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-remove">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Remove Item</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove this item? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-save">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Save</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-add">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Add Item</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to add this item? Please make sure that all information is correct before proceeding.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-plus icon"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-cancel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Cancel</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-transaction-cancel-booking">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span style="font-weight:normal;">Cancel Booking</span></h4><button class="btn-close" aria-label="Close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p>Are you sure you want to cancel this booking? Please provide a reason for cancellation.</p>
+                    </div>
+                    <div class="px-4">
+                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Did not arrive</label></div>
+                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Unpaid</label></div>
+                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Others...</label></div>
+                        <div class="px-4"><textarea class="form-control" id="cancel-booking-reason-others"></textarea></div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Back</button><button class="btn btn-danger" id="btn-transaction-view-cancel" type="button">Cancel</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Calendar.js"></script>
+    <script src="../assets/js/ChangeProfile.js"></script>
+    <script src="../assets/js/FileUpload.js"></script>
+    <script src="../assets/js/Status.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

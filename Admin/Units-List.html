@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Units - Betcha</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/Calendar.css">
+    <link rel="stylesheet" href="../assets/css/Custom.css">
+    <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
+    <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="/Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
+                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
+                    <div class="sidebar-brand-text mx-3">
+                        <p class="m-0" style="text-align: left;">Betcha</p>
+                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+                    </div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/SAdmin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <nav class="navbar navbar-expand bg-white mb-4 topbar" id="sidebarTop">
+                <div class="container-fluid">
+                    <div id="sidebarToggle" class="hamburger-menu"><span></span><span></span><span></span></div>
+                    <div style="margin-left:32px;color:#050316;">
+                        <h2 class="mb-0" style="font-weight: bold;border-color: #212529;">Units</h2>
+                    </div>
+                    <ul class="navbar-nav flex-nowrap ms-auto" id="profileDetail">
+                        <li class="nav-item dropdown no-arrow">
+                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="Username">Valerie Luna</span><img class="rounded-circle border img-profile" id="profile-picture" src="../assets/img/avatars/default-profile-pic.jpg"></a>
+                                <div class="shadow dropdown-menu dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="/Admin/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i> Profile</a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header shadow-none py-3" style="height: auto;">
+                            <h5><strong>Unit List</strong></h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div><a class="btn btn-primary" role="button" id="btn-unit-add" href="Unit-Add.html">Add unit&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-house-add-fill icon" style="margin-bottom: 6px;margin-left: 3px;">
+                                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 1 1-1 0v-1h-1a.5.5 0 1 1 0-1h1v-1a.5.5 0 0 1 1 0"></path>
+                                                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"></path>
+                                                <path d="m8 3.293 4.712 4.712A4.5 4.5 0 0 0 8.758 15H3.5A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"></path>
+                                            </svg></a></div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" id="input_search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                                </div>
+                            </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Unit Name</th>
+                                            <th>Location</th>
+                                            <th>Map</th>
+                                            <th>Max Pax</th>
+                                            <th class="text-end">Price</th>
+                                            <th class="text-end">Price Per Pax</th>
+                                            <th>Status</th>
+                                            <th id="UnitActionsTbl"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td id="tbl-unit-name">Unit Name</td>
+                                            <td id="tbl-unit-loc">Location&nbsp;</td>
+                                            <td id="tbl-unit-map-link">Link</td>
+                                            <td id="tbl-unit-max-pax">00</td>
+                                            <td class="text-end" id="tbl-unit-price">0000</td>
+                                            <td class="text-end" id="tbl-unit-price-per-pax">0000</td>
+                                            <td class="flex-column" id="tbl-unit-availability"><span class="badge bg-primary" id="badge-available">Available</span><span class="badge bg-danger" id="badge-occupied">Occupied</span><span class="badge bg-dark" id="badge-unavailable">Unavailable</span></td>
+                                            <td class="text-center"><a class="btn btn-primary" role="button" href="Unit-View.html">View Details</a></td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td><strong></strong></td>
+                                            <td></td>
+                                            <td><strong></strong></td>
+                                            <td></td>
+                                            <td><strong></strong></td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Betcha 2024</span></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-remove">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Remove Item</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove this item? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-save">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Save</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-add">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Add Item</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to add this item? Please make sure that all information is correct before proceeding.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-plus icon"></i></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-cancel">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Cancel</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/Calendar.js"></script>
+    <script src="../assets/js/ChangeProfile.js"></script>
+    <script src="../assets/js/FileUpload.js"></script>
+    <script src="../assets/js/Status.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

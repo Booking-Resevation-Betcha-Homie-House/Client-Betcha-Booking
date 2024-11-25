@@ -1,0 +1,190 @@
+/* Calendar Container */
+
+.calendar {
+  width: 500px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: .75rem;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Header Section */
+
+.header {
+  background-color: #147B42;
+  color: white;
+  padding: 15px;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  opacity: 0.8;
+}
+
+#month {
+  margin-right: 5px;
+}
+
+#year {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Days of the Week */
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0.8rem;
+  color: #212529;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+/* Dates */
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0.8rem;
+  gap: 8px;
+}
+
+.dates div {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75rem;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover Effect */
+
+.dates div:hover {
+  background: rgba(18, 120, 69, 0.14);
+  color: #147b42;
+}
+
+/* Highlight Today */
+
+.dates div.today {
+  background: #b4cb68;
+  color: white;
+  font-weight: bold;
+}
+
+/* Selected Date */
+
+.dates div.selected {
+  background: #147B42;
+  color: white;
+  font-weight: bold;
+}
+
+/* Empty Cells */
+
+.dates div:empty {
+  cursor: default;
+  background: none;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .calendar {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .days {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dates div {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .days {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dates div {
+    font-size: 10px;
+    aspect-ratio: 1;
+  }
+}
+
+#span_date {
+  color: #147b42;
+  font-size: 24px;
+}
+
+#Calendar-Booked {
+  max-height: 500px;
+}
+
+#selected-date {
+  width: 500px;
+}
+
+#select-date-container {
+  border-radius: .75rem;
+}
+
+#select-date-container:hover {
+  background-color: rgba(180,203,104,0.27);
+}
+
+#select-date-container:hover .db-icon-bg {
+  background-color: rgb(20,123,66);
+}
+
+#select-date-container:hover #span_date {
+  color: #ffffff;
+}
+
