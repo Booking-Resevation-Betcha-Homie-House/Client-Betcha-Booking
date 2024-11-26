@@ -188,3 +188,8 @@
   color: #ffffff;
 }
 
+#login-bg {
+  height: inherit;
+  width: initial;
+}
+
