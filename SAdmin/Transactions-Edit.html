@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        loadTransactionEditData();
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -32,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SAdmin../Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SAdmin/Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
@@ -99,12 +103,12 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label"><strong>Status</strong></label>
+                                            <div id="statuses" class="mb-3"><label class="form-label"><strong>Status</strong></label>
                                                 <div>
-                                                    <div class="form-check" id="cbx-status-reserved"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Reserved</label></div>
-                                                    <div class="form-check" id="cbx-status-fully-paid"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Fully Paid</label></div>
-                                                    <div class="form-check" id="cbx-status-arrived"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Arrived</label></div>
-                                                    <div class="form-check" id="cbx-status-successful"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Successful</label></div>
+                                                    <div class="form-check" id="cbx-status-reserved"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" id="reserve" for="formCheck-1">Reserved</label></div>
+                                                    <div class="form-check" id="cbx-status-fully-paid"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" id="FP" for="formCheck-4">Fully Paid</label></div>
+                                                    <div class="form-check" id="cbx-status-arrived"><input class="form-check-input" type="checkbox" id="formCheck-3"><label class="form-check-label" id="arrive" for="formCheck-3">Arrived</label></div>
+                                                    <div class="form-check" id="cbx-status-successful"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" id="success" for="formCheck-2">Successful</label></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -248,7 +252,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="save-edit" type="button"><i class="fas fa-save icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -274,7 +278,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" id="cnl-btn" type="button">Cancel</button></div>
             </div>
         </div>
     </div>
@@ -284,6 +288,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-Transactions-Edit-Functions.js"></script>
 </body>
 
 </html>

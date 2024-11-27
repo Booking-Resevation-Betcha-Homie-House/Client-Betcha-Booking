@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
+<script> 
+    window.onload = function() {
+        adminFill();
+     }
+ </script>
 
 <body id="page-top">
     <div id="wrapper">
@@ -32,7 +37,7 @@
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SAdmin../Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SAdmin/Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
@@ -93,7 +98,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-inline-flex d-xxl-flex justify-content-xxl-end mb-3 gap-2"><button class="btn btn-danger" type="button" data-bs-target="#modal-cancel" data-bs-toggle="modal">Cancel</button><button class="btn btn-primary" id="btn-admin-save" type="button" data-bs-target="#modal-save" data-bs-toggle="modal"><i class="fa fa-plus icon"></i></button></div>
+                                            <div class="d-inline-flex d-xxl-flex justify-content-xxl-end mb-3 gap-2"><button class="btn btn-danger" id="cancel-button" type="button" data-bs-target="#modal-cancel" data-bs-toggle="modal">Cancel</button><button class="btn btn-primary" id="btn-admin-save" type="button" data-bs-target="#modal-save" data-bs-toggle="modal"><i class="fa fa-plus icon"></i></button></div>
                                         </div>
                                     </div>
                                 </form>
@@ -131,7 +136,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button><button id="save-button" class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -167,6 +172,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-Admin-Edit-Functions.js"></script>
 </body>
 
 </html>

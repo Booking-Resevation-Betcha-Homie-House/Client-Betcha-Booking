@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
+<script> 
+    window.onload = function() {
+        loadUnits();
+     }
+ </script>
 
 <body id="page-top">
     <div id="wrapper">
@@ -32,7 +37,7 @@
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SAdmin../Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SAdmin/Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
@@ -83,15 +88,14 @@
                                         <tr>
                                             <th>Unit Name</th>
                                             <th>Location</th>
-                                            <th>Map</th>
-                                            <th>Max Pax</th>
+                                            <th style="text-align: center">Max Pax</th>
                                             <th class="text-end">Price</th>
                                             <th class="text-end">Price Per Pax</th>
                                             <th>Status</th>
                                             <th id="UnitActionsTbl"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="table-body">
                                         <tr>
                                             <td id="tbl-unit-name">Unit Name</td>
                                             <td id="tbl-unit-loc">Location&nbsp;</td>
@@ -187,6 +191,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-Unit-List-Functions.js"></script>
 </body>
 
 </html>

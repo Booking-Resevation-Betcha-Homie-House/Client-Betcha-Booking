@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        loadTransactionViewData();
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -32,7 +36,7 @@
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SAdmin../Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SAdmin/Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
@@ -106,7 +110,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="d-flex justify-content-end gap-2"><button class="btn btn-danger" type="button" data-bs-target="#modal-transaction-cancel-booking" data-bs-toggle="modal">Cancel Booking</button><a class="btn btn-primary" role="button" href="Transactions-Edit.html"><i class="fas fa-pen icon"></i></a></div>
+                                            <div class="d-flex justify-content-end gap-2"><button class="btn btn-danger" id="cancel-booking" type="button" data-bs-target="#modal-transaction-cancel-booking" data-bs-toggle="modal">Cancel Booking</button><a class="btn btn-primary" id="edit-button" id role="button"><i class="fas fa-pen icon"></i></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +143,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="d-xxl-flex justify-content-xxl-end mb-3">
-                                                <p class="text-end" id="view-transaction-price-per-day"><span style="color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); background-color: var(--bs-table-bg);">₱0.00</span></p>
+                                                <p class="text-end" id="view-transaction-price-per-day">00</p>
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +168,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="d-xxl-flex justify-content-xxl-end mb-3">
-                                                <p class="text-end" id="view-transaction-price-per-pax"><span style="color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); background-color: var(--bs-table-bg);">₱0.00</span></p>
+                                                <p class="text-end" id="view-transaction-price-per-pax">00</p>
                                             </div>
                                         </div>
                                     </div>
@@ -284,10 +288,21 @@
                         <p>Are you sure you want to cancel this booking? Please provide a reason for cancellation.</p>
                     </div>
                     <div class="px-4">
-                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Did not arrive</label></div>
-                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Unpaid</label></div>
-                        <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Others...</label></div>
-                        <div class="px-4"><textarea class="form-control" id="cancel-booking-reason-others"></textarea></div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="formCheck-11" name="cancelReason">
+                            <label class="form-check-label" for="formCheck-11">Did not arrive</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="formCheck-22" name="cancelReason">
+                            <label class="form-check-label" for="formCheck-22">Unpaid</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="formCheck-33" name="cancelReason">
+                            <label class="form-check-label" for="formCheck-33">Others...</label>
+                        </div>
+                        <div class="px-4">
+                            <textarea class="form-control" id="cancel-booking-reason-others"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Back</button><button class="btn btn-danger" id="btn-transaction-view-cancel" type="button">Cancel</button></div>
@@ -300,6 +315,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-Transactions-View-Functions.js"></script>
 </body>
 
 </html>

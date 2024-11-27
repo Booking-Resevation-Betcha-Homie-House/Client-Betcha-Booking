@@ -3,13 +3,13 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-// Function to get the number of days in a month
+
 const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
 
 let currentYear = 2024;
-let currentMonth = 10; // November (0-based index)
+let currentMonth = 10; 
 
-// Function to render the calendar
+
 const renderCalendar = () => {
   const monthElement = document.getElementById("month");
   const yearElement = document.getElementById("year");
@@ -18,42 +18,38 @@ const renderCalendar = () => {
   monthElement.textContent = monthNames[currentMonth];
   yearElement.textContent = currentYear;
 
-  datesElement.innerHTML = ""; // Clear previous dates
+  datesElement.innerHTML = ""; 
 
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Sunday = 0
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
   const totalDays = daysInMonth(currentYear, currentMonth);
 
-  // Add empty divs for days of the previous month
-  // Only add empty cells if `firstDay` is greater than 0 (Sunday has no placeholders)
+
   if (firstDay > 0) {
     for (let i = 0; i < firstDay; i++) {
       datesElement.innerHTML += `<div></div>`;
     }
   }
 
-  // Add dates for the current month
   for (let date = 1; date <= totalDays; date++) {
-    const todayClass = date === 25 ? "today" : ""; // Highlight the 25th
+    const todayClass = date === 25 ? "today" : ""; 
     datesElement.innerHTML += `<div class="${todayClass}">${date}</div>`;
   }
 
-  // Add event listener for click effects
   const dateElements = datesElement.querySelectorAll("div");
   dateElements.forEach((dateElement) => {
     dateElement.addEventListener("click", () => {
-      if (!dateElement.textContent) return; // Ignore empty cells
-
-      // Remove "selected" class from previously clicked date
+      if (!dateElement.textContent) return; 
+     
       const previouslySelected = document.querySelector(".dates div.selected");
       if (previouslySelected) previouslySelected.classList.remove("selected");
 
-      // Add "selected" class to the clicked date
+     
       dateElement.classList.add("selected");
     });
   });
 };
 
-// Navigation buttons
+
 document.getElementById("prev-month").addEventListener("click", () => {
   currentMonth--;
   if (currentMonth < 0) {
@@ -72,5 +68,7 @@ document.getElementById("next-month").addEventListener("click", () => {
   renderCalendar();
 });
 
-// Initial Render
+
 renderCalendar();
+
+
