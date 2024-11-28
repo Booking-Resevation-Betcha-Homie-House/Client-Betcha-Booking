@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -33,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../SAdmin../Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../SAdmin/Admin-List.html"><i class="fas fa-users"></i><span class="m-3">Users</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/AuditTrails.html"><i class="fa fa-list"></i><span class="m-3 text-nowrap">Audit Trails</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../SAdmin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
@@ -82,7 +81,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="last_name"><strong>Suggested Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-num-pax-1" inputmode="numeric" name="NumberOfPersons" placeholder="1, 2, 3, etc..."></div>
+                                            <div class="mb-3"><label class="form-label" for="last_name"><strong>Package Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-num-pax-1" inputmode="numeric" name="NumberOfPersons" placeholder="1, 2, 3, etc..."></div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3"><label class="form-label" for="last_name"><strong>Maximum Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-max-pax-1" inputmode="numeric" name="MaxPax" placeholder="₱0.00"></div>
@@ -98,6 +97,7 @@
                                         <div class="col">
                                             <div class="mb-3"><label class="form-label" for="last_name"><strong>Price Per Pax</strong></label><input class="form-control form-control" type="text" id="input-unit-price-per-pax-1" inputmode="numeric" name="PricePerPax" placeholder="₱0.00"></div>
                                         </div>
+                                        
                                         <div class="col">
                                             <div class="container p-0">
                                                 <div class="row">
@@ -124,52 +124,44 @@
                                             <div><label class="form-label" for="first_name"><strong>Amenities</strong></label></div>
                                             <div class="d-flex flex-row mb-3" id="amenities-container">
                                                 <div class="ps-3 w-50">
-                                                    <div class="form-check" id="inclusion-bathroom-1"><input type="checkbox" class="form-check-input" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Towels</label></div>
-                                                    <div class="form-check" id="inclusion-bathroom-2"><input type="checkbox" class="form-check-input" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Toilet Paper</label></div>
-                                                    <div class="form-check" id="inclusion-bathroom-3"><input type="checkbox" class="form-check-input" id="formCheck-3"><label class="form-check-label" for="formCheck-3">Soap and Shampoo</label></div>
-                                                    <div class="form-check" id="inclusion-bathroom-4"><input type="checkbox" class="form-check-input" id="formCheck-4"><label class="form-check-label" for="formCheck-4">Hot Water</label></div>
-                                                    <div class="form-check" id="inclusion-bathroom-5"><input type="checkbox" class="form-check-input" id="formCheck-5"><label class="form-check-label" for="formCheck-5" id="inclusion-bedroom-laundry-1">Comfortable Bed (w/ pillows, linens, &amp; blankets)</label></div>
-                                                    <div class="form-check" id="inclusion-bedroom-laundry-2"><input type="checkbox" class="form-check-input" id="formCheck-6"><label class="form-check-label" for="formCheck-7">Washing Machine</label></div>
-                                                    <div class="form-check" id="inclusion-bedroom-laundry-3"><input type="checkbox" class="form-check-input" id="formCheck-7"><label class="form-check-label" for="formCheck-6">Dryer</label></div>
-                                                    <div class="form-check" id="inclusion-bedroom-laundry-4"><input type="checkbox" class="form-check-input" id="formCheck-8"><label class="form-check-label" for="formCheck-8">Closet</label></div>
-                                                    <div class="form-check" id="inclusion-bedroom-laundry-5"><input type="checkbox" class="form-check-input" id="formCheck-9"><label class="form-check-label" for="formCheck-9">Drawers</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-1"><input type="checkbox" class="form-check-input" id="formCheck-10"><label class="form-check-label" for="formCheck-10">TV</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-2"><input type="checkbox" class="form-check-input" id="formCheck-11"><label class="form-check-label" for="formCheck-11">Netflix</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-3"><input type="checkbox" class="form-check-input" id="formCheck-12"><label class="form-check-label" for="formCheck-12">Disney+</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-4"><input type="checkbox" class="form-check-input" id="formCheck-13"><label class="form-check-label" for="formCheck-13">Hulu</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-5"><input type="checkbox" class="form-check-input" id="formCheck-14"><label class="form-check-label" for="formCheck-14">Prime VIdeo</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-6"><input type="checkbox" class="form-check-input" id="formCheck-15"><label class="form-check-label" for="formCheck-15">HBO Max</label></div>
-                                                    <div class="form-check" id="inclusion-entertainment-7"><input type="checkbox" class="form-check-input" id="formCheck-16"><label class="form-check-label" for="formCheck-16">Board Games</label></div>
-                                                    <div class="form-check" id="inclusion-cooling-1"><input type="checkbox" class="form-check-input" id="formCheck-17"><label class="form-check-label" for="formCheck-17">Air Conditioning</label></div>
-                                                    <div class="form-check" id="inclusion-cooling-2"><input type="checkbox" class="form-check-input" id="formCheck-18"><label class="form-check-label" for="formCheck-18">Ceiling Fan</label></div>
-                                                    <div class="form-check" id="inclusion-cooling-3"><input type="checkbox" class="form-check-input" id="formCheck-19"><label class="form-check-label" for="formCheck-19">Stand Fan</label></div>
-                                                    <div class="form-check" id="inclusion-cooling-4"><input type="checkbox" class="form-check-input" id="formCheck-60"><label class="form-check-label" for="formCheck-20">Exhaust Fan</label></div>
+                                                    <div class="form-check" id="formCheck-1"><input type="checkbox" class="form-check-input" id="towels"><label class="form-check-label" for="towels">Towels</label></div>
+                                                    <div class="form-check" id="formCheck-2"><input type="checkbox" class="form-check-input" id="toiletPaper"><label class="form-check-label" for="toiletPaper">Toilet Paper</label></div>
+                                                    <div class="form-check" id="formCheck-3"><input type="checkbox" class="form-check-input" id="soapAndShampoo"><label class="form-check-label" for="soapAndShampoo">Soap and Shampoo</label></div>
+                                                    <div class="form-check" id="formCheck-4"><input type="checkbox" class="form-check-input" id="hotWater"><label class="form-check-label" for="hotWater">Hot Water</label></div>
+                                                    <div class="form-check" id="formCheck-5"><input type="checkbox" class="form-check-input" id="comfortableBed"><label class="form-check-label" for="comfortableBed" id="inclusion-bedroom-laundry-1">Comfortable Bed (w/ pillows, linens, &amp; blankets)</label></div>
+                                                    <div class="form-check" id="formCheck-6"><input type="checkbox" class="form-check-input" id="washingMachineAndDryer"><label class="form-check-label" for="washingMachineAndDryer">Washing Machine and Dryer</label></div>
+                                                    <div class="form-check" id="formCheck-7"><input type="checkbox" class="form-check-input" id="closetsOrDrawers"><label class="form-check-label" for="closetsOrDrawers">Closet and Drawers</label></div>
+                                                    <div class="form-check" id="formCheck-8"><input type="checkbox" class="form-check-input" id="television"><label class="form-check-label" for="television">Television</label></div>
+                                                    <div class="form-check" id="formCheck-9"><input type="checkbox" class="form-check-input" id="streamingServices"><label class="form-check-label" for="streamingServices">Streaming Services (Netlif,HULU,HBO)</label></div>
+                                                    <div class="form-check" id="formCheck-10"><input type="checkbox" class="form-check-input" id="booksOrBoardGames"><label class="form-check-label" for="booksOrBoardGames">Books and Board Games</label></div>
+                                                    <div class="form-check" id="formCheck-11"><input type="checkbox" class="form-check-input" id="airConditioning"><label class="form-check-label" for="airConditioning">Air Conditioning</label></div>
+                                                    <div class="form-check" id="formCheck-12"><input type="checkbox" class="form-check-input" id="ceilingFans"><label class="form-check-label" for="ceilingFans">Ceiling Fans+</label></div>
+                                                    <div class="form-check" id="formCheck-13"><input type="checkbox" class="form-check-input" id="smokeDetectors"><label class="form-check-label" for="smokeDetectors">SmokeDetectors</label></div>
+                                                    <div class="form-check" id="formCheck-14"><input type="checkbox" class="form-check-input" id="fireExtinguisher"><label class="form-check-label" for="fireExtinguisher">Fire Extinguisher</label></div>
+                                                    <div class="form-check" id="formCheck-15"><input type="checkbox" class="form-check-input" id="firstAidKit"><label class="form-check-label" for="firstAidKit">First Aid Kit</label></div>
+                                                    
+       
                                                 </div>
                                                 <div class="ps-3 w-50">
-                                                    <div id="inclusion-privacy-safety-1" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-61"><label class="form-check-label" for="formCheck-21">Smoke Detectors</label></div>
-                                                    <div id="inclusion-privacy-safety-2" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-62"><label class="form-check-label" for="formCheck-22">Fire Extinguisher</label></div>
-                                                    <div id="inclusion-privacy-safety-3" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-63"><label class="form-check-label" for="formCheck-23">First Aid Kit</label></div>
-                                                    <div id="inclusion-privacy-safety-4" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-64"><label class="form-check-label" for="formCheck-24">Fingerprint Lock</label></div>
-                                                    <div id="inclusion-internet-1" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-65"><label class="form-check-label" for="formCheck-25">Free Wi-Fi</label></div>
-                                                    <div id="inclusion-kitchen-dining-1" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-66"><label class="form-check-label" for="formCheck-26">Stove</label></div>
-                                                    <div id="inclusion-kitchen-dining-2" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-67"><label class="form-check-label" for="formCheck-27">Oven</label></div>
-                                                    <div id="inclusion-kitchen-dining-3" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-68"><label class="form-check-label" for="formCheck-28">Refrigerator</label></div>
-                                                    <div id="inclusion-kitchen-dining-4" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-69"><label class="form-check-label" for="formCheck-29">Microwave</label></div>
-                                                    <div id="inclusion-kitchen-dining-5" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-70"><label class="form-check-label" for="formCheck-30">Cooking Utensils</label></div>
-                                                    <div id="inclusion-kitchen-dining-6" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-71"><label class="form-check-label" for="formCheck-31">Plates</label></div>
-                                                    <div id="inclusion-kitchen-dining-7" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-72"><label class="form-check-label" for="formCheck-32">Cutlery</label></div>
-                                                    <div id="inclusion-kitchen-dining-8" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-73"><label class="form-check-label" for="formCheck-33">Coffee Maker</label></div>
-                                                    <div id="inclusion-kitchen-dining-9" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-74"><label class="form-check-label" for="formCheck-34">Kettle</label></div>
-                                                    <div id="inclusion-outdoor-1" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-75"><label class="form-check-label" for="formCheck-35">Balcony</label></div>
-                                                    <div id="inclusion-outdoor-2" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-76"><label class="form-check-label" for="formCheck-36">Terrace</label></div>
-                                                    <div id="inclusion-outdoor-3" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-77"><label class="form-check-label" for="formCheck-37">Garden</label></div>
-                                                    <div id="inclusion-outdoor-4" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-78"><label class="form-check-label" for="formCheck-38">Swimming Pool</label></div>
-                                                    <div id="inclusion-outdoor-5" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-79"><label class="form-check-label" for="formCheck-39">Parking</label></div>
-                                                    <div id="inclusion-outdoor-6" class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-80"><label class="form-check-label" for="formCheck-40">Elevator (if applicable)</label></div>
+                                                    <div id="formCheck-21" class="form-check"><input type="checkbox" class="form-check-input" id="secureLocks"><label class="form-check-label" for="secureLocks">Secure Locks</label></div>
+                                                    <div id="formCheck-22" class="form-check"><input type="checkbox" class="form-check-input" id="freeWiFi"><label class="form-check-label" for="freeWiFi">Free Wifi</label></div>
+                                                    <div id="formCheck-23" class="form-check"><input type="checkbox" class="form-check-input" id="stoveAndOven"><label class="form-check-label" for="stoveAndOven">Stove and Oven</label></div>
+                                                    <div id="formCheck-24" class="form-check"><input type="checkbox" class="form-check-input" id="refrigerator"><label class="form-check-label" for="refrigerator">Refrigerator</label></div>
+                                                    <div id="formCheck-25" class="form-check"><input type="checkbox" class="form-check-input" id="microwave"><label class="form-check-label" for="microwave">Microwave</label></div>
+                                                    <div id="formCheck-26" class="form-check"><input type="checkbox" class="form-check-input" id="cookingUtensils"><label class="form-check-label" for="cookingUtensils">Cooking Utensils</label></div>
+                                                    <div id="formCheck-27" class="form-check"><input type="checkbox" class="form-check-input" id="coffeeMaker"><label class="form-check-label" for="coffeeMaker">Coffee Maker</label></div>
+                                                    <div id="formCheck-28" class="form-check"><input type="checkbox" class="form-check-input" id="balconyOrTerrace"><label class="form-check-label" for="balconyOrTerrace">Balcony or Terrace</label></div>
+                                                    <div id="formCheck-29" class="form-check"><input type="checkbox" class="form-check-input" id="privateGarden"><label class="form-check-label" for="privateGarden">Private Garden</label></div>
+                                                    <div id="formCheck-30" class="form-check"><input type="checkbox" class="form-check-input" id="swimmingPoolAccess"><label class="form-check-label" for="swimmingPoolAccess">Swimming Pool</label></div>
+                                                    <div id="formCheck-31" class="form-check"><input type="checkbox" class="form-check-input" id="parkingFacilities"><label class="form-check-label" for="parkingFacilities">Parking Facilities</label></div>
+                                                    <div id="formCheck-32" class="form-check"><input type="checkbox" class="form-check-input" id="parkingSpace"><label class="form-check-label" for="parkingSpace">Parking Spot</label></div>
+                                                    <div id="formCheck-33" class="form-check"><input type="checkbox" class="form-check-input" id="gymAccess"><label class="form-check-label" for="gymAccess">Gym Access</label></div>
+                                                    <div id="formCheck-34" class="form-check"><input type="checkbox" class="form-check-input" id="elevator"><label class="form-check-label" for="elevator">Elevator</label></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
+                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Other Amenities</strong></label><textarea class="form-control form-control" id="input-unit-other" name="UnitDesc" style="resize:vertical;height:150;"></textarea></div>
                                             <div class="mb-3"><label class="form-label" for="first_name"><strong>Description</strong></label><textarea class="form-control form-control" id="input-unit-desc" name="UnitDesc" style="resize:vertical;height:300px;"></textarea></div>
                                         </div>
                                     </div>
@@ -234,7 +226,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to add this item? Please make sure that all information is correct before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-plus icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="addUnit" type="button"><i class="fas fa-plus icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -247,7 +239,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" id="cancel-id" type="button">Cancel</button></div>
             </div>
         </div>
     </div>
@@ -257,6 +249,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-Unit-Add-Functions.js"></script>
 </body>
 
 </html>
