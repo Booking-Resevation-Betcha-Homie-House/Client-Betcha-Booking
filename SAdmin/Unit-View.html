@@ -181,21 +181,21 @@
                                             <p id="view-unit-desc">Paragraph</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Image(s)</strong></label>
-                                                <div class="carousel slide" data-bs-ride="false" id="carousel-1">
-                                                    <div class="carousel-inner">
-                                                        <div class="carousel-item active"><img class="w-100 d-block" alt="Slide Image" src="../assets/img/pexels-photo-208701-3.jpeg"></div>
-                                                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../assets/img/maldives-ile-beach-sun-38238.jpeg"></div>
-                                                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../assets/img/pexels-photo-1862695.jpeg"></div>
-                                                    </div>
-                                                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
-                                                    <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-indicators"></div>
+                                    
+                                        <div class="carousel-inner" id="image-gallery"></div>
+                                    
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-1" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-1" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="col">
                                             <div class="d-xxl-flex justify-content-xxl-end mb-3 gap-2"><button class="btn btn-danger" type="button" data-bs-target="#modal-remove" data-bs-toggle="modal"><i class="fas fa-trash-alt icon"></i></button><a class="btn btn-primary" id='edit-btn' role="button"><i class="fas fa-pen icon"></i></a></div>
