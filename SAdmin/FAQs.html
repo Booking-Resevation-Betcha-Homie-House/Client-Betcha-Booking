@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+   window.onload = function() {
+    displayQA();
+    }
+</script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -90,7 +94,7 @@
                             </div>
                         </div>
                         <div class="col col-lg-8">
-                            <div class="faq-container">
+                            <div class="faq-container" id="container-faq">
                                 <div id="div-faq-card">
                                     <div class="card mb-3">
                                         <div class="card-body">
@@ -106,7 +110,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="d-xxl-flex justify-content-xxl-end d-flex gap-1"><button class="btn btn-danger btn-icon-only" id="btn-faq-delete" type="button" data-bs-target="#modal-remove" data-bs-toggle="modal"><i class="fas fa-trash-alt"></i></button><button class="btn btn-primary btn-icon-only" id="btn-faq-edit" type="button" data-bs-target="#modal-confirm" data-bs-toggle="modal"><i class="fas fa-pen"></i></button></div>
+                                                    <div class="d-xxl-flex justify-content-xxl-end d-flex gap-1"><button class="btn btn-danger btn-icon-only" id="btn-faq-delete" type="button" data-bs-target="#modal-faq" data-bs-toggle="modal"><i class="fas fa-trash-alt"></i></button><button class="btn btn-primary btn-icon-only" id="btn-faq-edit" type="button" data-bs-target="#modal-confirm" data-bs-toggle="modal"><i class="fas fa-pen"></i></button></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,6 +212,30 @@
             </footer>
         </div>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div id="modal-faq" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Question</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3"><label class="form-label" for="username"><strong>Question</strong></label><input id="input-faqs-question-1" class="form-control" type="text" placeholder="Question" name="FAQs-Question" /></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3"><label class="form-label" for="first_name"><strong>Answer</strong></label><textarea id="input-faqs-answer-1" class="form-control form-control" name="FAQs-Answer" style="resize: none;height: 300px;" placeholder="Answer"></textarea></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="edi-btn" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -230,7 +258,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to remove this item? This action cannot be undone.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Admin/Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" id="delete-btn"><i class="fas fa-trash-alt icon"></i></a></div>
             </div>
         </div>
     </div>
@@ -243,7 +271,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="crt-btn" type="button"><i class="fas fa-save icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -279,6 +307,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/SAdmin-FAQs-Functions.js"></script>
 </body>
 
 </html>

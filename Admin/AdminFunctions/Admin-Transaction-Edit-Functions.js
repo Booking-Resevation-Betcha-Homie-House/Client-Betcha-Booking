@@ -140,6 +140,7 @@ function editTransactionData(){
     });
 }
 
+
 document.getElementById('save-edit').addEventListener('click',editTransactionData);
 
 function statusvalue() {

@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/Calendar.css">
     <link rel="stylesheet" href="../assets/css/Custom.css">
+    <link rel="stylesheet" href="../assets/css/Login-Register.css">
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
 <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
+        <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
                     <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
                     <div class="sidebar-brand-text mx-3">
@@ -30,8 +32,6 @@
                     <li class="nav-item"><a class="nav-link" href="../Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
@@ -73,10 +73,13 @@
                                         <div class="col">
                                             <div class="mb-3"><label class="form-label" for="email"><strong>Location</strong></label><input class="form-control form-control" type="email" id="input-unit-loc-1" name="UnitLocation" placeholder="Location"></div>
                                         </div>
+                                        <div class="col">
+                                            <div class="mb-3"><label class="form-label" for="email"><strong>Map Link</strong></label><input class="form-control form-control" type="email" id="input-unit-map-link-1" name="MapLink" placeholder="Map Link"></div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="last_name"><strong>Suggested Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-num-pax-1" inputmode="numeric" name="NumberOfPersons" placeholder="1, 2, 3, etc..."></div>
+                                            <div class="mb-3"><label class="form-label" for="last_name"><strong>Package Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-num-pax-1" inputmode="numeric" name="NumberOfPersons" placeholder="1, 2, 3, etc..."></div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3"><label class="form-label" for="last_name"><strong>Maximum Capacity</strong></label><input class="form-control form-control" type="text" id="input-unit-max-pax-1" inputmode="numeric" name="MaxPax" placeholder="₱0.00"></div>
@@ -92,6 +95,7 @@
                                         <div class="col">
                                             <div class="mb-3"><label class="form-label" for="last_name"><strong>Price Per Pax</strong></label><input class="form-control form-control" type="text" id="input-unit-price-per-pax-1" inputmode="numeric" name="PricePerPax" placeholder="₱0.00"></div>
                                         </div>
+                                        
                                         <div class="col">
                                             <div class="container p-0">
                                                 <div class="row">
@@ -114,110 +118,49 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Inclusion</strong></label>
-                                                <div class="accordion" role="tablist" id="accordion-inclusion-1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-1" aria-expanded="false" aria-controls="accordion-inclusion .item-1">Bathroom</button></h2>
-                                                        <div class="accordion-collapse collapse item-1 item-1" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-bathroom-6"><input type="checkbox" class="form-check-input" id="formCheck-41"><label class="form-check-label" for="formCheck-1">Towels</label></div>
-                                                                <div class="form-check" id="inclusion-bathroom-7"><input type="checkbox" class="form-check-input" id="formCheck-42"><label class="form-check-label" for="formCheck-2">Toilet Paper</label></div>
-                                                                <div class="form-check" id="inclusion-bathroom-8"><input type="checkbox" class="form-check-input" id="formCheck-43"><label class="form-check-label" for="formCheck-3">Soap and Shampoo</label></div>
-                                                                <div class="form-check" id="inclusion-bathroom-9"><input type="checkbox" class="form-check-input" id="formCheck-44"><label class="form-check-label" for="formCheck-4">Hot Water</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-2" aria-expanded="false" aria-controls="accordion-inclusion .item-2">Bedroom and Laundry</button></h2>
-                                                        <div class="accordion-collapse collapse item-2 item-2" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-bathroom-10"><input type="checkbox" class="form-check-input" id="formCheck-45"><label class="form-check-label" for="formCheck-5" id="inclusion-bedroom-laundry-6">Comfortable Bed (w/ pillows, linens, &amp; blankets)</label></div>
-                                                                <div class="form-check" id="inclusion-bedroom-laundry-7"><input type="checkbox" class="form-check-input" id="formCheck-46"><label class="form-check-label" for="formCheck-7">Washing Machine</label></div>
-                                                                <div class="form-check" id="inclusion-bedroom-laundry-8"><input type="checkbox" class="form-check-input" id="formCheck-47"><label class="form-check-label" for="formCheck-6">Dryer</label></div>
-                                                                <div class="form-check" id="inclusion-bedroom-laundry-9"><input type="checkbox" class="form-check-input" id="formCheck-48"><label class="form-check-label" for="formCheck-8">Closet</label></div>
-                                                                <div class="form-check" id="inclusion-bedroom-laundry-10"><input type="checkbox" class="form-check-input" id="formCheck-49"><label class="form-check-label" for="formCheck-9">Drawers</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-3" aria-expanded="false" aria-controls="accordion-inclusion .item-3">Entertainment</button></h2>
-                                                        <div class="accordion-collapse collapse item-3 item-3" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-entertainment-8"><input type="checkbox" class="form-check-input" id="formCheck-50"><label class="form-check-label" for="formCheck-10">TV</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-9"><input type="checkbox" class="form-check-input" id="formCheck-51"><label class="form-check-label" for="formCheck-11">Netflix</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-10"><input type="checkbox" class="form-check-input" id="formCheck-52"><label class="form-check-label" for="formCheck-12">Disney+</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-11"><input type="checkbox" class="form-check-input" id="formCheck-53"><label class="form-check-label" for="formCheck-13">Hulu</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-12"><input type="checkbox" class="form-check-input" id="formCheck-54"><label class="form-check-label" for="formCheck-14">Prime VIdeo</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-13"><input type="checkbox" class="form-check-input" id="formCheck-55"><label class="form-check-label" for="formCheck-15">HBO Max</label></div>
-                                                                <div class="form-check" id="inclusion-entertainment-14"><input type="checkbox" class="form-check-input" id="formCheck-56"><label class="form-check-label" for="formCheck-16">Board Games</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-4" aria-expanded="false" aria-controls="accordion-inclusion .item-4">Cooling</button></h2>
-                                                        <div class="accordion-collapse collapse item-4 item-4" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-cooling-5"><input type="checkbox" class="form-check-input" id="formCheck-57"><label class="form-check-label" for="formCheck-17">Air Conditioning</label></div>
-                                                                <div class="form-check" id="inclusion-cooling-6"><input type="checkbox" class="form-check-input" id="formCheck-58"><label class="form-check-label" for="formCheck-18">Ceiling Fan</label></div>
-                                                                <div class="form-check" id="inclusion-cooling-7"><input type="checkbox" class="form-check-input" id="formCheck-59"><label class="form-check-label" for="formCheck-19">Stand Fan</label></div>
-                                                                <div class="form-check" id="inclusion-cooling-8"><input type="checkbox" class="form-check-input" id="formCheck-60"><label class="form-check-label" for="formCheck-20">Exhaust Fan</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-5" aria-expanded="false" aria-controls="accordion-inclusion .item-5">Privacy and Safety</button></h2>
-                                                        <div class="accordion-collapse collapse item-5 item-5" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-privacy-safety-5"><input type="checkbox" class="form-check-input" id="formCheck-61"><label class="form-check-label" for="formCheck-21">Smoke Detectors</label></div>
-                                                                <div class="form-check" id="inclusion-privacy-safety-6"><input type="checkbox" class="form-check-input" id="formCheck-62"><label class="form-check-label" for="formCheck-22">Fire Extinguisher</label></div>
-                                                                <div class="form-check" id="inclusion-privacy-safety-7"><input type="checkbox" class="form-check-input" id="formCheck-63"><label class="form-check-label" for="formCheck-23">First Aid Kit</label></div>
-                                                                <div class="form-check" id="inclusion-privacy-safety-8"><input type="checkbox" class="form-check-input" id="formCheck-64"><label class="form-check-label" for="formCheck-24">Fingerprint Lock</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-6" aria-expanded="false" aria-controls="accordion-inclusion .item-6">Internet</button></h2>
-                                                        <div class="accordion-collapse collapse item-6 item-6" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-internet-2"><input type="checkbox" class="form-check-input" id="formCheck-65"><label class="form-check-label" for="formCheck-25">Free Wi-Fi</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-7" aria-expanded="false" aria-controls="accordion-inclusion .item-7">Kitchen and Dining</button></h2>
-                                                        <div class="accordion-collapse collapse item-7 item-7" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-kitchen-dining-10"><input type="checkbox" class="form-check-input" id="formCheck-66"><label class="form-check-label" for="formCheck-26">Stove</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-11"><input type="checkbox" class="form-check-input" id="formCheck-67"><label class="form-check-label" for="formCheck-27">Oven</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-12"><input type="checkbox" class="form-check-input" id="formCheck-68"><label class="form-check-label" for="formCheck-28">Refrigerator</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-13"><input type="checkbox" class="form-check-input" id="formCheck-69"><label class="form-check-label" for="formCheck-29">Microwave</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-14"><input type="checkbox" class="form-check-input" id="formCheck-70"><label class="form-check-label" for="formCheck-30">Cooking Utensils</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-15"><input type="checkbox" class="form-check-input" id="formCheck-71"><label class="form-check-label" for="formCheck-31">Plates</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-16"><input type="checkbox" class="form-check-input" id="formCheck-72"><label class="form-check-label" for="formCheck-32">Cutlery</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-17"><input type="checkbox" class="form-check-input" id="formCheck-73"><label class="form-check-label" for="formCheck-33">Coffee Maker</label></div>
-                                                                <div class="form-check" id="inclusion-kitchen-dining-18"><input type="checkbox" class="form-check-input" id="formCheck-74"><label class="form-check-label" for="formCheck-34">Kettle</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-inclusion .item-8" aria-expanded="false" aria-controls="accordion-inclusion .item-8">Outdoor</button></h2>
-                                                        <div class="accordion-collapse collapse item-8 item-8" role="tabpanel" data-bs-parent="#accordion-inclusion">
-                                                            <div class="accordion-body">
-                                                                <div class="form-check" id="inclusion-outdoor-7"><input type="checkbox" class="form-check-input" id="formCheck-75"><label class="form-check-label" for="formCheck-35">Balcony</label></div>
-                                                                <div class="form-check" id="inclusion-outdoor-8"><input type="checkbox" class="form-check-input" id="formCheck-76"><label class="form-check-label" for="formCheck-36">Terrace</label></div>
-                                                                <div class="form-check" id="inclusion-outdoor-9"><input type="checkbox" class="form-check-input" id="formCheck-77"><label class="form-check-label" for="formCheck-37">Garden</label></div>
-                                                                <div class="form-check" id="inclusion-outdoor-10"><input type="checkbox" class="form-check-input" id="formCheck-78"><label class="form-check-label" for="formCheck-38">Swimming Pool</label></div>
-                                                                <div class="form-check" id="inclusion-outdoor-11"><input type="checkbox" class="form-check-input" id="formCheck-79"><label class="form-check-label" for="formCheck-39">Parking</label></div>
-                                                                <div class="form-check" id="inclusion-outdoor-12"><input type="checkbox" class="form-check-input" id="formCheck-80"><label class="form-check-label" for="formCheck-40">Elevator (if applicable)</label></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                        <div class="col-xxl-6">
+                                            <div><label class="form-label" for="first_name"><strong>Amenities</strong></label></div>
+                                            <div class="d-flex flex-row mb-3" id="amenities-container">
+                                                <div class="ps-3 w-50">
+                                                    <div class="form-check" id="formCheck-1"><input type="checkbox" class="form-check-input" id="towels"><label class="form-check-label" for="towels">Towels</label></div>
+                                                    <div class="form-check" id="formCheck-2"><input type="checkbox" class="form-check-input" id="toiletPaper"><label class="form-check-label" for="toiletPaper">Toilet Paper</label></div>
+                                                    <div class="form-check" id="formCheck-3"><input type="checkbox" class="form-check-input" id="soapAndShampoo"><label class="form-check-label" for="soapAndShampoo">Soap and Shampoo</label></div>
+                                                    <div class="form-check" id="formCheck-4"><input type="checkbox" class="form-check-input" id="hotWater"><label class="form-check-label" for="hotWater">Hot Water</label></div>
+                                                    <div class="form-check" id="formCheck-5"><input type="checkbox" class="form-check-input" id="comfortableBed"><label class="form-check-label" for="comfortableBed" id="inclusion-bedroom-laundry-1">Comfortable Bed (w/ pillows, linens, &amp; blankets)</label></div>
+                                                    <div class="form-check" id="formCheck-6"><input type="checkbox" class="form-check-input" id="washingMachineAndDryer"><label class="form-check-label" for="washingMachineAndDryer">Washing Machine and Dryer</label></div>
+                                                    <div class="form-check" id="formCheck-7"><input type="checkbox" class="form-check-input" id="closetsOrDrawers"><label class="form-check-label" for="closetsOrDrawers">Closet and Drawers</label></div>
+                                                    <div class="form-check" id="formCheck-8"><input type="checkbox" class="form-check-input" id="television"><label class="form-check-label" for="television">Television</label></div>
+                                                    <div class="form-check" id="formCheck-9"><input type="checkbox" class="form-check-input" id="streamingServices"><label class="form-check-label" for="streamingServices">Streaming Services (Netlif,HULU,HBO)</label></div>
+                                                    <div class="form-check" id="formCheck-10"><input type="checkbox" class="form-check-input" id="booksOrBoardGames"><label class="form-check-label" for="booksOrBoardGames">Books and Board Games</label></div>
+                                                    <div class="form-check" id="formCheck-11"><input type="checkbox" class="form-check-input" id="airConditioning"><label class="form-check-label" for="airConditioning">Air Conditioning</label></div>
+                                                    <div class="form-check" id="formCheck-12"><input type="checkbox" class="form-check-input" id="ceilingFans"><label class="form-check-label" for="ceilingFans">Ceiling Fans+</label></div>
+                                                    <div class="form-check" id="formCheck-13"><input type="checkbox" class="form-check-input" id="smokeDetectors"><label class="form-check-label" for="smokeDetectors">SmokeDetectors</label></div>
+                                                    <div class="form-check" id="formCheck-14"><input type="checkbox" class="form-check-input" id="fireExtinguisher"><label class="form-check-label" for="fireExtinguisher">Fire Extinguisher</label></div>
+                                                    <div class="form-check" id="formCheck-15"><input type="checkbox" class="form-check-input" id="firstAidKit"><label class="form-check-label" for="firstAidKit">First Aid Kit</label></div>
+                                                    
+       
+                                                </div>
+                                                <div class="ps-3 w-50">
+                                                    <div id="formCheck-21" class="form-check"><input type="checkbox" class="form-check-input" id="secureLocks"><label class="form-check-label" for="secureLocks">Secure Locks</label></div>
+                                                    <div id="formCheck-22" class="form-check"><input type="checkbox" class="form-check-input" id="freeWiFi"><label class="form-check-label" for="freeWiFi">Free Wifi</label></div>
+                                                    <div id="formCheck-23" class="form-check"><input type="checkbox" class="form-check-input" id="stoveAndOven"><label class="form-check-label" for="stoveAndOven">Stove and Oven</label></div>
+                                                    <div id="formCheck-24" class="form-check"><input type="checkbox" class="form-check-input" id="refrigerator"><label class="form-check-label" for="refrigerator">Refrigerator</label></div>
+                                                    <div id="formCheck-25" class="form-check"><input type="checkbox" class="form-check-input" id="microwave"><label class="form-check-label" for="microwave">Microwave</label></div>
+                                                    <div id="formCheck-26" class="form-check"><input type="checkbox" class="form-check-input" id="cookingUtensils"><label class="form-check-label" for="cookingUtensils">Cooking Utensils</label></div>
+                                                    <div id="formCheck-27" class="form-check"><input type="checkbox" class="form-check-input" id="coffeeMaker"><label class="form-check-label" for="coffeeMaker">Coffee Maker</label></div>
+                                                    <div id="formCheck-28" class="form-check"><input type="checkbox" class="form-check-input" id="balconyOrTerrace"><label class="form-check-label" for="balconyOrTerrace">Balcony or Terrace</label></div>
+                                                    <div id="formCheck-29" class="form-check"><input type="checkbox" class="form-check-input" id="privateGarden"><label class="form-check-label" for="privateGarden">Private Garden</label></div>
+                                                    <div id="formCheck-30" class="form-check"><input type="checkbox" class="form-check-input" id="swimmingPoolAccess"><label class="form-check-label" for="swimmingPoolAccess">Swimming Pool</label></div>
+                                                    <div id="formCheck-31" class="form-check"><input type="checkbox" class="form-check-input" id="parkingFacilities"><label class="form-check-label" for="parkingFacilities">Parking Facilities</label></div>
+                                                    <div id="formCheck-32" class="form-check"><input type="checkbox" class="form-check-input" id="parkingSpace"><label class="form-check-label" for="parkingSpace">Parking Spot</label></div>
+                                                    <div id="formCheck-33" class="form-check"><input type="checkbox" class="form-check-input" id="gymAccess"><label class="form-check-label" for="gymAccess">Gym Access</label></div>
+                                                    <div id="formCheck-34" class="form-check"><input type="checkbox" class="form-check-input" id="elevator"><label class="form-check-label" for="elevator">Elevator</label></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Description</strong></label><textarea class="form-control form-control" id="input-unit-desc-1" name="UnitDesc" style="resize:vertical;height:300px;"></textarea></div>
+                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Other Amenities</strong></label><textarea class="form-control form-control" id="input-unit-other" name="UnitDesc" style="resize:vertical;height:150;"></textarea></div>
+                                            <div class="mb-3"><label class="form-label" for="first_name"><strong>Description</strong></label><textarea class="form-control form-control" id="input-unit-desc" name="UnitDesc" style="resize:vertical;height:300px;"></textarea></div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -281,7 +224,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to add this item? Please make sure that all information is correct before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-plus icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="addUnit" type="button"><i class="fas fa-plus icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -294,7 +237,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" id="cancel-id" type="button">Cancel</button></div>
             </div>
         </div>
     </div>
@@ -304,6 +247,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../Admin/AdminFunctions/Admin-Unit-Add-Functions.js"></script>
 </body>
 
 </html>

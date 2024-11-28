@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        loadUnits();
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
@@ -81,7 +85,7 @@
                                         <tr>
                                             <th>Unit Name</th>
                                             <th>Location</th>
-                                            <th>Map</th>
+                                    
                                             <th>Max Pax</th>
                                             <th class="text-end">Price</th>
                                             <th class="text-end">Price Per Pax</th>
@@ -89,11 +93,11 @@
                                             <th id="UnitActionsTbl"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="table-body">
                                         <tr>
                                             <td id="tbl-unit-name">Unit Name</td>
                                             <td id="tbl-unit-loc">Location&nbsp;</td>
-                                            <td id="tbl-unit-map-link">Link</td>
+                                            
                                             <td id="tbl-unit-max-pax">00</td>
                                             <td class="text-end" id="tbl-unit-price">0000</td>
                                             <td class="text-end" id="tbl-unit-price-per-pax">0000</td>
@@ -185,6 +189,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../Admin/AdminFunctions/Admin-Unit-List-Functions.js"></script>
 </body>
 
 </html>

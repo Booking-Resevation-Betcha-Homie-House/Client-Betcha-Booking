@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        loadTransactionData();
+        fetchBookedDates();      
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
@@ -180,7 +185,7 @@
                                                                             <th id="UnitActionsTbl-2"></th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
+                                                                    <tbody id="table-body-completed">
                                                                         <tr>
                                                                             <td class="text-end" id="tbl-transactions-reference">Reference No.</td>
                                                                             <td class="text-start" id="tbl-transactions-name">Name</td>
@@ -223,7 +228,7 @@
                                                                                 <th id="UnitActionsTbl-1"></th>
                                                                             </tr>
                                                                         </thead>
-                                                                        <tbody>
+                                                                        <tbody id="table-body-pending">
                                                                             <tr>
                                                                                 <td class="text-end" id="tbl-transactions-reference-1">Reference No.</td>
                                                                                 <td class="text-start" id="tbl-transactions-name-1">Name</td>
@@ -320,6 +325,8 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../Admin/admincalendarFunction.js"></script>
+    <script src="../Admin/AdminFunctions/Admin-Transaction-List-Functions.js"></script>
 </body>
 
 </html>
