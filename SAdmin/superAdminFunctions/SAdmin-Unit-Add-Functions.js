@@ -26,7 +26,7 @@ function SAdminAddUnit(){
     console.log(description);
     const maplink = document.getElementById('input-unit-map-link-1').value;
     const UnitImage = document.getElementById('input-unit-image').files;
-    const otheramenities = document.getElementsByName('input-unit-other').valuel;
+    const otheramenities = document.getElementById('input-unit-other').value;
 
   
     
@@ -81,7 +81,7 @@ function SAdminAddUnit(){
         for (let i = 0; i < UnitImage.length; i++) {
             registerUnitData.append('unitImages', UnitImage[i]);
         }
-
+        console.log(JSON.stringify(registerUnitData));
     fetch('https://betcha-booking-api-master.onrender.com/addUnit', {
         method: 'POST',
         body: registerUnitData

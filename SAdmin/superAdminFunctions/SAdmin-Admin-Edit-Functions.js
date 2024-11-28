@@ -1,4 +1,5 @@
 // cancel button pabalik yung kulang
+// no delete button
 const urlParams = new URLSearchParams(window.location.search);
 const adminID = urlParams.get('id');
 console.log('Unit ID from URL: ', adminID);
@@ -17,32 +18,7 @@ async function adminFill(){
     document.getElementById('input-admin-name').value =admin.data.adminName;
     document.getElementById('input-admin-email').value =admin.data.email;   
 
-  
 }
-
-
-function dropdownFunc() {
-    var selectedItem;
-
-    document.addEventListener('DOMContentLoaded', function () {
-    
-        const dropdownItems = document.querySelectorAll('.dropdown-item');
-    
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', function (event) {
-                // Store the selected item's text content
-                selectedItem = event.target.textContent;
-
-                // Set the value of the button to the selected item
-                document.getElementById('drop-item').textContent = selectedItem;
-
-                // Log the selected value for debugging
-                console.log('Selected Value:', selectedItem);
-            });
-        });
-    });
-}
-
 
 
 function adminEdit(event) {
@@ -55,7 +31,6 @@ function adminEdit(event) {
     const password = document.getElementById('input-unit-num-pax').value;
     const adminName = document.getElementById('input-admin-name').value;
 
-    // Create an object to store the data
     const updateData = {};
 
     if (email) {

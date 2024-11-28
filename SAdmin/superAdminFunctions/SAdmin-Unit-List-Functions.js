@@ -81,7 +81,7 @@ async function loadUnits() {
             const tdElements = document.querySelectorAll('td');
 
             tdElements.forEach(td => {
-            const maxLength = 20; // Set your maximum character count
+            const maxLength = 20; 
             if (td.innerText.length > maxLength) {
             td.innerText = td.innerText.slice(0, maxLength) + "...";
                 }
