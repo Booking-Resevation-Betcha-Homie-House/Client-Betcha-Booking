@@ -4,8 +4,6 @@ async function loadTransactionData() {
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
         }
-       
-
 
         const admins = await response.json();
         const tbodycompleted = document.getElementById('table-completed');
@@ -19,9 +17,8 @@ async function loadTransactionData() {
             return;
         }
         
-        
-            const limit = 5;
-            let count = 0;
+        const limit = 5;
+        let count = 0;
         admins.bookings.forEach(admin => {
             if(count>=limit) return;
             const row = document.createElement('tr');
@@ -64,7 +61,6 @@ async function loadTransactionData() {
             tbodycompleted.appendChild(row);
             count++
         });
-        
 
         const responses = await fetch('https://betcha-booking-api-master.onrender.com/bookings/pending');
         if (!responses.ok) {
@@ -177,23 +173,23 @@ async function loadTransactionData() {
 
 async function loadMonthlyTopUnits(){
     console.log('called monthy')
-
+    openLoading();
     const month = document.getElementById('select-month').value;
     const year = document.getElementById('select-year').value
     const response = await fetch(`https://betcha-booking-api-master.onrender.com/getMonth/${month}/${year}`);
         if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
+            closeLoading();
+            throw new Error('Failed to fetch top units data');
         }
        
         const units = await response.json();
         const tablemonth = document.getElementById('table-monthly');
    
         tablemonth.innerHTML = '';
-
-      
         
         if (units.length === 0) {
-            tablemonth.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
+            tablemonth.innerHTML = '<tr><td colspan="4" class="no-data">No data available</td></tr>';
+            closeLoading();
             return;
         }
         
@@ -223,6 +219,7 @@ async function loadMonthlyTopUnits(){
             tablemonth.appendChild(row);
         
         });
+    closeLoading();
 }
 
 async function loadYearlyTopUnits(){
