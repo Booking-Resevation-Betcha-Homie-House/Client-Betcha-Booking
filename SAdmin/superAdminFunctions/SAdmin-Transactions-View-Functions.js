@@ -41,7 +41,7 @@ function loadTransactionViewData(){
             document.getElementById('view-transaction-price-per-day').textContent = user.UnitId.unitPrice; // palitan id //span id kinuha ko  //view-transaction-price-per-day id ng p
 
             let DOS = user.BookDates.length;
-            document.getElementById('view-transaction-price-per-day-1').textContent = DOS; 
+            document.getElementById('view-transaction-price-per-day-1').textContent = user.NumOfDays; 
 
             document.getElementById('view-transaction-price-per-pax').textContent = user.UnitId.pricePerPax; // palitan id /span id kinuha ko // view-transaction-price-per-day id ng p
 

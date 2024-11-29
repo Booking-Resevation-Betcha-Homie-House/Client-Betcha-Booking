@@ -91,8 +91,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 selectedDateElement = dayElement;
         
                 selecteddate = formattedDate; 
-        
-                alert(`You selected: ${selecteddate}`);
                 loadDateData();
                 fetchBookedDates();
             });
@@ -105,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     prevMonthBtn.addEventListener('click', () => {
         currentDate.setMonth(currentDate.getMonth() - 1); 
         fetchBookedDates(); 
+        renderCalendar();
     });
 
     nextMonthBtn.addEventListener('click', () => {
@@ -233,8 +232,7 @@ async function loadDateData() {
             date.textContent = day;
 
             clonedCell.addEventListener('click', () => {
-                alert(`Booking clicked: ${booking.UnitId.unitName}`);
-                window.location.href=`Transactions-View.html?id=${booking.Reference}`
+                window.location.href=`../SAdmin/Transactions-View.html?id=${booking.Reference}`
             });
 
             bookdatescontainer.appendChild(clonedCell);

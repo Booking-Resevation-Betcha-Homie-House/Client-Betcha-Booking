@@ -91,8 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 selectedDateElement = dayElement;
         
                 selecteddate = formattedDate; 
-        
-                alert(`You selected: ${selecteddate}`);
+
                 loadDateData();
                 fetchBookedDates();
             });
@@ -233,7 +232,7 @@ async function loadDateData() {
             date.textContent = day;
 
             clonedCell.addEventListener('click', () => {
-                alert(`Booking clicked: ${booking.UnitId.unitName}`);
+                window.location.href=`../Admin/Transactions-View.html?id=${booking.Reference}`
             });
 
             bookdatescontainer.appendChild(clonedCell);
