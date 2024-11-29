@@ -224,11 +224,13 @@ async function loadMonthlyTopUnits(){
 
 async function loadYearlyTopUnits(){
     console.log('called yearly')
+    openLoading();
     const year = document.getElementById('select-year1').value
     
     const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAnnual/${year}`);
     if (!response.ok) {
-        throw new Error('Failed to fetch admin data');
+        closeLoading();
+        throw new Error('Failed to data');
     }
    
     const units = await response.json();
@@ -239,6 +241,7 @@ async function loadYearlyTopUnits(){
     
     if (units.length === 0) {
         tableyear.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
+        closeLoading();
         return;
     }
     
@@ -266,10 +269,8 @@ async function loadYearlyTopUnits(){
         row.appendChild(totalEarningsCell);
 
         tableyear.appendChild(row);
-
-        
-    
     });
+    closeLoading();
 }
 
 document.getElementById('select-month').addEventListener('change', (event) =>{
