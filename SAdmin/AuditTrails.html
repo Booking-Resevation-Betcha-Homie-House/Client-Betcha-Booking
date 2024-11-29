@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        loadAuditData();      
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -78,14 +82,14 @@
                                                 <table class="table my-0" id="dataTable">
                                                     <thead>
                                                         <tr>
-                                                            <th class="text-end">Reference No.</th>
-                                                            <th>Date</th>
-                                                            <th>Name</th>
-                                                            <th>Activity</th>
-                                                            <th>Role</th>
+                                                            <th style="text-align: center;">Reference No.</th>
+                                                            <th style="text-align: center;">Date</th>
+                                                            <th style="text-align: center;">Name</th>
+                                                            <th style="text-align: center;">Activity</th>
+                                                            <th style="text-align: center;">Role</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id ="table-body-completed">
                                                         <tr>
                                                             <td class="text-end" id="tbl-audTrails-reference">Reference No.</td>
                                                             <td id="tbl-audTrails-date">Date</td>
@@ -114,14 +118,14 @@
                                                 <table class="table my-0" id="dataTable">
                                                     <thead>
                                                         <tr>
-                                                            <th class="text-end">Reference No.</th>
-                                                            <th>Date</th>
-                                                            <th>Name</th>
-                                                            <th>Activity</th>
-                                                            <th>Role</th>
+                                                            <th style="text-align: center;">Reference No.</th>
+                                                            <th style="text-align: center;">Date</th>
+                                                            <th style="text-align: center;">Name</th>
+                                                            <th style="text-align: center;">Activity</th>
+                                                            <th style="text-align: center;">Role</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <tbody id="table-body-customer">
                                                         <tr>
                                                             <td class="text-end" id="tbl-audTrails-reference-1">Reference No.</td>
                                                             <td id="tbl-audTrails-date-1">Date</td>
@@ -216,6 +220,7 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../SAdmin/AuditTrail-Admin-Functions.js"></script>
 </body>
 
 </html>

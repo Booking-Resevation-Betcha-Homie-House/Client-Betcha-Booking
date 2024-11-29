@@ -234,6 +234,7 @@ async function loadDateData() {
 
             clonedCell.addEventListener('click', () => {
                 alert(`Booking clicked: ${booking.UnitId.unitName}`);
+                window.location.href=`Transactions-View.html?id=${booking.Reference}`
             });
 
             bookdatescontainer.appendChild(clonedCell);
