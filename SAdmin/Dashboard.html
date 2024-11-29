@@ -18,9 +18,13 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading();
         loadTransactionData();
         loadYearlyTopUnits();
-        loadMonthlyTopUnits();      
+        loadMonthlyTopUnits();    
+        closeLoading();
+         
+         
      }
  </script>   
 <body id="page-top">

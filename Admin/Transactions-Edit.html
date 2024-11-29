@@ -16,7 +16,9 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading();
         loadTransactionEditData();
+        closeLoading();
      }
  </script>
 <body id="page-top">
@@ -287,6 +289,7 @@
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
     <script src="../Admin/AdminFunctions/Admin-Transaction-Edit-Functions.js"></script>
+    <script src="../loading.js"></script>
 </body>
 
 </html>

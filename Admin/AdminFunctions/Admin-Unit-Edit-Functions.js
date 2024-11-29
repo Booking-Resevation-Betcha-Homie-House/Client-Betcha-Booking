@@ -134,6 +134,7 @@ function editData(){
     console.log(unitname, loc, mapLink, packageCapacity, maxPax, unitPrice, reservationFee, pricePerPax, stat, categ, otherAmenities, desc, imgs);
 
     console.log(JSON.stringify(updateData));
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/editUnit/${refID}`, {
         method: 'PUT',
         body: updateData
@@ -141,11 +142,13 @@ function editData(){
     .then(response => response.json())
     .then(data => {
         alert('Admin updated successfully');
+        closeLoading();
         window.location.href=`Unit-View.html?id=${refID}`;
     })
     .catch(error => {
         console.error('Error during update:', error);
         alert('Failed to update Admin: ' + error.message);
+        closeLoading();
     }); 
 }
 

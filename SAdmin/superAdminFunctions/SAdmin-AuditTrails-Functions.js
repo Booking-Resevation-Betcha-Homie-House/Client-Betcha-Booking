@@ -1,1 +1,0 @@
-// tanong mo muna

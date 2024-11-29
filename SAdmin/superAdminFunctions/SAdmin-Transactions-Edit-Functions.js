@@ -122,6 +122,7 @@ function editTransactionData(){
         Status: statusvalue()
         
     }
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/edit-status`,{
         method: 'PUT',
         headers: {
@@ -131,12 +132,14 @@ function editTransactionData(){
     })
     .then (respone => respone.json())
     .then(data =>{
+        closeLoading();
         window.location.href=`Transactions-View.html?id=${refID}`;
         console.log(data);
     })
     .catch(error => {
         console.log(error)
         alert('Failed to Update the info' + error.message)
+        closeLoading();
     });
 }
 

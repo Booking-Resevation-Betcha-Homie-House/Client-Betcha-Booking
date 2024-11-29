@@ -14,7 +14,13 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+     openLoading();
+     displayQA();
+     closeLoading();
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
@@ -277,6 +283,8 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../loading.js"></script>
+    <script src="../Admin/AdminFunctions/Admin-FAQs-Functions.js"></script>
 </body>
 
 </html>

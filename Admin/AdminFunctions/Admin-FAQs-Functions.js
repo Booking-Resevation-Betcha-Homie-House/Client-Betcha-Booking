@@ -3,7 +3,7 @@ function createFAQ() {
     const question = document.getElementById('input-faqs-question').value;
     const answer = document.getElementById('input-faqs-answer').value;
 
-    openLoading();
+
     const url = "https://betcha-booking-api-master.onrender.com/faqs/create"; 
     const data = {
         Question: question,
@@ -20,16 +20,13 @@ function createFAQ() {
     .then(response => response.json())
     .then(data => {
         if (data.message === "FAQ created successfully") {
-            closeLoading();
             console.log("FAQ created:", data.data);
             window.location.href='FAQs.html';
         } else {
-            closeLoading();
             console.log("Error:", data.message);
         }
     })
     .catch(error => {
-        closeLoading();
         console.error("Error:", error);
     });
 }
@@ -39,7 +36,7 @@ function updateFAQ(faqId) {
     const question = document.getElementById('input-faqs-question-1').value;
     const answer = document.getElementById('input-faqs-answer-1').value;
 
-    openLoading();
+
     const url = `https://betcha-booking-api-master.onrender.com/faqs/update/${faqId}`; 
     const data = {
         Question: question,
@@ -57,23 +54,19 @@ function updateFAQ(faqId) {
     .then(response => response.json())
     .then(data => {
         if (data.message === "FAQ created successfully") {
-            closeLoading();
             console.log("FAQ Updated:", data.data);
             window.location.href='FAQs.html';
         } else {
-            closeLoading()
             console.log("Error:", data.message);
             window.location.href='FAQs.html';
         }
     })
     .catch(error => {
-        closeLoading()
         console.error("Error:", error);
     });
 }
 
 function deleteFAQ(faqId) {
-    openLoading();
     const url = `https://betcha-booking-api-master.onrender.com/faqs/delete/${faqId}`;  // Your API endpoint with the FAQ ID to delete
 
     fetch(url, {
@@ -85,22 +78,19 @@ function deleteFAQ(faqId) {
     .then(response => response.json())
     .then(data => {
         if (data.message === "FAQ deleted successfully") {
-            closeLoading();
             console.log("FAQ deleted:", data.message);
             window.location.reload();
         } else {
-            closeLoading();
             console.log("Error:", data.message);
             window.location.reload();
         }
     })
     .catch(error => {
-        closeLoading();
         console.error("Error:", error);
     });
 }
 async function displayQA(){
-    
+
     const response = await fetch('https://betcha-booking-api-master.onrender.com/faqs/getAll');
     if (!response.ok) {
         throw new Error('Failed to fetch admin data');

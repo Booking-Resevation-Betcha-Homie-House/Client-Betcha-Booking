@@ -28,8 +28,7 @@ async function adminViewLoadData(){
 }
 
 function DelAdmin() {
-
-    fetch(`https://betcha-booking-api-master.onrender.com/deleteAdmin/${adminId}`, {
+    fetch(`https://betcha-booking-api-master.onrender.com/deleteAdmin/${adminID}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -39,16 +38,21 @@ function DelAdmin() {
         if (!response.ok) {
             return response.json().then(err => {
                 throw new Error(err.error || 'Failed to delete admin');
+                
             });
         }
+        closeLoading();
         return response.json();
     })
     .then(data => {
         alert(data.message || 'Admin deleted successfully');
+        window.location.href="../SAdmin/Admin-List.html"
+        closeLoading();
     })
     .catch(error => {
         console.error('Error during delete:', error);
         alert('Failed to delete admin: ' + error.message);
+        closeLoading();
     })
 }
 

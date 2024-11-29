@@ -107,18 +107,20 @@ async function loadUnitData() {
 
 function DelUnit() {
     
-
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/deleteUnit/${refID}`, {
         method: 'DELETE',
     })
     .then(response => response.json())
     .then(data => {
+        closeLoading();
         alert('Unit deleted successfully');
         window.location.href = `Units-List.html`;
     })
     .catch(error => {
         console.error('Error during delete:', error);
         alert('Failed to delete unit: ' + error.message);
+        closeLoading();
     })
 }
 

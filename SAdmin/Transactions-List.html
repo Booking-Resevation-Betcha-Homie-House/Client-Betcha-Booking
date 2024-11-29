@@ -18,8 +18,11 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading();
         loadTransactionData();
+        closeLoading();
         fetchBookedDates();
+        
         
      }
  </script>
@@ -274,6 +277,7 @@
     <script src="../assets/js/theme.js"></script>
     <script src="../SAdmin/superAdminFunctions/SAdmin-Transactions-Functions.js"></script>
     <script src="../assets/js/calendarFunction.js"></script>
+    <script src="../loading.js"></script>
 </body>
 
 </html>

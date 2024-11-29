@@ -96,6 +96,7 @@ function cancelBooking(){
         Status: statusvalue()
         
     }
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/edit-status`,{
         method: 'PUT',
         headers: {
@@ -105,7 +106,7 @@ function cancelBooking(){
     })
     .then (respone => respone.json())
     .then(data =>{
-
+        closeLoading();
         const modal= document.getElementById('modal-transaction-cancel-booking')
         window.location.reload();
         console.log(data);
@@ -113,6 +114,7 @@ function cancelBooking(){
     .catch(error => {
         console.log(error)
         alert('Failed to Update the info' + error.message)
+        closeLoading();
     });
 }
 

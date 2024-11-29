@@ -16,8 +16,11 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading();
         loadTransactionData();
-        fetchBookedDates();      
+        closeLoading(); 
+        fetchBookedDates();  
+           
      }
  </script>
 <body id="page-top">
@@ -271,6 +274,7 @@
     <script src="../assets/js/theme.js"></script>
     <script src="../Admin/admincalendarFunction.js"></script>
     <script src="../Admin/AdminFunctions/Admin-Transaction-List-Functions.js"></script>
+    <script src="../loading.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,9 @@
 </head>
 <script> 
     window.onload = function() {
-        loadAuditData();      
+        openLoading();
+        loadAuditData();     
+        closeLoading(); 
      }
  </script>
 <body id="page-top">
@@ -221,6 +223,7 @@
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
     <script src="../SAdmin/AuditTrail-Admin-Functions.js"></script>
+    <script src="../loading.js"></script>
 </body>
 
 </html>

@@ -128,7 +128,8 @@ function openLoading() {
   function closeLoading() {
     const spinner = document.getElementById('container-spinner');
     if (spinner) {
-      spinner.remove();
+      setTimeout(() => {
+        spinner.remove();
+      }, 1000);
     }
   }
-  

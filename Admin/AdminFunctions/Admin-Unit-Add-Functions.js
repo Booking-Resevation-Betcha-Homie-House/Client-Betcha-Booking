@@ -80,6 +80,7 @@ function SAdminAddUnit(){
             registerUnitData.append('unitImages', UnitImage[i]);
         }
         console.log(JSON.stringify(registerUnitData));
+        openLoading();
     fetch('https://betcha-booking-api-master.onrender.com/addUnit', {
         method: 'POST',
         body: registerUnitData
@@ -89,13 +90,16 @@ function SAdminAddUnit(){
         console.log(data); 
         if (data && data.message) {
             alert('Adding Unit successful: ' + data.message);
+            closeLoading();
         } else {
             alert('Adding unit successful, but no message returned.');
+            closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
         alert('Failed to register unit: ' + error.message);
+        closeLoading();
     });
 
 }
