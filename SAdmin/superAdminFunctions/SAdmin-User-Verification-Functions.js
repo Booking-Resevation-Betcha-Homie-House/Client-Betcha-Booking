@@ -1,20 +1,16 @@
-//walang Birthday sa schema
-// lagay complete tab
 // id sa modal
 let isLoading = false;
 
 async function loadUnverifiedUsers() {
     console.log('loading Unverified Data');
-    
-    // Disable the button to prevent further clicks during data load
+
     const btnVerified = document.getElementById('btn-verified');
-    btnVerified.disabled = true;  // Disable button
-    
-    // If it's already loading, do nothing
+    btnVerified.disabled = true;  
+
     if (isLoading) return;
     isLoading = true;
     
-    openLoading();  // Show loading spinner
+    openLoading(); 
     
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/users/unverified');
@@ -45,10 +41,9 @@ async function loadUnverifiedUsers() {
             tbody.appendChild(row);
         });
 
-        // Truncate text inside table cells to max 20 characters
+
         truncateTextInCells();
 
-        // Now bind the click event to load verified users
         const btnVerified = document.getElementById('btn-verified').onclick = function(){
             btnVerified.removeEventListener('click', loadVerifiedUsers());  
             btnVerified.addEventListener('click', loadVerifiedUsers());  
@@ -58,25 +53,22 @@ async function loadUnverifiedUsers() {
     } catch (error) {
         console.error('Error:', error);
     } finally {
-        // Re-enable the button after the data is loaded  
         btnVerified.disabled = false;  
-        isLoading = false;  // Set loading state to false
-        closeLoading();  // Close loading spinner
+        isLoading = false;  
+        closeLoading();  
     }
 }
 
 async function loadVerifiedUsers() {
     console.log('loading Verified Data');
-    
-    // Disable the button to prevent further clicks during data load
+
     const btnVerified = document.getElementById('btn-verified');
-    btnVerified.disabled = true;  // Disable button
-    
-    // If it's already loading, do nothing
+    btnVerified.disabled = true;  
+
     if (isLoading) return;
     isLoading = true;
     
-    openLoading();  // Show loading spinner
+    openLoading();
     
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/users/verified');
@@ -107,10 +99,8 @@ async function loadVerifiedUsers() {
             tbody.appendChild(row);
         });
 
-        // Truncate text inside table cells to max 20 characters
         truncateTextInCells();
 
-        // Now bind the click event to load unverified users
         const btnVerified = document.getElementById('btn-verified').onclick = function(){
             btnVerified.removeEventListener('click', loadUnverifiedUsers());  
             btnVerified.addEventListener('click', loadUnverifiedUsers());  
@@ -119,17 +109,12 @@ async function loadVerifiedUsers() {
     } catch (error) {
         console.error('Error:', error);
     } finally {
-        // Re-enable the button after the data is loaded  
         btnVerified.disabled = false;  
-        isLoading = false;  // Set loading state to false
-        closeLoading();  // Close loading spinner
+        isLoading = false;  
+        closeLoading();  
     }
 }
 
-
-
-
-// Helper function to add user data to a table row
 function addUserToRow(row, user) {
     const firstNameCell = document.createElement('td');
     firstNameCell.textContent = user.firstName;
@@ -162,27 +147,34 @@ function addUserToRow(row, user) {
     viewDetailsButton.classList.add('btn', 'btn-secondary');
     viewDetailsButton.setAttribute("data-bs-target", "#modal-verify");
     viewDetailsButton.setAttribute("data-bs-toggle", "modal");
+
     viewDetailsButton.onclick = () => {
-        // Setting Info in Modal
         document.getElementById('view-user-fname').textContent = user.firstName;
         document.getElementById('view-user-mname').textContent = user.middleInitial;
         document.getElementById('view-lname').textContent = user.lastName;
         document.getElementById('view-user-bday').textContent = user.bday;
+        document.getElementById('bottom-modal-image').src = `https://drive.google.com/thumbnail?id=${user.IdImage.fileId}&sz=w1920-h1080`;
 
-        // Setting of the Method in the buttons
+        const image = document.getElementById('bottom-modal-image');
+        image.addEventListener('click', function() {
+            window.open(`https://lh3.googleusercontent.com/d/${user.IdImage.fileId}=w1920-h1080?authuser=0`, '_blank');  
+        });
+
         console.log(user._id);
+
         document.getElementById('btn-verify').addEventListener('click', function () {
             verifyUser(user._id);
         });
+
         document.getElementById('btn-decline').addEventListener('click', function () {
             unverifyUser(user._id);
         });
     };
+
     viewDetailsActionCell.appendChild(viewDetailsButton);
     row.appendChild(viewDetailsActionCell);
 }
 
-// Function to truncate text in table cells
 function truncateTextInCells() {
     const tdElements = document.querySelectorAll('td');
     const maxLength = 20;
@@ -195,49 +187,65 @@ function truncateTextInCells() {
 }
 
 
+function verifyUser(id) {
+    const verify = {
+        isVerified: true
+    };
 
-
-function verifyUser(id){
-
-    const verify ={
-        "isVerified": true
-    }
     fetch(`https://betcha-booking-api-master.onrender.com/updateUser/${id}`, {
         method: 'PUT',
-        body: verify
-})
-    .then(response => response.json())
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(verify) 
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        alert('Admin updated successfully');
         closeLoading();
         window.location.href=`User-Verify.html`;
     })
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alert('Failed to update Admin: ' + error.message);
-    }); 
+        alert('Failed to verify user: ' + error.message);
+    });
 }
 
-function unverifyUser(id){
+function unverifyUser(id) {
+    console.log('Unverify user with ID:', id); 
 
-    const verify ={
-        "isVerified": false
-    }
+    const verify = {
+        isVerified: false
+    };
+
     fetch(`https://betcha-booking-api-master.onrender.com/updateUser/${id}`, {
         method: 'PUT',
-        body: verify
-})
-    .then(response => response.json())
+        headers: {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+        },
+        body: JSON.stringify(verify)
+    })
+    .then(response => {
+        console.log('Response:', response); 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        alert('Admin updated successfully');
+        console.log('Unverify response data:', data); 
         closeLoading();
-        window.location.href=`User-Verify.html`;
+        window.location.href = `User-Verify.html`;
     })
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alert('Failed to update Admin: ' + error.message);
-    }); 
+        alert('Failed to unverify user: ' + error.message);
+    });
 }
-

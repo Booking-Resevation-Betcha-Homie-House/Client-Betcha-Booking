@@ -1,6 +1,6 @@
 async function LoginButton() {
     const errorMessage = document.getElementById('error-message');
-    errorMessage.style.display = 'none'; // Hide error message at the start
+    errorMessage.style.display = 'none'; 
 
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('password-input').value;
@@ -11,7 +11,6 @@ async function LoginButton() {
     try {
         openLoading();
 
-        // Function to try login for a specific role (customer, admin, superAdmin)
         async function tryLogin(url, data) {
             const response = await fetch(url, {
                 method: 'POST',
@@ -21,40 +20,43 @@ async function LoginButton() {
             return response;
         }
 
-        // Try customer login first
         let response = await tryLogin('https://betcha-booking-api-master.onrender.com/Login', loginData);
         if (response.status === 200) {
             const customerData = await response.json();
+            //window.location.href = "../Customer/Dashboard.html" lagyan if meron na
             alert('Successfully logged in as Customer');
             localStorage.setItem('id', customerData.userId);
+            localStorage.setItem('role', customerData.role);
             console.log('Logged in ID:', localStorage.getItem('id'));
+            console.log('Role: ', localStorage.getItem('role'))
             closeLoading();
             return;
         }
 
-        // Try Super Admin login if customer login fails
         response = await tryLogin('https://betcha-booking-api-master.onrender.com/superAdminLogin', loginData);
         if (response.status === 200) {
             const superAdminData = await response.json();
-            alert('Successfully logged in as Super Admin');
+            window.location.href = "../SAdmin/Dashboard.html"
             localStorage.setItem('id', superAdminData.superAdminId);
+            localStorage.setItem('role', superAdminData.role);
             console.log('Logged in ID:', localStorage.getItem('id'));
+            console.log('Role: ', localStorage.getItem('role'))
             closeLoading();
             return;
         }
 
-        // Try Admin login if previous logins fail
         response = await tryLogin('https://betcha-booking-api-master.onrender.com/LoginAdmin', loginData);
         if (response.status === 200) {
             const adminData = await response.json();
-            alert('Successfully logged in as Admin');
+            window.location.href = "../Admin/Dashboard.html"
             localStorage.setItem('id', adminData.adminId);
+            localStorage.setItem('role', adminData.role);
             console.log('Logged in ID:', localStorage.getItem('id'));
+            console.log('Role: ', localStorage.getItem('role'))
             closeLoading();
             return;
         }
 
-        // If all login attempts fail, show error message
         closeLoading();
         throw new Error('Invalid credentials');
     } catch (error) {

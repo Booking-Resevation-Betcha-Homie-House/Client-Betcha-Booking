@@ -19,12 +19,15 @@
 <script> 
     window.onload = function() {
         openLoading();
+        
+        const role = localStorage.getItem('role')
+        console.log(role)
+        checkSuperAdmin(role);
+
         loadTransactionData();
         loadYearlyTopUnits();
         loadMonthlyTopUnits();    
         closeLoading();
-         
-         
      }
  </script>   
 <body id="page-top">
@@ -472,6 +475,7 @@
     <script src="../assets/js/theme.js"></script>
     <script src="../SAdmin/superAdminFunctions/SAdmin-Dashboard-Functions.js"></script>
     <script src="../loading.js"></script>
+    <script src="../CheckUsers.js"></script>
 </body>
 
 </html>
