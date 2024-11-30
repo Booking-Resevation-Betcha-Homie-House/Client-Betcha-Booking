@@ -22,7 +22,13 @@
     <link rel="stylesheet" href="../assetsv2/css/Spinner.css">
     <link rel="stylesheet" href="../assetsv2/css/User.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        
+        loadUnverifiedUsers()
+       
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -67,14 +73,16 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="card">
-                        <div class="card-header py-3">
-                            <h5><strong>User Lists</strong></h5>
-                        </div>
+                            <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                                <h5><strong>User Lists</strong></h5>
+                                <button class="btn btn-primary ms-auto" id="btn-verified" style="font-size: 18px; padding: 12px 20px;">View Verified</button>
+
+                            </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex gap-2">
-                                        <p>Total Pending:</p>
+                                        <p id="total-label">Total Pending:</p>
                                         <p id="total-pending-amount">00</p>
                                     </div>
                                 </div>
@@ -83,22 +91,22 @@
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Birthdate</th>
+                                            <th style="text-align: center;">First Name</th>
+                                            <th style="text-align: center;">Middle Name</th>
+                                            <th style="text-align: center;">Last Name</th>
+                                            <th style="text-align: center;">Phone Number</th>
+                                            <th style="text-align: center;">Birthdate</th>
                                             <th class="text-center"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="table-body">
                                         <tr>
                                             <td id="tbl-user-fname">Middle</td>
                                             <td id="tbl-user-mname">Middle Name</td>
                                             <td id="tbl-user-lname">Last Name</td>
                                             <td id="tbl-user-phone-number">Phone Number</td>
                                             <td id="tbl-user-bday">Birthdate</td>
-                                            <td class="text-center"><button class="btn btn-primary" type="button" data-bs-target="#modal-verify" data-bs-toggle="modal">View Details</button></td>
+                                            <td class="text-center"><button class="btn btn-primary" type="button" data-bs-target="#modal-verify" id="view" data-bs-toggle="modal">View Details</button></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -217,6 +225,7 @@
     <script src="../assetsv2/js/Status.js"></script>
     <script src="../assetsv2/js/theme.js"></script>
     <script src="../loading.js"></script>
+    <script src="../SAdmin/superAdminFunctions/SAdmin-User-Verification-Functions.js"></script>
 </body>
 
 </html>
