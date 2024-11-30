@@ -8,36 +8,49 @@
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/Calendar.css">
     <link rel="stylesheet" href="../assets/css/Custom.css">
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
+<script> 
+    window.onload = function() {
+        openLoading();
+        const role = localStorage.getItem('role')
+        console.log(role)
+        checkAdmin(role);
 
+        loadTransactionData();
+        loadYearlyTopUnits();
+        loadMonthlyTopUnits();    
+        closeLoading();
+     }
+ </script>   
 <body id="page-top">
-    <script>
-        window.onload = function(){
-            const role = localStorage.getItem('role');
-            checkAdmin(role);
-        }
-    </script>
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
-                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
-                    <div class="sidebar-brand-text mx-3">
-                        <p class="m-0" style="text-align: left;">Betcha</p>
-                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px; margin-left: -10px; padding-left: 0;">
+                    <div style="display: flex; align-items: center; padding-left: 0;">
+                        <div style="width: 32px;">
+                            <img src="../assets/img/Betcha-Logo.svg">
+                        </div>
+                        <div class="sidebar-brand-text mx-3" style="padding-left: 0;">
+                            <p class="m-0" style="text-align: left;">Betcha</p>
+                            <p class="m-0" style="text-align: left; font-size: 12px;">
+                                <span style="font-weight: normal !important;">Admin Dashboard</span>
+                            </p>
+                        </div>
                     </div>
-                </a>
+                </a>                
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
                     <li class="nav-item"><a class="nav-link" href="../Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
@@ -101,10 +114,11 @@
                     </div>
                     <div class="row">
                         <div class="col-6 mb-4">
-                            <div class="card">
-                                <div class="card-header py-3">
-                                    <h5><strong>Top Units Overview</strong></h5>
-                                </div>
+                            <!--copy here-->
+                            <div class="card shadow-sm rounded-lg border-0">
+                                <div class="card-header bg-transparent"> <!--class="card-header bg-success text-white py-3"-->
+                                    <h5 style="color: #127845;"><strong>Top Units Overview</strong></h5>
+                                </div>                         
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
@@ -115,9 +129,11 @@
                                                         <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-year">Year</a></li>
                                                     </ul>
                                                     <div class="tab-content">
+                                                        <!-- Month Tab -->
                                                         <div class="tab-pane active" role="tabpanel" id="tab-month">
-                                                            <div class="d-flex justify-content-end flex-wrap gap-2 dropdown-wrapper">
-                                                                <div class="me-3"><select id="select-month" class="form-select">
+                                                            <div class="d-flex justify-content-end flex-wrap gap-3 mb-3">
+                                                                <div>
+                                                                    <select id="select-month" class="form-select">
                                                                         <option value="1">January</option>
                                                                         <option value="2">February</option>
                                                                         <option value="3">March</option>
@@ -130,126 +146,52 @@
                                                                         <option value="10">October</option>
                                                                         <option value="11">November</option>
                                                                         <option value="12">December</option>
-                                                                    </select></div>
-                                                                <div><select id="select-year" class="form-select">
-                                                                        <option value="2023">2023</option>
-                                                                        <option value="2024">2024</option>
-                                                                        <option value="2025">2025</option>
-                                                                        <option value="2026">2026</option>
-                                                                    </select></div>
+                                                                    </select>
+                                                                </div>
+                                                                <div>
+                                                                    <select id="select-year" class="form-select">
+                                                                        <!-- Populate dynamic year options -->
+                                                                    </select>
+                                                                </div>
                                                             </div>
-                                                            <div class="table-responsive table mt-2 db-table" id="tbl-top-units-month" role="grid" aria-describedby="dataTable_info">
-                                                                <table class="table my-0" id="dataTable">
-                                                                    <thead>
+                                                            <div class="table-responsive mt-3">
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead class="table-light">
+                                                                        <tr>
+                                                                            <th class="tbl-rank-cell">Rank</th>
+                                                                            <th style="text-align: center;">Unit Name</th>
+                                                                            <th style="text-align: center;">Location</th>
+                                                                            <th style="text-align: center;">Total Earnings</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="table-monthly">
+                                                                        <!-- Monthly Data Rows -->
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Year Tab -->
+                                                        <div class="tab-pane" role="tabpanel" id="tab-year">
+                                                            <div class="d-flex justify-content-end flex-wrap gap-3 mb-3">
+                                                                <div>
+                                                                    <select id="select-year1" class="form-select">
+                                                                        <!-- Populate dynamic year options -->
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive mt-3">
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead class="table-light">
                                                                         <tr>
                                                                             <th class="tbl-rank-cell">Rank</th>
                                                                             <th>Unit Name</th>
                                                                             <th>Location</th>
-                                                                            <th class="text-start">Total Earnings</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-6" class="tbl-rank-cell">1</td>
-                                                                            <td id="tbl-rank-unit-name-6">Unit Name</td>
-                                                                            <td id="tbl-rank-location-6">Location</td>
-                                                                            <td class="text-start" id="tbl-rank-total-earnings-6">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-7" class="tbl-rank-cell">2</td>
-                                                                            <td id="tbl-rank-unit-name-7">Unit Name</td>
-                                                                            <td id="tbl-rank-location-7">Location</td>
-                                                                            <td class="text-start" id="tbl-rank-total-earnings-7">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-8" class="tbl-rank-cell">3</td>
-                                                                            <td id="tbl-rank-unit-name-8">Unit Name</td>
-                                                                            <td id="tbl-rank-location-8">Location</td>
-                                                                            <td class="text-start" id="tbl-rank-total-earnings-8">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-9" class="tbl-rank-cell">4</td>
-                                                                            <td id="tbl-rank-unit-name-9">Unit Name</td>
-                                                                            <td id="tbl-rank-location-9">Location</td>
-                                                                            <td class="text-start" id="tbl-rank-total-earnings-9">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-10" class="tbl-rank-cell" style="width: 50px;">5</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-10">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-10">Location</td>
-                                                                            <td class="text-start" id="tbl-rank-total-earnings-10">₱0.00</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                    <tfoot>
-                                                                        <tr>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                    </tfoot>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tab-pane" role="tabpanel" id="tab-year">
-                                                            <div class="d-flex justify-content-end flex-wrap gap-2 dropdown-wrapper">
-                                                                <div><select id="select-year" class="form-select">
-                                                                        <option value="2023">2023</option>
-                                                                        <option value="2024">2024</option>
-                                                                        <option value="2025">2025</option>
-                                                                        <option value="2026">2026</option>
-                                                                    </select></div>
-                                                            </div>
-                                                            <div class="table-responsive table mt-2 db-table" id="tbl-top-units-year" role="grid" aria-describedby="dataTable_info">
-                                                                <table class="table my-0" id="dataTable">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="tbl-rank-cell">Rank</th>
-                                                                            <th class="text-start">Unit Name</th>
-                                                                            <th class="text-start">Location</th>
                                                                             <th>Total Earnings</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody class="db-table">
-                                                                        <tr>
-                                                                            <td id="tbl-rank-1" class="tbl-rank-cell">1</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-1">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-1">Location</td>
-                                                                            <td id="tbl-rank-total-earnings-1">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-2" class="tbl-rank-cell">2</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-2">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-2">Location</td>
-                                                                            <td id="tbl-rank-total-earnings-2">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-3" class="tbl-rank-cell">3</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-3">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-3">Location</td>
-                                                                            <td id="tbl-rank-total-earnings-3">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-4" class="tbl-rank-cell">4</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-4">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-4">Location</td>
-                                                                            <td id="tbl-rank-total-earnings-4">₱0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td id="tbl-rank-5" class="tbl-rank-cell">5</td>
-                                                                            <td class="text-start" id="tbl-rank-unit-name-5">Unit Name</td>
-                                                                            <td class="text-start" id="tbl-rank-location-5">Location</td>
-                                                                            <td id="tbl-rank-total-earnings-5">₱0.00</td>
-                                                                        </tr>
+                                                                    <tbody id="table-yearly">
+                                                                        <!-- Yearly Data Rows -->
                                                                     </tbody>
-                                                                    <tfoot>
-                                                                        <tr>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                    </tfoot>
                                                                 </table>
                                                             </div>
                                                         </div>
@@ -262,35 +204,40 @@
                             </div>
                         </div>
                         <div class="col-6 mb-4">
-                            <div class="card">
-                                <div class="card-header py-3">
-                                    <h5><strong>Transaction List</strong></h5>
-                                </div>
+                            <div class="card shadow-sm rounded-lg border-0">
+                                <div class="card-header bg-transparent">
+                                    <h5 style="color: #127845;"><strong>Transaction List</strong></h5>
+                                </div>                         
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
                                             <div id="Tabs">
                                                 <div>
                                                     <ul class="nav nav-tabs" role="tablist">
-                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-completed">Completed</a></li>
-                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-pending">Pending</a></li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-completed">Completed</a>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-pending">Pending</a>
+                                                        </li>
                                                     </ul>
                                                     <div class="tab-content">
-                                                        <div class="tab-pane active" role="tabpanel" id="tab-completed">
-                                                            <div class="table-responsive table mt-2 db-table" id="tbl-transaction-completed-1" role="grid" aria-describedby="dataTable_info">
-                                                                <table class="table my-0" id="dataTable">
-                                                                    <thead>
+                                                        <!-- Completed Tab -->
+                                                        <div class="tab-pane" role="tabpanel" id="tab-completed">
+                                                            <div class="table-responsive table mt-2 db-table" role="grid" aria-describedby="dataTable_info">
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead class="table-light">
                                                                         <tr class="sticky-top">
-                                                                            <th class="text-end">Reference No.</th>
-                                                                            <th class="text-start">Name</th>
-                                                                            <th class="text-start">Unit Name</th>
-                                                                            <th class="text-start">Date</th>
-                                                                            <th class="text-start">Payment Mode</th>
-                                                                            <th>Total Amount</th>
-                                                                            <th class="text-start">Status</th>
+                                                                            <th style="text-align: center;">Reference No.</th>
+                                                                            <th style="text-align: center;">Name</th>
+                                                                            <th style="text-align: center;">Unit Name</th>
+                                                                            <th style="text-align: center;">Date</th>
+                                                                            <th style="text-align: center;">Payment Mode</th>
+                                                                            <th style="text-align: end">Total Amount</th>
+                                                                            <th style="text-align: center;">Status</th>
                                                                         </tr>
                                                                     </thead>
-                                                                    <tbody>
+                                                                    <tbody id="table-completed">
                                                                         <tr>
                                                                             <td class="text-end" id="tbl-transactions-reference">Reference No.</td>
                                                                             <td class="text-start" id="tbl-transactions-name">Name</td>
@@ -303,51 +250,44 @@
                                                                     </tbody>
                                                                     <tfoot>
                                                                         <tr>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
-                                                                            <td></td>
+                                                                            <td colspan="7"></td>
                                                                         </tr>
                                                                     </tfoot>
                                                                 </table>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane" role="tabpanel" id="tab-pending">
-                                                            <div class="text-md-end dataTables_filter">
-                                                                <div class="table-responsive table mt-2 db-transaction" id="tbl-transaction-pending-1" role="grid" aria-describedby="dataTable_info">
-                                                                    <table class="table my-0" id="dataTable">
-                                                                        <thead>
-                                                                            <tr class="sticky-top">
-                                                                                <th class="text-end">Reference No.</th>
-                                                                                <th class="text-start">Name</th>
-                                                                                <th class="text-start">Unit Name</th>
-                                                                                <th class="text-start">Date</th>
-                                                                                <th class="text-start">Payment Mode</th>
-                                                                                <th>Total Amount</th>
-                                                                                <th class="text-start">Status</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody class="overflow-auto">
-                                                                            <tr>
-                                                                                <td class="text-end" id="tbl-transactions-reference-1">Reference No.</td>
-                                                                                <td class="text-start" id="tbl-transactions-name-1">Name</td>
-                                                                                <td class="text-start" id="tbl-transactions-unit-name-1">Unit Name</td>
-                                                                                <td class="text-start" id="tbl-transactions-date-1">Date</td>
-                                                                                <td class="text-start" id="tbl-transactions-MOP-1">Mode</td>
-                                                                                <td id="tbl-transactions-total-amount-1">₱0.00</td>
-                                                                                <td class="text-start" id="tbl-transactions-status-1">Status</td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                        <tfoot>
-                                                                            <tr>
-                                                                                <td></td>
-                                                                            </tr>
-                                                                        </tfoot>
-                                                                    </table>
-                                                                </div>
+                                                        <!-- Pending Tab -->
+                                                        <div class="tab-pane active" role="tabpanel" id="tab-pending">
+                                                            <div class="table-responsive table mt-2 db-transaction" role="grid" aria-describedby="dataTable_info">
+                                                                <table class="table table-striped table-bordered">
+                                                                    <thead class="table-light">
+                                                                        <tr class="sticky-top">
+                                                                            <th style="text-align: center;">Reference No.</th>
+                                                                            <th style="text-align: center;">Name</th>
+                                                                            <th style="text-align: center;">Unit Name</th>
+                                                                            <th style="text-align: center;">Date</th>
+                                                                            <th style="text-align: center;">Payment Mode</th>
+                                                                            <th style="text-align: end;">Total Amount</th>
+                                                                            <th style="text-align: center;">Status</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="table-pending">
+                                                                        <tr>
+                                                                            <td class="text-end" id="tbl-transactions-reference-1">Reference No.</td>
+                                                                            <td class="text-start" id="tbl-transactions-name-1">Name</td>
+                                                                            <td class="text-start" id="tbl-transactions-unit-name-1">Unit Name</td>
+                                                                            <td class="text-start" id="tbl-transactions-date-1">Date</td>
+                                                                            <td class="text-start" id="tbl-transactions-MOP-1">Mode</td>
+                                                                            <td id="tbl-transactions-total-amount-1">₱0.00</td>
+                                                                            <td class="text-start" id="tbl-transactions-status-1">Status</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <td colspan="7"></td>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                </table>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -355,12 +295,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
-                                        <div class="col d-flex justify-content-end"><a class="btn btn-primary" role="button" href="Transactions-List.html"><i class="fas fa-arrow-right icon"></i></a></div>
+                                        <div class="col d-flex justify-content-end">
+                                            <a class="btn btn-primary" role="button" href="Transactions-List.html">
+                                                <i class="fas fa-arrow-right icon"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
+                        <!--to here-->
                     </div>
                 </div>
             </div>
@@ -380,7 +326,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to remove this item? This action cannot be undone.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Admin/Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
             </div>
         </div>
     </div>
@@ -423,14 +369,51 @@
             </div>
         </div>
     </div>
+    <script>   const currentMonth = new Date().getMonth() + 1; 
+        document.getElementById('select-month').value = currentMonth;
+        const currentYear = new Date().getFullYear(); 
+        document.getElementById('select-year').value = currentYear;
+        document.getElementById('select-year1').value = currentYear;
+
+     
+
+
+        const startYear = 2024;
+
+        const availableYears = [];
+
+        for (let year = startYear; year <= currentYear; year++) {
+            availableYears.push(year);
+        }
+
+        function populateYearSelect(selectId) {
+            const yearSelect = document.getElementById(selectId);
+
+            availableYears.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+
+                if (year === currentYear) {
+                    option.selected = true;
+                }
+
+                yearSelect.appendChild(option);
+                
+            });
+        }
+        populateYearSelect('select-year');
+        populateYearSelect('select-year1');
+    </script>
+
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/Calendar.js"></script>
     <script src="../assets/js/ChangeProfile.js"></script>
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../Admin/AdminFunctions/Admin-Dashboard-Functions.js"></script>
     <script src="../loading.js"></script>
     <script src="../CheckUsers.js"></script>
 </body>
-
 </html>

@@ -24,12 +24,13 @@ function openLoading() {
         align-items: center;
         height: 100vh;
         width: 100vw;
-        background-color: rgba(11,64,34,0.59);
+        background-color: rgba(11, 64, 34, 0.6); /* Reduced opacity to make it darker */
         position: absolute;
         top: 0;
         left: 0;
         z-index: 9999;
-      }
+    }
+
   
       .key {
         width: 60px;

@@ -17,6 +17,9 @@
 <script> 
     window.onload = function() {
         openLoading();
+        const role = localStorage.getItem('role')
+        console.log(role)
+        checkAdmin(role);
         loadTransactionData();
         closeLoading(); 
         fetchBookedDates();  
@@ -26,20 +29,25 @@
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
-                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
-                    <div class="sidebar-brand-text mx-3">
-                        <p class="m-0" style="text-align: left;">Betcha</p>
-                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px; margin-left: -10px; padding-left: 0;">
+                    <div style="display: flex; align-items: center; padding-left: 0;">
+                        <div style="width: 32px;">
+                            <img src="../assets/img/Betcha-Logo.svg">
+                        </div>
+                        <div class="sidebar-brand-text mx-3" style="padding-left: 0;">
+                            <p class="m-0" style="text-align: left;">Betcha</p>
+                            <p class="m-0" style="text-align: left; font-size: 12px;">
+                                <span style="font-weight: normal !important;">Admin Dashboard</span>
+                            </p>
+                        </div>
                     </div>
-                </a>
+                </a>                
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
                     <li class="nav-item"><a class="nav-link" href="../Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
@@ -122,13 +130,13 @@
                                                                 <table class="table my-0" id="dataTable">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th class="text-end">Reference No.</th>
-                                                                            <th class="text-start">Name</th>
-                                                                            <th class="text-start">Unit Name</th>
-                                                                            <th class="text-start">Date</th>
-                                                                            <th class="text-start">Payment Mode</th>
+                                                                            <th style="text-align: center;">Reference No.</th>
+                                                                            <th style="text-align: center;">Name</th>
+                                                                            <th style="text-align: center;">Unit Name</th>
+                                                                            <th style="text-align: center;">Date</th>
+                                                                            <th style="text-align: center;">Payment Mode</th>
                                                                             <th class="text-end">Total Amount</th>
-                                                                            <th class="text-start">Status</th>
+                                                                            <th style="text-align: center;">Status</th>
                                                                             <th id="UnitActionsTbl-2"></th>
                                                                         </tr>
                                                                     </thead>
@@ -275,6 +283,7 @@
     <script src="../Admin/admincalendarFunction.js"></script>
     <script src="../Admin/AdminFunctions/Admin-Transaction-List-Functions.js"></script>
     <script src="../loading.js"></script>
+    <script src="../CheckUsers.js"></script>
 </body>
 
 </html>

@@ -125,30 +125,35 @@ async function loadTransactionData() {
     } catch (error) {
         console.error('Error:', error);
     }
-    try {
-        const responseMonth = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisMonth');
-        if (!responseMonth.ok) {
-            throw new Error('Failed to fetch monthly earnings');
+
+    try{
+        const response = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisMonth');
+        if (!response.ok) {
+            throw new Error('Failed to fetch admin data');
         }
-        const priceMonth = await responseMonth.json();
-        console.log('fewjknfwj', priceMonth);
-        document.getElementById('total-earnings-monthly').innerHTML = '<strong>₱' + priceMonth.earnings + '</strong>';
-    } catch (error) {
+        const price = await response.json()
+        console.log(response.earnings)
+        document.getElementById('total-earnings-monthly').innerHTML = '<strong>₱' +  price.earnings + '</strong>';
+
+    }
+    catch (error) {
         console.error('Error:', error);
     }
-    
-    try {
-        const responseYear = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisYear');
-        if (!responseYear.ok) {
-            throw new Error('Failed to fetch yearly earnings');
+
+    try{
+        const response = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisYear');
+        if (!response.ok) {
+            throw new Error('Failed to fetch admin data');
         }
-        const priceYear = await responseYear.json();
-        console.log('faekjfksfja', priceYear);
-        document.getElementById('total-earnings-yearly').innerHTML = '<strong>₱' + priceYear.earnings + '</strong>';
-    } catch (error) {
-        console.error('Error:', error);
+        const price = await response.json()
+        console.log(response)
+        document.getElementById('total-earnings-yearly').innerHTML = '<strong>₱' + price.earnings + '</strong>';
+
+
     }
-      
+    catch (error) {
+        console.error('Error:', error);
+    }    
 
 
     try{
@@ -289,6 +294,6 @@ document.getElementById('select-year1').addEventListener('change', (event) =>{
 })
 //
 document.getElementById('pending-v').onclick=function(){
-    window.location.href = '../SAdmin/User-Verify.html'
+    window.location.href = '../Admin/User-Verify.html'
 }
 ; 

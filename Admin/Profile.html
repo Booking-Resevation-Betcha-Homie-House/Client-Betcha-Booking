@@ -16,22 +16,36 @@
 </head>
 
 <body id="page-top">
+    <script>
+        window.onload = function(){
+            openLoading();
+            const role = localStorage.getItem('role')
+            console.log(role)
+            checkAdmin(role);
+            closeLoading();
+        }
+    </script>
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
-                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
-                    <div class="sidebar-brand-text mx-3">
-                        <p class="m-0" style="text-align: left;">Betcha</p>
-                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px; margin-left: -10px; padding-left: 0;">
+                    <div style="display: flex; align-items: center; padding-left: 0;">
+                        <div style="width: 32px;">
+                            <img src="../assets/img/Betcha-Logo.svg">
+                        </div>
+                        <div class="sidebar-brand-text mx-3" style="padding-left: 0;">
+                            <p class="m-0" style="text-align: left;">Betcha</p>
+                            <p class="m-0" style="text-align: left; font-size: 12px;">
+                                <span style="font-weight: normal !important;">Admin Dashboard</span>
+                            </p>
+                        </div>
                     </div>
-                </a>
+                </a>                
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
                     <li class="nav-item"><a class="nav-link" href="../Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
@@ -118,50 +132,16 @@
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="email" style="color: rgb(58,59,69);"><strong>Email Address</strong></label>
-                                                            <p id="profile-email">Username</p>
+                                                            <p id="profile-email">Email</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name" style="color: rgb(58,59,69);"><strong>First Name</strong></label>
-                                                            <p id="profile-fname">First Name</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="last_name" style="color: rgb(58,59,69);"><strong>Last Name</strong></label>
-                                                            <p id="profile-lname">Last Name</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="mb-3"></div>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="card-header py-3">
-                                            <h5><strong>Contact Details</strong></h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="mb-3"><label class="form-label" for="address" style="color: #212529;"><strong>Address</strong></label>
-                                                    <p id="profile-address">Address</p>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="city" style="color: #212529;"><strong>City</strong></label>
-                                                            <p id="profile-city">City</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="country" style="color: #212529;"><strong>Country</strong></label>
-                                                            <p id="profile-country">Country</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -234,6 +214,7 @@
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
     <script src="../loading.js"></script>
+    <script src="../CheckUsers.js"></script>
 </body>
 
 </html>

@@ -8,42 +8,53 @@
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/Calendar.css">
     <link rel="stylesheet" href="../assets/css/Custom.css">
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
 <script> 
-    window.onload = function() {
-     openLoading();
-     displayQA();
-     closeLoading();
-     }
- </script>
+   window.onload = function() {
+    openLoading();
+    const role = localStorage.getItem('role')
+    console.log(role)
+    checkAdmin(role);
+    displayQA();
+    closeLoading();
+    }
+</script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-admin" style="background: #147b42;">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
-                    <div style="width: 32px;"><img src="../assets/img/Betcha-Logo.svg"></div>
-                    <div class="sidebar-brand-text mx-3">
-                        <p class="m-0" style="text-align: left;">Betcha</p>
-                        <p class="m-0" style="text-align: left; font-size: 12px;"><span style="font-weight: normal !important;">Admin Dashboard</span></p>
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex align-items-center sidebar-brand m-0" href="../Admin/Dashboard.html" style="margin-top: 18px; margin-left: -10px; padding-left: 0;">
+                    <div style="display: flex; align-items: center; padding-left: 0;">
+                        <div style="width: 32px;">
+                            <img src="../assets/img/Betcha-Logo.svg">
+                        </div>
+                        <div class="sidebar-brand-text mx-3" style="padding-left: 0;">
+                            <p class="m-0" style="text-align: left;">Betcha</p>
+                            <p class="m-0" style="text-align: left; font-size: 12px;">
+                                <span style="font-weight: normal !important;">Admin Dashboard</span>
+                            </p>
+                        </div>
                     </div>
-                </a>
+                </a>                
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav" id="accordionSidebar-1" style="margin-top: 11px;">
                     <li class="nav-item"><a class="nav-link" href="../Admin/Dashboard.html"><i class="fas fa-tachometer-alt"></i><span class="m-3">Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Profile.html"><i class="fas fa-user"></i><span class="m-3">Profile</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Units-List.html"><i class="fas fa-door-open"></i><span class="m-3">Units</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Transactions-List.html"><i class="fas fa-book"></i><span class="m-3">Transactions</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/Messages.html"><i class="icon ion-chatbox-working"></i><span class="m-3">Messages</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="../Admin/FAQs.html"><i class="fas fa-question-circle"></i><span class="m-3">FAQs</span></a></li>
                 </ul>
             </div>
         </nav>
+        
         <div class="d-flex flex-column" id="content-wrapper">
             <nav class="navbar navbar-expand bg-white mb-4 topbar" id="sidebarTop">
                 <div class="container-fluid">
@@ -94,7 +105,7 @@
                             </div>
                         </div>
                         <div class="col col-lg-8">
-                            <div class="faq-container">
+                            <div class="faq-container" id="container-faq">
                                 <div id="div-faq-card">
                                     <div class="card mb-3">
                                         <div class="card-body">
@@ -110,7 +121,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <div class="d-xxl-flex justify-content-xxl-end d-flex gap-1"><button class="btn btn-danger btn-icon-only" id="btn-faq-delete" type="button" data-bs-target="#modal-remove" data-bs-toggle="modal"><i class="fas fa-trash-alt"></i></button><button class="btn btn-primary btn-icon-only" id="btn-faq-edit" type="button" data-bs-target="#modal-confirm" data-bs-toggle="modal"><i class="fas fa-pen"></i></button></div>
+                                                    <div class="d-xxl-flex justify-content-xxl-end d-flex gap-1"><button class="btn btn-danger btn-icon-only" id="btn-faq-delete" type="button" data-bs-target="#modal-faq" data-bs-toggle="modal"><i class="fas fa-trash-alt"></i></button><button class="btn btn-primary btn-icon-only" id="btn-faq-edit" type="button" data-bs-target="#modal-confirm" data-bs-toggle="modal"><i class="fas fa-pen"></i></button></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -212,6 +223,30 @@
             </footer>
         </div>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    <div id="modal-faq" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Question</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3"><label class="form-label" for="username"><strong>Question</strong></label><input id="input-faqs-question-1" class="form-control" type="text" placeholder="Question" name="FAQs-Question" /></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3"><label class="form-label" for="first_name"><strong>Answer</strong></label><textarea id="input-faqs-answer-1" class="form-control form-control" name="FAQs-Answer" style="resize: none;height: 300px;" placeholder="Answer"></textarea></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" id="edi-btn" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -234,7 +269,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to remove this item? This action cannot be undone.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" id="delete-btn"><i class="fas fa-trash-alt icon"></i></a></div>
             </div>
         </div>
     </div>
@@ -247,7 +282,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="crt-btn" type="button"><i class="fas fa-save icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -283,8 +318,9 @@
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
-    <script src="../loading.js"></script>
     <script src="../Admin/AdminFunctions/Admin-FAQs-Functions.js"></script>
+    <script src="../loading.js"></script>
+    <script src="../CheckUsers.js"></script>
 </body>
 
 </html>

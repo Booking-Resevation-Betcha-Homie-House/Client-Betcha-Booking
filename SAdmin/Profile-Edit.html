@@ -114,39 +114,13 @@
                                             <form>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="input-profile-username" placeholder="user.name" name="Username"></div>
+                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="input-profile-username" placeholder="SuperAdmin.Name" name="Username"></div>
                                                     </div>
                                                     <div class="col">
                                                         <div class="mb-3"><label class="form-label" for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="input-profile-email" placeholder="user@example.com" name="email"></div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" id="input-profile-fname" placeholder="John" name="first_name"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="input-profile-lname" placeholder="Doe" name="last_name" style="color: #212529;"></div>
-                                                    </div>
-                                                </div>
                                                 <div class="mb-3"></div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header py-3">
-                                            <h5><strong>Contact Details</strong></h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="mb-3"><label class="form-label" for="address"><strong>Address</strong></label><input class="form-control" type="text" id="input-profile-address" placeholder="Sunset Blvd, 38" name="address" style="color: #212529;"></div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="city"><strong>City</strong></label><input class="form-control" type="text" id="input-profile-city" placeholder="Quezon City" name="city" style="color: #212529;"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="country"><strong>Country</strong></label><input class="form-control" type="text" id="input-profile-country" placeholder="Philippines" name="country" style="color: #212529;"></div>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -211,7 +185,10 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+                <div class="modal-footer">
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                    <a href="Profile.html" class="btn btn-primary btn-danger">Cancel</a>
+                  </div>                  
             </div>
         </div>
     </div>
@@ -222,6 +199,7 @@
     <script src="../assets/js/Status.js"></script>
     <script src="../assets/js/theme.js"></script>
     <script src="../loading.js"></script>
+    <script src="../CheckUsers.js"></script>
 </body>
 
 </html>

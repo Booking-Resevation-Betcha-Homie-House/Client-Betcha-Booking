@@ -37,7 +37,19 @@ async function loadTransactionData() {
             row.appendChild(unitNameCell);
 
             const dateCell = document.createElement('td');
-            dateCell.textContent = admin.Date;  
+
+            // reference for single date
+            let Dates = admin.Date;
+            let DateBook = new Date(Dates);
+
+            if (!(DateBook instanceof Date) || isNaN(DateBook)) {
+                console.error('Invalid date:', DateBook);
+            }
+
+            const formatdate = DateBook instanceof Date && !isNaN(DateBook) ? DateBook.toISOString().split('T')[0] : 'Invalid Date';
+
+            dateCell.textContent = formatdate;
+
             dateCell.style.textAlign = 'center';
             row.appendChild(dateCell);
 

@@ -227,7 +227,28 @@ async function loadDateData() {
             roomName.textContent = booking.UnitId.unitName;
             const lastname = booking.UserId.lastName;
             const FLname = lastname.charAt(0);
-            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${booking.CheckIn} - ${booking.CheckOut}`;
+
+            // reference for check in check out
+            let checkIn = booking.CheckIn;
+            let checOut = booking.CheckOut;
+        
+            checkIn = new Date(checkIn);
+            checOut = new Date(checOut);
+
+            if (!(checkIn instanceof Date) || isNaN(checkIn)) {
+                console.error('Invalid CheckIn date:', checkIn);
+            }
+            if (!(checOut instanceof Date) || isNaN(checOut)) {
+                console.error('Invalid CheckOut date:', checOut);
+            }
+
+            const formatCi = checkIn instanceof Date && !isNaN(checkIn) ? checkIn.toISOString().split('T')[0] : 'Invalid Date';
+            const formatCo = checOut instanceof Date && !isNaN(checOut) ? checOut.toISOString().split('T')[0] : 'Invalid Date';
+
+            console.log('Check-in:', formatCi);
+            console.log('Check-out:', formatCo);
+
+            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${formatCi} - ${formatCo}`;
             const day = new Date(selecteddate).getDate();
             date.textContent = day;
 
