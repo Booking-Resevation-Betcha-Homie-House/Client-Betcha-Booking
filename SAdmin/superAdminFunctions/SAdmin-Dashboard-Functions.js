@@ -182,24 +182,6 @@ async function loadTransactionData() {
 
 }   
 
-document.getElementById('select-month').addEventListener('change', (event) =>{
-    openLoading();
-    loadMonthlyTopUnits();
-    closeLoading(); 
-})
-
-document.getElementById('select-year').addEventListener('change', (event) =>{
-
-    openLoading();
-    loadMonthlyTopUnits();
-    closeLoading(); 
-})
-
-document.getElementById('select-year1').addEventListener('change', (event) =>{
-    openLoading();
-    loadYearlyTopUnits();
-    closeLoading();
-})
 
 document.getElementById('pending-v').onclick=function(){
         window.location.href = '../SAdmin/User-Verify.html'
