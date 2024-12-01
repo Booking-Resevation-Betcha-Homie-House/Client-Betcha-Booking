@@ -179,7 +179,7 @@ async function loadTransactionData() {
 
 }   
 document.getElementById('pending-v').onclick=function(){
-    window.location.href = '../SAdmin/User-Verify.html'
+    window.location.href = '../Admin/User-Verify.html'
 }; 
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
