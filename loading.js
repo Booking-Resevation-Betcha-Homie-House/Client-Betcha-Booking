@@ -1,4 +1,19 @@
+function setUsername(){
+  const username = localStorage.getItem('username');
+  console.log(username);
+  const usernameElement = document.getElementById('Username');
+  
+  if (username && usernameElement) {
+      usernameElement.textContent = username;
+  } else if (!usernameElement) {
+      console.log('Element with id "Username" not found');
+  } else {
+      console.log('Username not found in localStorage');
+  }
+}
+
 function openLoading() {
+  setUsername();
     const spinnerHTML = `
       <div id="container-spinner">
         <div class="key">

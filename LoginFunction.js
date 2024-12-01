@@ -28,7 +28,22 @@ async function LoginButton() {
             localStorage.setItem('id', customerData.userId);
             localStorage.setItem('role', customerData.role);
             console.log('Logged in ID:', localStorage.getItem('id'));
-            console.log('Role: ', localStorage.getItem('role'))
+            console.log('Role: ', localStorage.getItem('role'));
+
+            const fullname = customerData.firstName + ' '+ customerData.lastName;
+            localStorage.setItem('username', fullname);
+            console.log('Username: ', localStorage.getItem('username'));
+
+            let isVerified = customerData.isVerified;
+            localStorage.setItem('isVerified', isVerified.toString()); 
+            
+            let storedIsVerified = localStorage.getItem('isVerified') === 'true';
+            console.log(storedIsVerified);
+
+            // how to use?:
+            // let storedIsVerified = localStorage.getItem('isVerified') === 'true';
+            // console.log(storedIsVerified);
+
             closeLoading();
             return;
         }
@@ -39,8 +54,9 @@ async function LoginButton() {
             window.location.href = "../SAdmin/Dashboard.html"
             localStorage.setItem('id', superAdminData.superAdminId);
             localStorage.setItem('role', superAdminData.role);
+            localStorage.setItem('username', superAdminData.superAdminName)
             console.log('Logged in ID:', localStorage.getItem('id'));
-            console.log('Role: ', localStorage.getItem('role'))
+            console.log('Role: ', localStorage.getItem('role'));
             closeLoading();
             return;
         }
@@ -51,6 +67,7 @@ async function LoginButton() {
             window.location.href = "../Admin/Dashboard.html"
             localStorage.setItem('id', adminData.adminId);
             localStorage.setItem('role', adminData.role);
+            localStorage.setItem('username', adminData.adminName)
             console.log('Logged in ID:', localStorage.getItem('id'));
             console.log('Role: ', localStorage.getItem('role'))
             closeLoading();

@@ -18,6 +18,16 @@
 </head>
 
 <body id="page-top">
+    <script>
+        window.onload = function(){
+            openLoading();
+            const role = localStorage.getItem('role')
+            console.log(role)
+            checkSuperAdmin(role);
+            loadDataEdit();
+            closeLoading();
+        }
+    </script>
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="../SAdmin/Dashboard.html" style="margin-top: 18px;margin-right: 0px;">
@@ -49,7 +59,7 @@
                     </div>
                     <ul class="navbar-nav flex-nowrap ms-auto" id="profileDetail">
                         <li class="nav-item dropdown no-arrow">
-                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="Username">Valerie Luna</span><img class="rounded-circle border img-profile" id="profile-picture" src="../assets/img/avatars/default-profile-pic.jpg"></a>
+                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small" id="Username"></span><img class="rounded-circle border img-profile" id="profile-picture" src="../assets/img/avatars/default-profile-pic.jpg"></a>
                                 <div class="shadow dropdown-menu dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="../SAdmin/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i> Profile</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" id="logout-btn"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i> Logout</a>
                                 </div>
@@ -108,7 +118,7 @@
                                 <div class="col">
                                     <div class="card mb-3">
                                         <div class="card-header py-3" style="color: #212529;border-style: none;">
-                                            <h5><strong>User Details</strong></h5>
+                                            <h5><strong>Update Information</strong></h5>
                                         </div>
                                         <div class="card-body">
                                             <form>
@@ -120,6 +130,26 @@
                                                         <div class="mb-3"><label class="form-label" for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="input-profile-email" placeholder="user@example.com" name="email"></div>
                                                     </div>
                                                 </div>
+                                                
+                                                <div class="mb-3"></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-3">
+                                        <div class="card-header py-3" style="color: #212529;border-style: none;">
+                                            <h5><strong>Update Password</strong></h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong></label><input class="form-control" type="text" id="input-profile-password" placeholder="Password" name="Username"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="mb-3"><label class="form-label" for="confirmpassword"><strong>Confirm Password</strong></label><input class="form-control" type="email" id="input-profile-confirmpw" placeholder="Confirm Password" name="email"></div>
+                                                    </div>
+                                                </div>
+                                                
                                                 <div class="mb-3"></div>
                                             </form>
                                         </div>
@@ -146,7 +176,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to remove this item? This action cannot be undone.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Admin/Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><a class="btn btn-danger" role="button" href="Profile.html"><i class="fas fa-trash-alt icon"></i></a></div>
             </div>
         </div>
     </div>
@@ -159,7 +189,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><i class="fas fa-save icon"></i></button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" id="edit-btn" type="button"><i class="fas fa-save icon"></i></button></div>
             </div>
         </div>
     </div>
@@ -185,10 +215,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
-                    <a href="Profile.html" class="btn btn-primary btn-danger">Cancel</a>
-                  </div>                  
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button" id="cancel-edit-btn">Cancel</button></div>
             </div>
         </div>
     </div>
@@ -200,6 +227,7 @@
     <script src="../assets/js/theme.js"></script>
     <script src="../loading.js"></script>
     <script src="../CheckUsers.js"></script>
+    <script src ="../SAdmin/superAdminFunctions/SAdmin-Profile-Edit-Functions.js"></script>
 </body>
 
 </html>

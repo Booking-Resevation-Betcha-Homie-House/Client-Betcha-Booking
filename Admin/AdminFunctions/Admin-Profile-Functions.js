@@ -14,9 +14,10 @@ function adminProfile(){
            
             console.log(data);
 
-            document.getElementById('profile-email').textContent = `${user.email}`; //palitan id
+            document.getElementById('profile-email').textContent = `${user.email}`; 
+            document.getElementById('admin-name').innerHTML = `<h5><strong>${user.adminName}</strong></h5>`;
 
-            document.getElementById('profile-username').textContent = `${user.adminName}`; // palitan id
+            document.getElementById('profile-username').textContent = `${user.adminName}`; 
         } else {
             alert('Super Admin not found or missing data.');
         }
@@ -31,7 +32,6 @@ function adminProfile(){
     
 }
 
-// copy paste sa lahat ng html na maylogout btn
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';

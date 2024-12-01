@@ -2,11 +2,29 @@
 // di sure kung anong gagamitin
 const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
-console.log('Unit ID from URL: ', refID);
 
-function loadDateEdit(){
-   const response = fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${refID}`)
-   
+
+async function loadDataEdit() {
+    try {
+        const adminId = localStorage.getItem('id');
+        if (!adminId) {
+            throw new Error('Admin ID is not available in local storage');
+        }
+
+        const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${adminId}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch admin data');
+        }
+
+        const admin = await response.json();
+
+        console.log('Admin Data:', admin);
+
+        document.getElementById('input-profile-username').value = admin.data.adminName;
+        document.getElementById('input-profile-email').value = admin.data.email;
+    } catch (error) {
+        console.error('Error loading admin data:', error);
+    }
 }
 
 
@@ -18,7 +36,7 @@ function editadmin(){
     
     const adminUsername = document.getElementById('input-profile-username').value;
     const adminEmail = document.getElementById('input-profile-email').value;
-    const adminpass = document.getElementById('input-profile-password').value;// wala pa tong textbox need pa iedit
+    const adminpass = document.getElementById('input-profile-password').value;
     const adminconfirm = document.getElementById('input-profile-confirmpw').value;
     
     const adminData = {};
@@ -59,11 +77,14 @@ function editadmin(){
     });
 }
 
-document.getElementById('edit-btn').onclick = () =>{
-    console.log
-    editadmin();
-};
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';
+}
+document.getElementById('cancel-edit-btn').onclick = () =>{
+    window.location.href = `Profile.html`
+}
+document.getElementById('edit-btn').onclick = () =>{
+    editadmin();
+    window.location.href = `Profile.html`
 }

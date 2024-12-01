@@ -14,9 +14,9 @@ function SAdminProfile(){
            
             console.log(data);
 
-            document.getElementById('profile-email').textContent = `${user.email}`; //palitan id
-
-            document.getElementById('profile-username').textContent = `${user.superAdminName}`; // palitan id
+            document.getElementById('profile-email').textContent = `${user.email}`; 
+            document.getElementById('admin-name').innerHTML = `<h5><strong>${user.superAdminName}</strong></h5>`;
+            document.getElementById('profile-username').textContent = `${user.superAdminName}`; 
         } else {
             alert('Super Admin not found or missing data.');
         }
