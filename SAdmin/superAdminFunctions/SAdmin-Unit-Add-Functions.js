@@ -1,5 +1,27 @@
 //need bumalik sa view unit
 
+
+function checkSuperAdmin(SuperAdmin){
+    console.log('Checking super admin')
+    if (SuperAdmin === 'SuperAdmin'){
+        console.log('SuperAdmin Confirmed');
+        return;
+    }
+    else if (SuperAdmin === 'Admin'){
+        console.log('This is for admin page');
+        window.location.href = "../Admin/Dashboard.html";
+    }
+    else if (SuperAdmin === 'Customer'){
+        console.log('This page is for customers');
+        // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
+    }
+    else{
+        console.log('no logged in user')
+        // window.location.href = "../landing page"; lagyan kapag meron na
+    }
+}
+
+
 function SAdminAddUnit(){
     console.log('function called');
     const unitName = document.getElementById('input-unit-name-1').value;
@@ -109,4 +131,9 @@ function back(){
     
 document.getElementById('addUnit').addEventListener('click',SAdminAddUnit);
 document.getElementById('cancel-id').addEventListener('click',back);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
+
 

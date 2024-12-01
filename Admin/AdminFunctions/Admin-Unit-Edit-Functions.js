@@ -3,6 +3,7 @@ const refID = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
 
 async function loadUnitEditData(){
+    
     try {
         const response = await fetch(`https://betcha-booking-api-master.onrender.com/getUnitById/${refID}`);
         if (!response.ok) {
@@ -159,3 +160,7 @@ function back(){
 
 document.getElementById('save-edit-btn').addEventListener('click',editData);
 document.getElementById('cancel-btn').addEventListener('click',back);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}

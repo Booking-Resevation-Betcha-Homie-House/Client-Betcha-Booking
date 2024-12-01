@@ -227,7 +227,7 @@ async function loadDateData() {
             roomName.textContent = booking.UnitId.unitName;
             const lastname = booking.UserId.lastName;
             const FLname = lastname.charAt(0);
-            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${booking.CheckIn} - ${booking.CheckOut}`;
+            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${booking.CheckIn.split('T')[0]} - ${booking.CheckOut.split('T')[0]}`;
             const day = new Date(selecteddate).getDate();
             date.textContent = day;
 

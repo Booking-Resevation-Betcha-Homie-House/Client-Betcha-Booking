@@ -2,6 +2,11 @@
 let isLoading = false;
 
 async function loadUnverifiedUsers() {
+
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     console.log('loading Unverified Data');
 
     const btnVerified = document.getElementById('btn-verified');
@@ -248,4 +253,8 @@ function unverifyUser(id) {
         console.error('Error during update:', error);
         alert('Failed to unverify user: ' + error.message);
     });
+}
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
 }

@@ -1,6 +1,8 @@
 //need bumalik sa view unit
 
-function SAdminAddUnit(){
+
+
+function AdminAddUnit(){
     console.log('function called');
     const unitName = document.getElementById('input-unit-name-1').value;
     const location = document.getElementById('input-unit-loc-1').value;
@@ -109,4 +111,8 @@ function back(){
     
 document.getElementById('addUnit').addEventListener('click',SAdminAddUnit);
 document.getElementById('cancel-id').addEventListener('click',back);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
 

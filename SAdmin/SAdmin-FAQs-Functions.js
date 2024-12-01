@@ -101,6 +101,10 @@ function deleteFAQ(faqId) {
 }
 async function displayQA(){
     
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     const response = await fetch('https://betcha-booking-api-master.onrender.com/faqs/getAll');
     if (!response.ok) {
         throw new Error('Failed to fetch admin data');

@@ -248,7 +248,8 @@ async function loadDateData() {
             console.log('Check-in:', formatCi);
             console.log('Check-out:', formatCo);
 
-            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${formatCi} - ${formatCo}`;
+            details.textContent = `${booking.UserId.firstName} ${FLname}. | ${formatCi.split('T')[0]} - ${formatCo.split('T')[0]}`;
+            
             const day = new Date(selecteddate).getDate();
             date.textContent = day;
 

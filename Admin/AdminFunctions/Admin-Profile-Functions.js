@@ -1,12 +1,12 @@
 //Finished? dunno ask muna
 // walang api para sa pag get ng super admin info
-function SAdminProfile(){
+function adminProfile(){
     const role = localStorage.getItem('role')
     console.log(role);
-    checkSuperAdmin(role);
+    checkAdmin(role);
     console.log(localStorage.getItem('id'));
      
-    fetch(`https://betcha-booking-api-master.onrender.com/getSuperAdmin/${localStorage.getItem('id')}`)
+    fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${localStorage.getItem('id')}`) 
     .then(response => response.json())
     .then(data => {
         const user = data.data; 
@@ -16,7 +16,7 @@ function SAdminProfile(){
 
             document.getElementById('profile-email').textContent = `${user.email}`; //palitan id
 
-            document.getElementById('profile-username').textContent = `${user.superAdminName}`; // palitan id
+            document.getElementById('profile-username').textContent = `${user.adminName}`; // palitan id
         } else {
             alert('Super Admin not found or missing data.');
         }
@@ -26,7 +26,7 @@ function SAdminProfile(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alert('Failed to display Super Admin info: ' + error.message);
+        alert('Failed to display Admin info: ' + error.message);
     });
     
 }

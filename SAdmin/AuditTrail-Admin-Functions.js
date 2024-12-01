@@ -1,6 +1,11 @@
 //Unfinished
 
 async function loadAuditData(){
+
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     console.log('function called!');
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/auit/all');

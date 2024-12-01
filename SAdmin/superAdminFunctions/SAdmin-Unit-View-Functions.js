@@ -9,6 +9,11 @@ console.log('Unit ID from URL: ', refID);
 //ayusin yung mga id ng items may mga tinaggal pala na items
 
 async function loadUnitData() {
+
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     try {
         const response = await fetch(`https://betcha-booking-api-master.onrender.com/getUnitById/${refID}`);
         if (!response.ok) {
@@ -130,3 +135,8 @@ document.getElementById('delete-btn').addEventListener('click',DelUnit);
 document.getElementById('edit-btn').addEventListener('click', () => {
     window.location.href = `Unit-Edit.html?id=${refID}`;
 });
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
+

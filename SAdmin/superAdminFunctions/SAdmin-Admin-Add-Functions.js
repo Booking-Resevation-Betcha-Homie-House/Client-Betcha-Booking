@@ -1,4 +1,27 @@
 //finished
+
+
+function checkSuperAdmin(SuperAdmin){
+    console.log('Checking super admin')
+    if (SuperAdmin === 'SuperAdmin'){
+        console.log('SuperAdmin Confirmed');
+        return;
+    }
+    else if (SuperAdmin === 'Admin'){
+        console.log('This is for admin page');
+        window.location.href = "../Admin/Dashboard.html";
+    }
+    else if (SuperAdmin === 'Customer'){
+        console.log('This page is for customers');
+        // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
+    }
+    else{
+        console.log('no logged in user')
+        // window.location.href = "../landing page"; lagyan kapag meron na
+    }
+}
+
+
 function AddAdmin() {
     console.log('function called');
     const email = document.getElementById('input-admin-email').value;
@@ -49,3 +72,6 @@ function AddAdmin() {
    
 }
 document.getElementById('add-button-admin').addEventListener('click',AddAdmin);
+document.getElementById('btn-cancel').onclick = () => {
+    window.location.href = 'Admin-List.html';
+};

@@ -11,6 +11,9 @@ console.log('Unit ID from URL: ', refID);
 
 
 function loadTransactionEditData(){
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
    
     fetch(`https://betcha-booking-api-master.onrender.com/booking/${refID}`)
     .then(response => response.json())
@@ -168,3 +171,7 @@ function back(){
 }
 
 document.getElementById('cnl-btn').addEventListener('click', back);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}

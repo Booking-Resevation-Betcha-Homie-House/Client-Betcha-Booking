@@ -7,6 +7,10 @@ console.log('Unit ID from URL: ', refID);
 
 function loadTransactionViewData(){
 
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     fetch(`https://betcha-booking-api-master.onrender.com/booking/${refID}`)
     .then(response => response.json())
     .then(data => {
@@ -28,11 +32,17 @@ function loadTransactionViewData(){
 
             document.getElementById('view-transaction-unit-name').innerHTML = user.UnitId.unitName; 
 
-            document.getElementById('view-transaction-start-date').innerHTML = user.CheckIn; // palitan id
+            const userCI = user.CheckIn;
+            const formatuserCI = userCI.split('T')[0];
+            document.getElementById('view-transaction-start-date').innerHTML = formatuserCI; // palitan id
 
-            document.getElementById('view-transaction-end-date').innerHTML = user.CheckOut; 
+            const userCO = user.CheckOut;
+            const formatuserCO = userCO.split('T')[0];
+            document.getElementById('view-transaction-end-date').innerHTML = formatuserCO; 
 
-            document.getElementById('view-transaction-booking-date').textContent = user.Date; 
+            const bookDate = user.Date;
+            const formatBookdate = bookDate.split('T')[0];
+            document.getElementById('view-transaction-booking-date').textContent = formatBookdate; 
 
             document.getElementById('view-transaction-status').textContent = user.Status; 
 
@@ -119,5 +129,10 @@ function cancelBooking(){
 }
 
 document.getElementById('btn-transaction-view-cancel').addEventListener('click',cancelBooking);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
+
 
 

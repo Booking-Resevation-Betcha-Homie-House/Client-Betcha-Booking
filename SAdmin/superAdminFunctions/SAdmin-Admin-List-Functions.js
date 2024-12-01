@@ -1,6 +1,9 @@
 async function loadAdminData() { 
     console.log('function called!');
     try {
+        const role = localStorage.getItem('role')
+        console.log(role);
+        checkSuperAdmin(role);
         const response = await fetch('https://betcha-booking-api-master.onrender.com/getAllAdmins');
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
@@ -44,3 +47,8 @@ async function loadAdminData() {
         console.error('Error:', error);
     }
 }
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
+

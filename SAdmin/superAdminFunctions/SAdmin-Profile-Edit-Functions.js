@@ -1,10 +1,15 @@
 //unfinshed
-
-localStorage.setItem();
+// di sure kung anong gagamitin
+const urlParams = new URLSearchParams(window.location.search);
+const refID = urlParams.get('id');
+console.log('Unit ID from URL: ', refID);
 
 function editSAdmin(){
 
-
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+    
     const sadminUsername = document.getElementById('input-profile-username');
     const sadminEmail = document.getElementById('input-profile-email');
     const sadminpass = document.getElementById('input-profile-password');// wala pa tong textbox need pa iedit
@@ -13,9 +18,8 @@ function editSAdmin(){
     const SadminData = {
         email : adminEmail,
         password : adminPassword,
-        adminName : adminUsername
     }
-    fetch('https://betcha-booking-api-master.onrender.com/getAllSuperAdmin',{
+    fetch(`https://betcha-booking-api-master.onrender.com/superAdminEdit/${refID}`,{
         method: 'UPDATE',
         headers: {
             'Content-Type': 'application/json'
@@ -34,3 +38,7 @@ function editSAdmin(){
 }
 
 document.getElementsByClassName('btn btn-primary').addEventListener('click',editSAdmin());
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}

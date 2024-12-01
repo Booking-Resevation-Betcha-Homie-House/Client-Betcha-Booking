@@ -7,6 +7,9 @@ console.log('Unit ID from URL: ', adminID);
 
 
 async function adminFill(){
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
 
     console.log('func called');
 
@@ -19,7 +22,6 @@ async function adminFill(){
     document.getElementById('input-admin-email').value =admin.data.email;   
 
 }
-
 
 function adminEdit(event) {
 
@@ -69,6 +71,11 @@ function previouspage(){
 }
 document.getElementById('cancel-button').addEventListener('click', previouspage);
 document.getElementById('save-button').addEventListener('click', adminEdit);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
+
 
 
 

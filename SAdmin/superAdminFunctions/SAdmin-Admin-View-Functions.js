@@ -3,6 +3,9 @@ const adminID = urlParams.get('id');
 console.log('Unit ID from URL: ', adminID);
 
 async function adminViewLoadData(){
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
 
    const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${adminID}`);
 
@@ -59,3 +62,7 @@ function DelAdmin() {
 
 document.getElementById('btn-remove').addEventListener('click',DelAdmin);
 //document.getElementById('modal-unit-add').addEventListener();
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}

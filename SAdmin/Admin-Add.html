@@ -16,7 +16,13 @@
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        openLoading();
+        checkSuperAdmin(localStorage.getItem('role'));
+        closeLoading();
+     }
+ </script>
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 navbar-dark" id="sidebar-menu-sadmin" style="background: #147b42;">
@@ -157,7 +163,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to cancel? Any unsaved information will be lost.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" type="button">Cancel</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary btn-danger" id="btn-cancel" type="button">Cancel</button></div>
             </div>
         </div>
     </div>

@@ -1,4 +1,9 @@
 async function loadUnits() {
+
+    const role = localStorage.getItem('role')
+    console.log(role);
+    checkSuperAdmin(role);
+
     console.log('loading Data');
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/units');
@@ -90,4 +95,8 @@ async function loadUnits() {
     } catch (error) {
         console.error('Error:', error);
     }
+}
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
 }

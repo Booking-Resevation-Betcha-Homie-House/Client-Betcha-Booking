@@ -101,6 +101,7 @@ function deleteFAQ(faqId) {
 }
 async function displayQA(){
     
+    
     const response = await fetch('https://betcha-booking-api-master.onrender.com/faqs/getAll');
     if (!response.ok) {
         throw new Error('Failed to fetch admin data');
@@ -215,3 +216,8 @@ async function displayQA(){
 
 document.getElementById('crt-btn').addEventListener('click',createFAQ);
 //document.getElementById('btn-faq-edit').addEventListener
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}

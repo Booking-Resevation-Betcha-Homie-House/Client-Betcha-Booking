@@ -1,5 +1,11 @@
 async function loadTransactionData() {
+
+    //Checker ng role 
+
     try {
+        const role = localStorage.getItem('role')
+        console.log(role);
+        checkSuperAdmin(role);
         const response = await fetch('https://betcha-booking-api-master.onrender.com/getCompleted');
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
@@ -39,7 +45,9 @@ async function loadTransactionData() {
             row.appendChild(unitNameCell);
 
             const dateCell = document.createElement('td');
-            dateCell.textContent = admin.Date;  
+            const formatdate = admin.Date;
+            const editeddate = formatdate.split('T')[0];
+            dateCell.textContent = editeddate;  
             dateCell.style.textAlign = 'center';
             row.appendChild(dateCell);
 
@@ -99,7 +107,9 @@ async function loadTransactionData() {
             row.appendChild(unitNameCell);
 
             const dateCell = document.createElement('td');
-            dateCell.textContent = pendingItem.Date;  
+            const formatdate = pendingItem.Date;
+            const editeddate = formatdate.split('T')[0];
+            dateCell.textContent = editeddate;  
             dateCell.style.textAlign = 'center';
             row.appendChild(dateCell);
 
@@ -290,5 +300,9 @@ document.getElementById('select-year1').addEventListener('change', (event) =>{
 //
 document.getElementById('pending-v').onclick=function(){
     window.location.href = '../SAdmin/User-Verify.html'
+}; 
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
 }
-; 
+
