@@ -111,6 +111,7 @@ function cancelBooking(){
     .then(data =>{
 
         const modal= document.getElementById('modal-transaction-cancel-booking')
+        cancelBookingAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         window.location.reload();
         console.log(data);
     })

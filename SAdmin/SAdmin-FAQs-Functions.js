@@ -22,9 +22,11 @@ function createFAQ() {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ created:", data.data);
+            
+            createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             window.location.href='FAQs.html';
         } else {
-            closeLoading();
+            
             console.log("Error:", data.message);
         }
     })
@@ -59,7 +61,9 @@ function updateFAQ(faqId) {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ Updated:", data.data);
-            window.location.href='FAQs.html';
+            console.log(getItem('id'));
+            editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            //window.location.href='FAQs.html';
         } else {
             closeLoading()
             console.log("Error:", data.message);
@@ -87,9 +91,11 @@ function deleteFAQ(faqId) {
         if (data.message === "FAQ deleted successfully") {
             closeLoading();
             console.log("FAQ deleted:", data.message);
+            deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             window.location.reload();
         } else {
             closeLoading();
+            
             console.log("Error:", data.message);
             window.location.reload();
         }
@@ -102,7 +108,7 @@ function deleteFAQ(faqId) {
 async function displayQA(){
     
     const role = localStorage.getItem('role')
-    console.log(role);
+    console.log(role,localStorage.getItem('id'));
     checkSuperAdmin(role);
 
     const response = await fetch('https://betcha-booking-api-master.onrender.com/faqs/getAll');

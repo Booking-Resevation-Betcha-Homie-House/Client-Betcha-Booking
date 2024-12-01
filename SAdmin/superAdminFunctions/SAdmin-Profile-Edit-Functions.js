@@ -65,6 +65,7 @@ function editadmin(){
     .then(data =>{
         console.log(data);
         alertCustom('Info Updated!', data.message);
+        adminEditProfileAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
     })
     .catch(error => {
         console.log(error)

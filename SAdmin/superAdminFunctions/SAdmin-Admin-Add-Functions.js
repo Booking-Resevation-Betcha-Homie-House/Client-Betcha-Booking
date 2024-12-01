@@ -56,9 +56,13 @@ function AddAdmin() {
     .then(data => {
         console.log(data); 
         if (data && data.message) {
+            adminAddAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             alertCustom('Registration Successful', data.message);
-            window.location.href = `Admin-List.html`;
-        } else {
+            console.log(localStorage.getItem('id'),localStorage.getItem('role'));
+          
+            setTimeout(() => {
+                window.location.href = `Admin-List.html`;
+            }, 2000); 
             alertCustom('Registration Successful', 'No message returned.');
         }
     })
@@ -68,7 +72,9 @@ function AddAdmin() {
     });
 }
 
-document.getElementById('add-button-admin').addEventListener('click', AddAdmin);
+document.getElementById('add-button-admin').onclick = ()=>{
+    AddAdmin()
+} ;
 document.getElementById('btn-cancel').onclick = () => {
     window.location.href = 'Admin-List.html';
 };

@@ -113,6 +113,7 @@ function SAdminAddUnit(){
         if (data && data.message) {
             alertCustom('Adding Unit successful: ', data.message);
             closeLoading();
+            createUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         } else {
             alertCustom('Adding unit successful', 'but no message returned.');
             closeLoading();

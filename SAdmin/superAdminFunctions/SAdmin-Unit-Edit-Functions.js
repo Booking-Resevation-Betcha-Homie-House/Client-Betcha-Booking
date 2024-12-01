@@ -149,6 +149,7 @@ function editData(){
         alertCustom('Admin updated successfully', response);
         closeLoading();
         window.location.href=`Unit-View.html?id=${refID}`;
+        updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
     })
     .catch(error => {
         closeLoading();

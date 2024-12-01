@@ -138,6 +138,7 @@ function editTransactionData(){
         closeLoading();
         window.location.href=`Transactions-View.html?id=${refID}`;
         console.log(data);
+        transactionEditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
     })
     .catch(error => {
         console.log(error)

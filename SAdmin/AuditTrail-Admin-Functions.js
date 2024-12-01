@@ -21,7 +21,7 @@ async function loadAuditData(){
         console.log(data);
         
         admins.data.forEach(admin => {
-            if(admin.Role === 'Admin'){
+            if(admin.Role === 'Admin' || admin.Role === 'SuperAdmin'){
                 console.log(admins);
                 const row = document.createElement('tr');
 
@@ -92,17 +92,19 @@ async function loadAuditData(){
     }
 }
 
-function createUnitAuditTrail(){
-    var userId; 
-    var activity="Created a unit";
-    var role; 
+function createUnitAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+        var id = userId
+        var activity="Created a Unit";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        };
 
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -124,17 +126,19 @@ function createUnitAuditTrail(){
     });
 }
 
-function updateUnitAuditTrail(){
-    var userId; 
-    var activity="Updated a unit";
-    var role; 
+function updateUnitAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+        var id = userId
+        var activity="Edited a Unit";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
 
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -146,7 +150,7 @@ function updateUnitAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             alertCustom('Update Unit Successful', data.message);
-            window.location.href = `Admin-List.html`;
+            
         } else {
             alertCustom('Update Unit', 'No message returned.');
         }
@@ -157,17 +161,19 @@ function updateUnitAuditTrail(){
     });
 }
 
-function deleteUnitAuditTrail(){
-    var userId; 
-    var activity="Deleted a unit";
-    var role; 
+function deleteUnitAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+        var id = userId
+        var activity="Deleted a unit";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
 
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -179,7 +185,7 @@ function deleteUnitAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             alertCustom('Delete Unit Successful', data.message);
-            window.location.href = `Admin-List.html`;
+           
         } else {
             alertCustom('Delete Unit', 'No message returned.');
         }
@@ -190,17 +196,18 @@ function deleteUnitAuditTrail(){
     });
 }
 
-function editProfileAuditTrail(){
-    var userId; 
-    var activity="Changed information in profile";
-    var role; 
+function editProfileAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
-
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+        var id = userId
+        var activity="Edited an Info in Profile";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -212,7 +219,7 @@ function editProfileAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             alertCustom('Edit Profile Successful', data.message);
-            window.location.href = `Admin-List.html`;
+           
         } else {
             alertCustom('Edit Profile', 'No message returned.');
         }
@@ -223,17 +230,19 @@ function editProfileAuditTrail(){
     });
 }
 
-function idVerificationAuditTrail(){
-    var userId; 
-    var activity="Verified an ID";
-    var role; 
+function idVerificationAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+        var id = userId
+        var activity="Verified an ID";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
 
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -245,7 +254,7 @@ function idVerificationAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             alertCustom('ID Verification Successful', data.message);
-            window.location.href = `Admin-List.html`;
+          
         } else {
             alertCustom('ID Verification', 'No message returned.');
         }
@@ -256,17 +265,20 @@ function idVerificationAuditTrail(){
     });
 }
 
-function cancelBookingAuditTrail(){
-    var userId; 
-    var activity="Cancelled a booking";
-    var role; 
+function cancelBookingAuditTrail(userId,role){
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+        var id = userId
+        var activity="Cancelled a booking";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+    
 
-    fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -278,7 +290,7 @@ function cancelBookingAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             alertCustom('Cancel Booking Successful', data.message);
-            window.location.href = `Admin-List.html`;
+       
         } else {
             alertCustom('Cancel Booking', 'No message returned.');
         }
@@ -286,5 +298,280 @@ function cancelBookingAuditTrail(){
     .catch(error => {
         console.error('Error during registration:', error);
         alertCustom('Failed to Cancel Booking', error.message);
+    });
+}
+
+function adminAddAuditTrail(userId,role){
+
+        var id = userId
+        var activity="Added an Admin";
+        var Role = role
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+    
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Added Admin Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Add Admin', error.message);
+    });
+}
+
+function adminEditAuditTrail(userId,role){
+    var id = userId
+    var activity="Edited an Admin Info";
+    var Role = role
+
+    const trail = {
+        'UserId': id,
+        'Activity': activity,
+        'Role': Role
+    }
+
+    console.log(userId + activity + role);
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Editing Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Edit Admin', error.message);
+    });
+}
+
+function adminDeleteAuditTrail(userId,role){
+
+        var id = userId
+        var activity="Deleted an Admin";
+        var Role = role; 
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Deleting Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
+    });
+}
+
+function adminEditProfileAuditTrail(userId,role){
+
+        var id = userId
+        var activity="SAdmin Profile Edit";
+        var Role = role; 
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Edit Super Admin Info Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
+    });
+}
+
+function transactionEditTrail(userId,role){
+
+        var id = userId
+        var activity="Transaction Edit";
+        var Role = role; 
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Edit Super Admin Info Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
+    });
+}
+
+function createdFAQTrail(userId,role){
+
+
+        var id = userId
+        var activity="Created a FAQ";
+        var Role = role; 
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Edit Super Admin Info Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
+    });
+}
+
+function deletedFAQTrail(userId,role){
+
+        var id = userId
+        var activity="Deleted a FAQ";
+        var Role = role; 
+    
+        const trail = {
+            'UserId': id,
+            'Activity': activity,
+            'Role': Role
+        }
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Deleting FAQ Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
+    });
+}
+
+function editFAQTrail(userId,role){
+    var id = userId
+    var activity="Edited a FAQ";
+    var Role = role; 
+
+    const trail = {
+        'UserId': id,
+        'Activity': activity,
+        'Role': Role
+    }
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            alertCustom('Deleting FAQ Successful', data.message);
+        } else {
+            alertCustom('Cancel Booking', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during registration:', error);
+        alertCustom('Failed to Delete Admin', error.message);
     });
 }

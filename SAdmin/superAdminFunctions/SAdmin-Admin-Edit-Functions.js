@@ -19,8 +19,8 @@ async function adminFill(){
 
 function adminEdit(event) {
 
-    event.preventDefault(); 
-    event.stopPropagation(); 
+    //event.preventDefault(); 
+    //event.stopPropagation(); 
 
     console.log('function called');
     const email = document.getElementById('input-admin-email').value;
@@ -50,8 +50,9 @@ function adminEdit(event) {
     })
     .then(response => response.json())
     .then(data => {
+        adminEditAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         alertCustom('Update Successful', 'Admin updated successfully');
-        location.reload();
+        //location.reload();
     })
     .catch(error => {
         console.error('Error during update:', error);
@@ -61,11 +62,12 @@ function adminEdit(event) {
 
 function previouspage(){
     window.location.href = `Admin-View.html?id=${adminID}`;
-    //window.history.back() // pwede palitan ng window.location.href = `Admin-List.html`; palitan lang ng html kung saan mapupunta
 }
 
 document.getElementById('cancel-button').addEventListener('click', previouspage);
-document.getElementById('save-button').addEventListener('click', adminEdit);
+document.getElementById('save-button').onclick = () =>{
+    adminEdit()
+};
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href = '../LogIn.html';

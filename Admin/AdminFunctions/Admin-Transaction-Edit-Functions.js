@@ -136,6 +136,7 @@ function editTransactionData(){
     .then (respone => respone.json())
     .then(data =>{
         closeLoading();
+        transactionEditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         window.location.href=`Transactions-View.html?id=${refID}`;
         console.log(data);
     })

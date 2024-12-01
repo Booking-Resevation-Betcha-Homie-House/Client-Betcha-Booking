@@ -48,8 +48,12 @@ function DelAdmin() {
         return response.json();
     })
     .then(data => {
-        window.location.href="../SAdmin/Admin-List.html"
+        adminDeleteAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         closeLoading();
+        
+        setTimeout(() => {
+            window.location.href="../SAdmin/Admin-List.html"
+        }, 2000); 
     })
     .catch(error => {
         console.error('Error during delete:', error);

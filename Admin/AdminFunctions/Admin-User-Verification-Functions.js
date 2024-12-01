@@ -215,6 +215,7 @@ function verifyUser(id) {
     })
     .then(data => {
         closeLoading();
+        idVerificationAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         window.location.href=`User-Verify.html`;
     })
     .catch(error => {

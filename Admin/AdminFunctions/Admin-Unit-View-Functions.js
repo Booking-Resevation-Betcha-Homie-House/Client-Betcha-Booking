@@ -116,6 +116,7 @@ function DelUnit() {
     .then(data => {
         closeLoading();
         alertCustom('Unit deleted successfully', response);
+        deleteUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         window.location.href = `Units-List.html`;
     })
     .catch(error => {

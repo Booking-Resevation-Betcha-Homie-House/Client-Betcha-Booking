@@ -144,6 +144,7 @@ function editData(){
     .then(data => {
         alertCustom('Unit updated successfully', response);
         closeLoading();
+        updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         window.location.href=`Unit-View.html?id=${refID}`;
     })
     .catch(error => {

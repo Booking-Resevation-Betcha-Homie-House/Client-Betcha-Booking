@@ -26,6 +26,7 @@ function createFAQ() {
         } else {
             closeLoading();
             console.log("Error:", data.message);
+            createFAQ(localStorage.getItem('id'),localStorage.getItem('role'));
         }
     })
     .catch(error => {
@@ -63,6 +64,7 @@ function updateFAQ(faqId) {
         } else {
             closeLoading()
             console.log("Error:", data.message);
+            updateFAQ(localStorage.getItem('id'),localStorage.getItem('role'));
             window.location.href='FAQs.html';
         }
     })
@@ -91,6 +93,7 @@ function deleteFAQ(faqId) {
         } else {
             closeLoading();
             console.log("Error:", data.message);
+            deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             window.location.reload();
         }
     })
