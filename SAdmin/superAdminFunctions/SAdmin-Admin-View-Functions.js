@@ -48,13 +48,11 @@ function DelAdmin() {
         return response.json();
     })
     .then(data => {
-        alert(data.message || 'Admin deleted successfully');
         window.location.href="../SAdmin/Admin-List.html"
         closeLoading();
     })
     .catch(error => {
         console.error('Error during delete:', error);
-        alert('Failed to delete admin: ' + error.message);
         closeLoading();
     })
 }

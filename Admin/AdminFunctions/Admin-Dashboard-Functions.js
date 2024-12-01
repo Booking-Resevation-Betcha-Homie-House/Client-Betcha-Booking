@@ -192,13 +192,16 @@ async function loadMonthlyTopUnits(){
    
         tablemonth.innerHTML = '';
         
-        if (units.length === 0) {
-            tablemonth.innerHTML = '<tr><td colspan="4" class="no-data">No data available</td></tr>';
-           
+        if (units.rankedUnits.length === 0) {
+            tablemonth.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="3">No data for this Dates</td>
+                </tr>`;
             return;
         }
         
-        units.forEach(unit => {
+        units.rankedUnits.forEach(unit => {
             const row = document.createElement('tr');
 
             const rankCell = document.createElement('td');
@@ -244,13 +247,16 @@ async function loadYearlyTopUnits(){
     tableyear.innerHTML = '';
 
     
-    if (units.length === 0) {
-        tableyear.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
-     
-        return;
+    if (units.rankedUnits.length === 0) {
+        tableyear.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="3">No data for this Dates</td>
+                </tr>`;
+            return;
     }
     
-    units.forEach(unit => {
+    units.rankedUnits.forEach(unit => {
         const row = document.createElement('tr');
 
         const rankCell = document.createElement('td');

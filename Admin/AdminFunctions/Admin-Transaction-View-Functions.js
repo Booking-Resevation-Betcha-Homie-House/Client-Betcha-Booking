@@ -16,7 +16,7 @@ function loadTransactionViewData(){
             const user = data; 
 
             console.log(user.Status);
-            if(user.Status === 'Successful' || user.Status ==="Did not arrived" || user.Status === 'Unpaid' || user.Status === 'Cancelled'){
+            if(user.Status === 'Successful' || user.Status ==="Did not arrive" || user.Status === 'Unpaid' || user.Status === 'Cancelled'){
                 console.log("remove");
                 const cancelbtn = document.getElementById('cancel-booking');
                 const editbtn = document.getElementById('edit-button');
@@ -80,7 +80,7 @@ function statusvalue() {
     var status;
 
     if (cb1.checked) {
-        status = 'Did not arrived';
+        status = 'Did not arrive';
         return status;
     } else if (cb2.checked) {
         status = 'Unpaid';

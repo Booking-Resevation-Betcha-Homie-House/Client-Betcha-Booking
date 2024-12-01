@@ -84,7 +84,7 @@
                                     <div class="db-icon-bg"><i class="far fa-calendar-alt db-icon"></i></div>
                                     <div class="ms-4">
                                         <h3 id="total-earnings-monthly" class="mb-0" style="color: #212529;"><strong>₱8,546</strong></h3>
-                                        <p class="mb-0 text-nowrap" style="color: #212529;line-height: 1.8;">Earnings (Monthly)</p>
+                                        <p class="mb-0 text-nowrap" style="color: #212529;line-height: 1.8;">Earnings (This Month)</p>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                     <div class="db-icon-bg"><i class="fas fa-coins db-icon"></i></div>
                                     <div class="ms-4">
                                         <h3 id="total-earnings-yearly" class="mb-0" style="color: #212529;"><strong>₱8,546</strong></h3>
-                                        <p class="mb-0 text-nowrap" style="color: #212529;line-height: 1.8;">Earnings (Yearly)</p>
+                                        <p class="mb-0 text-nowrap" style="color: #212529;line-height: 1.8;">Earnings (This Year)</p>
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +155,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="table-responsive mt-3">
-                                                                <table class="table table-striped table-bordered">
+                                                                <table class="table table-hover table border">
                                                                     <thead class="table-light">
                                                                         <tr>
                                                                             <th class="tbl-rank-cell">Rank</th>
@@ -165,9 +165,14 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody id="table-monthly">
-                                                                        <!-- Monthly Data Rows -->
+                                                                        <tr>
+                                                                            <!-- Ensure the placeholder row includes one cell per column -->
+                                                                            <td style="text-align: center;" colspan="4">No data available</td>
+                                                                        </tr>
                                                                     </tbody>
                                                                 </table>
+                                                                
+                                                                
                                                             </div>
                                                         </div>
                                                         <!-- Year Tab -->
@@ -180,7 +185,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="table-responsive mt-3">
-                                                                <table class="table table-striped table-bordered">
+                                                                <table class="table table-hover table border">
                                                                     <thead class="table-light">
                                                                         <tr>
                                                                             <th class="tbl-rank-cell">Rank</th>
@@ -198,6 +203,11 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-end" >
+                                            <h5 style="margin-right: 40px;" id="total-earnings-all-unit"><strong>TOTAL: </strong></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +235,7 @@
                                                         <!-- Completed Tab -->
                                                         <div class="tab-pane" role="tabpanel" id="tab-completed">
                                                             <div class="table-responsive table mt-2 db-table" role="grid" aria-describedby="dataTable_info">
-                                                                <table class="table table-striped table-bordered">
+                                                                <table class="table table-hover table border">
                                                                     <thead class="table-light">
                                                                         <tr class="sticky-top">
                                                                             <th style="text-align: center;">Reference No.</th>
@@ -259,7 +269,7 @@
                                                         <!-- Pending Tab -->
                                                         <div class="tab-pane active" role="tabpanel" id="tab-pending">
                                                             <div class="table-responsive table mt-2 db-transaction" role="grid" aria-describedby="dataTable_info">
-                                                                <table class="table table-striped table-bordered">
+                                                                <table class="table table-hover table border">
                                                                     <thead class="table-light">
                                                                         <tr class="sticky-top">
                                                                             <th style="text-align: center;">Reference No.</th>

@@ -1,5 +1,3 @@
-//unfinshed
-// di sure kung anong gagamitin
 const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
 
@@ -43,20 +41,20 @@ function editadmin(){
         console.log(adminEmail);
     }
 
-    if(!adminEmail){
+    if(adminEmail){
         
         adminData.email = adminEmail;
         console.log(adminUsername);
     }
 
     if(adminpass === adminconfirm){
-    if(!adminpass){
+    if(adminpass){
         adminData.password = adminpass
         console.log(adminpass);
     }
     }
-    
-    fetch(`https://betcha-booking-api-master.onrender.com/superAdminEdit/${refID}`,{
+    const adminId = localStorage.getItem('id');
+    fetch(`https://betcha-booking-api-master.onrender.com/superAdminEdit/${adminId}`,{
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

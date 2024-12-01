@@ -158,12 +158,15 @@ function addUserToRow(row, user) {
         document.getElementById('view-user-mname').textContent = user.middleInitial;
         document.getElementById('view-lname').textContent = user.lastName;
         document.getElementById('view-user-bday').textContent = user.bday;
-        document.getElementById('bottom-modal-image').src = `https://drive.google.com/thumbnail?id=${user.IdImage.fileId}&sz=w1920-h1080`;
 
-        const image = document.getElementById('bottom-modal-image');
-        image.addEventListener('click', function() {
-            window.open(`https://lh3.googleusercontent.com/d/${user.IdImage.fileId}=w1920-h1080?authuser=0`, '_blank');  
-        });
+        const linkimage = `https://drive.google.com/thumbnail?id=${user.IdImage.fileId}&sz=w1920-h1080`;
+        const image = document.getElementById('imageElement');
+        image.src = linkimage;
+
+        image.onclick = function() {
+            const fullSizeImageUrl = `https://lh3.googleusercontent.com/d/${user.IdImage.fileId}=w1920-h1080?authuser=0`;
+            window.open(fullSizeImageUrl, '_blank');  
+        };
 
         console.log(user._id);
 

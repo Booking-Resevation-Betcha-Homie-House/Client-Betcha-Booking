@@ -60,19 +60,19 @@ function checkSuperAdmin(SuperAdmin){
 }
 
 function checkForAllUsers(role){
-    if (SuperAdmin === 'SuperAdmin'){
+    if (role === 'SuperAdmin'){
         window.location.href = "../SAdmin/Dashboard.html";
     }
-    else if (SuperAdmin === 'Admin'){
+    else if (role === 'Admin'){
         console.log('This is for admin page');
         window.location.href = "../Admin/Dashboard.html";
     }
-    else if (SuperAdmin === 'Customer'){
+    else if (role === 'Customer'){
         console.log('This page is for customers');
         // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
     }
     else{
         console.log('no logged in user')
-        // window.location.href = "../landing page"; lagyan kapag meron na
+        window.location.href = "../LogIn.html";
     }
 }

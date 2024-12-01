@@ -43,19 +43,19 @@ function editadmin(){
 
     if (adminUsername){
         adminData.adminName = adminUsername;
-        console.log(adminEmail);
+        console.log('username in');
     }
 
-    if(!adminEmail){
+    if(adminEmail){
         
         adminData.email = adminEmail;
-        console.log(adminUsername);
+        console.log('email in');
     }
 
     if(adminpass === adminconfirm){
-    if(!adminpass){
+    if(adminpass){
         adminData.password = adminpass
-        console.log(adminpass);
+        console.log('password in');
     }
     }
     

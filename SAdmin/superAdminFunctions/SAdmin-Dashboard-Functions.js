@@ -19,7 +19,11 @@ async function loadTransactionData() {
         console.log(admins);
         
         if (admins.length === 0) {
-            tbodycompleted.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
+            tbodycompleted.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="7">No data</td>
+                </tr>`;
             return;
         }
         
@@ -82,7 +86,11 @@ async function loadTransactionData() {
         console.log(pending);  
 
         if (pending.length === 0) {
-            tbodypending.innerHTML = '<tr><td colspan="4" class="no-data">No pending data available</td></tr>';
+            tbodypending.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="7">No data</td>
+                </tr>`;
             return;
         }
             var num = 0
@@ -194,8 +202,11 @@ async function loadMonthlyTopUnits(){
         tablemonth.innerHTML = '';
         
         if (units.length === 0) {
-            tablemonth.innerHTML = '<tr><td colspan="4" class="no-data">No data available</td></tr>';
-           
+            tablemonth.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="3">No data</td>
+                </tr>`;
             return;
         }
         
@@ -246,9 +257,12 @@ async function loadYearlyTopUnits(){
 
     
     if (units.length === 0) {
-        tableyear.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
-     
-        return;
+        tableyear.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="3">No data</td>
+                </tr>`;
+            return;
     }
     
     units.forEach(unit => {
