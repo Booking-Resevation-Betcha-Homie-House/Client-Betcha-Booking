@@ -26,11 +26,11 @@ function AddAdmin() {
     const confirmpassword = document.getElementById('input-admin-confirm-password').value;
     
     if (!email || !password || !adminName) {
-        alertCustom('Missing Information', 'Please fill out all fields.');
+        console.log('Missing Information', 'Please fill out all fields.');
         return;
     }
     else if (password != confirmpassword){
-        alertCustom('Password Mismatch', 'Password and Confirm password do not match.');
+        console.log('Password Mismatch', 'Password and Confirm password do not match.');
         return;
     }
 
@@ -57,18 +57,18 @@ function AddAdmin() {
         console.log(data); 
         if (data && data.message) {
             adminAddAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-            alertCustom('Registration Successful', data.message);
+            console.log('Registration Successful', data.message);
             console.log(localStorage.getItem('id'),localStorage.getItem('role'));
           
             setTimeout(() => {
                 window.location.href = `Admin-List.html`;
             }, 2000); 
-            alertCustom('Registration Successful', 'No message returned.');
+            console.log('Registration Successful', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Registration Failed', error.message);
+        console.log('Registration Failed', error.message);
     });
 }
 

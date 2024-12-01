@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             label.textContent = "Choose an Image";
             fileInput.value = ""; // Reset the input
             previewContainer.style.display = "none"; // Hide the container
-            alertCustom('Upload files',"Please upload only image files.");
+            console.log('Upload files',"Please upload only image files.");
         }
     });
 });

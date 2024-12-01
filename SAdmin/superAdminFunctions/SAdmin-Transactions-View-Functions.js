@@ -64,7 +64,7 @@ function loadTransactionViewData(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alertCustom('Failed to display Transaction',error.message);
+        console.log('Failed to display Transaction',error.message);
     });
 
 }
@@ -124,7 +124,7 @@ function cancelBooking(){
     })
     .catch(error => {
         console.log(error)
-        alertCustom('Failed to Cancel Booking', error.message)
+        console.log('Failed to Cancel Booking', error.message)
         closeLoading();
     });
 }

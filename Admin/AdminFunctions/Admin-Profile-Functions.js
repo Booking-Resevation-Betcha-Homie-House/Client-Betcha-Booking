@@ -16,7 +16,7 @@ function adminProfile(){
 
             document.getElementById('profile-username').textContent = `${user.adminName}`; 
         } else {
-            alertCustom('Admin Not Found', 'Super Admin not found or missing data.');
+            alert('Admin Not Found', 'Super Admin not found or missing data.');
         }
         document.getElementById('edit-btn').onclick = () => {
             window.location.href = `Profile-Edit.html?id=${user._id}`;
@@ -24,7 +24,7 @@ function adminProfile(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alertCustom('Error', 'Failed to display Admin info: ' + error.message);
+        alert('Error', 'Failed to display Admin info: ' + error.message);
     });
 }
 

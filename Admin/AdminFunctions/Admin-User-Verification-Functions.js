@@ -221,7 +221,7 @@ function verifyUser(id) {
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alertCustom('Failed to verify user: ', error.message);
+        console.log('Failed to verify user: ', error.message);
     });
 }
 
@@ -258,7 +258,7 @@ function unverifyUser(id) {
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alertCustom('Failed to unverify user: ', error.message);
+        console.log('Failed to unverify user: ', error.message);
     });
 }
 document.getElementById('logout-btn').onclick = () => {

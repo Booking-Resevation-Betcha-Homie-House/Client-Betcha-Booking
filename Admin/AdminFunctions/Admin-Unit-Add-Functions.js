@@ -87,17 +87,17 @@ function AdminAddUnit(){
     .then(data => {
         console.log(data);
         if (data && data.message) {
-            alertCustom('Success', 'Adding Unit successful: ' + data.message);
+            console.log('Success', 'Adding Unit successful: ' + data.message);
             closeLoading();
             adminAddAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         } else {
-            alertCustom('Success', 'Adding unit successful, but no message returned.');
+            console.log('Success', 'Adding unit successful, but no message returned.');
             closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        alertCustom('Error', 'Failed to register unit: ' + error.message);
+        console.log('Error', 'Failed to register unit: ' + error.message);
         closeLoading();
     });
 }

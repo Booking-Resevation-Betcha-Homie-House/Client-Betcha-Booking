@@ -69,7 +69,7 @@ function editadmin(){
     .then (respone => respone.json())
     .then(data =>{
         console.log(data);
-        alertCustom('Info Updated!', data.message);
+        console.log('Info Updated!', data.message);
         setTimeout(() => {
             adminEditProfileAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         }, 2000);
@@ -77,7 +77,7 @@ function editadmin(){
     })
     .catch(error => {
         console.log(error)
-        alertCustom('Failed to Update the info', error.message)
+        console.log('Failed to Update the info', error.message)
     });
 }
 

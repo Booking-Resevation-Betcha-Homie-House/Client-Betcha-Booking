@@ -142,7 +142,7 @@ function editData(){
 })
     .then(response => response.json())
     .then(data => {
-        alertCustom('Unit updated successfully', response);
+        console.log('Unit updated successfully', response);
         closeLoading();
         updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
@@ -152,7 +152,7 @@ function editData(){
     })
     .catch(error => {
         console.error('Error during update:', error);
-        alertCustom('Failed to update Unit: ', error.message);
+        console.log('Failed to update Unit: ', error.message);
         closeLoading();
     }); 
 }

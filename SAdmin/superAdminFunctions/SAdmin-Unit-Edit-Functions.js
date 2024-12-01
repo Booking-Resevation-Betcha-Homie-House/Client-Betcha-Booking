@@ -146,7 +146,7 @@ function editData(){
 })
     .then(response => response.json())
     .then(data => {
-        alertCustom('Admin updated successfully', response);
+        console.log('Admin updated successfully', response);
         closeLoading();
         updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
@@ -156,7 +156,7 @@ function editData(){
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alertCustom('Failed to update Unit: ', error.message);
+        console.log('Failed to update Unit: ', error.message);
     }); 
 }
 

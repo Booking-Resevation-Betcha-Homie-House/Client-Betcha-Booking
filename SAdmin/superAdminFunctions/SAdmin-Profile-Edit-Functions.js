@@ -64,12 +64,12 @@ function editadmin(){
     .then (respone => respone.json())
     .then(data =>{
         console.log(data);
-        alertCustom('Info Updated!', data.message);
+        console.log('Info Updated!', data.message);
         adminEditProfileAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
     })
     .catch(error => {
         console.log(error)
-        alertCustom('Failed to Update the info', error.message)
+        console.log('Failed to Update the info', error.message)
     });
 }
 

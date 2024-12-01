@@ -51,12 +51,12 @@ function adminEdit(event) {
     .then(response => response.json())
     .then(data => {
         adminEditAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-        alertCustom('Update Successful', 'Admin updated successfully');
+        console.log('Update Successful', 'Admin updated successfully');
         //location.reload();
     })
     .catch(error => {
         console.error('Error during update:', error);
-        alertCustom('Update Failed', 'Failed to update Admin: ' + error.message);
+        console.log('Update Failed', 'Failed to update Admin: ' + error.message);
     }); 
 }
 

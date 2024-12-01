@@ -46,7 +46,7 @@ async function LoginButton() {
 
             closeLoading();
             setTimeout(() => {
-                alertCustom('Login','Successfully logged in as Customer');
+                console.log('Login','Successfully logged in as Customer');
             }, 1000);
             return;
         }

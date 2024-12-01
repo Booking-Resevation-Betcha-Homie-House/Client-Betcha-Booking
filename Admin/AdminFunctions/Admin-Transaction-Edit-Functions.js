@@ -109,7 +109,7 @@ function loadTransactionEditData(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alertCustom('Failed to display Admin info: ', error.message);
+        console.log('Failed to display Admin info: ', error.message);
     });
 
 }
@@ -145,7 +145,7 @@ function editTransactionData(){
     })
     .catch(error => {
         console.log(error)
-        alertCustom('Failed to Update the info', error.message)
+        console.log('Failed to Update the info', error.message)
         closeLoading();
     });
 }

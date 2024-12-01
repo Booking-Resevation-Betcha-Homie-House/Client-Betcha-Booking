@@ -15,17 +15,31 @@
     <link rel="stylesheet" href="../assets/css/Custom.css">
     <link rel="stylesheet" href="../assets/css/ProfilePicture.css">
     <link rel="stylesheet" href="../assets/css/Scrollbar.compiled.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        #myBarChart {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 </head>
+
 <script> 
     window.onload = function() {
         openLoading();
+
         const role = localStorage.getItem('role')
         console.log(role)
-        checkAdmin(role);
-
+        checkSuperAdmin(role);
+        populateYearOptions();
         loadTransactionData();
-        loadYearlyTopUnits();
-        loadMonthlyTopUnits();    
+        loadMonthlyTopUnits();
         closeLoading();
      }
  </script>   
@@ -112,108 +126,52 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 mb-4">
-                            <!--copy here-->
-                            <div class="card shadow-sm rounded-lg border-0">
-                                <div class="card-header bg-transparent"> <!--class="card-header bg-success text-white py-3"-->
-                                    <h5 style="color: #127845;"><strong>Top Units Overview</strong></h5>
-                                </div>                         
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div id="Tabs">
-                                                <div>
-                                                    <ul class="nav nav-tabs" role="tablist">
-                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-month">Month</a></li>
-                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-year">Year</a></li>
-                                                    </ul>
-                                                    <div class="tab-content">
-                                                        <!-- Month Tab -->
-                                                        <div class="tab-pane active" role="tabpanel" id="tab-month">
-                                                            <div class="d-flex justify-content-end flex-wrap gap-3 mb-3">
-                                                                <div>
-                                                                    <select id="select-month" class="form-select">
-                                                                        <option value="1">January</option>
-                                                                        <option value="2">February</option>
-                                                                        <option value="3">March</option>
-                                                                        <option value="4">April</option>
-                                                                        <option value="5">May</option>
-                                                                        <option value="6">June</option>
-                                                                        <option value="7">July</option>
-                                                                        <option value="8">August</option>
-                                                                        <option value="9">September</option>
-                                                                        <option value="10">October</option>
-                                                                        <option value="11">November</option>
-                                                                        <option value="12">December</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div>
-                                                                    <select id="select-year" class="form-select">
-                                                                        <!-- Populate dynamic year options -->
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="table-responsive mt-3">
-                                                                <table class="table table-hover table border">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <th class="tbl-rank-cell">Rank</th>
-                                                                            <th style="text-align: center;">Unit Name</th>
-                                                                            <th style="text-align: center;">Location</th>
-                                                                            <th style="text-align: center;">Total Earnings</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody id="table-monthly">
-                                                                        <tr>
-                                                                            <!-- Ensure the placeholder row includes one cell per column -->
-                                                                            <td style="text-align: center;" colspan="4">No data available</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                        <!-- Year Tab -->
-                                                        <div class="tab-pane" role="tabpanel" id="tab-year">
-                                                            <div class="d-flex justify-content-end flex-wrap gap-3 mb-3">
-                                                                <div>
-                                                                    <select id="select-year1" class="form-select">
-                                                                        <!-- Populate dynamic year options -->
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="table-responsive mt-3">
-                                                                <table class="table table-hover table border">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <th class="tbl-rank-cell">Rank</th>
-                                                                            <th>Unit Name</th>
-                                                                            <th>Location</th>
-                                                                            <th>Total Earnings</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody id="table-yearly">
-                                                                        <!-- Yearly Data Rows -->
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card shadow-sm rounded-lg border-0">
+                                    <div class="card-body">
+                                        <h5><strong>Top Units by Earnings</strong></h5>
+                                        <div class="d-flex justify-content-end flex-wrap gap-3 mb-3">
+                                            <div>
+                                                <select id="select-month" class="form-select">
+                                                    <option value="1">January</option>
+                                                    <option value="2">February</option>
+                                                    <option value="3">March</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">May</option>
+                                                    <option value="6">June</option>
+                                                    <option value="7">July</option>
+                                                    <option value="8">August</option>
+                                                    <option value="9">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select id="select-year" class="form-select">
+                                                    <!-- Year options will be populated dynamically -->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="myBarChart"></canvas>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col d-flex justify-content-end" >
+                                                        <h4 style="margin-right: 10px;" id="total-earnings-all-unit"><strong>Total: ₱</strong></h4>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col d-flex justify-content-end" >
-                                            <h5 style="margin-right: 40px;" id="total-earnings-all-unit"><strong>TOTAL: </strong></h5>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 mb-4">
+                    <div cleass ="row">
+                        <div class="col-12 mb-4">
                             <div class="card shadow-sm rounded-lg border-0">
                                 <div class="card-header bg-transparent">
                                     <h5 style="color: #127845;"><strong>Transaction List</strong></h5>
@@ -305,7 +263,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="row">
                                         <div class="col d-flex justify-content-end">
                                             <a class="btn btn-primary" role="button" href="Transactions-List.html">
@@ -316,9 +273,8 @@
                                 </div>
                             </div> 
                         </div>
-                        <!--to here-->
                     </div>
-                </div>
+                </div>   
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
@@ -379,44 +335,9 @@
             </div>
         </div>
     </div>
-    <script>   const currentMonth = new Date().getMonth() + 1; 
-        document.getElementById('select-month').value = currentMonth;
-        const currentYear = new Date().getFullYear(); 
-        document.getElementById('select-year').value = currentYear;
-        document.getElementById('select-year1').value = currentYear;
 
-     
-
-
-        const startYear = 2024;
-
-        const availableYears = [];
-
-        for (let year = startYear; year <= currentYear; year++) {
-            availableYears.push(year);
-        }
-
-        function populateYearSelect(selectId) {
-            const yearSelect = document.getElementById(selectId);
-
-            availableYears.forEach(year => {
-                const option = document.createElement('option');
-                option.value = year;
-                option.textContent = year;
-
-                if (year === currentYear) {
-                    option.selected = true;
-                }
-
-                yearSelect.appendChild(option);
-                
-            });
-        }
-        populateYearSelect('select-year');
-        populateYearSelect('select-year1');
-    </script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/Calendar.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/ChangeProfile.js"></script>
     <script src="../assets/js/FileUpload.js"></script>
     <script src="../assets/js/Status.js"></script>
@@ -425,6 +346,6 @@
     <script src="../loading.js"></script>
     <script src="../CheckUsers.js"></script>
     <script src="../customAlert.js"></script>
-    <script src="AuditTrail-Admin-Functions.js"></script>
+    <script src="../SAdmin/superAdminFunctions/chart.js"></script>
 </body>
 </html>

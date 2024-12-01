@@ -88,7 +88,7 @@ async function loadAuditData(){
         });
     } catch (error) {
         console.error('Error:', error);
-        alertCustom('Error', 'Failed to load audit data.');
+        console.log('Error', 'Failed to load audit data.');
     }
 }
 
@@ -115,14 +115,14 @@ function createUnitAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Create Unit', data.message);
+            console.log('Create Unit', data.message);
         } else {
-            alertCustom('Create Unit', 'No message returned.');
+            console.log('Create Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Create Unit', error.message);
+        console.log('Failed to Create Unit', error.message);
     });
 }
 
@@ -149,15 +149,15 @@ function updateUnitAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Update Unit Successful', data.message);
+            console.log('Update Unit Successful', data.message);
             
         } else {
-            alertCustom('Update Unit', 'No message returned.');
+            console.log('Update Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Update Unit', error.message);
+        console.log('Failed to Update Unit', error.message);
     });
 }
 
@@ -184,15 +184,15 @@ function deleteUnitAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Delete Unit Successful', data.message);
+            console.log('Delete Unit Successful', data.message);
            
         } else {
-            alertCustom('Delete Unit', 'No message returned.');
+            console.log('Delete Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Unit', error.message);
+        console.log('Failed to Delete Unit', error.message);
     });
 }
 
@@ -218,15 +218,15 @@ function editProfileAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Edit Profile Successful', data.message);
+            console.log('Edit Profile Successful', data.message);
            
         } else {
-            alertCustom('Edit Profile', 'No message returned.');
+            console.log('Edit Profile', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Edit Profile', error.message);
+        console.log('Failed to Edit Profile', error.message);
     });
 }
 
@@ -253,15 +253,15 @@ function idVerificationAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('ID Verification Successful', data.message);
+            console.log('ID Verification Successful', data.message);
           
         } else {
-            alertCustom('ID Verification', 'No message returned.');
+            console.log('ID Verification', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Verify ID', error.message);
+        console.log('Failed to Verify ID', error.message);
     });
 }
 
@@ -289,15 +289,15 @@ function cancelBookingAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Cancel Booking Successful', data.message);
+            console.log('Cancel Booking Successful', data.message);
        
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Cancel Booking', error.message);
+        console.log('Failed to Cancel Booking', error.message);
     });
 }
 
@@ -325,14 +325,14 @@ function adminAddAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Added Admin Successful', data.message);
+            console.log('Added Admin Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Add Admin', error.message);
+        console.log('Failed to Add Admin', error.message);
     });
 }
 
@@ -359,14 +359,14 @@ function adminEditAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Editing Successful', data.message);
+            console.log('Editing Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Edit Admin', error.message);
+        console.log('Failed to Edit Admin', error.message);
     });
 }
 
@@ -394,14 +394,14 @@ function adminDeleteAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Deleting Successful', data.message);
+            console.log('Deleting Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }
 
@@ -428,14 +428,14 @@ function adminEditProfileAuditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Edit Super Admin Info Successful', data.message);
+            console.log('Edit Super Admin Info Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }
 
@@ -462,14 +462,14 @@ function transactionEditTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Edit Super Admin Info Successful', data.message);
+            console.log('Edit Super Admin Info Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }
 
@@ -498,14 +498,14 @@ function createdFAQTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Edit Super Admin Info Successful', data.message);
+            console.log('Edit Super Admin Info Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }
 
@@ -532,14 +532,14 @@ function deletedFAQTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Deleting FAQ Successful', data.message);
+            console.log('Deleting FAQ Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }
 
@@ -565,13 +565,13 @@ function editFAQTrail(userId,role){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Deleting FAQ Successful', data.message);
+            console.log('Deleting FAQ Successful', data.message);
         } else {
-            alertCustom('Cancel Booking', 'No message returned.');
+            console.log('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alertCustom('Failed to Delete Admin', error.message);
+        console.log('Failed to Delete Admin', error.message);
     });
 }

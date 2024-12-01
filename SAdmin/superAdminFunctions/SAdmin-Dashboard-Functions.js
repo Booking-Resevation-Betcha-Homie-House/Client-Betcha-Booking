@@ -1,7 +1,4 @@
 async function loadTransactionData() {
-
-    //Checker ng role 
-
     try {
         const role = localStorage.getItem('role')
         console.log(role);
@@ -185,114 +182,6 @@ async function loadTransactionData() {
 
 }   
 
-async function loadMonthlyTopUnits(){
-    console.log('called monthy')
-   
-    const month = document.getElementById('select-month').value;
-    const year = document.getElementById('select-year').value
-    const response = await fetch(`https://betcha-booking-api-master.onrender.com/getMonth/${month}/${year}`);
-        if (!response.ok) {
-           
-            throw new Error('Failed to fetch top units data');
-        }
-       
-        const units = await response.json();
-        const tablemonth = document.getElementById('table-monthly');
-   
-        tablemonth.innerHTML = '';
-        
-        if (units.rankedUnits.length === 0) {
-            tablemonth.innerHTML = `
-                <tr>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;" colspan="3">No data</td>
-                </tr>`;
-            return;
-        }
-        
-        units.rankedUnits.forEach(unit => {
-            const row = document.createElement('tr');
-
-            const rankCell = document.createElement('td');
-            rankCell.textContent = unit.top;  
-            rankCell.style.textAlign = 'center';
-            row.appendChild(rankCell);
-
-            const unitNameCell = document.createElement('td');
-            unitNameCell.textContent = unit.unitName;  
-            unitNameCell.style.textAlign = 'center';
-            row.appendChild(unitNameCell);
-
-            const locationCell = document.createElement('td');
-            locationCell.textContent = unit.location;  
-            locationCell.style.textAlign = 'center';
-            row.appendChild(locationCell);
-
-            const totalEarningsCell = document.createElement('td');
-            totalEarningsCell.textContent = unit.totalEarnings;  
-            totalEarningsCell.style.textAlign = 'center';
-            row.appendChild(totalEarningsCell);
-
-            tablemonth.appendChild(row);
-        
-        });
-  
-}
-
-async function loadYearlyTopUnits(){
-    console.log('called yearly')
-  
-    const year = document.getElementById('select-year1').value
-    
-    const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAnnual/${year}`);
-    if (!response.ok) {
-       
-        throw new Error('Failed to data');
-    }
-   
-    const units = await response.json();
-    const tableyear = document.getElementById('table-yearly');
-
-    tableyear.innerHTML = '';
-
-    
-    if (units.rankedUnits.ranklength === 0) {
-        tableyear.innerHTML = `
-                <tr>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;" colspan="3">No data</td>
-                </tr>`;
-            return;
-    }
-    
-    units.rankedUnits.forEach(unit => {
-        const row = document.createElement('tr');
-
-        const rankCell = document.createElement('td');
-        rankCell.textContent = unit.top;  
-        rankCell.style.textAlign = 'center';
-        row.appendChild(rankCell);
-
-        const unitNameCell = document.createElement('td');
-        unitNameCell.textContent = unit.unitName;  
-        unitNameCell.style.textAlign = 'center';
-        row.appendChild(unitNameCell);
-
-        const locationCell = document.createElement('td');
-        locationCell.textContent = unit.location;  
-        locationCell.style.textAlign = 'center';
-        row.appendChild(locationCell);
-
-        const totalEarningsCell = document.createElement('td');
-        totalEarningsCell.textContent = unit.totalEarnings;  
-        totalEarningsCell.style.textAlign = 'center';
-        row.appendChild(totalEarningsCell);
-
-        tableyear.appendChild(row);
-    });
-   
-}
-
 document.getElementById('select-month').addEventListener('change', (event) =>{
     openLoading();
     loadMonthlyTopUnits();
@@ -311,12 +200,11 @@ document.getElementById('select-year1').addEventListener('change', (event) =>{
     loadYearlyTopUnits();
     closeLoading();
 })
-//
-document.getElementById('pending-v').onclick=function(){
-    window.location.href = '../SAdmin/User-Verify.html'
-}; 
-document.getElementById('logout-btn').onclick = () => {
-    localStorage.clear();
-    window.location.href ='../LogIn.html';
-}
 
+document.getElementById('pending-v').onclick=function(){
+        window.location.href = '../SAdmin/User-Verify.html'
+        }; 
+        document.getElementById('logout-btn').onclick = () => {
+            localStorage.clear();
+            window.location.href ='../LogIn.html';
+        }

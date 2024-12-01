@@ -1,5 +1,8 @@
 async function loadTransactionData() {
     try {
+        const role = localStorage.getItem('role')
+        console.log(role);
+        checkSuperAdmin(role);
         const response = await fetch('https://betcha-booking-api-master.onrender.com/getCompleted');
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
@@ -13,7 +16,11 @@ async function loadTransactionData() {
         console.log(admins);
         
         if (admins.length === 0) {
-            tbodycompleted.innerHTML = '<tr><td colspan="4" class="no-data">No admin data available</td></tr>';
+            tbodycompleted.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="7">No data</td>
+                </tr>`;
             return;
         }
         
@@ -76,7 +83,11 @@ async function loadTransactionData() {
         console.log(pending);  
 
         if (pending.length === 0) {
-            tbodypending.innerHTML = '<tr><td colspan="4" class="no-data">No pending data available</td></tr>';
+            tbodypending.innerHTML = `
+                <tr>
+                    <td style="text-align: center;">-</td>
+                    <td style="text-align: center;" colspan="7">No data</td>
+                </tr>`;
             return;
         }
             var num = 0
@@ -129,35 +140,30 @@ async function loadTransactionData() {
     } catch (error) {
         console.error('Error:', error);
     }
-
-    try{
-        const response = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisMonth');
-        if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
+    try {
+        const responseMonth = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisMonth');
+        if (!responseMonth.ok) {
+            throw new Error('Failed to fetch monthly earnings');
         }
-        const price = await response.json()
-        console.log(response.earnings)
-        document.getElementById('total-earnings-monthly').innerHTML = '<strong>₱' +  price.earnings + '</strong>';
-
-    }
-    catch (error) {
+        const priceMonth = await responseMonth.json();
+        console.log('fewjknfwj', priceMonth);
+        document.getElementById('total-earnings-monthly').innerHTML = '<strong>₱' + priceMonth.earnings + '</strong>';
+    } catch (error) {
         console.error('Error:', error);
     }
-
-    try{
-        const response = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisYear');
-        if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
+    
+    try {
+        const responseYear = await fetch('https://betcha-booking-api-master.onrender.com/earnings/thisYear');
+        if (!responseYear.ok) {
+            throw new Error('Failed to fetch yearly earnings');
         }
-        const price = await response.json()
-        console.log(response)
-        document.getElementById('total-earnings-yearly').innerHTML = '<strong>₱' + price.earnings + '</strong>';
-
-
-    }
-    catch (error) {
+        const priceYear = await responseYear.json();
+        console.log('faekjfksfja', priceYear);
+        document.getElementById('total-earnings-yearly').innerHTML = '<strong>₱' + priceYear.earnings + '</strong>';
+    } catch (error) {
         console.error('Error:', error);
-    }    
+    }
+      
 
 
     try{
@@ -175,138 +181,9 @@ async function loadTransactionData() {
     } 
 
 }   
-
-async function loadMonthlyTopUnits(){
-    console.log('called monthy')
-   
-    const month = document.getElementById('select-month').value;
-    const year = document.getElementById('select-year').value
-    const response = await fetch(`https://betcha-booking-api-master.onrender.com/getMonth/${month}/${year}`);
-        if (!response.ok) {
-           
-            throw new Error('Failed to fetch top units data');
-        }
-       
-        const units = await response.json();
-        const tablemonth = document.getElementById('table-monthly');
-   
-        tablemonth.innerHTML = '';
-        
-        if (units.rankedUnits.length === 0) {
-            tablemonth.innerHTML = `
-                <tr>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;" colspan="3">No data for this Dates</td>
-                </tr>`;
-            return;
-        }
-        
-        units.rankedUnits.forEach(unit => {
-            const row = document.createElement('tr');
-
-            const rankCell = document.createElement('td');
-            rankCell.textContent = unit.top;  
-            rankCell.style.textAlign = 'center';
-            row.appendChild(rankCell);
-
-            const unitNameCell = document.createElement('td');
-            unitNameCell.textContent = unit.unitName;  
-            unitNameCell.style.textAlign = 'center';
-            row.appendChild(unitNameCell);
-
-            const locationCell = document.createElement('td');
-            locationCell.textContent = unit.location;  
-            locationCell.style.textAlign = 'center';
-            row.appendChild(locationCell);
-
-            const totalEarningsCell = document.createElement('td');
-            totalEarningsCell.textContent = unit.totalEarnings;  
-            totalEarningsCell.style.textAlign = 'center';
-            row.appendChild(totalEarningsCell);
-
-            tablemonth.appendChild(row);
-        
-        });
-  
-}
-
-async function loadYearlyTopUnits(){
-    console.log('called yearly')
-  
-    const year = document.getElementById('select-year1').value
-    
-    const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAnnual/${year}`);
-    if (!response.ok) {
-       
-        throw new Error('Failed to data');
-    }
-   
-    const units = await response.json();
-    const tableyear = document.getElementById('table-yearly');
-
-    tableyear.innerHTML = '';
-
-    
-    if (units.rankedUnits.length === 0) {
-        tableyear.innerHTML = `
-                <tr>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;" colspan="3">No data for this Dates</td>
-                </tr>`;
-            return;
-    }
-    
-    units.rankedUnits.forEach(unit => {
-        const row = document.createElement('tr');
-
-        const rankCell = document.createElement('td');
-        rankCell.textContent = unit.top;  
-        rankCell.style.textAlign = 'center';
-        row.appendChild(rankCell);
-
-        const unitNameCell = document.createElement('td');
-        unitNameCell.textContent = unit.unitName;  
-        unitNameCell.style.textAlign = 'center';
-        row.appendChild(unitNameCell);
-
-        const locationCell = document.createElement('td');
-        locationCell.textContent = unit.location;  
-        locationCell.style.textAlign = 'center';
-        row.appendChild(locationCell);
-
-        const totalEarningsCell = document.createElement('td');
-        totalEarningsCell.textContent = unit.totalEarnings;  
-        totalEarningsCell.style.textAlign = 'center';
-        row.appendChild(totalEarningsCell);
-
-        tableyear.appendChild(row);
-    });
-   
-}
-
-document.getElementById('select-month').addEventListener('change', (event) =>{
-    openLoading();
-    loadMonthlyTopUnits();
-    closeLoading(); 
-})
-
-document.getElementById('select-year').addEventListener('change', (event) =>{
-
-    openLoading();
-    loadMonthlyTopUnits();
-    closeLoading(); 
-})
-
-document.getElementById('select-year1').addEventListener('change', (event) =>{
-    openLoading();
-    loadYearlyTopUnits();
-    closeLoading();
-})
-//
 document.getElementById('pending-v').onclick=function(){
-    window.location.href = '../Admin/User-Verify.html'
+    window.location.href = '../SAdmin/User-Verify.html'
 }; 
-
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';

@@ -60,7 +60,7 @@ function loadTransactionViewData(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alertCustom('Failed to Load ', error.message);
+        console.log('Failed to Load ', error.message);
     });
 
 }
@@ -120,7 +120,7 @@ function cancelBooking(){
     })
     .catch(error => {
         console.log(error)
-        alertCustom('Failed to Cancel', error.message)
+        console.log('Failed to Cancel', error.message)
     });
 }
 

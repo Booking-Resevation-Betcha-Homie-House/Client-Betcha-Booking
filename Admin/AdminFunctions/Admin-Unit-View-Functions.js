@@ -115,7 +115,7 @@ function DelUnit() {
     .then(response => response.json())
     .then(data => {
         closeLoading();
-        alertCustom('Unit deleted successfully', response);
+        console.log('Unit deleted successfully', response);
         deleteUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
             window.location.href = `Units-List.html`;
@@ -123,7 +123,7 @@ function DelUnit() {
     })
     .catch(error => {
         console.error('Error during delete:', error);
-        alertCustom('Failed to delete unit: ', error.message);
+        console.log('Failed to delete unit: ', error.message);
         closeLoading();
     })
 }

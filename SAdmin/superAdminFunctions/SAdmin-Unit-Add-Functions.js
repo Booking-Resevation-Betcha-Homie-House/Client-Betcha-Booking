@@ -111,17 +111,17 @@ function SAdminAddUnit(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alertCustom('Adding Unit successful: ', data.message);
+            console.log('Adding Unit successful: ', data.message);
             closeLoading();
             createUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         } else {
-            alertCustom('Adding unit successful', 'but no message returned.');
+            console.log('Adding unit successful', 'but no message returned.');
             closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        alertCustom('Failed to add Unit: ' + error.message);
+        console.log('Failed to add Unit: ' + error.message);
         closeLoading();
     });
 
