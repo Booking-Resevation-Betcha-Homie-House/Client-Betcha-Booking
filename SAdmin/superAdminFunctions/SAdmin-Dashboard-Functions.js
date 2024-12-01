@@ -201,7 +201,7 @@ async function loadMonthlyTopUnits(){
    
         tablemonth.innerHTML = '';
         
-        if (units.length === 0) {
+        if (units.rankedUnits.length === 0) {
             tablemonth.innerHTML = `
                 <tr>
                     <td style="text-align: center;">-</td>
@@ -210,7 +210,7 @@ async function loadMonthlyTopUnits(){
             return;
         }
         
-        units.forEach(unit => {
+        units.rankedUnits.forEach(unit => {
             const row = document.createElement('tr');
 
             const rankCell = document.createElement('td');
@@ -256,7 +256,7 @@ async function loadYearlyTopUnits(){
     tableyear.innerHTML = '';
 
     
-    if (units.length === 0) {
+    if (units.rankedUnits.ranklength === 0) {
         tableyear.innerHTML = `
                 <tr>
                     <td style="text-align: center;">-</td>
@@ -265,7 +265,7 @@ async function loadYearlyTopUnits(){
             return;
     }
     
-    units.forEach(unit => {
+    units.rankedUnits.forEach(unit => {
         const row = document.createElement('tr');
 
         const rankCell = document.createElement('td');
