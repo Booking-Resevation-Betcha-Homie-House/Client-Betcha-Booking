@@ -47,18 +47,16 @@ function alertCustom(header, message) {
     alertMessage.style.padding = '20px';  
     alertMessage.style.lineHeight = '1.6';
     alertMessage.style.textAlign = "Start" 
-    alertMessage.style.borderRadius = '8px';  
-    alertMessage.style.backgroundColor = '#f9f9f9'; 
     alertContainer.appendChild(alertMessage);
 
     const okButton = document.createElement('button');
     okButton.textContent = 'Okay';
     okButton.style.padding = '16px 50px';  
     okButton.style.border = 'none';
-    okButton.style.borderRadius = '50px';  
+    okButton.style.borderRadius = '15px';  
     okButton.style.backgroundColor = '#127845';
     okButton.style.color = '#fff';
-    okButton.style.fontSize = '18px'; 
+    okButton.style.fontSize = '14px'; 
 
     okButton.style.cursor = 'pointer';
     okButton.style.transition = 'background-color 0.3s';

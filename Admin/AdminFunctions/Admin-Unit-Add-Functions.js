@@ -1,7 +1,3 @@
-//need bumalik sa view unit
-
-
-
 function AdminAddUnit(){
     console.log('function called');
     const unitName = document.getElementById('input-unit-name-1').value;
@@ -28,8 +24,6 @@ function AdminAddUnit(){
     const UnitImage = document.getElementById('input-unit-image').files;
     const otheramenities = document.getElementById('input-unit-other').value;
 
-  
-    
     const items = {
         "towels": document.getElementById('towels').checked,
         "toiletPaper": document.getElementById('toiletPaper').checked,
@@ -60,59 +54,60 @@ function AdminAddUnit(){
         "parkingSpace": document.getElementById('parkingSpace').checked,
         "gymAccess": document.getElementById('gymAccess').checked,
         "elevator": document.getElementById('elevator').checked
-    }
+    };
 
     console.log(items);
-    const registerUnitData = new FormData() 
-        registerUnitData.append('unitName',unitName);
-        registerUnitData.append('location',location);
-        registerUnitData.append('maplink',maplink);
-        registerUnitData.append('description',description);
-        registerUnitData.append('amenities',JSON.stringify(items));
-        registerUnitData.append('otheramenities',otheramenities);
-        registerUnitData.append('unitPrice',unitPrice);
-        registerUnitData.append('reservationFee',reservationFee);
-        registerUnitData.append('packageCapacity',packCap);
-        registerUnitData.append('isAvailable',stat);
-        registerUnitData.append('maxPax',maxPax);
-        registerUnitData.append('pricePerPax',pricePerPax);
-        registerUnitData.append('category',category);
+    const registerUnitData = new FormData();
+    registerUnitData.append('unitName', unitName);
+    registerUnitData.append('location', location);
+    registerUnitData.append('maplink', maplink);
+    registerUnitData.append('description', description);
+    registerUnitData.append('amenities', JSON.stringify(items));
+    registerUnitData.append('otheramenities', otheramenities);
+    registerUnitData.append('unitPrice', unitPrice);
+    registerUnitData.append('reservationFee', reservationFee);
+    registerUnitData.append('packageCapacity', packCap);
+    registerUnitData.append('isAvailable', stat);
+    registerUnitData.append('maxPax', maxPax);
+    registerUnitData.append('pricePerPax', pricePerPax);
+    registerUnitData.append('category', category);
 
-        for (let i = 0; i < UnitImage.length; i++) {
-            registerUnitData.append('unitImages', UnitImage[i]);
-        }
-        console.log(JSON.stringify(registerUnitData));
-        openLoading();
+    for (let i = 0; i < UnitImage.length; i++) {
+        registerUnitData.append('unitImages', UnitImage[i]);
+    }
+
+    console.log(JSON.stringify(registerUnitData));
+    openLoading();
+
     fetch('https://betcha-booking-api-master.onrender.com/addUnit', {
         method: 'POST',
         body: registerUnitData
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); 
+        console.log(data);
         if (data && data.message) {
-            alert('Adding Unit successful: ' + data.message);
+            alertCustom('Success', 'Adding Unit successful: ' + data.message);
             closeLoading();
         } else {
-            alert('Adding unit successful, but no message returned.');
+            alertCustom('Success', 'Adding unit successful, but no message returned.');
             closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        alert('Failed to register unit: ' + error.message);
+        alertCustom('Error', 'Failed to register unit: ' + error.message);
         closeLoading();
     });
+}
 
+function back() {
+    window.location.href = "Units-List.html";
 }
-function back(){
-    window.location.href="Units-List.html";
-}
-    
-document.getElementById('addUnit').addEventListener('click',SAdminAddUnit);
-document.getElementById('cancel-id').addEventListener('click',back);
+
+document.getElementById('addUnit').addEventListener('click', AdminAddUnit);
+document.getElementById('cancel-id').addEventListener('click', back);
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
-    window.location.href ='../LogIn.html';
-}
-
+    window.location.href = '../LogIn.html';
+};

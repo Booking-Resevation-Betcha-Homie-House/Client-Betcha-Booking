@@ -1,15 +1,12 @@
-// unfinished
-
 function bookUnitAuditTrail(){
-
     var userId; // dynamic variable 
-    var activity="booked a unit";
-    var role; // dynamic varciable
+    var activity = "booked a unit";
+    var role; // dynamic variable
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
         method: 'POST',
@@ -22,27 +19,26 @@ function bookUnitAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration1 successful: ' + data.message);
+            alertCustom('Booking Successful', data.message);
         } else {
-            alert('Registration1 successful, but no message returned.');
+            alertCustom('Booking Successful', 'No message returned.');
         }
     })
     .catch(error => {
-        console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        console.error('Error during booking:', error);
+        alertCustom('Booking Failed', error.message);
     });
 }
 
 function rescheduleBookingAuditTrail(){
-
     var userId; // dynamic variable 
-    var activity="Rescheduled a booking";
-    var role; // dynamic varciable
+    var activity = "Rescheduled a booking";
+    var role; // dynamic variable
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
         method: 'POST',
@@ -55,27 +51,26 @@ function rescheduleBookingAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration1 successful: ' + data.message);
+            alertCustom('Reschedule Successful', data.message);
         } else {
-            alert('Registration1 successful, but no message returned.');
+            alertCustom('Reschedule Successful', 'No message returned.');
         }
     })
     .catch(error => {
-        console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        console.error('Error during rescheduling:', error);
+        alertCustom('Reschedule Failed', error.message);
     });
 }
 
 function editProfileAuditTrail(){
-
     var userId; // dynamic variable 
-    var activity="Changed information in profile";
-    var role; // dynamic varciable
+    var activity = "Changed information in profile";
+    var role; // dynamic variable
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
         method: 'POST',
@@ -88,14 +83,14 @@ function editProfileAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration4 successful: ' + data.message);
+            alertCustom('Profile Edit Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration4 successful, but no message returned.');
+            alertCustom('Profile Edit Successful', 'No message returned.');
         }
     })
     .catch(error => {
-        console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        console.error('Error during profile editing:', error);
+        alertCustom('Profile Edit Failed', error.message);
     });
 }

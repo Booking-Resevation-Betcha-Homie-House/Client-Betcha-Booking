@@ -16,6 +16,6 @@ document.getElementById('file-input').addEventListener('change', function (event
         
         reader.readAsDataURL(file);
     } else {
-        alert('Please select a valid image file.');
+        alertCustom('File Upload','Please select a valid image file.');
     }
 });

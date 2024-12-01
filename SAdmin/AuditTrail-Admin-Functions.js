@@ -1,8 +1,5 @@
-//Unfinished
-
 async function loadAuditData(){
-
-    const role = localStorage.getItem('role')
+    const role = localStorage.getItem('role');
     console.log(role);
     checkSuperAdmin(role);
 
@@ -20,98 +17,90 @@ async function loadAuditData(){
         tbodycompleted.innerHTML = '';
         tbodycustomer.innerHTML = '';
 
-        //console.log(admins.data);
         const data = admins.data;
         console.log(data);
         
         admins.data.forEach(admin => {
             if(admin.Role === 'Admin'){
-            console.log(admins);
-            const row = document.createElement('tr');
+                console.log(admins);
+                const row = document.createElement('tr');
 
-            const referenceNumberCell = document.createElement('td');
-            referenceNumberCell.textContent = admin.Reference; // need pa add ng date sa schema
-            referenceNumberCell.style.textAlign = 'center'
-            row.appendChild(referenceNumberCell);
+                const referenceNumberCell = document.createElement('td');
+                referenceNumberCell.textContent = admin.Reference; 
+                referenceNumberCell.style.textAlign = 'center';
+                row.appendChild(referenceNumberCell);
 
-            const adminNameCell = document.createElement('td');
-            const formatdate = admin.Date;
-            const datedited = formatdate.split('T')[0];
-            adminNameCell.style.textAlign = 'center'
-            adminNameCell.textContent = datedited; // need pa add ng date sa schema
-            row.appendChild(adminNameCell);
+                const adminNameCell = document.createElement('td');
+                const formatdate = admin.Date;
+                const datedited = formatdate.split('T')[0];
+                adminNameCell.style.textAlign = 'center';
+                adminNameCell.textContent = datedited;
+                row.appendChild(adminNameCell);
 
-            const nameCell = document.createElement('td');
-            nameCell.textContent = admin.UserId;
-            nameCell.style.textAlign = 'center'
-            row.appendChild(nameCell);
+                const nameCell = document.createElement('td');
+                nameCell.textContent = admin.UserId;
+                nameCell.style.textAlign = 'center';
+                row.appendChild(nameCell);
 
-            const activityCell = document.createElement('td');
-            activityCell.textContent = admin.Activity;
-            activityCell.style.textAlign = 'center'
-            row.appendChild(activityCell);
+                const activityCell = document.createElement('td');
+                activityCell.textContent = admin.Activity;
+                activityCell.style.textAlign = 'center';
+                row.appendChild(activityCell);
 
-            const roleCell = document.createElement('td');
-            roleCell.textContent = admin.Role;
-            roleCell.style.textAlign = 'center'
-            row.appendChild(roleCell);
+                const roleCell = document.createElement('td');
+                roleCell.textContent = admin.Role;
+                roleCell.style.textAlign = 'center';
+                row.appendChild(roleCell);
 
-            tbodycompleted.appendChild(row);
+                tbodycompleted.appendChild(row);
+            } else if (admin.Role === 'Customer') {
+                const row = document.createElement('tr');
+
+                const referenceNumberCell = document.createElement('td');
+                referenceNumberCell.textContent = admin.Reference; 
+                referenceNumberCell.style.textAlign = 'center';
+                row.appendChild(referenceNumberCell);
+
+                const adminNameCell = document.createElement('td');
+                const formatdate = admin.Date;
+                const datedited = formatdate.split('T')[0];
+                adminNameCell.style.textAlign = 'center';
+                adminNameCell.textContent = datedited;
+                row.appendChild(adminNameCell);
+
+                const nameCell = document.createElement('td');
+                nameCell.textContent = admin.UserId;
+                nameCell.style.textAlign = 'center';
+                row.appendChild(nameCell);
+
+                const activityCell = document.createElement('td');
+                activityCell.textContent = admin.Activity;
+                activityCell.style.textAlign = 'center';
+                row.appendChild(activityCell);
+
+                const roleCell = document.createElement('td');
+                roleCell.textContent = admin.Role;
+                roleCell.style.textAlign = 'center';
+                row.appendChild(roleCell);
+
+                tbodycustomer.appendChild(row);
             }
-
-        else if (admin.Role === 'Customer') {
-
-            const row = document.createElement('tr');
-
-            const referenceNumberCell = document.createElement('td');
-            referenceNumberCell.textContent = admin.Reference; // need pa add ng date sa schema
-            referenceNumberCell.style.textAlign = 'center'
-            row.appendChild(referenceNumberCell);
-
-            const adminNameCell = document.createElement('td');
-            const formatdate = admin.Date;
-            const datedited = formatdate.split('T')[0];
-            adminNameCell.style.textAlign = 'center'
-            adminNameCell.textContent = datedited; // need pa add ng date sa schema
-            row.appendChild(adminNameCell);
-
-            const nameCell = document.createElement('td');
-            nameCell.textContent = admin.UserId;
-            nameCell.style.textAlign = 'center'
-            row.appendChild(nameCell);
-
-            const activityCell = document.createElement('td');
-            activityCell.textContent = admin.Activity;
-            activityCell.style.textAlign = 'center'
-            row.appendChild(activityCell);
-
-            const roleCell = document.createElement('td');
-            roleCell.textContent = admin.Role;
-            roleCell.style.textAlign = 'center'
-            row.appendChild(roleCell);
-
-            tbodycustomer.appendChild(row);
-        
-    }
-
-    });
-    
+        });
     } catch (error) {
         console.error('Error:', error);
+        alertCustom('Error', 'Failed to load audit data.');
     }
 }
 
-
 function createUnitAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Created a unit";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -124,27 +113,26 @@ function createUnitAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration1 successful: ' + data.message);
+            alertCustom('Create Unit', data.message);
         } else {
-            alert('Registration1 successful, but no message returned.');
+            alertCustom('Create Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Create Unit', error.message);
     });
 }
 
 function updateUnitAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Updated a unit";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -157,28 +145,27 @@ function updateUnitAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration2 successful: ' + data.message);
+            alertCustom('Update Unit Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration2 successful, but no message returned.');
+            alertCustom('Update Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Update Unit', error.message);
     });
 }
 
 function deleteUnitAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Deleted a unit";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -191,28 +178,27 @@ function deleteUnitAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration3 successful: ' + data.message);
+            alertCustom('Delete Unit Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration3 successful, but no message returned.');
+            alertCustom('Delete Unit', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Delete Unit', error.message);
     });
 }
 
 function editProfileAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Changed information in profile";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -225,28 +211,27 @@ function editProfileAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration4 successful: ' + data.message);
+            alertCustom('Edit Profile Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration4 successful, but no message returned.');
+            alertCustom('Edit Profile', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Edit Profile', error.message);
     });
 }
 
 function idVerificationAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Verified an ID";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -259,28 +244,27 @@ function idVerificationAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration5 successful: ' + data.message);
+            alertCustom('ID Verification Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration5 successful, but no message returned.');
+            alertCustom('ID Verification', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Verify ID', error.message);
     });
 }
 
 function cancelBookingAuditTrail(){
-
-    var userId; // dynamic variable 
+    var userId; 
     var activity="Cancelled a booking";
-    var role; // dynamic varciable
+    var role; 
 
     const trail = new FormData();
-    trail.append('UserId',userId);
-    trail.append('Activity',activity);
-    trail.append('Role',role);
+    trail.append('UserId', userId);
+    trail.append('Activity', activity);
+    trail.append('Role', role);
 
     fetch('https://betcha-booking-api-master.onrender.com//audit/create', {
         method: 'POST',
@@ -293,14 +277,14 @@ function cancelBookingAuditTrail(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration6 successful: ' + data.message);
+            alertCustom('Cancel Booking Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration6 successful, but no message returned.');
+            alertCustom('Cancel Booking', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Failed to Cancel Booking', error.message);
     });
 }

@@ -1,6 +1,3 @@
-//finished
-
-
 function checkSuperAdmin(SuperAdmin){
     console.log('Checking super admin')
     if (SuperAdmin === 'SuperAdmin'){
@@ -21,19 +18,19 @@ function checkSuperAdmin(SuperAdmin){
     }
 }
 
-
 function AddAdmin() {
     console.log('function called');
     const email = document.getElementById('input-admin-email').value;
     const password = document.getElementById('input-unit-num-pax').value;
     const adminName = document.getElementById('input-admin-name').value;
     const confirmpassword = document.getElementById('input-admin-confirm-password').value;
+    
     if (!email || !password || !adminName) {
-        alert("Please fill out all fields.");
+        alertCustom('Missing Information', 'Please fill out all fields.');
         return;
     }
     else if (password != confirmpassword){
-        alert("Password and Confirm password is not the same")
+        alertCustom('Password Mismatch', 'Password and Confirm password do not match.');
         return;
     }
 
@@ -59,19 +56,19 @@ function AddAdmin() {
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Registration successful: ' + data.message);
+            alertCustom('Registration Successful', data.message);
             window.location.href = `Admin-List.html`;
         } else {
-            alert('Registration successful, but no message returned.');
+            alertCustom('Registration Successful', 'No message returned.');
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        alert('Failed to register: ' + error.message);
+        alertCustom('Registration Failed', error.message);
     });
-   
 }
-document.getElementById('add-button-admin').addEventListener('click',AddAdmin);
+
+document.getElementById('add-button-admin').addEventListener('click', AddAdmin);
 document.getElementById('btn-cancel').onclick = () => {
     window.location.href = 'Admin-List.html';
 };

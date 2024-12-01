@@ -1,7 +1,5 @@
-//Finished? dunno ask muna
-// walang api para sa pag get ng super admin info
 function adminProfile(){
-    const role = localStorage.getItem('role')
+    const role = localStorage.getItem('role');
     console.log(role);
     checkAdmin(role);
     console.log(localStorage.getItem('id'));
@@ -11,7 +9,6 @@ function adminProfile(){
     .then(data => {
         const user = data.data; 
         if (data) {
-           
             console.log(data);
 
             document.getElementById('profile-email').textContent = `${user.email}`; 
@@ -19,7 +16,7 @@ function adminProfile(){
 
             document.getElementById('profile-username').textContent = `${user.adminName}`; 
         } else {
-            alert('Super Admin not found or missing data.');
+            alertCustom('Admin Not Found', 'Super Admin not found or missing data.');
         }
         document.getElementById('edit-btn').onclick = () => {
             window.location.href = `Profile-Edit.html?id=${user._id}`;
@@ -27,12 +24,11 @@ function adminProfile(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alert('Failed to display Admin info: ' + error.message);
+        alertCustom('Error', 'Failed to display Admin info: ' + error.message);
     });
-    
 }
 
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
-    window.location.href ='../LogIn.html';
-}
+    window.location.href = '../LogIn.html';
+};

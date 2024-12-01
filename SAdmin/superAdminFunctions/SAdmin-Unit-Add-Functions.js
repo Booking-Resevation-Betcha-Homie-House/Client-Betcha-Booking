@@ -111,16 +111,16 @@ function SAdminAddUnit(){
     .then(data => {
         console.log(data); 
         if (data && data.message) {
-            alert('Adding Unit successful: ' + data.message);
+            alertCustom('Adding Unit successful: ', data.message);
             closeLoading();
         } else {
-            alert('Adding unit successful, but no message returned.');
+            alertCustom('Adding unit successful', 'but no message returned.');
             closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        alert('Failed to register unit: ' + error.message);
+        alertCustom('Failed to add Unit: ' + error.message);
         closeLoading();
     });
 

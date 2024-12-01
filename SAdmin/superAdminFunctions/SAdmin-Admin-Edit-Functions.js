@@ -1,26 +1,20 @@
-// cancel button pabalik yung kulang
-// no delete button
 const urlParams = new URLSearchParams(window.location.search);
 const adminID = urlParams.get('id');
 console.log('Unit ID from URL: ', adminID);
 
-
-
 async function adminFill(){
-    const role = localStorage.getItem('role')
+    const role = localStorage.getItem('role');
     console.log(role);
     checkSuperAdmin(role);
 
     console.log('func called');
 
     const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${adminID}`);
-
-    const admin = await response.json()
+    const admin = await response.json();
     
     console.log(admin.data.adminName);
-    document.getElementById('input-admin-name').value =admin.data.adminName;
-    document.getElementById('input-admin-email').value =admin.data.email;   
-
+    document.getElementById('input-admin-name').value = admin.data.adminName;
+    document.getElementById('input-admin-email').value = admin.data.email;   
 }
 
 function adminEdit(event) {
@@ -53,30 +47,26 @@ function adminEdit(event) {
             'Content-Type': 'application/json', 
         },
         body: JSON.stringify(updateData) 
-})
+    })
     .then(response => response.json())
     .then(data => {
-        alert('Admin updated successfully');
+        alertCustom('Update Successful', 'Admin updated successfully');
         location.reload();
     })
     .catch(error => {
         console.error('Error during update:', error);
-        alert('Failed to update Admin: ' + error.message);
+        alertCustom('Update Failed', 'Failed to update Admin: ' + error.message);
     }); 
 }
 
 function previouspage(){
-     window.location.href = `Admin-View.html?id=${adminID}`
-    //window.history.back() // pwede palitan ng  window.location.href = `Admin-List.html`; palitan lang ng html kung saan mapupunta
+    window.location.href = `Admin-View.html?id=${adminID}`;
+    //window.history.back() // pwede palitan ng window.location.href = `Admin-List.html`; palitan lang ng html kung saan mapupunta
 }
+
 document.getElementById('cancel-button').addEventListener('click', previouspage);
 document.getElementById('save-button').addEventListener('click', adminEdit);
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
-    window.location.href ='../LogIn.html';
-}
-
-
-
-
-
+    window.location.href = '../LogIn.html';
+};

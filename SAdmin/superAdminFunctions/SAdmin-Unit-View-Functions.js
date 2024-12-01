@@ -119,13 +119,13 @@ function DelUnit() {
     .then(response => response.json())
     .then(data => {
         closeLoading();
-        alert('Unit deleted successfully');
+        alertCustom('Unit','Unit deleted successfully');
         window.location.href = `Units-List.html`;
     })
     .catch(error => {
         closeLoading();
         console.error('Error during delete:', error);
-        alert('Failed to delete unit: ' + error.message);
+        alertCustom('Failed to delete unit:', error.message);
     })
     
 }

@@ -24,7 +24,7 @@ async function LoginButton() {
         if (response.status === 200) {
             const customerData = await response.json();
             //window.location.href = "../Customer/Dashboard.html" lagyan if meron na
-            alert('Successfully logged in as Customer');
+            
             localStorage.setItem('id', customerData.userId);
             localStorage.setItem('role', customerData.role);
             console.log('Logged in ID:', localStorage.getItem('id'));
@@ -45,6 +45,9 @@ async function LoginButton() {
             // console.log(storedIsVerified);
 
             closeLoading();
+            setTimeout(() => {
+                alertCustom('Login','Successfully logged in as Customer');
+            }, 1000);
             return;
         }
 

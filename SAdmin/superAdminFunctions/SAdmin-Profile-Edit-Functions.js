@@ -64,11 +64,11 @@ function editadmin(){
     .then (respone => respone.json())
     .then(data =>{
         console.log(data);
-        alert('Info Updated!' + data.message);
+        alertCustom('Info Updated!', data.message);
     })
     .catch(error => {
         console.log(error)
-        alert('Failed to Update the info' + error.message)
+        alertCustom('Failed to Update the info', error.message)
     });
 }
 

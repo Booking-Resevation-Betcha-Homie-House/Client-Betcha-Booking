@@ -146,14 +146,14 @@ function editData(){
 })
     .then(response => response.json())
     .then(data => {
-        alert('Admin updated successfully');
+        alertCustom('Admin updated successfully', response);
         closeLoading();
         window.location.href=`Unit-View.html?id=${refID}`;
     })
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        alert('Failed to update Admin: ' + error.message);
+        alertCustom('Failed to update Unit: ', error.message);
     }); 
 }
 

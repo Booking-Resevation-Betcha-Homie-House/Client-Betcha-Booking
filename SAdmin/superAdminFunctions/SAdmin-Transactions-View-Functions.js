@@ -60,13 +60,11 @@ function loadTransactionViewData(){
             document.getElementById('view-transaction-reservation-2').textContent = user.UnitId.reservation;
 
             document.getElementById('view-transaction-additional-pax-1').textContent = '₱'+user.Total; 
-       } /*else {
-            alert('Super Admin not found or missing data.');
-        }*/
+       } 
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alert('Failed to display Super Admin info: ' + error.message);
+        alertCustom('Failed to display Transaction',error.message);
     });
 
 }
@@ -123,7 +121,7 @@ function cancelBooking(){
     })
     .catch(error => {
         console.log(error)
-        alert('Failed to Update the info' + error.message)
+        alertCustom('Failed to Cancel Booking', error.message)
         closeLoading();
     });
 }

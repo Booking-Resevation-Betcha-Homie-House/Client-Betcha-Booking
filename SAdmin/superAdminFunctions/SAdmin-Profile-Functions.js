@@ -18,7 +18,7 @@ function SAdminProfile(){
             document.getElementById('admin-name').innerHTML = `<h5><strong>${user.superAdminName}</strong></h5>`;
             document.getElementById('profile-username').textContent = `${user.superAdminName}`; 
         } else {
-            alert('Super Admin not found or missing data.');
+            alertCustom('Display Admin','Super Admin not found or missing data.');
         }
         document.getElementById('edit-btn').onclick = () => {
             window.location.href = `Profile-Edit.html?id=${user._id}`;
@@ -26,7 +26,7 @@ function SAdminProfile(){
     })
     .catch(error => {
         console.error('Error during display:', error);
-        alert('Failed to display Super Admin info: ' + error.message);
+        alertCustom('Failed to display Super Admin info: ', error.message);
     });
     
 }
