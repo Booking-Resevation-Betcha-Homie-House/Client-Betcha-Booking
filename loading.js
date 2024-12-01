@@ -13,6 +13,7 @@ function setUsername(){
 }
 
 function openLoading() {
+  
   setUsername();
     const spinnerHTML = `
       <div id="container-spinner">
