@@ -250,7 +250,10 @@ function unverifyUser(id) {
         console.log('Unverify response data:', data); 
         closeLoading();
         idVerificationAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-        window.location.href = `User-Verify.html`;
+        setTimeout(() => {
+            window.location.href = `User-Verify.html`;
+        }, 2000); 
+        
     })
     .catch(error => {
         closeLoading();

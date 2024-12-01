@@ -82,5 +82,8 @@ document.getElementById('cancel-edit-btn').onclick = () =>{
 }
 document.getElementById('edit-btn').onclick = () =>{
     editadmin();
-    window.location.href = `Profile.html`
+    setTimeout(() => {
+        window.location.href = `Profile.html`;
+    }, 2000); 
+    
 }

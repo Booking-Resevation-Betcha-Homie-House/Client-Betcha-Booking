@@ -136,9 +136,13 @@ function editTransactionData(){
     .then (respone => respone.json())
     .then(data =>{
         closeLoading();
-        window.location.href=`Transactions-View.html?id=${refID}`;
+       
         console.log(data);
         transactionEditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+        setTimeout(() => {
+            window.location.href=`Transactions-View.html?id=${refID}`;
+        }, 2000); 
+        
     })
     .catch(error => {
         console.log(error)

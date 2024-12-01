@@ -24,7 +24,9 @@ function createFAQ() {
             console.log("FAQ created:", data.data);
             
             createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-            window.location.href='FAQs.html';
+            setTimeout(() => {
+                window.location.href='FAQs.html';
+            }, 2000);
         } else {
             
             console.log("Error:", data.message);
@@ -67,7 +69,10 @@ function updateFAQ(faqId) {
         } else {
             closeLoading()
             console.log("Error:", data.message);
-            window.location.href='FAQs.html';
+            setTimeout(() => {
+                window.location.href='FAQs.html';
+            }, 2000); 
+            
         }
     })
     .catch(error => {
@@ -92,7 +97,10 @@ function deleteFAQ(faqId) {
             closeLoading();
             console.log("FAQ deleted:", data.message);
             deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000); 
+           
         } else {
             closeLoading();
             
@@ -107,7 +115,7 @@ function deleteFAQ(faqId) {
 }
 async function displayQA(){
     
-    const role = localStorage.getItem('role')
+    const role = localStorage.getItem('role');
     console.log(role,localStorage.getItem('id'));
     checkSuperAdmin(role);
 

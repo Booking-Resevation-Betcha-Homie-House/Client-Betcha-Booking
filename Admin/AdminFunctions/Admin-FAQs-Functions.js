@@ -94,7 +94,10 @@ function deleteFAQ(faqId) {
             closeLoading();
             console.log("Error:", data.message);
             deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-            window.location.reload();
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+            
         }
     })
     .catch(error => {

@@ -148,8 +148,10 @@ function editData(){
     .then(data => {
         alertCustom('Admin updated successfully', response);
         closeLoading();
-        window.location.href=`Unit-View.html?id=${refID}`;
         updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+        setTimeout(() => {
+            window.location.href=`Unit-View.html?id=${refID}`;
+        }, 2000); 
     })
     .catch(error => {
         closeLoading();
