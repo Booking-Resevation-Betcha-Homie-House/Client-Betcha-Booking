@@ -38,7 +38,7 @@ async function loadAuditData(){
                 row.appendChild(adminNameCell);
 
                 const nameCell = document.createElement('td');
-                nameCell.textContent = admin.UserId;
+                nameCell.textContent = admin.Username;
                 nameCell.style.textAlign = 'center';
                 row.appendChild(nameCell);
 
@@ -69,7 +69,7 @@ async function loadAuditData(){
                 row.appendChild(adminNameCell);
 
                 const nameCell = document.createElement('td');
-                nameCell.textContent = admin.UserId;
+                nameCell.textContent = admin.Username;
                 nameCell.style.textAlign = 'center';
                 row.appendChild(nameCell);
 
