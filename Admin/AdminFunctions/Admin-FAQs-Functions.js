@@ -26,7 +26,7 @@ function createFAQ() {
         } else {
             closeLoading();
             console.log("Error:", data.message);
-            createFAQ(localStorage.getItem('id'),localStorage.getItem('role'));
+            createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         }
     })
     .catch(error => {
@@ -64,7 +64,7 @@ function updateFAQ(faqId) {
         } else {
             closeLoading()
             console.log("Error:", data.message);
-            updateFAQ(localStorage.getItem('id'),localStorage.getItem('role'));
+            editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             window.location.href='FAQs.html';
         }
     })
@@ -76,8 +76,7 @@ function updateFAQ(faqId) {
 
 function deleteFAQ(faqId) {
     openLoading();
-    const url = `https://betcha-booking-api-master.onrender.com/faqs/delete/${faqId}`;  // Your API endpoint with the FAQ ID to delete
-
+    const url = `https://betcha-booking-api-master.onrender.com/faqs/delete/${faqId}`;
     fetch(url, {
         method: "DELETE",
         headers: {

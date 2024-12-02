@@ -562,3 +562,7 @@ function editFAQTrail(userId,role){
         console.log('Failed to Delete Admin', error.message);
     });
 }
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
