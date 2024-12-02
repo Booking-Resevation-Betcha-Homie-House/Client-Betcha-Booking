@@ -65,7 +65,9 @@ function updateFAQ(faqId) {
             console.log("FAQ Updated:", data.data);
             console.log(getItem('id'));
             editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
-            //window.location.href='FAQs.html';
+            setTimeout(() => {
+                window.location.href='FAQs.html';
+            }, 2000);
         } else {
             closeLoading()
             console.log("Error:", data.message);

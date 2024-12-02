@@ -22,11 +22,14 @@ function createFAQ() {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ created:", data.data);
-            window.location.href='FAQs.html';
+            createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            setTimeout(() => {
+                window.location.href='FAQs.html';
+            }, 2000);
         } else {
             closeLoading();
             console.log("Error:", data.message);
-            createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            
         }
     })
     .catch(error => {
@@ -60,11 +63,14 @@ function updateFAQ(faqId) {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ Updated:", data.data);
-            window.location.href='FAQs.html';
+            editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            setTimeout(() => {
+                window.location.href='FAQs.html';
+            }, 2000);;
         } else {
             closeLoading()
             console.log("Error:", data.message);
-            editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+           
             window.location.href='FAQs.html';
         }
     })
@@ -88,14 +94,14 @@ function deleteFAQ(faqId) {
         if (data.message === "FAQ deleted successfully") {
             closeLoading();
             console.log("FAQ deleted:", data.message);
-            window.location.reload();
-        } else {
-            closeLoading();
-            console.log("Error:", data.message);
             deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             setTimeout(() => {
                 window.location.reload();
             }, 2000);
+        } else {
+            closeLoading();
+            console.log("Error:", data.message);
+         
             
         }
     })

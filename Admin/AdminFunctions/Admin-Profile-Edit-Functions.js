@@ -71,7 +71,7 @@ function editadmin(){
         console.log(data);
         console.log('Info Updated!', data.message);
         setTimeout(() => {
-            adminEditProfileAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            adminEditAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         }, 2000);
         
     })
