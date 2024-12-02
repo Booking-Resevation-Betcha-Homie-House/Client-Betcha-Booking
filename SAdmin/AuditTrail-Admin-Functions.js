@@ -97,10 +97,8 @@ function createUnitAuditTrail(userId,role){
         var id = userId
         var activity="Created a Unit";
         var Role = role
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -133,10 +131,8 @@ function updateUnitAuditTrail(userId,role){
         var activity="Edited a Unit";
         var Role = role
     
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -169,11 +165,8 @@ function deleteUnitAuditTrail(userId,role){
         var id = userId
         var activity="Deleted a unit";
         var Role = role
-    
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -206,11 +199,8 @@ function editProfileAuditTrail(userId,role){
         var id = userId
         var activity="Edited an Info in Profile";
         var Role = role
-    
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -242,10 +232,8 @@ function idVerificationAuditTrail(userId,role){
         var id = userId
         var activity="Verified an ID";
         var Role = role
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -278,10 +266,8 @@ function cancelBookingAuditTrail(userId,role){
         var id = userId
         var activity="Cancelled a booking";
         var Role = role
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -315,10 +301,8 @@ function adminAddAuditTrail(userId,role){
         var id = userId
         var activity="Added an Admin";
         var Role = role
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -350,10 +334,8 @@ function adminEditAuditTrail(userId,role){
     var id = userId
     var activity="Edited an Admin Info";
     var Role = role
-    var username = localStorage.getItem('username');
     const trail = {
         'UserId': id,
-        'Username': username,
         'Activity': activity,
         'Role': Role
     };
@@ -385,11 +367,9 @@ function adminDeleteAuditTrail(userId,role){
 
         var id = userId
         var activity="Deleted an Admin";
-        var Role = role; 
-        var username = localStorage.getItem('username');
+        var Role = role; ;
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -422,10 +402,8 @@ function adminEditProfileAuditTrail(userId,role){
         var id = userId
         var activity="SAdmin Profile Edit";
         var Role = role; 
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -457,11 +435,8 @@ function transactionEditTrail(userId,role){
         var id = userId
         var activity="Transaction Edit";
         var Role = role; 
-    
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -494,11 +469,8 @@ function createdFAQTrail(userId,role){
         var id = userId
         var activity="Created a FAQ";
         var Role = role; 
-    
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -531,11 +503,8 @@ function deletedFAQTrail(userId,role){
         var id = userId
         var activity="Deleted a FAQ";
         var Role = role; 
-    
-        var username = localStorage.getItem('username');
         const trail = {
             'UserId': id,
-            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -566,11 +535,8 @@ function editFAQTrail(userId,role){
     var id = userId
     var activity="Edited a FAQ";
     var Role = role; 
-
-    var username = localStorage.getItem('username');
     const trail = {
         'UserId': id,
-        'Username': username,
         'Activity': activity,
         'Role': Role
     };
