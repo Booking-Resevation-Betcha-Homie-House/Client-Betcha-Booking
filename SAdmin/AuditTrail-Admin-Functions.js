@@ -97,9 +97,10 @@ function createUnitAuditTrail(userId,role){
         var id = userId
         var activity="Created a Unit";
         var Role = role
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
         };
@@ -132,11 +133,13 @@ function updateUnitAuditTrail(userId,role){
         var activity="Edited a Unit";
         var Role = role
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -167,11 +170,13 @@ function deleteUnitAuditTrail(userId,role){
         var activity="Deleted a unit";
         var Role = role
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -202,11 +207,13 @@ function editProfileAuditTrail(userId,role){
         var activity="Edited an Info in Profile";
         var Role = role
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
@@ -235,12 +242,13 @@ function idVerificationAuditTrail(userId,role){
         var id = userId
         var activity="Verified an ID";
         var Role = role
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -270,12 +278,13 @@ function cancelBookingAuditTrail(userId,role){
         var id = userId
         var activity="Cancelled a booking";
         var Role = role
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
     
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
@@ -306,12 +315,13 @@ function adminAddAuditTrail(userId,role){
         var id = userId
         var activity="Added an Admin";
         var Role = role
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
     
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
@@ -340,12 +350,13 @@ function adminEditAuditTrail(userId,role){
     var id = userId
     var activity="Edited an Admin Info";
     var Role = role
-
+    var username = localstorage.getItem('username');
     const trail = {
         'UserId': id,
+        'Username': username,
         'Activity': activity,
         'Role': Role
-    }
+    };
 
     console.log(userId + activity + role);
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
@@ -375,12 +386,13 @@ function adminDeleteAuditTrail(userId,role){
         var id = userId
         var activity="Deleted an Admin";
         var Role = role; 
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
@@ -410,12 +422,13 @@ function adminEditProfileAuditTrail(userId,role){
         var id = userId
         var activity="SAdmin Profile Edit";
         var Role = role; 
-    
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -445,11 +458,13 @@ function transactionEditTrail(userId,role){
         var activity="Transaction Edit";
         var Role = role; 
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -480,11 +495,13 @@ function createdFAQTrail(userId,role){
         var activity="Created a FAQ";
         var Role = role; 
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
@@ -515,11 +532,13 @@ function deletedFAQTrail(userId,role){
         var activity="Deleted a FAQ";
         var Role = role; 
     
+        var username = localstorage.getItem('username');
         const trail = {
             'UserId': id,
+            'Username': username,
             'Activity': activity,
             'Role': Role
-        }
+        };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -548,11 +567,13 @@ function editFAQTrail(userId,role){
     var activity="Edited a FAQ";
     var Role = role; 
 
+    var username = localstorage.getItem('username');
     const trail = {
         'UserId': id,
+        'Username': username,
         'Activity': activity,
         'Role': Role
-    }
+    };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
