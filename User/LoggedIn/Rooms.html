@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Homepage - Betcha</title>
+    <link rel="stylesheet" href="../../assetsv4/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Manrope.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="../../assetsv4/css/block-animation.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Calendar.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Carousel.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Custom.css">
+    <link rel="stylesheet" href="../../assetsv4/css/LandingPage.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Login-Register.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Message-box.css">
+    <link rel="stylesheet" href="../../assetsv4/css/my-booking.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Notifcation.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Profile.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Spinner.css">
+    <link rel="stylesheet" href="../../assetsv4/css/User.css">
+</head>
+
+<body>
+    <div class="d-none" id="container-spinner">
+        <div class="key">
+            <div class="key-handle"></div>
+            <div class="key-body">
+                <div class="key-teeth"></div>
+            </div>
+        </div>
+        <div class="container-loading-text">
+            <p class="text-center loading-text"><strong>Unlocking Your Dream Stay</strong></p>
+            <p class="text-center loading-text-2">Please wait...</p>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="../LoggedIn/Rooms.html">
+                <div class="d-flex justify-content-center align-items-center gap-2"><img src="../../assetsv4/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span></div>
+            </a>
+            <div class="d-flex justify-content-center align-items-center align-content-center" id="container-input-search"><input type="search" class="form-control user-fc" placeholder="Search"></div><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon nav-toggle-menu"><span></span><span></span><span></span></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav text-end ms-auto" id="navbar-items">
+                    <li class="nav-item d-inline-flex align-items-center"><a class="nav-link active navbar-link navbar-link-active" href="../LoggedIn/Rooms.html">Rooms</a></li>
+                    <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item d-inline-flex align-items-center navbar-link me-3"><a class="nav-link navbar-link" href="../LoggedIn/FAQs.html">FAQs</a></li>
+                    <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="../../assetsv4/img/avatars/default-profile-pic.jpg" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
+                        <div class="dropdown-menu dropdown-menu-end text-start" id="nav-dropdown-menu"><a class="dropdown-item d-flex align-items-center w-100" href="../LoggedIn/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Profile</a><a class="dropdown-item d-flex align-items-center" id="openNotifications" href="" data-bs-target="#modal-notification-list" data-bs-toggle="modal"><i class="fas fa-bell fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Notification</a><a class="dropdown-item d-flex align-items-center" href="../LoggedIn/My-Bookings.html"><i class="fas fa-book fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;My Bookings</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav><button id="message-button" class="message-button rounded-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+            <path d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"></path>
+        </svg></button>
+    <div id="message-box" class="message-box">
+        <div id="chat-container" class="chat-container">
+            <div class="align-items-center message other manrope"><span> Hello! How can I help you today? </span></div>
+            <div class="align-items-center message user manrope"><span> Hi! I have a question about your product. </span></div>
+        </div>
+        <div class="input-container"><textarea class="manrope form-control" id="message-text" placeholder="Type your message..." rows="1"></textarea><button class="btn bg-transparent border-0 m-0 send-message" id="send-message" type="button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color:#147b42;"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path></svg></button></div>
+    </div>
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center align-items-center align-content-center mb-6">
+                <div class="container-carousel">
+                    <div class="carousel slide" data-bs-ride="carousel" data-bs-pause="false" data-bs-keyboard="false" data-bs-touch="false" id="carousel-caption">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="background: url(&quot;../../assetsv4/img/pexels-photo-1020016.jpeg&quot;) center / cover;">
+                                <div class="d-flex justify-content-center align-items-center container-caption"><span class="caption-unit">Escape.</span></div>
+                            </div>
+                            <div class="carousel-item" style="background: url(&quot;../../assetsv4/img/pexels-photo-271795.jpeg&quot;) center / cover;">
+                                <div class="d-flex justify-content-center align-items-center container-caption"><span class="caption-unit">Unwind.</span></div>
+                            </div>
+                            <div class="carousel-item" style="background: url(&quot;../../assetsv4/img/pexels-photo-6580416.jpeg&quot;) center / cover;">
+                                <div class="d-flex justify-content-center align-items-center container-caption"><span class="caption-unit">Enjoy.</span></div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-caption" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-caption" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-caption" data-bs-slide-to="2"></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-featured-units gradient1">
+                    <div class="w-100 mb-3">
+                        <h1 class="h1-black featured-unit-heading"><strong>Explore Our Popular Units</strong></h1>
+                    </div>
+                    <div class="row row-featured-unit">
+                        <div class="col p-3" id="popular-units">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="popular-units-4">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-9" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="popular-units-3">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-3" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="popular-units-2">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-2" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="popular-units-1">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-1" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container-featured-units gradient2">
+                    <div class="w-100 mb-3">
+                        <h1 class="h1-black featured-unit-heading"><strong>This Month’s Room Picks!</strong></h1>
+                    </div>
+                    <div class="row row-featured-unit">
+                        <div class="col p-3" id="featured-units">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-5" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="featured-units-4">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-8" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="featured-units-3">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-7" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="featured-units-2">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-6" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col p-3" id="featured-units-1">
+                            <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4/img/pexels-photo-1010657.jpeg">
+                                <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                    <div class="m-3">
+                                        <h5 id="unit-name-4" class="heading-unit">Unit Name</h5>
+                                    </div>
+                                    <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                            <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="line">
+            <div class="col">
+                <div class="line-div line-div2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col container-unit">
+                <div class="container-page-header">
+                    <div class="row row-heading">
+                        <div class="col">
+                            <div>
+                                <h1 class="big-text"><strong>Find the perfect room for you</strong></h1>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="right-header">
+                                <p class="p-text">We offer a wide range of rooms for rent in different locations across the Philippines, designed to suit your needs. Each room ensures comfort and convenience, making it easy to find your perfect stay.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gap-3">
+            <div class="col">
+                <div>
+                    <div class="row gap-2 row-display-unit">
+                        <div class="col" id="dispalay-unit">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-5" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="dispalay-unit-2">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-2" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-11" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-2">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="dispalay-unit-1">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-1" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-10" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-1">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row gap-3">
+            <div class="col">
+                <div>
+                    <div class="row gap-2 row-display-unit">
+                        <div class="col" id="dispalay-unit-3">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-3" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-12" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-3">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="dispalay-unit-4">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-4" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-13" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-4">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="dispalay-unit-5">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-6" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-14" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-5">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="mt-5 user-footer white-text">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center mb-6 gap-2">
+                <div class="col">
+                    <div>
+                        <p class="footer-heading">Book Your Perfect Stay, Anytime, Anywhere.</p>
+                        <p style="text-align: justify;">At Betcha by Homie House, we believe every great journey starts with the perfect stay. Whether you're looking for a cozy escape, a luxurious retreat, or something in between, we've got the ideal room for you. With a simple, seamless booking process, you can explore a wide range of options and find the perfect place to call home, no matter where your travels take you. Book your next adventure with us today!</p>
+                    </div>
+                </div>
+                <div class="col col-footer-image">
+                    <div class="footer-image" style="background: url(&quot;../../assetsv4/img/pexels-photo-11851382.jpeg&quot;) center / cover;"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Services</h3>
+                    <ul class="list-unstyled">
+                        <li class="link-white"><a class="link-secondary link-white" href="../LoggedIn/Rooms.html">Rooms</a></li>
+                        <li><a class="link-secondary link-white" href="#">About Us</a></li>
+                        <li><a class="link-secondary link-white" href="../LoggedIn/FAQs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Terms and policy</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="link-secondary link-white" href="../LoggedIn/Terms&amp;Condition.html">Terms &amp; Condition</a></li>
+                        <li><a class="link-secondary link-white" href="../LoggedIn/Privacy&amp;Policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Contacts</h3>
+                    <div class="m-0">
+                        <p class="p-0 m-0">betchabyhomiehouse@gmail.com</p>
+                        <p class="p-0 m-0">+63 938 255 6454</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Connect With Us</h3>
+                    <div class="d-flex flex-row m-0 gap-2" id="social-media-link"><a id="facebook" href="https://www.facebook.com/betchabyhomiehouse?mibextid=ZbWKwL">
+                            <div class="social-media rounded-circle"><i class="fab fa-facebook-f white-text"></i></div>
+                        </a><a id="instagram" href="#"></a></div>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center pt-3">
+                <p class="text-muted mb-0 white-text">Copyright © 2024 Betcha by Homie House</p>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-notification-detail">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <div class="col">
+                        <div>
+                            <h5 id="notif-from-1"><strong>From</strong></h5>
+                            <div class="d-flex justify-content-between">
+                                <p id="notif-date-time-1">Date Time</p>
+                                <p><span id="notif-hours-ago-1">0</span>&nbsp;hours ago</p>
+                            </div>
+                            <p id="view-notif-text" class="mb-1">Short preview</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-notification-list">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><strong>Notifications</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body overflow-auto">
+                    <div class="notif-container">
+                        <div id="notification-info">
+                            <div class="row">
+                                <div class="col-2 d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center align-items-center betcha-logo-notif"><img src="../../assetsv4/img/Betcha-Logo.svg"></div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <h5 id="notif-from"><strong>From</strong></h5>
+                                        <p id="notif-text" class="mb-1">Short preview</p>
+                                        <div class="d-flex justify-content-between">
+                                            <p id="notif-date-time">Date Time</p>
+                                            <p><span id="notif-hours-ago">0</span>&nbsp;hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line-div line-div3 mb-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assetsv4/js/Calendar.js"></script>
+    <script src="../../assetsv4/js/ChangeProfile.js"></script>
+    <script src="../../assetsv4/js/FileUpload.js"></script>
+    <script src="../../assetsv4/js/ID.js"></script>
+    <script src="../../assetsv4/js/Message-box.js"></script>
+    <script src="../../assetsv4/js/Otp-timer.js"></script>
+    <script src="../../assetsv4/js/Password.js"></script>
+    <script src="../../assetsv4/js/RegisterForm.js"></script>
+    <script src="../../assetsv4/js/Status.js"></script>
+    <script src="../../assetsv4/js/theme.js"></script>
+    <script src="../../assetsv4/js/unit-images.js"></script>
+    <script src="../../assetsv4/js/view-book-toggle.js"></script>
+</body>
+
+</html>

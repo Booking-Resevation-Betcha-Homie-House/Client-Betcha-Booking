@@ -1,0 +1,139 @@
+.div-block1 {
+  height: 150px;
+  width: 70%;
+  border-radius: .75rem;
+  transition: all .5s ease;
+}
+
+.div-block2 {
+  height: 150px;
+  width: 30%;
+  border-radius: .75rem;
+  transition: all .5s ease;
+}
+
+.div-block3 {
+  height: 150px;
+  width: 45%;
+  border-radius: .75rem;
+  transition: all 1s ease;
+}
+
+.div-block4 {
+  height: 150px;
+  width: 55%;
+  border-radius: .75rem;
+  transition: all 1s ease;
+}
+
+.green {
+  background: #147b42;
+}
+
+.light-green {
+  background: #b4cb68;
+}
+
+.light-green2 {
+  background: rgba(180,203,104,0.27);
+}
+
+.black {
+  background: #333333;
+}
+
+#faq-heading {
+  margin-top: 3rem;
+}
+
+.big-text-faq:hover {
+  color: #147b42;
+  font-family: 'Manrope';
+  transition: all .3s ease;
+}
+
+@media (min-width: 576px) {
+  .big-text-faq {
+    font-size: 50px;
+    font-family: 'Manrope';
+    transition: all .5s ease;
+  }
+}
+
+@media (max-width: 576px) {
+  .big-text-faq {
+    font-size: 25px;
+    font-family: 'Manrope';
+    transition: all .5s ease;
+  }
+}
+
+/* animation */
+
+#col1:hover .div-block1 {
+  width: 60%;
+  transition: all 1s ease;
+}
+
+#col1:hover .div-block2 {
+  width: 40%;
+  transition: all 1s ease;
+}
+
+#col2:hover .div-block3 {
+  width: 60%;
+  transition: all 1s ease;
+}
+
+#col2:hover .div-block4 {
+  width: 40%;
+  transition: all 1s ease;
+}
+
+#block-name {
+  font-size: 70px;
+}
+
+@media (min-width: 576px) {
+  #faq-desc {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  #faq-desc {
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .container-faq-title {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-faq-title {
+    margin-bottom: 3rem;
+  }
+}
+
+.btn {
+}
+
+#btn-book-now {
+  height: 3rem;
+  border-radius: 50px;
+}
+
+.payment-breakdown-card {
+}
+
+#resched-reason {
+  height: 70px;
+  resize: none;
+}
+
+.landing-page-nagbar {
+}
+

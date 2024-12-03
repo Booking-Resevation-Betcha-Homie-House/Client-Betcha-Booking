@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Betcha-Website</title>
+    <link rel="stylesheet" href="../../assetsv4/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Manrope.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="../../assetsv4/css/block-animation.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Calendar.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Carousel.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Custom.css">
+    <link rel="stylesheet" href="../../assetsv4/css/LandingPage.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Login-Register.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Message-box.css">
+    <link rel="stylesheet" href="../../assetsv4/css/my-booking.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Notifcation.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Profile.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="../../assetsv4/css/Spinner.css">
+    <link rel="stylesheet" href="../../assetsv4/css/User.css">
+</head>
+
+<body>
+    <div class="d-none" id="container-spinner">
+        <div class="key">
+            <div class="key-handle"></div>
+            <div class="key-body">
+                <div class="key-teeth"></div>
+            </div>
+        </div>
+        <div class="container-loading-text">
+            <p class="text-center loading-text"><strong>Unlocking Your Dream Stay</strong></p>
+            <p class="text-center loading-text-2">Please wait...</p>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="../LoggedIn/Rooms.html">
+                <div class="d-flex justify-content-center align-items-center gap-2"><img src="../../assetsv4/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name2" style="color: #147b42;"><strong>BETCHA</strong></span></div>
+            </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon nav-toggle-menu"><span></span><span></span><span></span></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav text-end ms-auto" id="navbar-items">
+                    <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="../LoggedIn/Rooms.html">Rooms</a></li>
+                    <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item d-inline-flex align-items-center me-3"><a class="nav-link" href="../LoggedIn/FAQs.html">FAQs</a></li>
+                    <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="../../assetsv4/img/avatars/default-profile-pic.jpg" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
+                        <div class="dropdown-menu dropdown-menu-end text-start" id="nav-dropdown-menu"><a class="dropdown-item d-flex align-items-center w-100" href="../LoggedIn/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Profile</a><a class="dropdown-item d-flex align-items-center" id="openNotifications" href="#" data-bs-target="#modal-notification-list" data-bs-toggle="modal"><i class="fas fa-bell fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Notification</a><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-book fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;My Bookings</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content p-5">
+        <div class="d-flex gap-2"><a class="unstyled-link" href="../LoggedIn/My-Bookings.html">
+                <h4 class="manrope mb-5"><strong>My Bookings</strong></h4>
+            </a>
+            <h4 class="manrope mb-5" style="color: #050316;"><strong>&gt; View Details</strong></h4>
+        </div>
+        <div id="my-bookings-detail-container">
+            <div class="row">
+                <div class="col">
+                    <p class="my-bookings-view-unit-name mb-1">Unit Name<br>Name</p>
+                    <div class="d-flex align-items-center gap-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" class="m-0">
+
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.05025 4.05025C7.78392 1.31658 12.2161 1.31658 14.9497 4.05025C17.6834 6.78392 17.6834 11.2161 14.9497 13.9497L10 18.8995L5.05025 13.9497C2.31658 11.2161 2.31658 6.78392 5.05025 4.05025ZM10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z" fill="currentColor"></path>
+                        </svg>
+                        <p id="check-out-date-1" class="m-0">Location</p>
+                    </div>
+                    <div class="card confirm-booking-card mb-3">
+                        <div class="card-body">
+                            <h4 class="manrope mb-3" style="color: #050316;"><strong>Payment Details</strong></h4>
+                            <div class="d-flex justify-content-between">
+                                <p>Payment Mode:</p>
+                                <p class="text-end" id="mbv-payment-mode">Total</p>
+                            </div>
+                            <div class="line-div line-div2 mb-4"></div>
+                            <h4 class="manrope mb-3" style="color: #050316;"><strong>Price Details</strong></h4>
+                            <div class="d-flex justify-content-between">
+                                <p><span>Unit Price</span>&nbsp;x&nbsp;<span>Days</span></p>
+                                <p class="text-end">Total</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p><span>Price per Pax</span>&nbsp;x&nbsp;<span>Additional Pax</span></p>
+                                <p class="text-end">Total</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p>Reservation Fee</p>
+                                <p class="text-end">Fee</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center total-container gradient2 mb-3">
+                                <h2 class="m-0 manrope" style="color: #050316;">Total Price:</h2>
+                                <h2 class="m-0 manrope" style="color: #050316;">P 00.00</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="unit-carousel" class="mb-3">
+                        <div class="carousel slide" data-bs-ride="false" id="carousel-1">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
+                                <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
+                                <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
+                            </div>
+                            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+                            <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center reference-container mb-3">
+                        <p class="manrope m-0 ref-text"><strong>REF ID:</strong></p>
+                        <p id="ref-id" class="manrope m-0 ref-text">REF0000001</p>
+                    </div>
+                    <div class="gap-3 lower-details">
+                        <div class="d-flex flex-column justify-content-center dates-container white-text w-100">
+                            <p class="text-center m-0">Date of Booking:&nbsp;<span class="vmb-date-of-booking">Text</span></p>
+                            <div class="d-flex flex-column justify-content-center w-100">
+                                <p class="text-center date-booked m-0 manrope"><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check In</label>
+                                <div class="d-flex flex-column justify-content-center w-100">
+                                    <p class="text-center date-booked m-0 manrope"><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check Out</label>
+                                </div>
+                            </div>
+                        </div><button class="btn manrope resched-btn btn-secondary" type="button" data-bs-target="#modal-reschedule" data-bs-toggle="modal">Reschedule</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="mt-5 user-footer white-text">
+        <div class="container py-4 py-lg-5">
+            <div class="row justify-content-center mb-6 gap-2">
+                <div class="col">
+                    <div>
+                        <p class="footer-heading">Book Your Perfect Stay, Anytime, Anywhere.</p>
+                        <p style="text-align: justify;">At Betcha by Homie House, we believe every great journey starts with the perfect stay. Whether you're looking for a cozy escape, a luxurious retreat, or something in between, we've got the ideal room for you. With a simple, seamless booking process, you can explore a wide range of options and find the perfect place to call home, no matter where your travels take you. Book your next adventure with us today!</p>
+                    </div>
+                </div>
+                <div class="col col-footer-image">
+                    <div class="footer-image" style="background: url(&quot;../../assetsv4/img/pexels-photo-11851382.jpeg&quot;) center / cover;"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Services</h3>
+                    <ul class="list-unstyled">
+                        <li class="link-white"><a class="link-secondary link-white" href="../LoggedIn/Rooms.html">Rooms</a></li>
+                        <li><a class="link-secondary link-white" href="#">About Us</a></li>
+                        <li><a class="link-secondary link-white" href="../LoggedIn/FAQs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Terms and policy</h3>
+                    <ul class="list-unstyled">
+                        <li><a class="link-secondary link-white" href="../LoggedIn/Terms&amp;Condition.html">Terms &amp; Condition</a></li>
+                        <li><a class="link-secondary link-white" href="../LoggedIn/Privacy&amp;Policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Contacts</h3>
+                    <div class="m-0">
+                        <p class="p-0 m-0">betchabyhomiehouse@gmail.com</p>
+                        <p class="p-0 m-0">+63 938 255 6454</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
+                    <h3 class="fs-6 text-uppercase">Connect With Us</h3>
+                    <div class="d-flex flex-row m-0 gap-2" id="social-media-link"><a id="facebook" href="https://www.facebook.com/betchabyhomiehouse?mibextid=ZbWKwL">
+                            <div class="social-media rounded-circle"><i class="fab fa-facebook-f white-text"></i></div>
+                        </a><a id="instagram" href="#"></a></div>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center pt-3">
+                <p class="text-muted mb-0 white-text">Copyright © 2024 Betcha by Homie House</p>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-reschedule">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reschedule</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Reason:</p><textarea id="resched-reason" class="form-control mb-3"></textarea>
+                    <div id="Calendar-Booked" class="gap-3">
+                        <div class="calendar mb-3">
+                            <div class="header"><button id="prev-month"><i class="fas fa-backward"></i></button>
+                                <div><span id="month"></span><span id="year"></span></div><button id="next-month"><i class="fas fa-forward"></i></button>
+                            </div>
+                            <div class="days">
+                                <div><span>Sun</span></div>
+                                <div><span>Mon</span></div>
+                                <div><span>Tue</span></div>
+                                <div><span>Wed</span></div>
+                                <div><span>Thu</span></div>
+                                <div><span>Fri</span></div>
+                                <div><span>Sat</span></div>
+                            </div>
+                            <div id="dates" class="dates"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" class="icon mb-1">
+
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7071 5.29289C17.0976 5.68342 17.0976 6.31658 16.7071 6.70711L8.70711 14.7071C8.31658 15.0976 7.68342 15.0976 7.29289 14.7071L3.29289 10.7071C2.90237 10.3166 2.90237 9.68342 3.29289 9.29289C3.68342 8.90237 4.31658 8.90237 4.70711 9.29289L8 12.5858L15.2929 5.29289C15.6834 4.90237 16.3166 4.90237 16.7071 5.29289Z" fill="currentColor"></path>
+                        </svg>&nbsp;Confirm</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assetsv4/js/Calendar.js"></script>
+    <script src="../../assetsv4/js/ChangeProfile.js"></script>
+    <script src="../../assetsv4/js/FileUpload.js"></script>
+    <script src="../../assetsv4/js/ID.js"></script>
+    <script src="../../assetsv4/js/Message-box.js"></script>
+    <script src="../../assetsv4/js/Otp-timer.js"></script>
+    <script src="../../assetsv4/js/Password.js"></script>
+    <script src="../../assetsv4/js/RegisterForm.js"></script>
+    <script src="../../assetsv4/js/Status.js"></script>
+    <script src="../../assetsv4/js/theme.js"></script>
+    <script src="../../assetsv4/js/unit-images.js"></script>
+    <script src="../../assetsv4/js/view-book-toggle.js"></script>
+</body>
+
+</html>

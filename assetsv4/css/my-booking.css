@@ -1,0 +1,154 @@
+#my-bookings-container {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.mybookings-unit-image {
+  height: 100px;
+  width: 300px;
+  border-radius: .75rem;
+  transition: all .3s ease;
+}
+
+.my-bookings {
+  padding: 20px;
+  border-radius: 1.75rem;
+  background: #ffffff;
+  transition: all .3s ease;
+  margin-bottom: 1rem;
+}
+
+.my-bookings:hover {
+  background: rgba(180,203,104,0.27);
+  transition: all .5s ease;
+  border: solid;
+  border-width: 1px;
+  border-color: #050316;
+}
+
+.my-bookings:hover .mybookings-unit-image {
+  width: 400px;
+  transition: all .5s ease;
+}
+
+.my-bookings:hover .booking-details-card {
+  color: #050316;
+  transition: all .5s ease;
+}
+
+.circle-view {
+  background: #050316;
+}
+
+.details-right {
+  width: 50%;
+}
+
+.details-left {
+}
+
+#unit-carousel {
+  width: 100%;
+  height: 300px;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-bookings-view-unit-name {
+  color: #212529;
+  font-family: 'Manrope';
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+.reference-container {
+  width: 100%;
+  height: 70px;
+  border-radius: 50px;
+  background: #212529;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 576px) {
+  .ref-text {
+    font-size: 24px;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 576px) {
+  .ref-text {
+    font-size: 16px;
+    color: #ffffff;
+  }
+}
+
+.dates-container {
+  width: 50%;
+  height: 300px;
+  border-radius: 1.75rem;
+  background: #147b42;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 576px) {
+  .resched-btn {
+    width: 100%;
+    height: 150px;
+    border-radius: 1.75rem;
+    padding: 1.5rem;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 576px) {
+  .resched-btn {
+    width: 50%;
+    height: 150px;
+    border-radius: 1.75rem;
+    padding: 1.5rem;
+    font-size: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.date-booked {
+  font-size: 50px;
+}
+
+.gradient3 {
+  background-size: 200% 200%;
+}
+
+@media (min-width: 576px) {
+  .lower-details {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .lower-details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.unstyled-link {
+  text-decoration: none;
+  color: #050316;
+}
+
+.unstyled-link h4 {
+  text-decoration: none;
+  color: #050316;
+}
+
+.unstyled-link h4:hover {
+  text-decoration: none;
+  color: #147b42!important;
+}
+
