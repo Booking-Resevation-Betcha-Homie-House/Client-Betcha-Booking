@@ -25,7 +25,7 @@ async function adminViewLoadData(){
 
     document.getElementById('btn-admin-edit').onclick = () => {
         console.log(admin._id);
-        window.location.href = `Admin-Edit.html?id=${adminID}`;
+        window.location.href = `Admin-Edit.html?email=${adminID}`;
     };
 
 }

@@ -164,7 +164,7 @@ function confirmOtp() {
     .then(data => {
         console.log('OTP verification successful:', data);
         alertCustom('OTP', 'OTP verified successfully!');
-        window.location.href = "../ForgotPassword.html";
+        window.location.href = `../ForgotPassword.html?id=${email}`;
     })
     .catch(error => {
         console.error('Error:', error);
