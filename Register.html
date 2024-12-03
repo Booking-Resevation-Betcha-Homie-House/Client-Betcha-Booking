@@ -5,24 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Register - Betcha</title>
-    <link rel="stylesheet" href="assetsv4/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assetsv4/css/Manrope.css">
-    <link rel="stylesheet" href="assetsv4/css/Nunito.css">
+    <link rel="stylesheet" href="assetsv4.5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Manrope.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Nunito.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <link rel="stylesheet" href="assetsv4/css/block-animation.css">
-    <link rel="stylesheet" href="assetsv4/css/Calendar.css">
-    <link rel="stylesheet" href="assetsv4/css/Carousel.css">
-    <link rel="stylesheet" href="assetsv4/css/Custom.css">
-    <link rel="stylesheet" href="assetsv4/css/LandingPage.css">
-    <link rel="stylesheet" href="assetsv4/css/Login-Register.css">
-    <link rel="stylesheet" href="assetsv4/css/Message-box.css">
-    <link rel="stylesheet" href="assetsv4/css/my-booking.css">
-    <link rel="stylesheet" href="assetsv4/css/Navbar-Right-Links-icons.css">
-    <link rel="stylesheet" href="assetsv4/css/Notifcation.css">
-    <link rel="stylesheet" href="assetsv4/css/Profile.css">
-    <link rel="stylesheet" href="assetsv4/css/Scrollbar.compiled.css">
-    <link rel="stylesheet" href="assetsv4/css/Spinner.css">
-    <link rel="stylesheet" href="assetsv4/css/User.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Calendar-1.css">
+    <link rel="stylesheet" href="assetsv4.5/css/block-animation.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Calendar.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Carousel.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Custom.css">
+    <link rel="stylesheet" href="assetsv4.5/css/LandingPage.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Login-Register.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Message-box.css">
+    <link rel="stylesheet" href="assetsv4.5/css/my-booking.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Notifcation.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Profile.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Spinner.css">
+    <link rel="stylesheet" href="assetsv4.5/css/User.css">
 </head>
 
 <body class="d-xl-flex justify-content-xl-center align-items-xl-center" style="background: rgba(18,120,69,0.14);">
@@ -32,7 +33,7 @@
                 <div class="col col-6">
                     <div class="p-3"><button class="btn bg-transparent back-button border-0" type="button"><i class="fas fa-arrow-left text-gray-600"></i><span class="ms-2 text-gray-600">Back to website</span></button>
                         <div class="d-flex flex-column justify-content-center align-items-center align-content-center container-register">
-                            <div class="d-flex justify-content-center align-items-center container-logo mb-5 gap-1"><img class="img-logo" src="assetsv4/img/Betcha-Logo-Green.svg">
+                            <div class="d-flex justify-content-center align-items-center container-logo mb-5 gap-1"><img class="img-logo" src="assetsv4.5/img/Betcha-Logo-Green.svg">
                                 <div>
                                     <p class="m-0 logo-text"><strong>Betcha by Homie House</strong></p>
                                 </div>
@@ -58,7 +59,7 @@
                                     <p class="text-center error" id="error-message">Error Message</p>
                                 </div><button class="btn btn-primary btn-login-register" id="nextBtn" type="button">Next</button>
                             </div>
-                            <div class="d-none w-100 px-4" id="step2">
+                            <div id="step2" class="d-none w-100 px-4">
                                 <div class="d-flex gap-3 mb-3"><input type="text" id="reg-email" class="form-control" placeholder="Email"></div>
                                 <div class="d-flex justify-content-center w-100 mb-2 position-relative mb-3"><input type="password" id="reg-password" class="form-control password-input w-100" name="input-login-password" placeholder="Password"><span class="toggle-password position-absolute" style="right:10px;top:50%;transform:translateY(-50%);cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="d-block icon" id="eye-open">
                                             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
@@ -87,7 +88,7 @@
                                 <div class="d-flex justify-content-center align-items-center visible w-100 mb-3">
                                     <p class="text-center text-danger d-none error" id="error-message-2">Error Message</p>
                                 </div>
-                                <div class="d-flex flex-row gap-3 w-100"><button class="btn btn-secondary btn-login-register w-50" id="prevBtn" type="button">Back</button><button class="btn btn-primary btn-login-register w-50" id="btn-register" type="submit" data-bs-target="#modal-otp" data-bs-toggle="modal">Register</button></div>
+                                <div class="d-flex flex-row gap-3 w-100"><button class="btn btn-secondary btn-login-register w-50" id="prevBtn" type="button">Back</button><button class="btn btn-primary btn-login-register w-50" id="btn-register-1" type="submit" data-bs-toggle="modal" data-bs-target="#modal-otp">Register</button></div>
                             </div>
                         </div>
                     </div>
@@ -101,9 +102,9 @@
                     <div class="container-carousel">
                         <div class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-keyboard="false" id="carousel-1">
                             <div class="carousel-inner">
-                                <div class="carousel-item active" style="background: url(&quot;assetsv4/img/pexels-photo-1020016.jpeg&quot;) center / cover;"></div>
-                                <div class="carousel-item" style="background: url(&quot;assetsv4/img/pexels-photo-271795.jpeg&quot;) center / cover;"></div>
-                                <div class="carousel-item" style="background: url(&quot;assetsv4/img/pexels-photo-6580416.jpeg&quot;) center / cover;"></div>
+                                <div class="carousel-item active" style="background: url(&quot;assetsv4.5/img/pexels-photo-1020016.jpeg&quot;) center / cover;"></div>
+                                <div class="carousel-item" style="background: url(&quot;assetsv4.5/img/pexels-photo-271795.jpeg&quot;) center / cover;"></div>
+                                <div class="carousel-item" style="background: url(&quot;assetsv4.5/img/pexels-photo-6580416.jpeg&quot;) center / cover;"></div>
                             </div>
                             <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
                         </div>
@@ -143,18 +144,21 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assetsv4/js/Calendar.js"></script>
-    <script src="assetsv4/js/ChangeProfile.js"></script>
-    <script src="assetsv4/js/FileUpload.js"></script>
-    <script src="assetsv4/js/ID.js"></script>
-    <script src="assetsv4/js/Message-box.js"></script>
-    <script src="assetsv4/js/Otp-timer.js"></script>
-    <script src="assetsv4/js/Password.js"></script>
-    <script src="assetsv4/js/RegisterForm.js"></script>
-    <script src="assetsv4/js/Status.js"></script>
-    <script src="assetsv4/js/theme.js"></script>
-    <script src="assetsv4/js/unit-images.js"></script>
-    <script src="assetsv4/js/view-book-toggle.js"></script>
+    <script src="assetsv4.5/js/Calendario/jquery.min.js"></script>
+    <script src="assetsv4.5/js/Calendario/main.js"></script>
+    <script src="assetsv4.5/js/Calendario/popper.js"></script>
+    <script src="assetsv4.5/js/Calendar.js"></script>
+    <script src="assetsv4.5/js/ChangeProfile.js"></script>
+    <script src="assetsv4.5/js/FileUpload.js"></script>
+    <script src="assetsv4.5/js/ID.js"></script>
+    <script src="assetsv4.5/js/Message-box.js"></script>
+    <script src="assetsv4.5/js/Otp-timer.js"></script>
+    <script src="assetsv4.5/js/Password.js"></script>
+    <script src="assetsv4.5/js/RegisterForm.js"></script>
+    <script src="assetsv4.5/js/Status.js"></script>
+    <script src="assetsv4.5/js/theme.js"></script>
+    <script src="assetsv4.5/js/unit-images.js"></script>
+    <script src="assetsv4.5/js/view-book-toggle.js"></script>
 </body>
 
 </html>

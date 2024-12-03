@@ -5,60 +5,147 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Betcha-Website</title>
-    <link rel="stylesheet" href="assetsv4/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assetsv4/css/Manrope.css">
-    <link rel="stylesheet" href="assetsv4/css/Nunito.css">
-    <link rel="stylesheet" href="assetsv4/css/block-animation.css">
-    <link rel="stylesheet" href="assetsv4/css/Calendar.css">
-    <link rel="stylesheet" href="assetsv4/css/Carousel.css">
-    <link rel="stylesheet" href="assetsv4/css/Custom.css">
-    <link rel="stylesheet" href="assetsv4/css/LandingPage.css">
-    <link rel="stylesheet" href="assetsv4/css/Login-Register.css">
-    <link rel="stylesheet" href="assetsv4/css/Message-box.css">
-    <link rel="stylesheet" href="assetsv4/css/my-booking.css">
-    <link rel="stylesheet" href="assetsv4/css/Navbar-Right-Links-icons.css">
-    <link rel="stylesheet" href="assetsv4/css/Notifcation.css">
-    <link rel="stylesheet" href="assetsv4/css/Profile.css">
-    <link rel="stylesheet" href="assetsv4/css/Scrollbar.compiled.css">
-    <link rel="stylesheet" href="assetsv4/css/Spinner.css">
-    <link rel="stylesheet" href="assetsv4/css/User.css">
+    <link rel="stylesheet" href="assetsv4.5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Manrope.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Nunito.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Calendar-1.css">
+    <link rel="stylesheet" href="assetsv4.5/css/block-animation.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Calendar.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Carousel.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Custom.css">
+    <link rel="stylesheet" href="assetsv4.5/css/LandingPage.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Login-Register.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Message-box.css">
+    <link rel="stylesheet" href="assetsv4.5/css/my-booking.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Notifcation.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Profile.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="assetsv4.5/css/Spinner.css">
+    <link rel="stylesheet" href="assetsv4.5/css/User.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md mb-3 bg-transparent">
+    <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center">
-                <div class="d-flex justify-content-center align-items-center gap-2"><img src="assetsv4/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span></div>
-            </a></div>
+                <div class="d-flex justify-content-center align-items-center gap-2"><img src="assetsv4.5/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span></div>
+            </a>
+            <div><a class="btn btn-primary" role="button" id="btn-login" href="LogIn.html">Log In</a><a class="btn btn-primary" role="button" id="btn-register" href="Register.html">Register</a></div>
+        </div>
     </nav>
-    <div>
-        <div class="d-flex justify-content-between align-items-end align-content-end mb-5 uppter-text-container">
+    <div class="container-fluid body-content">
+        <div class="d-flex justify-content-between align-items-end align-content-end mb-5 upper-text-container">
             <div>
                 <p class="upper-text manrope"><strong>Feel at Home,</strong></p>
                 <p class="upper-text manrope" style="margin-top: -35px;"><strong>Every Stay.</strong></p>
             </div>
-            <div class="d-flex flex-column align-items-end" style="width: 45%;">
-                <p class="sub-header-uppertext manrope" style="text-align: right;"><br>Discover the ultimate staycation experience—a chance to escape the routine and enjoy a memorable getaway. From cozy retreats to vibrant spaces, find the perfect spot to relax, explore, and savor every moment.<br><br></p><button class="btn btn-primary" id="btn-book-a-room" type="button">Book a Room</button>
+            <div class="d-flex flex-column align-items-end" id="sub-header-container">
+                <p class="sub-header-uppertext manrope" style="text-align: right;"><br>Discover the ultimate staycation experience—a chance to escape the routine and enjoy a memorable getaway. From cozy retreats to vibrant spaces, find the perfect spot to relax, explore, and savor every moment.<br><br></p>
             </div>
         </div>
     </div>
-    <div class="d-flex landing-image-container gap-3 mb-5">
-        <div class="image-1-container"><img alt="Delicate flowers in glass vase placed on round coffee table near comfortable green sofa sofa with cushions in modern apartment with" id="random-unit-image" src="assetsv4/img/pexels-photo-6580416.jpeg"></div>
-        <div class="image-1-container2"><img alt="Charming colonial-style building with intricate balcony in Santiago de los Caballeros, Dominican Republic." id="random-unit-image-1" src="assetsv4/img/pexels-photo-1393522.jpeg"></div>
-        <div class="image-1-container3"><img alt="A peaceful tropical cottage nestled among lush trees and clear blue skies." id="random-unit-image" src="assetsv4/img/pexels-photo-8307041.jpeg"></div>
+    <div class="d-flex landing-image-container gap-3">
+        <div class="image-1-container"><img alt="Delicate flowers in glass vase placed on round coffee table near comfortable green sofa sofa with cushions in modern apartment with" id="random-unit-image" src="assetsv4.5/img/pexels-photo-6580416.jpeg"></div>
+        <div class="image-1-container2"><img alt="Charming colonial-style building with intricate balcony in Santiago de los Caballeros, Dominican Republic." id="random-unit-image-1" src="assetsv4.5/img/pexels-photo-1393522.jpeg"></div>
+        <div class="image-1-container3"><img alt="A peaceful tropical cottage nestled among lush trees and clear blue skies." id="random-unit-image" src="assetsv4.5/img/pexels-photo-8307041.jpeg"></div>
+    </div>
+    <div class="container-fluid body-content">
+        <div class="row" id="row-featured-units">
+            <div class="col-4">
+                <div id="left-featured-image"><img alt="A serene image of a cottage with a thatched roof, featuring a cozy terrace with green foliage." id="featured-units-left-image" src="assetsv4.5/img/pexels-photo-17581767.jpeg"></div>
+            </div>
+            <div class="col">
+                <div>
+                    <div>
+                        <p class="manrope mb-0" style="color: #212529;">Featured Units</p>
+                    </div>
+                    <p id="feat-units-header" class="manrope text-capitalize">Check out&nbsp; our featured units this month</p>
+                    <div class="container-featured-units2 gradient1">
+                        <div class="row row-featured-unit2">
+                            <div class="col p-3" id="popular-units">
+                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv4.5/img/pexels-photo-1010657.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <h5 id="unit-name" class="heading-unit">Unit Name</h5>
+                                        </div>
+                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-3" id="popular-units-4">
+                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv4.5/img/pexels-photo-1010657.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <h5 id="unit-name-9" class="heading-unit">Unit Name</h5>
+                                        </div>
+                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-3" id="popular-units-3">
+                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv4.5/img/pexels-photo-1010657.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <h5 id="unit-name-3" class="heading-unit">Unit Name</h5>
+                                        </div>
+                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-3" id="popular-units-2">
+                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv4.5/img/pexels-photo-1010657.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <h5 id="unit-name-2" class="heading-unit">Unit Name</h5>
+                                        </div>
+                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-3" id="popular-units-1">
+                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv4.5/img/pexels-photo-1010657.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <h5 id="unit-name-1" class="heading-unit">Unit Name</h5>
+                                        </div>
+                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
+                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
+                                            </svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assetsv4/js/Calendar.js"></script>
-    <script src="assetsv4/js/ChangeProfile.js"></script>
-    <script src="assetsv4/js/FileUpload.js"></script>
-    <script src="assetsv4/js/ID.js"></script>
-    <script src="assetsv4/js/Message-box.js"></script>
-    <script src="assetsv4/js/Otp-timer.js"></script>
-    <script src="assetsv4/js/Password.js"></script>
-    <script src="assetsv4/js/RegisterForm.js"></script>
-    <script src="assetsv4/js/Status.js"></script>
-    <script src="assetsv4/js/theme.js"></script>
-    <script src="assetsv4/js/unit-images.js"></script>
-    <script src="assetsv4/js/view-book-toggle.js"></script>
+    <script src="assetsv4.5/js/Calendario/jquery.min.js"></script>
+    <script src="assetsv4.5/js/Calendario/main.js"></script>
+    <script src="assetsv4.5/js/Calendario/popper.js"></script>
+    <script src="assetsv4.5/js/Calendar-1.js"></script>
+    <script src="assetsv4.5/js/Calendar.js"></script>
+    <script src="assetsv4.5/js/ChangeProfile.js"></script>
+    <script src="assetsv4.5/js/FileUpload.js"></script>
+    <script src="assetsv4.5/js/ID.js"></script>
+    <script src="assetsv4.5/js/Message-box.js"></script>
+    <script src="assetsv4.5/js/Otp-timer.js"></script>
+    <script src="assetsv4.5/js/Password.js"></script>
+    <script src="assetsv4.5/js/RegisterForm.js"></script>
+    <script src="assetsv4.5/js/Status.js"></script>
+    <script src="assetsv4.5/js/theme.js"></script>
+    <script src="assetsv4.5/js/unit-images.js"></script>
+    <script src="assetsv4.5/js/view-book-toggle.js"></script>
 </body>
 
 </html>

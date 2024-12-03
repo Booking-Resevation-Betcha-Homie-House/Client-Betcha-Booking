@@ -1,0 +1,80 @@
+.img-logo {
+  width: 16px;
+}
+
+.text-login {
+  color: #212529;
+}
+
+.text-link {
+  color: rgba(33,37,41,0.5);
+  font-size: 14px;
+}
+
+.container-login {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+  border-radius: .75rem;
+}
+
+.container-register {
+  padding-top: 2rem;
+  margin: 0px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.btn-login-register {
+  width: 100%;
+  padding: .8rem 1rem;
+  border-radius: 50rem;
+  margin: 0px;
+}
+
+.container-forgot-password {
+  width: 700px;
+  background-color: #ffffff;
+  border-radius: calc(.75rem + 16px);
+}
+
+.container-login-register {
+  min-width: 70vw;
+  background-color: #ffffff;
+  border-radius: calc(.75rem + 16px);
+}
+
+.logo-text {
+  color: #147b42;
+  font-family: 'Manrope';
+  font-weight: 100;
+  font-size: 16px;
+}
+
+.text-green {
+  color: #147b42;
+}
+
+.back-button {
+  padding: 0px;
+  margin: 0px;
+  min-height: 0rem!important;
+}
+
+.back-button:focus i, .back-button:focus span {
+  color: #147b42;
+}
+
+.progress {
+  --bs-progress-bar-bg: #147b42;
+  width: 100%;
+}
+
+.id-image-preview {
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: 400px;
+  height: 250px;
+  border-radius: .75rem;
+}
+

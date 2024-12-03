@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html data-bs-theme="light" lang="en" ng-app="myApp" ng-controller="AppCtrl">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Room View - Betcha</title>
-    <link rel="stylesheet" href="../../assetsv4/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Manrope.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Nunito.css">
+    <link rel="stylesheet" href="../../assetsv4.5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Manrope.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Nunito.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
-    <link rel="stylesheet" href="../../assetsv4/css/block-animation.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Calendar.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Carousel.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Custom.css">
-    <link rel="stylesheet" href="../../assetsv4/css/LandingPage.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Login-Register.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Message-box.css">
-    <link rel="stylesheet" href="../../assetsv4/css/my-booking.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Navbar-Right-Links-icons.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Notifcation.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Profile.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Scrollbar.compiled.css">
-    <link rel="stylesheet" href="../../assetsv4/css/Spinner.css">
-    <link rel="stylesheet" href="../../assetsv4/css/User.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Calendar-1.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/block-animation.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Calendar.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Carousel.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Custom.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/LandingPage.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Login-Register.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Message-box.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/my-booking.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Notifcation.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Profile.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Spinner.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/User.css">
 </head>
 
 <body>
@@ -47,14 +48,14 @@
         <div class="d-flex flex-column body-content left-panel mb-5">
             <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
                 <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="../LoggedIn/Rooms.html">
-                        <div class="d-flex justify-content-center align-items-center gap-2"><img src="../../assetsv4/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span></div>
+                        <div class="d-flex justify-content-center align-items-center gap-2"><img src="../../assetsv4.5/img/Betcha-Logo-Green.svg" style="height: 30px;"><span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span></div>
                     </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon nav-toggle-menu"><span></span><span></span><span></span></span></button>
                     <div class="collapse navbar-collapse" id="navcol-2">
                         <ul class="navbar-nav text-end ms-auto" id="navbar-items">
                             <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="../LoggedIn/Rooms.html">Rooms</a></li>
                             <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="#">About Us</a></li>
                             <li class="nav-item d-inline-flex align-items-center navbar-link me-3"><a class="nav-link navbar-link" href="../LoggedIn/FAQs.html">FAQs</a></li>
-                            <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="../../assetsv4/img/avatars/default-profile-pic.jpg" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
+                            <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="../../assetsv4.5/img/avatars/default-profile-pic.jpg" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
                                 <div class="dropdown-menu dropdown-menu-end text-start" id="nav-dropdown-menu"><a class="dropdown-item d-flex align-items-center w-100" href="../LoggedIn/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Profile</a><a class="dropdown-item d-flex align-items-center" id="openNotifications" href="" data-bs-target="#modal-notification-list" data-bs-toggle="modal"><i class="fas fa-bell fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Notification</a><a class="dropdown-item d-flex align-items-center" href="../LoggedIn/My-Bookings.html"><i class="fas fa-book fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;My Bookings</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Logout</a>
                                 </div>
@@ -89,9 +90,9 @@
             <div id="unit-images" class="container-carousel mb-3">
                 <div class="carousel slide" data-bs-ride="false" id="carousel-preview-images">
                     <div class="carousel-inner">
-                        <div class="carousel-item active"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4/img/pexels-photo-1268855.jpeg"></div>
-                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4/img/pexels-photo-1770310.jpeg"></div>
-                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4/img/pexels-photo-1862695.jpeg"></div>
+                        <div class="carousel-item active"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4.5/img/pexels-photo-1268855.jpeg"></div>
+                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4.5/img/pexels-photo-1770310.jpeg"></div>
+                        <div class="carousel-item"><img class="w-100 d-block" alt="Slide Image" src="../../assetsv4.5/img/pexels-photo-1862695.jpeg"></div>
                     </div>
                     <div><a class="carousel-control-prev" href="#carousel-preview-images" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-preview-images" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
                     <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-preview-images" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-preview-images" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-preview-images" data-bs-slide-to="2"></button></div>
@@ -152,26 +153,26 @@
             </div>
             <div></div>
             <h6 class="mb-3"><strong>Booking Date</strong></h6>
-            <div id="Calendar-Booked" class="gap-3">
-                <div class="calendar mb-3">
-                    <div class="header"><button id="prev-month"><i class="fas fa-backward"></i></button>
-                        <div><span id="month"></span><span id="year"></span></div><button id="next-month"><i class="fas fa-forward"></i></button>
+            <div class="calendar-container">
+                <div class="calendar-section">
+                    <div id="calendar_first" class="calendar calendar-first">
+                        <div class="calendar_header"><button class="switch-month switch-left"><i class="fas fa-chevron-left"></i></button>
+                            <h2></h2><button class="switch-month switch-right"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar_weekdays"></div>
+                        <div class="calendar_content"></div>
                     </div>
-                    <div class="days">
-                        <div><span>Sun</span></div>
-                        <div><span>Mon</span></div>
-                        <div><span>Tue</span></div>
-                        <div><span>Wed</span></div>
-                        <div><span>Thu</span></div>
-                        <div><span>Fri</span></div>
-                        <div><span>Sat</span></div>
+                    <div id="calendar_second" class="calendar calendar-second">
+                        <div class="calendar_header"><button class="switch-month switch-left"><i class="fas fa-chevron-left"></i></button>
+                            <h2></h2><button class="switch-month switch-right"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar_weekdays"></div>
+                        <div class="calendar_content"></div>
                     </div>
-                    <div id="dates" class="dates"></div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center mb-3"><button class="btn btn-user" type="button">Clear Dates</button></div>
             <div id="booking-container-1" class="gap-3">
-                <div class="d-flex" id="book-dates-1">
+                <div class="d-flex gap-2" id="book-dates-1">
                     <div class="mb-2" style="width: 50%;"><label class="form-label">Start Date</label><input id="input-start-date-1" class="form-control date-input" type="date" style="border-radius: 50px;width: 100%;"></div>
                     <div class="mb-2" style="width: 50%;"><label class="form-label">End Date</label><input id="input-end-date-1" class="form-control date-input" type="date" style="border-radius: 50px;width: 100%;"></div>
                 </div>
@@ -187,12 +188,11 @@
         </div>
         <div class="right-content">
             <div id="Images-booking" class="view-image-preview">
-                <div class="previewed-image"><img alt="Previewed Image" src="../../assetsv4/img/pexels-photo-271795.jpeg"></div>
+                <div class="previewed-image"><img alt="Previewed Image" src="../../assetsv4.5/img/pexels-photo-271795.jpeg"></div>
                 <div class="row g-0">
                     <div class="col d-flex justify-content-between align-items-start">
                         <div class="container-view-unit-images shadow-sm">
-                            <div class="d-flex unit-images-select gap-2 mb-2"><img alt="Code &quot;CA241&quot; and Link in bio 📣Cooling Four-Leaf Clover  Summer Comfy Ice Silk Throw Covers for Sofas" id="view-unit-image-4" class="unit-image-small" src="../../assetsv4/img/pexels-photo-27532250.jpeg"><img alt="Low angle view of palm leaves forming a natural canopy against a vibrant, clear blue sky." id="view-unit-image-5" class="unit-image-small" src="../../assetsv4/img/pexels-photo-1862695.jpeg"><img alt="Scenic view of a wooden boardwalk leading to serene overwater bungalows at an island resort." id="view-unit-image-6" class="unit-image-small" src="../../assetsv4/img/maldives-ile-beach-sun-38238.jpeg"></div>
-                            <div class="d-flex justify-content-end p-0 m-0"><button class="btn btn-white border-0 m-0" id="unit-img-prev" type="button"><i class="fas fa-chevron-left"></i></button><button class="btn btn-white border-0 m-0" id="unit-img-next" type="button"><i class="fas fa-chevron-right"></i></button></div>
+                            <div class="d-flex unit-images-select gap-2 mb-2"><img alt="Code &quot;CA241&quot; and Link in bio 📣Cooling Four-Leaf Clover  Summer Comfy Ice Silk Throw Covers for Sofas" id="view-unit-image-4" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-27532250.jpeg"><img alt="Low angle view of palm leaves forming a natural canopy against a vibrant, clear blue sky." id="view-unit-image-5" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-1862695.jpeg"><img alt="Scenic view of a wooden boardwalk leading to serene overwater bungalows at an island resort." id="view-unit-image-6" class="unit-image-small" src="../../assetsv4.5/img/maldives-ile-beach-sun-38238.jpeg"><img alt="Code &quot;CA241&quot; and Link in bio 📣Cooling Four-Leaf Clover  Summer Comfy Ice Silk Throw Covers for Sofas" id="view-unit-image-1" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-27532250.jpeg"><img alt="Low angle view of palm leaves forming a natural canopy against a vibrant, clear blue sky." id="view-unit-image-2" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-1862695.jpeg"><img alt="Scenic view of a wooden boardwalk leading to serene overwater bungalows at an island resort." id="view-unit-image-3" class="unit-image-small" src="../../assetsv4.5/img/maldives-ile-beach-sun-38238.jpeg"></div>
                         </div>
                     </div>
                     <div class="col d-flex flex-column align-items-end">
@@ -230,7 +230,7 @@
     <div id="message-box" class="message-box">
         <div id="chat-container" class="chat-container">
             <div class="align-items-center message other manrope"><span> Hello! How can I help you today? </span></div>
-            <div class="align-items-center message user manrope"><span> Hi! I have a question about your product. </span></div>
+            <div class="align-items-center message user manrope" style="background: #147b42;"><span> Hi! I have a question about your product. </span></div>
         </div>
         <div class="input-container"><textarea class="manrope form-control" id="message-text" placeholder="Type your message..." rows="1"></textarea><button class="btn bg-transparent border-0 m-0 send-message" id="send-message" type="button"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color:#147b42;"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path></svg></button></div>
     </div>
@@ -265,7 +265,7 @@
                         <div id="notification-info">
                             <div class="row">
                                 <div class="col-2 d-flex justify-content-center">
-                                    <div class="d-flex justify-content-center align-items-center betcha-logo-notif"><img src="../../assetsv4/img/Betcha-Logo.svg"></div>
+                                    <div class="d-flex justify-content-center align-items-center betcha-logo-notif"><img src="../../assetsv4.5/img/Betcha-Logo.svg"></div>
                                 </div>
                                 <div class="col">
                                     <div>
@@ -287,18 +287,22 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assetsv4/js/Calendar.js"></script>
-    <script src="../../assetsv4/js/ChangeProfile.js"></script>
-    <script src="../../assetsv4/js/FileUpload.js"></script>
-    <script src="../../assetsv4/js/ID.js"></script>
-    <script src="../../assetsv4/js/Message-box.js"></script>
-    <script src="../../assetsv4/js/Otp-timer.js"></script>
-    <script src="../../assetsv4/js/Password.js"></script>
-    <script src="../../assetsv4/js/RegisterForm.js"></script>
-    <script src="../../assetsv4/js/Status.js"></script>
-    <script src="../../assetsv4/js/theme.js"></script>
-    <script src="../../assetsv4/js/unit-images.js"></script>
-    <script src="../../assetsv4/js/view-book-toggle.js"></script>
+    <script src="../../assetsv4.5/js/Calendario/jquery.min.js"></script>
+    <script src="../../assetsv4.5/js/Calendario/main.js"></script>
+    <script src="../../assetsv4.5/js/Calendario/popper.js"></script>
+    <script src="../../assetsv4.5/js/Calendar-1.js"></script>
+    <script src="../../assetsv4.5/js/Calendar.js"></script>
+    <script src="../../assetsv4.5/js/ChangeProfile.js"></script>
+    <script src="../../assetsv4.5/js/FileUpload.js"></script>
+    <script src="../../assetsv4.5/js/ID.js"></script>
+    <script src="../../assetsv4.5/js/Message-box.js"></script>
+    <script src="../../assetsv4.5/js/Otp-timer.js"></script>
+    <script src="../../assetsv4.5/js/Password.js"></script>
+    <script src="../../assetsv4.5/js/RegisterForm.js"></script>
+    <script src="../../assetsv4.5/js/Status.js"></script>
+    <script src="../../assetsv4.5/js/theme.js"></script>
+    <script src="../../assetsv4.5/js/unit-images.js"></script>
+    <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
 </body>
 
 </html>
