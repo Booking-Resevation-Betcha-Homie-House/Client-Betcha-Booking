@@ -89,4 +89,90 @@ async function LoginButton() {
     }
 }
 
+
+function resetButton() {
+    const email = document.querySelector('#modal-forgot-pass .modal-body input').value;
+
+    if (!email) {
+        alert('Please enter an email address.');
+        return;
+    }
+
+    localStorage.setItem('emailForgot', email);
+    console.log(localStorage.getItem('emailForgot'));
+    openLoading();
+    fetch('https://betcha-booking-api-master.onrender.com/otp/forgot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', 
+        },
+        body: JSON.stringify({ email }), 
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            closeLoading();
+            console.log('API Response:', data);
+            const otpModal = new bootstrap.Modal(document.getElementById('modal-otp'));
+            otpModal.show();
+        })
+        .catch(error => {
+            closeLoading()
+            console.error('Error:', error);
+            alert('Failed to send OTP. Please try again later.');
+        });
+}
+function confirmOtp() {
+    console.log('verifying otp');
+    const otp = document.getElementById('otp-pin-input').value;
+    const email = localStorage.getItem('emailForgot');
+
+    console.log('otp: ', otp);
+    console.log('email: ', email);
+
+    if (!email || !otp) {
+        alertCustom('OTP', 'Please enter valid OTP');
+        return;
+    }
+
+    const requestBody = {
+        email: email,  
+        otp: otp       
+    };
+
+    console.log('Request Body:', JSON.stringify(requestBody));
+
+    fetch('https://betcha-booking-api-master.onrender.com/otp/forgot/verify', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody), 
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(`Error: ${err.error || err.message}`);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('OTP verification successful:', data);
+        alertCustom('OTP', 'OTP verified successfully!');
+        window.location.href = "../ForgotPassword.html";
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alertCustom('OTP', 'Failed to verify OTP. ' + error.message);
+    });
+}
+
+document.getElementById('reset').addEventListener('click', resetButton);
+document.getElementById('Confirm-otp').addEventListener('click', confirmOtp);
 document.getElementById('login-btn').addEventListener('click', LoginButton);
+

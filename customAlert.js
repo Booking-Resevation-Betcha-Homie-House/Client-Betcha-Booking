@@ -20,40 +20,42 @@ function alertCustom(header, message) {
     alertContainer.id = 'custom-alert-container';
     alertContainer.style.backgroundColor = '#fff';
     alertContainer.style.padding = '30px'; 
-    alertContainer.style.borderRadius = '12px';
+    alertContainer.style.borderRadius = '1.75rem';
     alertContainer.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
     alertContainer.style.textAlign = 'center';
     alertContainer.style.maxWidth = '500px';  
     alertContainer.style.width = '80%';  
     alertContainer.style.fontFamily = 'Arial, sans-serif';
     alertContainer.style.height = 'auto';
-    alertContainer.style.minHeight = '250px'; 
+    alertContainer.style.minHeight = '10px'; 
 
     const alertHeader = document.createElement('div');
     alertHeader.style.fontSize = '24px';  
     alertHeader.style.fontWeight = 'bold';
     alertHeader.style.color = '#127845';
-    alertHeader.style.borderBottom = '3px solid #127845'; 
-    alertHeader.style.paddingBottom = '15px';  
-    alertHeader.style.marginBottom = '25px';  
+    // Removed or reduced the padding and margin
+    alertHeader.style.paddingBottom = '5px';  
+    alertHeader.style.marginBottom = '10px';  
     alertHeader.textContent = header;  
     alertContainer.appendChild(alertHeader);
 
     const alertMessage = document.createElement('p');
     alertMessage.textContent = message;
-    alertMessage.style.fontSize = '18px'; 
+    alertMessage.style.fontSize = '16px'; 
     alertMessage.style.color = '#333';
-    alertMessage.style.marginBottom = '25px';  
-    alertMessage.style.padding = '20px';  
-    alertMessage.style.lineHeight = '1.6';
-    alertMessage.style.textAlign = "Start" 
+    // Removed or reduced the padding and margin
+    alertMessage.style.marginTop = '0';  
+    alertMessage.style.padding = '0';  
+    alertMessage.style.lineHeight = '1.4';
+    alertMessage.style.textAlign = "center"; 
+    alertMessage.style.marginBottom = '45px';
     alertContainer.appendChild(alertMessage);
 
     const okButton = document.createElement('button');
     okButton.textContent = 'Okay';
     okButton.style.padding = '16px 50px';  
     okButton.style.border = 'none';
-    okButton.style.borderRadius = '15px';  
+    okButton.style.borderRadius = '1.75rem';  
     okButton.style.backgroundColor = '#127845';
     okButton.style.color = '#fff';
     okButton.style.fontSize = '14px'; 

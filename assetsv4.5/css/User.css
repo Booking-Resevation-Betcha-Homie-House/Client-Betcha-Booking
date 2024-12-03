@@ -392,11 +392,22 @@
   margin-top: 6rem!important;
 }
 
-.footer-heading {
-  color: #ffffff;
-  font-family: 'Manrope';
-  font-size: 60px;
-  font-weight: 900;
+@media (min-width: 768px) {
+  .footer-heading {
+    color: #ffffff;
+    font-family: 'Manrope';
+    font-size: 60px;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-heading {
+    color: #ffffff;
+    font-family: 'Manrope';
+    font-size: 30px;
+    font-weight: 900;
+  }
 }
 
 .white-text {
