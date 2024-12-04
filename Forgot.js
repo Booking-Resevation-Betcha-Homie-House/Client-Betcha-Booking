@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const email = urlParams.get('email');
+const email = urlParams.get('id');
 
 const errorMessage = document.getElementById('error-message');
 errorMessage.style.display = 'none'; 

@@ -1,42 +1,35 @@
-//finished 
 async function loadRoomsData() { 
     console.log('function called!');
     try {
-       /* const role = localStorage.getItem('role')
-        console.log(role);
-        checkSuperAdmin(role);*/
         const response = await fetch('https://betcha-booking-api-master.onrender.com/units');
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
         }
 
         const units = await response.json();
-        const container = document.getElementById('display-container'); // lagay ng id ng container
+        const container = document.getElementById('display-container');
 
         container.innerHTML = '';
 
         units.forEach(unit => {
-          // Create main container div
+
         const displayUnit = document.createElement('div');
         displayUnit.className = 'col';
         displayUnit.id = 'display-unit';
 
-        // Create the container-unit div
         const containerUnit = document.createElement('div');
         containerUnit.className = 'container-unit';
 
-        // Create image container
         const imageContainer = document.createElement('div');
         imageContainer.className = 'image-container image-container2';
 
-        // Create image element
         const image = document.createElement('img');
         image.className = 'unit-list-image';
         image.alt = 'Beautiful view of Santorini';
 
         console.log(unit.UnitImages[0].fileId);
         const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`; // img src
-        image.src = imageUrl; // img 
+        image.src = imageUrl; 
 
         // Append image to image container
         imageContainer.appendChild(image);

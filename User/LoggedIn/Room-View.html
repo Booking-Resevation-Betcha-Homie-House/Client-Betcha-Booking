@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Room View - Betcha</title>
-    <link rel="icon" href="../icon2.svg" type="image/svg+xml">
+    <link rel="icon" href="icon2.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../assetsv4.5/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assetsv4.5/css/Manrope.css">
     <link rel="stylesheet" href="../../assetsv4.5/css/Nunito.css">
@@ -30,8 +30,8 @@
 </head>
 <script> 
     window.onload = function() {
-        
         userloadUnitData()
+        getPfp()
      }
  </script>
 <body>
@@ -59,9 +59,9 @@
                     <div class="collapse navbar-collapse" id="navcol-2">
                         <ul class="navbar-nav text-end ms-auto" id="navbar-items">
                             <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="../LoggedIn/Rooms.html">Rooms</a></li>
-                            <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="#">About Us</a></li>
+                            <li class="nav-item d-inline-flex align-items-center"><a class="nav-link" href="/About Us.html">About Us</a></li>
                             <li class="nav-item d-inline-flex align-items-center navbar-link me-3"><a class="nav-link navbar-link" href="../LoggedIn/FAQs.html">FAQs</a></li>
-                            <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="../../assetsv4.5/img/avatars/default-profile-pic.jpg" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
+                            <li class="nav-item dropdown" id="navbar-dropdown"><a class="nav-link d-flex align-items-start" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="rounded-circle border img-profile" id="profile-picture" src="" style="width: 32px;height: 32px;"><span id="span-profile">Profile</span></a>
                                 <div class="dropdown-menu dropdown-menu-end text-start" id="nav-dropdown-menu"><a class="dropdown-item d-flex align-items-center w-100" href="../LoggedIn/Profile.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Profile</a><a class="dropdown-item d-flex align-items-center" id="openNotifications" href="" data-bs-target="#modal-notification-list" data-bs-toggle="modal"><i class="fas fa-bell fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Notification</a><a class="dropdown-item d-flex align-items-center" href="../LoggedIn/My-Bookings.html"><i class="fas fa-book fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;My Bookings</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400 icon"></i>&nbsp;Logout</a>
                                 </div>
@@ -305,6 +305,8 @@
     <script src="../../assetsv4.5/js/unit-images.js"></script>
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
     <script src="../LoggedIn/User-Function.js/Room-View-Functions.js"></script>
+    <script src="../../CheckUsers.js"></script>
+    <script src="User-Function.js/profile-picture.js"></script>
 </body>
 
 </html>

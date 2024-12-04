@@ -1,10 +1,5 @@
-
 // layout palang di pa tapos 
-
 function userProfile(){
-    const role = localStorage.getItem('role')
-    console.log(role);
-    checkSuperAdmin(role);
     console.log(localStorage.getItem('id'));
      
     fetch(`https://betcha-booking-api-master.onrender.com/user/${localStorage.getItem('id')}`)
@@ -12,16 +7,17 @@ function userProfile(){
     .then(data => {
         const user = data.data; 
         if (data) {
-           
+
+
             console.log(data);
-            //palitan id ng mga paragraph may mga mag kakaparehas
-            document.getElementById('profile-fullname').textContent = `${user.email}`; //fname
-            document.getElementById('profile-mname-3').textContent = `<h5><strong>${user.superAdminName}</strong></h5>`;//mname
-            document.getElementById('profile-lname-4').textContent = `${user.superAdminName}`; //lname
-            document.getElementById('profile-number-1').textContent = `${user.email}`; //number to
-            document.getElementById('profile-email-2').textContent = `<h5><strong>${user.superAdminName}</strong></h5>`;
-            document.getElementById('edit-password').textContent = '';
-            document.getElementById('profile-valid-id').textContent = `${user.superAdminName}`; // okay na to
+            document.getElementById('profile-fullname').textContent = `${user.firstName}`; 
+            document.getElementById('profile-mname-3').textContent = user.middleInitial 
+            document.getElementById('profile-lname-4').textContent = `${user.lastName}`; 
+            document.getElementById('profile-number-1').textContent = `${user.phoneNumber}`; 
+            document.getElementById('profile-email-2').textContent = user.email
+            console.log(user.IdImage.fileId);
+            document.getElementById('profile-valid-id').src = `https://drive.google.com/thumbnail?id=${user.IdImage.fileId}&sz=w1920-h1080`; 
+            document.getElementById('pfp-profile').src = `https://drive.google.com/thumbnail?id=${user.profileImage.fileId}&sz=w1920-h1080`; 
         } else {
             console.log('Display Admin','Super Admin not found or missing data.');
         }
@@ -36,7 +32,6 @@ function userProfile(){
     
 }
 
-// copy paste sa lahat ng html na maylogout btn
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';

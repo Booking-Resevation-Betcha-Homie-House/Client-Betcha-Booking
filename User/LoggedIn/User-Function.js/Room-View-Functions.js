@@ -17,7 +17,22 @@ async function userloadUnitData() {
         document.getElementById('view-unit-loc-1').innerHTML = unit.location;
         document.getElementById('view-unit-pax').innerHTML = unit.maxPax;
         document.getElementById('view-unit-category').innerHTML = unit.category;
-        document.getElementById('unit-price').innerHTML = unit.unitPrice;
+        const formattedPrice = new Intl.NumberFormat('en-PH', {
+            style: 'currency',
+            currency: 'PHP',
+            minimumFractionDigits: 2,  
+          }).format(unit.unitPrice);
+          const imgSelection = document.getElementById('img-selection');
+
+        imgSelection.addEventListener('mouseenter', function() {
+        imgSelection.style.cursor = 'pointer';
+        });
+
+        imgSelection.addEventListener('mouseleave', function() {
+        imgSelection.style.cursor = 'default';
+        });
+
+        document.getElementById('unit-price').innerHTML = `${formattedPrice}/day`;
         document.getElementById('view-unit-desc').innerHTML = unit.description;
         document.getElementById('other-amenities').innerHTML =unit.otherAmenities;
         document.getElementById('map-container').innerHTML = unit.maplink;
@@ -34,28 +49,25 @@ async function userloadUnitData() {
             console.log(itemElement);
         
             if (itemElement && isAvailable) {
-                // If the amenity is not already appended, create and append it
+
                 if (!existingAmenity) {
-                    // Create the main container div for available amenities
+
                     const amenityDiv = document.createElement('div');
                     amenityDiv.className = 'col-6 pb-1';
                     amenityDiv.id = `bathroom-${itemnumber}`;
         
-                    // Create the label element for the amenity
                     const label = document.createElement('label');
                     label.className = 'form-check-label';
                     label.textContent = itemElement.innerText;
         
-                    // Append the label to the main container
                     amenityDiv.appendChild(label);
-        
-                    // Ensure containerAmenities is defined before appending
+
                     if (containerAmenities) {
                         containerAmenities.appendChild(amenityDiv);
                     }
                 }
             } else if (divElement && !isAvailable) {
-                // If the amenity is not available, remove the corresponding div
+
                 divElement.remove();
             }
         
@@ -64,19 +76,50 @@ async function userloadUnitData() {
 
         const imgcontainer = document.getElementById('img-selection');
         const imgpreview = document.getElementById('image-preview');
+        
         imgpreview.src = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`;
+        
+        imgcontainer.style.overflowY = 'hidden'; 
+        imgcontainer.style.display = 'flex';     
+        imgcontainer.style.flexWrap = 'wrap';   
+        
         unit.UnitImages.forEach((image, index) => {
             const imageUrl = `https://drive.google.com/thumbnail?id=${image.fileId}&sz=w1920-h1080`;
-    
-            // Create the img element
+
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
             imgElement.classList.add('unit-image-small');
-        
-            // Append the img directly to imgcontainer
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                #image-preview {
+                    transition: opacity 0.5s ease-in-out;
+                    opacity: 1;
+                }
+            `;
+            document.head.appendChild(style);
+
             imgElement.onclick = () => {
-               imgpreview.src = `https://drive.google.com/thumbnail?id=${image.fileId}&sz=w1920-h1080`
-            }
+                imgpreview.style.opacity = 0; 
+        
+
+                setTimeout(() => {
+                    imgpreview.src = `https://drive.google.com/thumbnail?id=${image.fileId}&sz=w1920-h1080`;
+                    imgpreview.style.opacity = 1;
+                }, 300);  
+            };
+
+            imgElement.addEventListener('mouseenter', function() {
+                imgElement.style.cursor = 'pointer'; 
+                imgElement.style.transform = 'scale(1.1)'; 
+                imgElement.style.transition = 'transform 0.3s ease';
+            });
+        
+            imgElement.addEventListener('mouseleave', function() {
+                imgElement.style.cursor = 'default'; 
+                imgElement.style.transform = 'scale(1)';
+            });
+
             imgcontainer.appendChild(imgElement);
         });
         

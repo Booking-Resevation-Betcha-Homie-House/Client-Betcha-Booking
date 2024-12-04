@@ -23,7 +23,7 @@ async function LoginButton() {
         let response = await tryLogin('https://betcha-booking-api-master.onrender.com/Login', loginData);
         if (response.status === 200) {
             const customerData = await response.json();
-            //window.location.href = "../Customer/Dashboard.html" lagyan if meron na
+            window.location.href = "../User/LoggedIn/Rooms.html"
             
             localStorage.setItem('id', customerData.userId);
             localStorage.setItem('role', customerData.role);

@@ -15,7 +15,7 @@ function checkCustomer(CustomerRole){
     }
     else{
         console.log('no logged in user')
-        // window.location.href = "../landing page"; lagyan kapag meron na
+        window.location.href = "../Landing-Page.html";
     }
 }
 
@@ -31,11 +31,11 @@ function checkAdmin(AdminRole){
     }
     else if (AdminRole === 'Customer'){
         console.log('This page is for customers');
-        // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
+        window.location.href = "../User/LoggedIn/Rooms.html";
     }
     else{
         console.log('no logged in user')
-        // window.location.href = "../landing page"; lagyan kapag meron na
+        window.location.href = "../Landing-Page.html";
     }
 }
 
@@ -51,11 +51,11 @@ function checkSuperAdmin(SuperAdmin){
     }
     else if (SuperAdmin === 'Customer'){
         console.log('This page is for customers');
-        // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
+        window.location.href = "../User/LoggedIn/Rooms.html";
     }
     else{
         console.log('no logged in user')
-        // window.location.href = "../landing page"; lagyan kapag meron na
+        window.location.href = "../Landing-Page.html";
     }
 }
 
@@ -69,10 +69,28 @@ function checkForAllUsers(role){
     }
     else if (role === 'Customer'){
         console.log('This page is for customers');
+        window.location.href = "../User/LoggedIn/Rooms.html";
+    }
+    else{
+        console.log('no logged in user')
+        window.location.href = "../Landing-Page.html";
+    }
+}
+
+function checkForAllUsersL(role){
+    if (role === 'SuperAdmin'){
+        window.location.href = "../SAdmin/Dashboard.html";
+    }
+    else if (role === 'Admin'){
+        console.log('This is for admin page');
+        window.location.href = "../Admin/Dashboard.html";
+    }
+    else if (role === 'Customer'){
+        console.log('This page is for customers');
         // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
     }
     else{
         console.log('no logged in user')
-        window.location.href = "../LogIn.html";
+        window.location.href = "../Landing-Page.html";
     }
 }
