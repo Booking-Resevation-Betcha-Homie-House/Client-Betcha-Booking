@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Betcha-Website</title>
-    <link rel="icon" href="icon1.svg" type="image/svg+xml">
+    <link rel="icon" href="../icon2.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assetsv4.5/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assetsv4.5/css/Manrope.css">
     <link rel="stylesheet" href="assetsv4.5/css/Nunito.css">
@@ -30,6 +30,11 @@
 <body class="d-xl-flex justify-content-xl-center align-items-xl-center" style="background: rgba(18,120,69,0.14);">
     <script>
         window.onload = function(){
+            const role = localStorage.getItem('role');
+            console.log(role);
+            setTimeout(() => {
+                checkForAllUsers(role);
+            }, 3000);
         const errorMessage = document.getElementById('error-message');
         errorMessage.style.display = 'none';
         errorMessage.textContent = ''; 
@@ -196,6 +201,7 @@
     <script src="../LoginFunction.js"></script>
     <script src="../loading.js"></script>
     <script src="../customAlert.js"></script>
+    <script src="CheckUsers.js"></script>
 </body>
 
 </html>
