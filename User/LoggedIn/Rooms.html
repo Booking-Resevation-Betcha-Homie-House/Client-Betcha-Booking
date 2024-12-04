@@ -25,7 +25,14 @@
     <link rel="stylesheet" href="../../assetsv4.5/css/Spinner.css">
     <link rel="stylesheet" href="../../assetsv4.5/css/User.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        
+        loadRoomsData();
+        loadMonthPicks();
+        loadPopularPicks();
+     }
+ </script>
 <body>
     <div class="d-none" id="container-spinner">
         <div class="key">
@@ -95,7 +102,7 @@
                     <div class="w-100 mb-3">
                         <h1 class="h1-black featured-unit-heading"><strong>Explore Our Popular Units</strong></h1>
                     </div>
-                    <div class="row row-featured-unit">
+                    <div class="row row-featured-unit" id="units-popular">
                         <div class="col p-3" id="popular-units">
                             <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4.5/img/pexels-photo-1010657.jpeg">
                                 <div class="d-flex justify-content-between align-items-end unit-overlay">
@@ -166,7 +173,7 @@
                     <div class="w-100 mb-3">
                         <h1 class="h1-black featured-unit-heading"><strong>This Month’s Room Picks!</strong></h1>
                     </div>
-                    <div class="row row-featured-unit">
+                    <div class="row row-featured-unit" id="units-featured">
                         <div class="col p-3" id="featured-units">
                             <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="../../assetsv4.5/img/pexels-photo-1010657.jpeg">
                                 <div class="d-flex justify-content-between align-items-end unit-overlay">
@@ -257,7 +264,7 @@
         <div class="row gap-3">
             <div class="col">
                 <div>
-                    <div class="row gap-2 row-display-unit">
+                    <div class="row gap-2 row-display-unit"  id="display-container">
                         <div class="col" id="dispalay-unit">
                             <div class="container-unit">
                                 <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4.5/img/pexels-photo-5998049.jpeg">
@@ -309,62 +316,71 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row gap-3">
-            <div class="col">
-                <div>
-                    <div class="row gap-2 row-display-unit">
-                        <div class="col" id="dispalay-unit-3">
+                        <div class="col" id="dispalay-unit-1">
                             <div class="container-unit">
                                 <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4.5/img/pexels-photo-5998049.jpeg">
                                     <div class="d-flex justify-content-between align-items-end unit-overlay">
                                         <div class="m-3">
                                             <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
-                                                <h5 id="unit-price-3" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                                <h5 id="unit-price-1" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-0">
-                                    <h4 id="unit-name-12" class="p-unit"><strong>Unit Name</strong></h4>
-                                    <p id="unit-location-3">Location</p>
+                                    <h4 id="unit-name-10" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-1">Location</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col" id="dispalay-unit-4">
+                        <div class="col" id="dispalay-unit-1">
                             <div class="container-unit">
                                 <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4.5/img/pexels-photo-5998049.jpeg">
                                     <div class="d-flex justify-content-between align-items-end unit-overlay">
                                         <div class="m-3">
                                             <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
-                                                <h5 id="unit-price-4" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                                <h5 id="unit-price-1" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-0">
-                                    <h4 id="unit-name-13" class="p-unit"><strong>Unit Name</strong></h4>
-                                    <p id="unit-location-4">Location</p>
+                                    <h4 id="unit-name-10" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-1">Location</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col" id="dispalay-unit-5">
+                        <div class="col" id="dispalay-unit-1">
                             <div class="container-unit">
                                 <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4.5/img/pexels-photo-5998049.jpeg">
                                     <div class="d-flex justify-content-between align-items-end unit-overlay">
                                         <div class="m-3">
                                             <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
-                                                <h5 id="unit-price-6" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                                <h5 id="unit-price-1" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-0">
-                                    <h4 id="unit-name-14" class="p-unit"><strong>Unit Name</strong></h4>
-                                    <p id="unit-location-5">Location</p>
+                                    <h4 id="unit-name-10" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-1">Location</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" id="dispalay-unit-1">
+                            <div class="container-unit">
+                                <div class="image-container image-container2"><img alt="Beautiful view of Santorini" class="unit-list-image" src="../../assetsv4.5/img/pexels-photo-5998049.jpeg">
+                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
+                                        <div class="m-3">
+                                            <div class="d-flex justify-content-center align-items-center align-content-center white-pill-overlay">
+                                                <h5 id="unit-price-1" class="m-0 p-unit"><strong>₱ 1,500</strong></h5><span class="text-gray-600">&nbsp;/ night</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-0">
+                                    <h4 id="unit-name-10" class="p-unit"><strong>Unit Name</strong></h4>
+                                    <p id="unit-location-1">Location</p>
                                 </div>
                             </div>
                         </div>
@@ -491,6 +507,7 @@
     <script src="../../assetsv4.5/js/theme.js"></script>
     <script src="../../assetsv4.5/js/unit-images.js"></script>
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
+    <script src="../LoggedIn/User-Function.js/Room-Functions.js"></script>
 </body>
 
 </html>

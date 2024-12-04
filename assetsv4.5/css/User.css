@@ -368,6 +368,13 @@
   }
 }
 
+@media (min-width: 576px) {
+  .row-display-unit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 576px) {
   .row-display-unit {
     display: grid;
@@ -759,7 +766,7 @@
 
 .unit-images-select {
   overflow-y: scroll;
-  width: 250px;
+ /*width: 250px;*/
 }
 
 .unit-images-select {

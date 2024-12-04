@@ -27,7 +27,12 @@
     <link rel="stylesheet" href="../../assetsv4.5/css/Spinner.css">
     <link rel="stylesheet" href="../../assetsv4.5/css/User.css">
 </head>
-
+<script> 
+    window.onload = function() {
+        
+        userloadUnitData()
+     }
+ </script>
 <body>
     <div class="d-none" id="container-spinner">
         <div class="key">
@@ -74,7 +79,7 @@
                         <p class="text-capitalize m-0" id="view-unit-loc-1">Location, Location</p>
                     </div>
                 </div>
-                <h4><strong>P 00.00</strong><span>/night</span></h4>
+                <h4 id="unit-price"><strong>P 00.00</strong><span>/day</span></h4>
                 <div class="unit-desc">
                     <div class="d-flex flex-row align-content-center gap-5 mb-3">
                         <div><i class="material-icons fs-5 icon m-0" style="color: #147b42;">person_outline</i>
@@ -104,52 +109,45 @@
                     <div class="col">
                         <div class="d-flex flex-row mb-3" id="amenities-contianer">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-6 pb-1" id="bathroom-1"><label class="form-check-label" for="formCheck-1">Towels</label></div>
-                                    <div class="col-6 pb-1" id="bathroom-2"><label class="form-check-label" for="formCheck-2">Toilet Paper</label></div>
-                                    <div class="col-6 pb-1" id="bathroom-3"><label class="form-check-label" for="formCheck-3">Soap and Shampoo</label></div>
-                                    <div class="col-6 pb-1" id="bathroom-4"><label class="form-check-label" for="formCheck-4">Hot Water</label></div>
-                                    <div class="col-6 pb-1" id="bedroom-laundry-1"><label class="form-check-label" for="formCheck-5" id="inclusion-bedroom-laundry-6">Comfortable Bed (w/ pillows, linens, &amp; blankets)</label></div>
-                                    <div class="col-6 pb-1" id="bedroom-laundry-2"><label class="form-check-label" for="formCheck-7">Washing Machine</label></div>
-                                    <div class="col-6 pb-1" id="bedroom-laundry-3"><label class="form-check-label" for="formCheck-6">Dryer</label></div>
-                                    <div class="col-6 pb-1" id="bedroom-laundry-4"><label class="form-check-label" for="formCheck-8">Closet</label></div>
-                                    <div class="col-6 pb-1" id="bedroom-laundry-5"><label class="form-check-label" for="formCheck-9">Drawers</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-1"><label class="form-check-label" for="formCheck-10">TV</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-2"><label class="form-check-label" for="formCheck-11">Netflix</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-3"><label class="form-check-label" for="formCheck-12">Disney+</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-4"><label class="form-check-label" for="formCheck-13">Hulu</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-5"><label class="form-check-label" for="formCheck-14">Prime VIdeo</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-6"><label class="form-check-label" for="formCheck-15">HBO Max</label></div>
-                                    <div class="col-6 pb-1" id="entertainment-7"><label class="form-check-label" for="formCheck-16">Board Games</label></div>
-                                    <div class="col-6 pb-1" id="cooling-1"><label class="form-check-label" for="formCheck-17">Air Conditioning</label></div>
-                                    <div class="col-6 pb-1" id="cooling-2"><label class="form-check-label" for="formCheck-18">Ceiling Fan</label></div>
-                                    <div class="col-6 pb-1" id="cooling-3"><label class="form-check-label" for="formCheck-19">Stand Fan</label></div>
-                                    <div class="col pb-1" id="cooling-4"><label class="form-check-label" for="formCheck-20">Exhaust Fan</label></div>
-                                    <div class="col-6 pb-1" id="privacy-safety-1"><label class="form-check-label" for="formCheck-21">Smoke Detectors</label></div>
-                                    <div class="col-6 pb-1" id="privacy-safety-2"><label class="form-check-label" for="formCheck-22">Fire Extinguisher</label></div>
-                                    <div class="col-6 pb-1" id="privacy-safety-3"><label class="form-check-label" for="formCheck-23">First Aid Kit</label></div>
-                                    <div class="col-6 pb-1" id="privacy-safety-4"><label class="form-check-label" for="formCheck-24">Fingerprint Lock</label></div>
-                                    <div class="col-6 pb-1" id="internet-1"><label class="form-check-label" for="formCheck-25">Free Wi-Fi</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-1"><label class="form-check-label" for="formCheck-26">Stove</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-2"><label class="form-check-label" for="formCheck-27">Oven</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-3"><label class="form-check-label" for="formCheck-28">Refrigerator</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-4"><label class="form-check-label" for="formCheck-29">Microwave</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-5"><label class="form-check-label" for="formCheck-30">Cooking Utensils</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-6"><label class="form-check-label" for="formCheck-31">Plates</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-7"><label class="form-check-label" for="formCheck-32">Cutlery</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-8"><label class="form-check-label" for="formCheck-33">Coffee Maker</label></div>
-                                    <div class="col-6 pb-1" id="kitchen-dining-9"><label class="form-check-label" for="formCheck-34">Kettle</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-1"><label class="form-check-label" for="formCheck-35">Balcony</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-2"><label class="form-check-label" for="formCheck-36">Terrace</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-3"><label class="form-check-label" for="formCheck-37">Garden</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-4"><label class="form-check-label" for="formCheck-38">Swimming Pool</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-5"><label class="form-check-label" for="formCheck-39">Parking</label></div>
-                                    <div class="col-6 pb-1" id="outdoor-6"><label class="form-check-label" for="formCheck-40">Elevator (if applicable)</label></div>
+                                <div class="row" id="amenities">
+                                    <div class="col-6 pb-1" id="formCheck-1"><label class="form-check-label" id="item1" for="formCheck-1">Towels</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-2"><label class="form-check-label" id="item2" for="formCheck-2">Toilet Paper</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-3"><label class="form-check-label" id="item3" for="formCheck-3">Soap and Shampoo</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-4"><label class="form-check-label" id="item4" for="formCheck-4">Hot Water</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-5"><label class="form-check-label" id="item5" for="formCheck-5">Comfortable Bed</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-6"><label class="form-check-label" id="item6" for="formCheck-6">Washing Machine and Dryer</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-7"><label class="form-check-label" id="item7" for="formCheck-7">Closet and Drawers</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-8"><label class="form-check-label" id="item8" for="formCheck-8">Television</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-9"><label class="form-check-label" id="item9" for="formCheck-9">Streaming Services (Netflix, Hulu, HBO)</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-10"><label class="form-check-label" id="item10" for="formCheck-10">Books and Board Games</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-11"><label class="form-check-label" id="item11" for="formCheck-11">Air Conditioning</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-12"><label class="form-check-label" id="item12" for="formCheck-12">Ceiling Fan</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-13"><label class="form-check-label" id="item13" for="formCheck-13">Smoke Detectors</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-14"><label class="form-check-label" id="item14" for="formCheck-14">Fire Extinguisher</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-15"><label class="form-check-label" id="item15" for="formCheck-15">First Aid Kit</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-16"><label class="form-check-label" id="item16" for="formCheck-16">Secure Lock</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-17"><label class="form-check-label" id="item17" for="formCheck-17">Free Wi-Fi</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-18"><label class="form-check-label" id="item18" for="formCheck-18">Stove and Oven</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-19"><label class="form-check-label" id="item19" for="formCheck-19">Refrigerator</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-20"><label class="form-check-label" id="item20" for="formCheck-20">Microwave</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-21"><label class="form-check-label" id="item21" for="formCheck-21">Cooking Utensils</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-22"><label class="form-check-label" id="item22" for="formCheck-22">Coffee Maker</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-23"><label class="form-check-label" id="item23" for="formCheck-23">Balcony or Terrace</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-24"><label class="form-check-label" id="item24" for="formCheck-24">Private Garden</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-25"><label class="form-check-label" id="item25" for="formCheck-25">Swimming Pool</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-26"><label class="form-check-label" id="item26" for="formCheck-26">Parking Facilities</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-27"><label class="form-check-label" id="item27" for="formCheck-27">Parking Spot</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-28"><label class="form-check-label" id="item28" for="formCheck-28">Gym Access</label></div>
+                                    <div class="col-6 pb-1" id="formCheck-29"><label class="form-check-label" id="item29" for="formCheck-29">Elevator</label></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <p><b>Others Amenities:</b></p>
+            <div id="other-amenities-container" class="ps-3">
+                <p id="other-amenities">---</p>
             </div>
             <div></div>
             <h6 class="mb-3"><strong>Booking Date</strong></h6>
@@ -188,11 +186,13 @@
         </div>
         <div class="right-content">
             <div id="Images-booking" class="view-image-preview">
-                <div class="previewed-image"><img alt="Previewed Image" src="../../assetsv4.5/img/pexels-photo-271795.jpeg"></div>
+                <div class="previewed-image"><img alt="Previewed Image" src="../../assetsv4.5/img/pexels-photo-271795.jpeg" id="image-preview"></div>
                 <div class="row g-0">
                     <div class="col d-flex justify-content-between align-items-start">
                         <div class="container-view-unit-images shadow-sm">
-                            <div class="d-flex unit-images-select gap-2 mb-2"><img alt="Code &quot;CA241&quot; and Link in bio 📣Cooling Four-Leaf Clover  Summer Comfy Ice Silk Throw Covers for Sofas" id="view-unit-image-4" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-27532250.jpeg"><img alt="Low angle view of palm leaves forming a natural canopy against a vibrant, clear blue sky." id="view-unit-image-5" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-1862695.jpeg"><img alt="Scenic view of a wooden boardwalk leading to serene overwater bungalows at an island resort." id="view-unit-image-6" class="unit-image-small" src="../../assetsv4.5/img/maldives-ile-beach-sun-38238.jpeg"><img alt="Code &quot;CA241&quot; and Link in bio 📣Cooling Four-Leaf Clover  Summer Comfy Ice Silk Throw Covers for Sofas" id="view-unit-image-1" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-27532250.jpeg"><img alt="Low angle view of palm leaves forming a natural canopy against a vibrant, clear blue sky." id="view-unit-image-2" class="unit-image-small" src="../../assetsv4.5/img/pexels-photo-1862695.jpeg"><img alt="Scenic view of a wooden boardwalk leading to serene overwater bungalows at an island resort." id="view-unit-image-3" class="unit-image-small" src="../../assetsv4.5/img/maldives-ile-beach-sun-38238.jpeg"></div>
+                            <div class="d-flex unit-images-select gap-2 mb-2" id="img-selection">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="col d-flex flex-column align-items-end">
@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div id="map" class="view-map-container shadow-sm">
-                <div class="previewed-map"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d964.8968338020517!2d121.07037726948275!3d14.679344999113525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDQwJzQ1LjYiTiAxMjHCsDA0JzE1LjciRQ!5e0!3m2!1sen!2sph!4v1732379675121!5m2!1sen!2sph" style="width:100%;height:100%;border:none;"></iframe></div>
+                <div class="previewed-map" id="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d964.8968338020517!2d121.07037726948275!3d14.679344999113525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDQwJzQ1LjYiTiAxMjHCsDA0JzE1LjciRQ!5e0!3m2!1sen!2sph!4v1732379675121!5m2!1sen!2sph" style="width:100%;height:100%;border:none;"></iframe></div>
                 <div class="row g-0">
                     <div class="col d-flex flex-column align-items-end">
                         <div class="d-flex justify-content-end"><button class="btn d-flex btn-white gap-2 overlay-button" id="btn-view-book" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" style="font-size: 16px;">
@@ -303,6 +303,7 @@
     <script src="../../assetsv4.5/js/theme.js"></script>
     <script src="../../assetsv4.5/js/unit-images.js"></script>
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
+    <script src="../LoggedIn/User-Function.js/Room-View-Functions.js"></script>
 </body>
 
 </html>
