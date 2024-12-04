@@ -1,0 +1,20 @@
+.betcha-logo-notif {
+  width: 50px;
+  height: 50px;
+  border-radius: .75rem;
+  background-color: rgb(20,123,66);
+}
+
+.betcha-logo-notif img {
+  height: 30px;
+  width: auto;
+}
+
+.betcha-label {
+  font-size: 18px;
+}
+
+#modal-notification-list .modal-body {
+  height: 80vh;
+}
+
