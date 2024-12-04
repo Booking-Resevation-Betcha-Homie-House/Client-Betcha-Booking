@@ -30,8 +30,11 @@
     <script>
         window.onload = function(){
             const errorMessage = document.getElementById('error-message');
+            const errorMessage1 = document.getElementById('error-message-1');
             errorMessage.style.display = 'none';
             errorMessage.textContent = ''; 
+            errorMessage1.style.display = 'none';
+            errorMessage1.textContent = ''; 
         }
     </script>
     <div class="d-flex justify-content-center align-items-center min-vh-100" style="background: rgba(248,249,250,0);">
@@ -55,19 +58,24 @@
                             </div>
                             <div id="step1">
                                 <p class="text-center">Step 1</p>
-                                <div class="d-flex gap-3 mb-3"><input type="text" id="reg-fname" class="form-control" placeholder="First Name"><input type="text" id="reg-mname" class="form-control" placeholder="Middle Initial"></div>
+                                <div class="d-flex gap-3 mb-3"><input type="text" id="reg-fname" class="form-control" placeholder="First Name"><input type="text" id="reg-mname" class="form-control" placeholder="Middle Initial (Optional)"></div>
                                 <div class="d-flex gap-3 mb-3"><input type="text" id="reg-lname" class="form-control" placeholder="Last Name"><select id="reg-sex" class="form-select">
-                                        <option value="" selected="">Sex</option>
-                                        <option value="12">Male</option>
-                                        <option value="13">Female</option>
-                                    </select></div>
+                                    <option value="" disabled selected hidden>Sex</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                
+                                </div>
+                                <p id="phone-suggestion" style="margin-left: 10px; margin-right: 10px; color: red; font-size: 16px;"></p>
                                 <div class="d-flex gap-3 mb-3"><input type="text" id="reg-phone-num" class="form-control" placeholder="Phone Number"></div>
                                 <div class="d-flex justify-content-center visible w-100 mb-3 align-items-center">
                                     <p class="text-center error" id="error-message">Error Message</p>
                                 </div><button class="btn btn-primary btn-login-register" id="nextBtn" type="button">Next</button>
                             </div>
                             <div id="step2" class="d-none w-100 px-4">
+                                <div id="email-suggestion"style="margin-left: 10px; margin-right: 10px; color: red; font-size: 16px;"></div>
                                 <div class="d-flex gap-3 mb-3"><input type="text" id="reg-email" class="form-control" placeholder="Email"></div>
+                                <div id="password-suggestion" style="margin-left: 10px; margin-right: 10px; color: red; font-size: 16px;"></div>
                                 <div class="d-flex justify-content-center w-100 mb-2 position-relative mb-3"><input type="password" id="reg-password" class="form-control password-input w-100" name="input-login-password" placeholder="Password"><span class="toggle-password position-absolute" style="right:10px;top:50%;transform:translateY(-50%);cursor:pointer;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" class="d-block icon" id="eye-open">
                                             
                                             <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"></path>
@@ -108,7 +116,7 @@
                                             }
                                         </style>        
                                 <div class="d-flex justify-content-center">
-                                    <div class="mb-3 file-input-container"><label class="form-label file-input2" for="imageInput">Upload Image</label><input type="file" accept="image/*" class="form-control" id="imageInput"></div>
+                                    <div class="mb-3 file-input-container"><label class="form-label file-input2" for="imageInput">Upload ID Card</label><input type="file" accept="image/*" class="form-control" id="imageInput"></div>
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center mb-3" id="id"><img class="d-none id-image-preview" id="image-preview" src="" alt="Image Preview"></div>
                                 <div class="d-flex justify-content-center visible w-100 mb-3 align-items-center">
@@ -120,7 +128,7 @@
                                 <div class="d-flex justify-content-center align-items-center visible w-100 mb-3">
                                     <p class="text-center text-danger d-none error" id="error-message-2">Error Message</p>
                                 </div>
-                                <div class="d-flex flex-row gap-3 w-100"><button class="btn btn-secondary btn-login-register w-50" id="prevBtn" type="button">Back</button><button class="btn btn-primary btn-login-register w-50" id="btn-register-1" type="submit" data-bs-toggle="modal" data-bs-target="#modal-otp">Register</button></div>
+                                <div class="d-flex flex-row gap-3 w-100"><button class="btn btn-secondary btn-login-register w-50" id="prevBtn" type="button">Back</button><button class="btn btn-primary btn-login-register w-50" id="btn-register-1" type="submit" >Register</button></div>
                             </div>
                         </div>
                     </div>
@@ -152,9 +160,37 @@
                     <h4 class="modal-title">Privacy and Policy</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>The content of your modal.</p>
+                    <div class="container mt-5 body-content">
+                        <div class="row gap-5">
+                            <div class="col">
+                                <h5>Check-In &amp; Check-Out</h5>
+                                <p style="text-align: justify;">The check-in and check-out times are specified in your reservation confirmation. Please ensure that you adhere to the indicated times to help us maintain a smooth and efficient experience for all guests.</p>
+                                <p class="mb-3" style="text-align: justify;">Early check-in or late check-out may be accommodated based on availability and subject to additional charges.</p>
+                                <h5>Payment</h5>
+                                <p class="mb-3" style="text-align: justify;">Payment must be made in full upon check-in. Accepted payment methods include Cash, Gcash or Bank Transfer.</p>
+                                <h5>Reservation Fee/Security Deposit</h5>
+                                <p class="mb-3" style="text-align: justify;">A reservation fee is required to reserve the unit. This is non-refundable in case of cancellation. This will also serve as security deposit. This deposit will be refunded upon check-out, after inspection of the property for damages or violations of the rental agreement.</p>
+                                <h5>Rescheduling</h5>
+                                <p></p>
+                                <p class="mb-3" style="text-align: justify;">Rescheduling requests must be submitted at least 7 days prior to the original rental date. Requests for rescheduling made within 7 days of the original rental date may not be accommodated.</p>
+                                <h5>House Rules</h5>
+                                <p style="text-align: justify;">Guests are expected to adhere to the house rules outlined in the rental agreement, including but not limited to:</p>
+                                <div class="d-flex flex-row align-items-center ms-3 gap-2"><i class="material-icons" style="font-size: 16px;">vpn_key</i>
+                                    <p class="mb-0">No smoking inside the property.</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center ms-3 gap-2"><i class="material-icons" style="font-size: 16px;">vpn_key</i>
+                                    <p class="mb-0">Turn off AC and other appliances when you go out.</p>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-3 ms-3 gap-2"><i class="material-icons" style="font-size: 16px;">vpn_key</i>
+                                    <p class="mb-0">Respect quiet hours from [10:00 PM] to [7:00 AM].</p>
+                                </div>
+                                <h5>Responsibilities</h5>
+                                <p style="text-align: justify;">Guests are responsible for any damages or losses incurred during their stay, including but not limited to damages to the property, its contents, or any violations of the rental agreement.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Agree</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button" id="agree-btn" data-bs-dismiss="modal">Agree</button></div>
             </div>
         </div>
     </div>
@@ -165,10 +201,10 @@
                     <h4 class="modal-title">Last Step!</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="gap-2">A 6-digit code has been sent to<span id="span-phone-number" class="ms-1">Text</span>&nbsp;for OTP. The code will expire after 5 minutes.</p><input type="text" class="form-control mb-3">
+                    <p class="gap-2">A 6-digit code has been sent to<span id="span-phone-number" class="ms-1">Text</span>&nbsp;for OTP. The code will expire after 5 minutes.</p><input type="text" class="form-control mb-3" id="verify-input">
                     <p class="text-end" id="resend-otp" style="font-size: 12px;">Resend</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor">
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button", id="confirm-otp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor">
                             <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path>
                         </svg>&nbsp;Confirm</button></div>
             </div>
@@ -190,6 +226,9 @@
     <script src="assetsv4.5/js/theme.js"></script>
     <script src="assetsv4.5/js/unit-images.js"></script>
     <script src="assetsv4.5/js/view-book-toggle.js"></script>
+    <script src="Register.js"></script>
+    <script src="../loading.js"></script>
+    <script src="../customAlert.js"></script>
 </body>
 
 </html>
