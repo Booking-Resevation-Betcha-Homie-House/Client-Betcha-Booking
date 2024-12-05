@@ -91,6 +91,5 @@ function checkForAllUsersL(role){
     }
     else{
         console.log('no logged in user')
-        window.location.href = "../Landing-Page.html";
     }
 }
