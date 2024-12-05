@@ -1,14 +1,14 @@
 function bookUnitAuditTrail(){
-    var userId; // dynamic variable 
+    var userId = localStorage.getItem('id')
     var activity = "booked a unit";
-    var role; // dynamic variable
+    var role= localStorage.getItem('role')
 
     const trail = new FormData();
     trail.append('UserId', userId);
     trail.append('Activity', activity);
     trail.append('Role', role);
 
-    fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -31,16 +31,16 @@ function bookUnitAuditTrail(){
 }
 
 function rescheduleBookingAuditTrail(){
-    var userId; // dynamic variable 
+    var userId = localStorage.getItem('id')
     var activity = "Rescheduled a booking";
-    var role; // dynamic variable
+    var role= localStorage.getItem('role')
 
     const trail = new FormData();
     trail.append('UserId', userId);
     trail.append('Activity', activity);
     trail.append('Role', role);
 
-    fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -63,16 +63,19 @@ function rescheduleBookingAuditTrail(){
 }
 
 function editProfileAuditTrail(){
-    var userId; // dynamic variable 
+    console.log('called audti trail');
+    console.log(localStorage.getItem('id'),localStorage.getItem('role'));
+    var userId = localStorage.getItem('id');
     var activity = "Changed information in profile";
-    var role; // dynamic variable
+    var role = localStorage.getItem('role');
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+    const trail = {
+        'UserId': userId,
+        'Activity': activity,
+        'Role': role
+    };
 
-    fetch('https://betcha-booking-api-master.onrender.com/createAdmin', {
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -84,7 +87,7 @@ function editProfileAuditTrail(){
         console.log(data); 
         if (data && data.message) {
             console.log('Profile Edit Successful', data.message);
-            window.location.href = `Admin-List.html`;
+           
         } else {
             console.log('Profile Edit Successful', 'No message returned.');
         }

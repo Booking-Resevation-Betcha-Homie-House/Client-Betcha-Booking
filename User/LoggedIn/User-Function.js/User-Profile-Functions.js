@@ -21,8 +21,9 @@ function userProfile(){
         } else {
             console.log('Display Admin','Super Admin not found or missing data.');
         }
-        document.getElementById('edit-btn').onclick = () => {
-            window.location.href = `Profile-Edit.html?id=${user._id}`;
+        document.getElementById('profile-valid-id').onclick = () => {
+            console.log('clicked!');
+            window.open(`https://drive.google.com/thumbnail?id=${user.IdImage.fileId}&sz=w1920-h1080`,'_blank');
         };
     })
     .catch(error => {

@@ -1,6 +1,6 @@
 // Profile elements
 const fileInput = document.getElementById('file-input');
-const profilePicture = document.getElementById('profile-picture');
+const profilePicture = document.getElementById('pfp-edit');
 const profileOverlay = document.getElementById('profile-overlay');
 const cameraIcon = document.getElementById('camera-icon');
 

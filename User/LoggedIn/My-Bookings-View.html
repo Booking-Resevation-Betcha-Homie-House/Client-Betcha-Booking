@@ -31,6 +31,7 @@
     <script> 
         window.onload = function() {
             getPfp();
+            loadBookingViewData();
          }
      </script>
     <div class="d-none" id="container-spinner">
@@ -72,7 +73,7 @@
         <div id="my-bookings-detail-container">
             <div class="row">
                 <div class="col">
-                    <p class="my-bookings-view-unit-name mb-1">Unit Name<br>Name</p>
+                    <p class="my-bookings-view-unit-name mb-1" id="unit-name">Unit Name<br>Name</p>
                     <div class="d-flex align-items-center gap-2 mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" class="m-0">
 
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.05025 4.05025C7.78392 1.31658 12.2161 1.31658 14.9497 4.05025C17.6834 6.78392 17.6834 11.2161 14.9497 13.9497L10 18.8995L5.05025 13.9497C2.31658 11.2161 2.31658 6.78392 5.05025 4.05025ZM10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z" fill="currentColor"></path>
@@ -89,20 +90,20 @@
                             <div class="line-div line-div2 mb-4"></div>
                             <h4 class="manrope mb-3" style="color: #050316;"><strong>Price Details</strong></h4>
                             <div class="d-flex justify-content-between">
-                                <p><span>Unit Price</span>&nbsp;x&nbsp;<span>Days</span></p>
-                                <p class="text-end">Total</p>
+                                <p><span id="unit-price">Unit Price</span>&nbsp;x&nbsp;<span id="num-of-days">Days</span></p>
+                                <p class="text-end" id="up-nod">Total</p>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <p><span>Price per Pax</span>&nbsp;x&nbsp;<span>Additional Pax</span></p>
-                                <p class="text-end">Total</p>
+                                <p><span id="ppc">Price per Pax</span>&nbsp;x&nbsp;<span id="addpax">Additional Pax</span></p>
+                                <p class="text-end" id="ppc-addpax">Total</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <p>Reservation Fee</p>
-                                <p class="text-end">Fee</p>
+                                <p class="text-end" id="reservationFee">Fee</p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center total-container gradient2 mb-3">
                                 <h2 class="m-0 manrope" style="color: #050316;">Total Price:</h2>
-                                <h2 class="m-0 manrope" style="color: #050316;">P 00.00</h2>
+                                <h2 class="m-0 manrope" style="color: #050316;" id="total-price">P 00.00</h2>
                             </div>
                         </div>
                     </div>
@@ -110,13 +111,13 @@
                 <div class="col">
                     <div id="unit-carousel" class="mb-3">
                         <div class="carousel slide" data-bs-ride="false" id="carousel-1">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" id="imgs">
                                 <div class="carousel-item active"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
                                 <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
                                 <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
                             </div>
                             <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
-                            <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
+                            <div class="carousel-indicators" id="indicator"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center reference-container mb-3">
@@ -125,11 +126,11 @@
                     </div>
                     <div class="gap-3 lower-details">
                         <div class="d-flex flex-column justify-content-center dates-container white-text w-100">
-                            <p class="text-center m-0">Date of Booking:&nbsp;<span class="vmb-date-of-booking">Text</span></p>
+                            <p class="text-center m-0">Date of Booking:&nbsp;<span class="vmb-date-of-booking" id="date-book">Text</span></p>
                             <div class="d-flex flex-column justify-content-center w-100">
-                                <p class="text-center date-booked m-0 manrope"><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check In</label>
+                                <p class="text-center date-booked m-0 manrope" id="check-in"><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check In</label>
                                 <div class="d-flex flex-column justify-content-center w-100">
-                                    <p class="text-center date-booked m-0 manrope"><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check Out</label>
+                                    <p class="text-center date-booked m-0 manrope"id='check-out'><strong>Date</strong></p><label class="form-label text-center white-text mb-0" style="font-size: 12px;">Check Out</label>
                                 </div>
                             </div>
                         </div><button class="btn manrope resched-btn btn-secondary" type="button" data-bs-target="#modal-reschedule" data-bs-toggle="modal">Reschedule</button>
@@ -290,6 +291,7 @@
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
     <script src="User-Function.js/profile-picture.js"></script>
     <script src="../../CheckUsers.js"></script>
+    <script src="../LoggedIn/User-Function.js/User-MyBookingsView-Functions.js"></script>
 </body>
 
 </html>

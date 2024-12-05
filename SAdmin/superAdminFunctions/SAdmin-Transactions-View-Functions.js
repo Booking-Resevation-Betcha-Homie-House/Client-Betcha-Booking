@@ -30,7 +30,7 @@ function loadTransactionViewData(){
 
             document.getElementById('view-transaction-reference').innerHTML = refID; 
 
-            document.getElementById('view-transaction-unit-name').innerHTML = user.UnitId.unitName; 
+            document.getElementById('unit-name').innerHTML = user.UnitId.unitName; 
 
             const userCI = user.CheckIn;
             const formatuserCI = userCI.split('T')[0];
