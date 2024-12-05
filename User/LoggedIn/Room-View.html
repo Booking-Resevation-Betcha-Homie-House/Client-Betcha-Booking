@@ -83,12 +83,14 @@
                 <h4 id="unit-price"><strong>P 00.00</strong><span>/day</span></h4>
                 <div class="unit-desc">
                     <div class="d-flex flex-row align-content-center gap-5 mb-3">
-                        <div><i class="material-icons fs-5 icon m-0" style="color: #147b42;">person_outline</i>
-                            <p id="view-unit-pax" class="m-0">4 Pax</p>
+                        <div class="d-flex align-items-center">
+                            <i class="material-icons fs-5 icon m-0" style="color: #147b42;">person_outline</i>
+                            <p id="view-unit-pax" class="m-0 ms-2">4 Pax</p>
                         </div>
-                        <div><i class="la la-bed fs-5 icon" style="color: #147b42;"></i>
-                            <p id="view-unit-category" class="m-0">Category</p>
-                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="la la-bed fs-5 icon" style="color: #147b42;"></i>
+                            <p id="view-unit-category" class="m-0 ms-2">Category</p>
+                        </div>                        
                     </div>
                     <p class="text-capitalize" id="view-unit-desc" style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
@@ -146,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <p><b><h6>Others Amenities:</h6></b></p>
+            <h6><b>Others Amenities:</b></h6>
             <div id="other-amenities-container" class="ps-3">
                 <p id="other-amenities">---</p>
             </div>
@@ -170,15 +172,16 @@
                     </div>
                 </div>
             </div>
+            <script>
+                
+            </script>
             <div id="booking-container-1" class="gap-3">
                 <div class="d-flex gap-2" id="book-dates-1">
                     <div class="mb-2" style="width: 50%;"><label class="form-label">Start Date</label><input id="input-start-date-1" class="form-control date-input" type="date" style="border-radius: 50px;width: 100%;"></div>
                     <div class="mb-2" style="width: 50%;"><label class="form-label">End Date</label><input id="input-end-date-1" class="form-control date-input" type="date" style="border-radius: 50px;width: 100%;"></div>
                 </div>
                 <div class="mb-3"><label class="form-label">Additional Pax</label><select id="input-add-pax-1" class="form-select" style="border-radius: 50px;max-width: 100%!important;">
-                        <option value="">0</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
+                        <!--dynamically add options here 1,2,3..-->
                     </select></div><a class="btn d-flex justify-content-center align-items-center btn-primary m-0 w-100 gap-2" role="button" id="btn-book-now-1" href="../LoggedIn/Confirm-Reservation.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="mb-1">
                         <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
                         <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path>
@@ -205,8 +208,6 @@
                             </div>
                             <div class="mb-3"><label class="form-label">Additional Pax</label><select id="input-add-pax" class="form-select" style="border-radius: 50px;max-width: 100%!important;">
                                     <option value="">0</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
                                 </select></div><a class="btn d-flex justify-content-center align-items-center btn-primary m-0 w-100 gap-2" role="button" id="btn-book-now" href="../LoggedIn/Confirm-Reservation.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="mb-1">
                                     <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
                                     <path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path>

@@ -2,6 +2,31 @@ const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
 
+function updateBookedDates() {
+    console.log('daklmdi')
+    const urlParams = new URLSearchParams(window.location.search);
+    const unitId = urlParams.get('id');
+    
+    fetch(`https://betcha-booking-api-master.onrender.com/bookings/unit/${unitId}`)
+        .then(response => response.json())
+        .then(data => {
+            const bookedDates = data[0].BookDates; // Assuming the first item in the array has the bookings
+            
+            // Loop through each booking date and update the calendar divs
+            bookedDates.forEach(bookedDate => {
+                const dateString = bookedDate.Date; // "YYYY-MM-DD"
+                
+                // Find the div that matches the date
+                const dateDiv = document.querySelector(`div.calendar-content div[data-date="${dateString}"]`);
+                if (dateDiv) {
+                    dateDiv.classList.add('booked-dates');
+                }
+            });
+        })
+        .catch(error => console.error("Error fetching booking data:", error));
+}
+
+
 //done pero need pa i pacheck
 async function userloadUnitData() {
 
@@ -15,7 +40,7 @@ async function userloadUnitData() {
 
         document.getElementById('user-view-unit-name').innerHTML = unit.unitName;
         document.getElementById('view-unit-loc-1').innerHTML = unit.location;
-        document.getElementById('view-unit-pax').innerHTML = unit.maxPax;
+        document.getElementById('view-unit-pax').innerHTML = unit.packageCapacity;
         document.getElementById('view-unit-category').innerHTML = unit.category;
         const formattedPrice = new Intl.NumberFormat('en-PH', {
             style: 'currency',
@@ -32,15 +57,29 @@ async function userloadUnitData() {
         imgSelection.style.cursor = 'default';
         });
 
-        document.getElementById('unit-price').innerHTML = `${formattedPrice}/day`;
+        document.getElementById('unit-price').innerHTML = `<strong>${formattedPrice}/day</strong>`;
         document.getElementById('view-unit-desc').innerHTML = unit.description;
-        document.getElementById('other-amenities').innerHTML =unit.otherAmenities;
-        document.getElementById('map-container').innerHTML = unit.maplink;
-        
-        const containerAmenities = document.getElementById('amenities');
-        
-        let itemnumber = 1;
-        console.log(unit.amenities);
+
+        const inputAddPax = document.getElementById('input-add-pax');
+        const maxPax = unit.maxPax;  
+        const packageCapacity = unit.packageCapacity;
+        const additionalPaxOptionsCount = maxPax - packageCapacity;
+
+        inputAddPax.innerHTML = '';
+
+        for (let i = 0; i <= additionalPaxOptionsCount; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            inputAddPax.appendChild(option);
+        }
+            document.getElementById('other-amenities').innerHTML =unit.otherAmenities;
+            document.getElementById('map-container').innerHTML = unit.maplink;
+            
+            const containerAmenities = document.getElementById('amenities');
+            
+            let itemnumber = 1;
+            console.log(unit.amenities);
         
         Object.entries(unit.amenities).forEach(([amenity, isAvailable]) => {
             const itemElement = document.getElementById(`item${itemnumber}`);

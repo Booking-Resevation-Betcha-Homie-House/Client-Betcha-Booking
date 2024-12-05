@@ -78,7 +78,7 @@
 }
 
 .calendar_content div:hover {
-  border: 1px solid #ededed;
+  border: 1px solid #979797;
   /*line-height: 68px;*/
   cursor: pointer;
 }
@@ -156,3 +156,14 @@ button.switch-month:active {
   font-size: 12px;
 }
 
+.disabled-date {
+  background-color: #ddd;
+  color: #aaa; 
+  cursor: not-allowed; 
+}
+
+.booked-date {
+  background-color: #d3d3d3; /* Gray out the booked dates */
+  pointer-events: none; /* Prevent clicking on disabled dates */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+}
