@@ -77,7 +77,7 @@ async function myBookingsLoadData() {
                 console.log(booking.Reference);
               
                 card.onclick = () => {
-                    window.location.href = `../LoggedIn/My-Bookings-View.html?id=${booking.Reference}`; // lagay ng link kung saan mapupunta
+                    window.location.href = `../LoggedIn/My-Bookings-View.html?id1=${booking.Reference}&id=${booking.UnitId._id}`; 
                 };
                 card.appendChild(viewIcon);
                 pendingContainer.appendChild(card);
