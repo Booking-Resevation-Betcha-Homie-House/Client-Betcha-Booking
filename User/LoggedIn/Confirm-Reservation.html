@@ -34,6 +34,10 @@
     <script>
         window.onload = function(){
             getPfp();
+            loadBookingViewData();
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = ''; 
         }
     </script>
     <div class="d-none" id="container-spinner">
@@ -90,29 +94,29 @@
                 <div class="card confirm-booking-card mb-3">
                     <div class="card-body">
                         <h4 class="manrope mb-3" style="color: #050316;"><strong>Booking Details</strong></h4>
-                        <div class="d-flex align-items-center gap-3 mb-3"><img class="confirm-booking-img">
+                        <div class="d-flex align-items-center gap-3 mb-3"><img class="confirm-booking-img" id="unit-image">
                             <div>
-                                <p id="confirm-unit-name" class="m-0"><strong>Unit Name</strong></p>
-                                <p id="confirm-unit-loc" class="m-0">Location</p>
+                                <p id="unit-name" class="m-0"><strong>Unit Name</strong></p>
+                                <p id="unit-loc" class="m-0">Location</p>
                             </div>
                         </div>
                         <div class="line-div line-div2 mb-4"></div>
                         <h4 class="manrope mb-3" style="color: #050316;"><strong>Price Details</strong></h4>
                         <div class="d-flex justify-content-between">
-                            <p><span>Unit Price</span>&nbsp;x&nbsp;<span>Days</span></p>
-                            <p class="text-end">Total</p>
+                            <p><span id="unit-price">Unit Price</span>&nbsp;x&nbsp;<span id="num-of-days">Days</span></p>
+                            <p class="text-end" id="up-nod">Total</p>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <p><span>Price per Pax</span>&nbsp;x&nbsp;<span>Additional Pax</span></p>
-                            <p class="text-end">Total</p>
+                            <p><span id="ppc">Price per Pax</span>&nbsp;x&nbsp;<span id="addpax">Additional Pax</span></p>
+                            <p class="text-end" id="ppc-addpax">Total</p>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <p>Reservation Fee</p>
-                            <p class="text-end">Fee</p>
+                            <p id>Reservation Fee</p>
+                            <p class="text-end" id="reservationFee">Fee</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center total-container gradient1 mb-3">
                             <h2 class="m-0 manrope" style="color: #050316;">Total Price:</h2>
-                            <h2 class="m-0 manrope" style="color: #050316;">P 00.00</h2>
+                            <h2 class="m-0 manrope" style="color: #050316;" id="total-price">P 00.00</h2>
                         </div>
                         <div class="line-div line-div2 mb-4"></div>
                         <div class="form-check text-start d-flex justify-content-center align-items-center align-content-center gap-2 mb-3"><input class="form-check-input m-0" type="checkbox" id="formCheck-1"><label class="form-check-label m-0" for="formCheck-1" style="font-size: 12px;">I have read and I agree to the terms and condition</label></div>
@@ -178,18 +182,47 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"><strong>Confirm</strong></h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+                    <h4 class="modal-title"><strong>Choose Payment</strong></h4>
+                    <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to save these changes? Please review your information before proceeding.</p>
+                    <div class="form-check">
+                        <input class="form-check-input larger-radio" type="radio" name="paymentOption" id="fullPayment" value="full" checked>
+                        <label class="form-check-label larger-label" for="fullPayment">
+                            Full Payment
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input larger-radio" type="radio" name="paymentOption" id="reservation" value="reservation">
+                        <label class="form-check-label larger-label" for="reservation">
+                            Reservation
+                        </label>
+                    </div>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="icon mb-1">
-                            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                <div class="modal-footer">
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" type="button" id="pay-btn" data-bs-dismiss="modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="icon mb-1">
                             <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path>
-                        </svg>&nbsp;Confirm</button></div>
+                        </svg>&nbsp;Pay Now
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+    <style>
+        /* Enlarge radio button size */
+        .larger-radio {
+            width: 25px;
+            height: 25px;
+        }
+
+        /* Enlarge label font */
+        .larger-label {
+            font-size: 1.25rem; /* You can adjust the size as needed */
+            padding-left: 10px;
+        }
+    </style>    
     <div class="modal fade" role="dialog" tabindex="-1" id="modal-confirm-payment">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -199,7 +232,7 @@
                 <div class="modal-body">
                     <p>We are still processing your payment. Failing to settle your payment will cancel your booking.</p>
                 </div>
-                <div class="modal-footer"><button class="btn btn-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="icon mb-1">
+                <div class="modal-footer"><button class="btn btn-primary" type="button" id="fetch-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="icon mb-1">
                             <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
                             <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path>
                         </svg>&nbsp;Confirm</button></div>
@@ -224,6 +257,7 @@
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
     <script src="User-Function.js/profile-picture.js"></script>
     <script src="../../CheckUsers.js"></script>
+    <script src="User-Function.js/ConfirmReservation-Functions.js"></script>
 </body>
 
 </html>

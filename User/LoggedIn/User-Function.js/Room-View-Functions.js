@@ -1,7 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
-//done pero need pa i pacheck
 async function userloadUnitData() {
 
     try {
@@ -135,58 +134,89 @@ async function userloadUnitData() {
 
             imgcontainer.appendChild(imgElement);
         });
-        
 
-        
-        
-        
+        const carouselInner = document.querySelector('#carousel-preview-images .carousel-inner');
+        const carouselIndicators = document.querySelector('.carousel-indicators');
 
-/*
-        const carouselInner = document.querySelector('#carousel-1 .carousel-inner');
         carouselInner.innerHTML = '';
+        carouselIndicators.innerHTML = '';
 
         unit.UnitImages.forEach((image, index) => {
             const imageUrl = `https://drive.google.com/thumbnail?id=${image.fileId}&sz=w1920-h1080`;
 
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carousel-item');
-
-            if (index === 0) {
-                carouselItem.classList.add('active');
-            }
+            if (index === 0) carouselItem.classList.add('active'); 
 
             const imgElement = document.createElement('img');
             imgElement.src = imageUrl;
-            imgElement.alt = image.filename;
-            imgElement.classList.add('d-block', 'w-100'); 
+            imgElement.alt = `Unit Image ${index + 1}`;
+            imgElement.classList.add('w-100', 'd-block');
 
             carouselItem.appendChild(imgElement);
-
             carouselInner.appendChild(carouselItem);
 
-            const carouselIndicator = document.createElement('button');
-            carouselIndicator.setAttribute('type', 'button');
-            carouselIndicator.setAttribute('data-bs-target', '#carousel-1');
-            carouselIndicator.setAttribute('data-bs-slide-to', index);
-            if (index === 0) {
-                carouselIndicator.classList.add('active');
-            }
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.dataset.bsTarget = '#carousel-preview-images';
+            indicator.dataset.bsSlideTo = index;
+            if (index === 0) indicator.classList.add('active'); 
 
-           
-            const carouselIndicators = document.querySelector('#carousel-1 .carousel-indicators');
-            carouselIndicators.appendChild(carouselIndicator);
+            carouselIndicators.appendChild(indicator);
         });
-
-        const style = document.createElement('style');
-        style.innerHTML = `
-            #carousel-1 .carousel-item img {
-                object-fit: cover;
-                height: 400px; /* Adjust height as needed 
-            }
-        `;
-        document.head.appendChild(style); */
 
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
+
+async function Book() {
+    openLoading();
+
+    const CheckIn = document.getElementById('input-start-date').value;
+    const CheckOut = document.getElementById('input-end-date').value;
+    const UserId = localStorage.getItem('id');
+    const UnitId = refID; 
+    const AdditionalPax = document.getElementById('input-add-pax').value;
+
+    const bookingData = {
+        CheckIn,
+        CheckOut,
+        UserId,
+        UnitId,
+        AdditionalPax,
+    };
+
+    try {
+        const response = await fetch('https://betcha-booking-api-master.onrender.com/book', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bookingData),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const responseData = await response.json();
+        closeLoading();
+        console.log('Booking Response:', responseData);
+
+        const { Reference, Total, UserId, UnitId } = responseData.booking;
+
+        const confirmReservationURL = `/User/LoggedIn/Confirm-Reservation.html?Reference=${encodeURIComponent(
+            Reference
+        )}&Total=${encodeURIComponent(Total)}&UserId=${encodeURIComponent(UserId)}&UnitId=${encodeURIComponent(UnitId)}`;
+        alertCustom('Success', 'Booking successfully created!');
+        window.location.href = confirmReservationURL;
+    } catch (error) {
+        closeLoading();
+        console.error('Error creating booking:', error);
+        alertCustom('Failed', 'Failed to create booking. Please try again.');
+    }
+}
+
+document.getElementById('btn-book-now').addEventListener('click', Book);
