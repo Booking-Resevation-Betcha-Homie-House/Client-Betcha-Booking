@@ -1,32 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
-
-function updateBookedDates() {
-    console.log('daklmdi')
-    const urlParams = new URLSearchParams(window.location.search);
-    const unitId = urlParams.get('id');
-    
-    fetch(`https://betcha-booking-api-master.onrender.com/bookings/unit/${unitId}`)
-        .then(response => response.json())
-        .then(data => {
-            const bookedDates = data[0].BookDates; // Assuming the first item in the array has the bookings
-            
-            // Loop through each booking date and update the calendar divs
-            bookedDates.forEach(bookedDate => {
-                const dateString = bookedDate.Date; // "YYYY-MM-DD"
-                
-                // Find the div that matches the date
-                const dateDiv = document.querySelector(`div.calendar-content div[data-date="${dateString}"]`);
-                if (dateDiv) {
-                    dateDiv.classList.add('booked-dates');
-                }
-            });
-        })
-        .catch(error => console.error("Error fetching booking data:", error));
-}
-
-
 //done pero need pa i pacheck
 async function userloadUnitData() {
 
