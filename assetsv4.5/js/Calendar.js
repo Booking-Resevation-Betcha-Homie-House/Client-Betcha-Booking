@@ -18,20 +18,17 @@ const renderCalendar = () => {
   monthElement.textContent = monthNames[currentMonth];
   yearElement.textContent = currentYear;
 
-  datesElement.innerHTML = ""; // Clear previous dates
+  datesElement.innerHTML = ""; 
 
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay(); // Sunday = 0
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay(); 
   const totalDays = daysInMonth(currentYear, currentMonth);
 
-  // Add empty divs for days of the previous month
-  // Only add empty cells if `firstDay` is greater than 0 (Sunday has no placeholders)
   if (firstDay > 0) {
     for (let i = 0; i < firstDay; i++) {
       datesElement.innerHTML += `<div></div>`;
     }
   }
 
-  // Add dates for the current month
   for (let date = 1; date <= totalDays; date++) {
     const todayClass = date === 25 ? "today" : ""; // Highlight the 25th
     datesElement.innerHTML += `<div class="${todayClass}">${date}</div>`;
