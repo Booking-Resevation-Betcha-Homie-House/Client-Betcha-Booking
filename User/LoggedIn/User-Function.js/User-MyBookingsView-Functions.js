@@ -22,6 +22,12 @@ function loadBookingViewData() {
                 const formatuserCO = user.CheckOut.split('T')[0];
                 document.getElementById('check-out').textContent = formatuserCO;
 
+                const differenceInMs = checkOutDate - checkInDate;
+
+                const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
+
+                console.log(`Length of stay: ${differenceInDays} days`);
+
                 const formatBookdate = user.Date.split('T')[0];
                 document.getElementById('date-book').textContent = formatBookdate;
 
