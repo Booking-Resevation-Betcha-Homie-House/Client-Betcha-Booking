@@ -3,7 +3,7 @@ function setActiveTab() {
     tabs.forEach(tab => {
         tab.classList.remove('active');
     });
-    const activeTab = document.querySelector('.nav-link[href="#tab-1"]'); // Assuming Completed is the first tab
+    const activeTab = document.querySelector('.nav-link[href="#tab-1"]');
     activeTab.classList.add('active');
 }
 
@@ -36,26 +36,23 @@ async function myBookingsLoadData() {
         );
 
         console.log(pendingBookings.length, completedBookings.length);
-        
-        // Explicitly set the active tab (you can replace "#tab-1" with the appropriate selector for your active tab)
+
         setActiveTab();
-        
-        // Wait a little before rendering
+
         setTimeout(() => {
-            // Render Pending Bookings
+
             pendingBookings.forEach(booking => {
                 const imgurl = `https://drive.google.com/thumbnail?id=${booking.UnitId.UnitImages[0].fileId}&sz=w1920-h1080`
                 const card = createBookingCard(booking, imgurl, 'pending');
                 pendingContainer.appendChild(card);
             });
-            
-            // Render Completed Bookings
+
             completedBookings.forEach(booking => {
                 const imgurl = `https://drive.google.com/thumbnail?id=${booking.UnitId.UnitImages[0].fileId}&sz=w1920-h1080`
                 const card = createBookingCard(booking, imgurl, 'completed');
                 completedContainer.appendChild(card);
             });
-        }, 100); // delay to ensure tab is active before rendering
+        }, 100);
         
     } catch (error) {
         console.error('Error:', error);

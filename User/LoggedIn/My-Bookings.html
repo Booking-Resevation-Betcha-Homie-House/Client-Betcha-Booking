@@ -31,7 +31,6 @@
     <script> 
         window.onload = function() {
             getPfp();
-            myBookingsLoadData();
          }
      </script>
     <div class="d-none" id="container-spinner">
@@ -73,11 +72,12 @@
                         <div id="Tabs">
                             <div>
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1" style="background: rgba(255,255,255,0);">Completed</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2" style="background: rgba(255,255,255,0);">Pending</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1" style="background: rgba(255,255,255,0);">Pending</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2" style="background: rgba(255,255,255,0);">Completed</a></li>
+                                    
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane" role="tabpanel" id="tab-1">
+                                    <div class="tab-pane" role="tabpanel" id="tab-2">
                                         <div id="completed-bookings-container" class="mt-4">
                                             <div class="d-flex align-items-center gap-5 my-bookings" id="completed-bookings"><img id="completed-unit-image" class="mybookings-unit-image">
                                                 <div id="booking-details-card" class="w-100 booking-details-card">
@@ -99,7 +99,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane active" role="tabpanel" id="tab-2">
+                                    <div class="tab-pane active" role="tabpanel" id="tab-1">
                                         <div id="pending-bookings-container" class="mt-4">
                                             <div class="d-flex align-items-center gap-5 my-bookings" id="completed-bookings"><img id="pending-unit-image" class="mybookings-unit-image">
                                                 <div id="booking-details-card" class="w-100 booking-details-card">

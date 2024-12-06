@@ -149,3 +149,19 @@ function openLoading() {
       }, 1000);
     }
   }
+  function closeLoading3() {
+    const spinner = document.getElementById('container-spinner');
+    if (spinner) {
+      setTimeout(() => {
+        spinner.remove();
+      }, 3000);
+    }
+  }
+  function closeLoading4() {
+    const spinner = document.getElementById('container-spinner');
+    if (spinner) {
+      setTimeout(() => {
+        spinner.remove();
+      }, 4000);
+    }
+  }

@@ -140,7 +140,8 @@ function Reschedule() {
     const reference = refID; 
     const checkIn = document.getElementById('input-start-date').value;
     const checkOut = document.getElementById('input-end-date').value;
-    const days = parseFloat(localStorage.getItem('dayLength'));
+    const days = parseFloat(localStorage.getItem('dayLength')) + 1;
+
 
     if (!checkIn || !checkOut) {
         alert('Please fill in both check-in and check-out dates.');
@@ -204,56 +205,4 @@ document.getElementById('reschedule-btn').addEventListener('click', Reschedule)
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     logoutbtn();
-}
-
-function getPaymentDetails() {
-    // Get the refID from the URL parameters
-    const urlParams1 = new URLSearchParams(window.location.search);
-    const refID1 = urlParams1.get('id1');
-    
-    console.log("Reference ID:", refID1); // Log the reference ID to ensure it's correct
-
-    const apiUrl = `https://betcha-booking-api-master.onrender.com/get/paymentlink/${refID1}`;
-    let payLink = null;
-
-    // First API call to get the payment link
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            console.log("First API Response:", data); // Log the first API response
-
-            // Check if payments array exists and has data
-            if (data && Array.isArray(data) && data.length > 0) {
-                payLink = data[0].PayMongoLink; // Access the first element of the array
-                console.log('Payment Link:', payLink);
-
-                // Proceed to second API call to fetch payment details using the payLink
-                if (payLink) {
-                    return fetch(`https://betcha-booking-api-master.onrender.com/getPaymentDetails/${payLink}`);
-                } else {
-                    console.error('Payment link not found.');
-                    return Promise.reject('No payment link found.');
-                }
-            } else {
-                console.error('No payment details found.');
-                return Promise.reject('No payment details available.');
-            }
-        })
-        .then(response => response.json())
-        .then(paymentDetails => {
-            console.log("Second API Response:", paymentDetails); // Log the second API response
-
-            // Check if payment details are returned and handle them
-            if (paymentDetails) {
-                console.log('Payment details:', paymentDetails);
-
-                // Optionally, you can navigate to another page or display payment details
-                // For example:
-                // window.location.href = `My-Bookings-View.html?id1=${refID1}&id=${paymentDetails.UnitId}`;
-            }
-        })
-        .catch(error => {
-            // Catch any errors from the fetch calls
-            console.error('Error:', error);
-        });
 }
