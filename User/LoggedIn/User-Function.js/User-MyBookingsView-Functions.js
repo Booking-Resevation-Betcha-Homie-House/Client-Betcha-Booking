@@ -41,8 +41,51 @@ function loadBookingViewData() {
                 const additionalPaxPrice = user.UnitId.pricePerPax * user.AdditionalPax;
                 document.getElementById('ppc-addpax').textContent = additionalPaxPrice;
 
+                document.getElementById('Status').textContent = user.Status
+
                 document.getElementById('reservationFee').textContent = user.UnitId.reservation;
                 document.getElementById('total-price').textContent = `₱${user.Total}`;
+
+                const modalElements = document.querySelectorAll(
+                    '#modal-reschedule .modal-body input, #modal-reschedule .modal-body textarea, #modal-reschedule .modal-body button'
+                );
+
+                const bookingDate = new Date(user.Date);
+                const today = new Date();
+                const diffInDays = Math.ceil((today - bookingDate) / (1000 * 60 * 60 * 24));
+
+                if (diffInDays > 10) {
+
+                    modalElements.forEach((element) => {
+                        if (!element.hasAttribute('data-bs-dismiss') && element.id !== 'reschedule-btn') {
+                            element.setAttribute('disabled', 'true');
+                            element.setAttribute('data-bs-toggle', 'tooltip');
+                            element.setAttribute(
+                                'title',
+                                "Can't reschedule this booking since this booking is already 10 days old."
+                            );
+                        }
+                    });
+
+                    const confirmButton = document.getElementById('reschedule-btn');
+                    confirmButton.setAttribute('data-bs-toggle', 'tooltip');
+                    confirmButton.setAttribute(
+                        'title',
+                        "Can't confirm rescheduling since this booking is already 10 days old."
+                    );
+                    confirmButton.style.pointerEvents = 'none'; 
+                
+                    confirmButton.style.backgroundColor = '#f8f9fc'; 
+                    confirmButton.style.color = 'black';
+                    confirmButton.style.borderColor = '#b8daff'; 
+
+                    const tooltipTriggerList = [].slice.call(
+                        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                    );
+                    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                        new bootstrap.Tooltip(tooltipTriggerEl);
+                    });
+                }           
 
                 const carouselInner = document.getElementById('imgs');
                 carouselInner.innerHTML = ''; 

@@ -195,4 +195,73 @@ function getPaymentDetails() {
         console.error('Payment link not found in localStorage.');
     }
 }
+
+function sendEmail(Amount){
+    fetch(`https://betcha-booking-api-master.onrender.com/booking/${Reference}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data) {
+            console.log(data);
+            const user = data;
+
+            document.getElementById('unit-name').innerHTML = `<strong>${user.UnitId.unitName}</strong>`;
+            document.getElementById('unit-loc').textContent = user.UnitId.location;
+
+            document.getElementById('unit-price').textContent = user.UnitId.unitPrice;
+            document.getElementById('num-of-days').textContent = user.NumOfDays;
+
+            const totalUnitPrice = user.UnitId.unitPrice * user.NumOfDays;
+            document.getElementById('up-nod').textContent = totalUnitPrice;
+
+            document.getElementById('ppc').textContent = user.UnitId.pricePerPax;
+            document.getElementById('addpax').textContent = user.AdditionalPax;
+
+            const additionalPaxPrice = user.UnitId.pricePerPax * user.AdditionalPax;
+            document.getElementById('ppc-addpax').textContent = additionalPaxPrice;
+
+            document.getElementById('reservationFee').textContent = user.UnitId.reservation;
+            document.getElementById('total-price').textContent = `₱${user.Total}`;
+
+            Reservation = user.UnitId.reservation;
+            FullPayment = user.Total
+
+            const unitImageElement = document.getElementById('unit-image');
+
+            if (user.UnitId && user.UnitId.UnitImages && user.UnitId.UnitImages.length > 0) {
+                const fileId = user.UnitId.UnitImages[0].fileId;
+                unitImageElement.src = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1920-h1080`;
+                unitImageElement.alt = user.UnitId.unitName || 'Unit Image';
+            } else {
+                console.error("UnitImages is not available or empty.");
+
+                unitImageElement.src = '/path/to/default-image.jpg';
+                unitImageElement.alt = 'Default Unit Image';
+            }
+
+            const checkbox = document.getElementById('formCheck-1');
+            const button = document.getElementById('btn-confirm-pay');
+
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+
+                    button.removeAttribute('disabled');
+                    button.removeAttribute('style');
+                } else {
+
+                    button.disabled = true;
+                    button.style.backgroundColor = '#147B42'; 
+                }
+            });
+
+            if (!checkbox.checked) {
+                button.disabled = true;
+                button.style.backgroundColor = '#147B42'; 
+            }
+        }
+    })
+    .catch(error => console.error('Error loading booking data:', error));
+
+
+}
+
 document.getElementById('fetch-btn').addEventListener('click', getPaymentDetails);
