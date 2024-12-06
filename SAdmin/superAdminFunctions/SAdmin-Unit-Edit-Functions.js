@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const refID = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
+var stat;
 
 async function loadUnitEditData(){
 
@@ -71,7 +72,7 @@ function editData(){
     const pricePerPax = document.getElementById('input-unit-price-per-pax').value;
     
     const status =  document.getElementById('select-status').value;
-    var stat;
+    
     if (status === 'Available'){
         stat = true;
     }
@@ -140,24 +141,28 @@ function editData(){
 
     console.log(JSON.stringify(updateData));
     openLoading();
-    fetch(`https://betcha-booking-api-master.onrender.com/editUnit/${refID}`, {
-        method: 'PUT',
-        body: updateData
+fetch(`https://betcha-booking-api-master.onrender.com/editUnit/${refID}`, {
+    method: 'PUT',
+    body: updateData
 })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update unit');
+        }
+        return response.json();
+    })
     .then(data => {
-        console.log('Admin updated successfully', response);
+        console.log('Admin updated successfully', data);
         closeLoading();
         updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
-            window.location.href=`Unit-View.html?id=${refID}`;
-        }, 2000); 
+            window.location.href = `Unit-View.html?id=${refID}`;
+        }, 2000);
     })
     .catch(error => {
         closeLoading();
         console.error('Error during update:', error);
-        console.log('Failed to update Unit: ', error.message);
-    }); 
+    });
 }
 
 function back(){
