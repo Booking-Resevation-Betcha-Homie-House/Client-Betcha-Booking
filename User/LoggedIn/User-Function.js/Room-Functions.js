@@ -31,79 +31,122 @@ async function loadRoomsData() {
         const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`; // img src
         image.src = imageUrl; 
 
-        // Append image to image container
         imageContainer.appendChild(image);
 
-        // Create unit-overlay div
         const unitOverlay = document.createElement('div');
         unitOverlay.className = 'd-flex justify-content-between align-items-end unit-overlay';
 
-        // Create the inner container div
         const innerContainer = document.createElement('div');
         innerContainer.className = 'm-3';
 
-        // Create white-pill-overlay div
         const whitePillOverlay = document.createElement('div');
         whitePillOverlay.className = 'd-flex justify-content-center align-items-center align-content-center white-pill-overlay';
 
-        // Create price heading
         const priceHeading = document.createElement('h5');
         priceHeading.id = 'unit-price-5';
         priceHeading.className = 'm-0 p-unit';
-        priceHeading.innerHTML = `<strong>₱ ${unit.unitPrice}</strong>`; // price
+        priceHeading.innerHTML = `<strong>₱ ${unit.unitPrice}</strong>`; 
 
-        // Create price span
         const priceSpan = document.createElement('span');
         priceSpan.className = 'text-gray-600';
         priceSpan.innerHTML = '&nbsp;/ day';
 
-        // Append price elements to white-pill-overlay
         whitePillOverlay.appendChild(priceHeading);
         whitePillOverlay.appendChild(priceSpan);
 
-        // Append white-pill-overlay to inner container
         innerContainer.appendChild(whitePillOverlay);
 
-        // Append inner container to unit-overlay
         unitOverlay.appendChild(innerContainer);
 
-        // Append unit-overlay to image container
         imageContainer.appendChild(unitOverlay);
 
-        // Append image container to container-unit
         containerUnit.appendChild(imageContainer);
 
-        // Create text container div
         const textContainer = document.createElement('div');
         textContainer.className = 'p-0';
 
-        // Create unit name heading
         const unitName = document.createElement('h4');
         unitName.id = 'unit-name'; 
         unitName.className = 'p-unit';
-        unitName.innerHTML = `<strong>${unit.unitName}</strong>`; // unit name
+        unitName.innerHTML = `<strong>${unit.unitName}</strong>`;
 
-        // Create unit location paragraph
         const unitLocation = document.createElement('p');
         unitLocation.id = 'unit-location';
-        unitLocation.textContent = `${unit.location}`; // location 
+        unitLocation.textContent = `${unit.location}`; 
 
-        // Append unit name and location to text container
         textContainer.appendChild(unitName);
         textContainer.appendChild(unitLocation);
 
-        // Append text container to container-unit
         containerUnit.appendChild(textContainer);
 
         displayUnit.onclick = () => {
-            window.location.href = `Room-View.html?id=${unit._id}`; // lagay href with id 
+            window.location.href = `Room-View.html?id=${unit._id}`; 
         }
         displayUnit.appendChild(containerUnit);
-        
 
-        // Append displayUnit to the body or any specific container
         container.appendChild(displayUnit);
 
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+async function loadPopularPicks() { 
+    console.log('function called!');
+    try {
+        const response = await fetch('https://betcha-booking-api-master.onrender.com/get/top');
+        if (!response.ok) {
+            throw new Error('Failed to fetch popular picks');
+        }
+
+        const units = await response.json();
+        const container = document.getElementById('units-popular');
+
+        container.innerHTML = ''; // Clear existing content
+
+        units.data.forEach(unit => {
+            const featuredUnit = document.createElement('div');
+            featuredUnit.className = 'col p-3';
+            featuredUnit.id = 'featured-units';
+
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+
+            const image = document.createElement('img');
+            image.alt = 'Beautiful view of Santorini';
+            image.className = 'featured-image';
+
+            // Adjust the URL for the image based on the `fileId`
+            const imageUrl = `https://drive.google.com/thumbnail?id=${unit.unitImages[0].fileId}&sz=w1920-h1080`;
+            image.src = imageUrl;
+
+            imageContainer.appendChild(image);
+
+            const unitOverlay = document.createElement('div');
+            unitOverlay.className = 'd-flex justify-content-between align-items-end unit-overlay';
+
+            const unitNameContainer = document.createElement('div');
+            unitNameContainer.className = 'm-3';
+
+            const unitNameHeading = document.createElement('h5');
+            unitNameHeading.id = 'unit-name-5';
+            unitNameHeading.className = 'heading-unit';
+            unitNameHeading.style.fontSize = '20px';
+            unitNameHeading.textContent = unit.unitName;
+
+            unitNameContainer.appendChild(unitNameHeading);
+            unitOverlay.appendChild(unitNameContainer);
+
+            imageContainer.appendChild(unitOverlay);
+
+            featuredUnit.appendChild(imageContainer);
+
+            // Add the click functionality to redirect to the room view
+            featuredUnit.onclick = () => {
+                window.location.href = `Room-View.html?id=${unit.unitId}`;
+            };
+            container.appendChild(featuredUnit);
         });
     } catch (error) {
         console.error('Error:', error);
@@ -113,155 +156,63 @@ async function loadRoomsData() {
 async function loadMonthPicks() { 
     console.log('function called!');
     try {
-       /* const role = localStorage.getItem('role')
-        console.log(role);
-        checkSuperAdmin(role);*/
-        const response = await fetch('https://betcha-booking-api-master.onrender.com/units/bottom');
+        const response = await fetch('https://betcha-booking-api-master.onrender.com/get/bottom');
         if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
+            throw new Error('Failed to fetch month picks');
         }
 
         const units = await response.json();
-        const container = document.getElementById('units-featured'); // lagay ng id ng container
+        const container = document.getElementById('units-featured');
 
-        container.innerHTML = '';
+        container.innerHTML = ''; // Clear existing content
 
         units.data.forEach(unit => {
-          // Create main container div
-       // Create the main container div
-        const featuredUnit = document.createElement('div');
-        featuredUnit.className = 'col p-3';
-        featuredUnit.id = 'featured-units';
+            const featuredUnit = document.createElement('div');
+            featuredUnit.className = 'col p-3';
+            featuredUnit.id = 'featured-units';
 
-        // Create the image container div
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'image-container';
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
 
-        // Create the image element
-        const image = document.createElement('img');
-        image.alt = 'Beautiful view of Santorini';
-        image.className = 'featured-image';
+            const image = document.createElement('img');
+            image.alt = 'Beautiful view of Santorini';
+            image.className = 'featured-image';
 
-        const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`;
-        image.src = imageUrl;
+            // Adjust the URL for the image based on the `fileId`
+            const imageUrl = `https://drive.google.com/thumbnail?id=${unit.unitImages[0].fileId}&sz=w1920-h1080`;
+            image.src = imageUrl;
 
-        // Append the image to the image container
-        imageContainer.appendChild(image);
+            imageContainer.appendChild(image);
 
-        // Create the overlay div
-        const unitOverlay = document.createElement('div');
-        unitOverlay.className = 'd-flex justify-content-between align-items-end unit-overlay';
+            const unitOverlay = document.createElement('div');
+            unitOverlay.className = 'd-flex justify-content-between align-items-end unit-overlay';
 
-        // Create the left container div for the unit name
-        const unitNameContainer = document.createElement('div');
-        unitNameContainer.className = 'm-3';
+            const unitNameContainer = document.createElement('div');
+            unitNameContainer.className = 'm-3';
 
-        // Create the heading for the unit name
-        const unitNameHeading = document.createElement('h5');
-        unitNameHeading.id = 'unit-name-5';
-        unitNameHeading.className = 'heading-unit';
-        unitNameHeading.textContent = unit.unitName;
+            const unitNameHeading = document.createElement('h5');
+            unitNameHeading.id = 'unit-name-5';
+            unitNameHeading.className = 'heading-unit';
+            unitNameHeading.textContent = unit.unitName;
 
-        // Append the heading to the left container
-        unitNameContainer.appendChild(unitNameHeading);
+            unitNameContainer.appendChild(unitNameHeading);
+            unitOverlay.appendChild(unitNameContainer);
 
-        unitOverlay.appendChild(unitNameContainer);
+            imageContainer.appendChild(unitOverlay);
 
-        // Append the overlay to the image container
-        imageContainer.appendChild(unitOverlay);
+            featuredUnit.appendChild(imageContainer);
 
-        // Append the image container to the main container
-        featuredUnit.appendChild(imageContainer);
-
-        // Append the featured unit to a container in your HTML
-        featuredUnit.onclick = () => {
-            window.location.href = `Room-View.html?id=${unit._id}`; // lagay href with id 
-        }
+            // Add the click functionality to redirect to the room view
+            featuredUnit.onclick = () => {
+                window.location.href = `Room-View.html?id=${unit.unitId}`;
+            };
             container.appendChild(featuredUnit);
-
         });
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-async function loadPopularPicks() { 
-    console.log('function called!');
-    try {
-    /* const role = localStorage.getItem('role')
-        console.log(role);
-        checkSuperAdmin(role);*/
-        const response = await fetch('https://betcha-booking-api-master.onrender.com/units/top');
-        if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
-        }
-
-        const units = await response.json();
-        const container = document.getElementById('units-popular'); // lagay ng id ng container
-
-        container.innerHTML = '';
-
-        units.data.forEach(unit => {
-        // Create main container div
-    // Create the main container div
-        const featuredUnit = document.createElement('div');
-        featuredUnit.className = 'col p-3';
-        featuredUnit.id = 'featured-units';
-
-        // Create the image container div
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'image-container';
-
-        // Create the image element
-        const image = document.createElement('img');
-        image.alt = 'Beautiful view of Santorini';
-        image.className = 'featured-image';
-
-        const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`;
-        image.src = imageUrl;
-
-        // Append the image to the image container
-        imageContainer.appendChild(image);
-
-        // Create the overlay div
-        const unitOverlay = document.createElement('div');
-        unitOverlay.className = 'd-flex justify-content-between align-items-end unit-overlay';
-
-        // Create the left container div for the unit name
-        const unitNameContainer = document.createElement('div');
-        unitNameContainer.className = 'm-3';
-
-        // Create the heading for the unit name
-        const unitNameHeading = document.createElement('h5');
-        unitNameHeading.id = 'unit-name-5';
-        unitNameHeading.className = 'heading-unit';
-        unitNameHeading.style.fontSize = '20px';
-        unitNameHeading.textContent = unit.unitName;
-
-        // Append the heading to the left container
-        unitNameContainer.appendChild(unitNameHeading);
-
-
-        // Append the name container and SVG container to the overlay
-        unitOverlay.appendChild(unitNameContainer);
-
-        // Append the overlay to the image container
-        imageContainer.appendChild(unitOverlay);
-
-        // Append the image container to the main container
-        featuredUnit.appendChild(imageContainer);
-
-        // Append the featured unit to a container in your HTML
-        featuredUnit.onclick = () => {
-            window.location.href = `Room-View.html?id=${unit._id}`; // lagay href with id 
-        }
-            container.appendChild(featuredUnit);
-
-});
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
 
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
