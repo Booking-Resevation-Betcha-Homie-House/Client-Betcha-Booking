@@ -99,6 +99,7 @@ function updateUserInfo() {
     .then(data => {
         console.log('update1');
         console.log('Info Updated!', data.message);
+        editProfileAuditTrail();
 
     })
     .catch(error => {
@@ -112,6 +113,9 @@ function updateUserInfo() {
     })
     .then(response => {
         return response.json().then(data => {
+            if(response.ok){
+                editProfileAuditTrail()
+            }
             if (!response.ok) {
                 console.log('Error img:', data);
                 //closeLoading(); // Assuming closeLoading() exists
@@ -125,4 +129,9 @@ function updateUserInfo() {
         console.log('User Data:', data);
     })
 }
+}
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    logoutbtn();
 }

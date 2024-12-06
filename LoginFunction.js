@@ -10,7 +10,6 @@ async function LoginButton() {
 
     try {
         openLoading();
-
         async function tryLogin(url, data) {
             const response = await fetch(url, {
                 method: 'POST',
@@ -23,10 +22,10 @@ async function LoginButton() {
         let response = await tryLogin('https://betcha-booking-api-master.onrender.com/Login', loginData);
         if (response.status === 200) {
             const customerData = await response.json();
-            window.location.href = "../User/LoggedIn/Rooms.html"
-            
+          
             localStorage.setItem('id', customerData.userId);
             localStorage.setItem('role', customerData.role);
+            localStorage.setItem('username',customerData.username)
             console.log('Logged in ID:', localStorage.getItem('id'));
             console.log('Role: ', localStorage.getItem('role'));
 
@@ -39,6 +38,11 @@ async function LoginButton() {
             
             let storedIsVerified = localStorage.getItem('isVerified') === 'true';
             console.log(storedIsVerified);
+
+            auditLoggedIn()
+            setTimeout(()=>{
+            window.location.href = "../User/LoggedIn/Rooms.html"
+            },2000);
 
             // how to use?:
             // let storedIsVerified = localStorage.getItem('isVerified') === 'true';
@@ -54,12 +58,16 @@ async function LoginButton() {
         response = await tryLogin('https://betcha-booking-api-master.onrender.com/superAdminLogin', loginData);
         if (response.status === 200) {
             const superAdminData = await response.json();
-            window.location.href = "../SAdmin/Dashboard.html"
+           
             localStorage.setItem('id', superAdminData.superAdminId);
             localStorage.setItem('role', superAdminData.role);
             localStorage.setItem('username', superAdminData.superAdminName)
             console.log('Logged in ID:', localStorage.getItem('id'));
             console.log('Role: ', localStorage.getItem('role'));
+            auditLoggedIn()
+            setTimeout(() =>{
+            window.location.href = "../SAdmin/Dashboard.html"
+            },2000);
             closeLoading();
             return;
         }
@@ -67,12 +75,16 @@ async function LoginButton() {
         response = await tryLogin('https://betcha-booking-api-master.onrender.com/LoginAdmin', loginData);
         if (response.status === 200) {
             const adminData = await response.json();
-            window.location.href = "../Admin/Dashboard.html"
+           
             localStorage.setItem('id', adminData.adminId);
             localStorage.setItem('role', adminData.role);
             localStorage.setItem('username', adminData.adminName)
             console.log('Logged in ID:', localStorage.getItem('id'));
             console.log('Role: ', localStorage.getItem('role'))
+            auditLoggedIn()
+            setTimeout(() => {
+            window.location.href = "../Admin/Dashboard.html"
+            },2000);
             closeLoading();
             return;
         }

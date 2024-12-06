@@ -1,12 +1,14 @@
 function bookUnitAuditTrail(){
+    console.log('called booking trail');
     var userId = localStorage.getItem('id')
     var activity = "booked a unit";
     var role= localStorage.getItem('role')
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+    const trail = {
+        'UserId': userId,
+        'Activity': activity,
+        'Role': role
+    };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -31,14 +33,16 @@ function bookUnitAuditTrail(){
 }
 
 function rescheduleBookingAuditTrail(){
+    console.log('callled resched trail');
     var userId = localStorage.getItem('id')
     var activity = "Rescheduled a booking";
     var role= localStorage.getItem('role')
 
-    const trail = new FormData();
-    trail.append('UserId', userId);
-    trail.append('Activity', activity);
-    trail.append('Role', role);
+    const trail = {
+        'UserId': userId,
+        'Activity': activity,
+        'Role': role
+    };
 
     fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
         method: 'POST',
@@ -97,7 +101,39 @@ function editProfileAuditTrail(){
         console.log('Profile Edit Failed', error.message);
     });
 }
-document.getElementById('logout-btn').onclick = () => {
-    localStorage.clear();
-    window.location.href ='../LogIn.html';
+
+function auditLoggedIn(){
+    console.log('called audti trail');
+    console.log(localStorage.getItem('id'),localStorage.getItem('role'));
+    var userId = localStorage.getItem('id');
+    var activity = userId + " Logged In";
+    var role = localStorage.getItem('role');
+
+    const trail = {
+        'UserId': userId,
+        'Activity': activity,
+        'Role': role
+    };
+
+    fetch('https://betcha-booking-api-master.onrender.com/audit/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(trail)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        if (data && data.message) {
+            console.log('Profile Edit Successful', data.message);
+           
+        } else {
+            console.log('Profile Edit Successful', 'No message returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error during profile editing:', error);
+        console.log('Profile Edit Failed', error.message);
+    });
 }

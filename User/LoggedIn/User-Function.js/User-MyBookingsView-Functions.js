@@ -146,8 +146,12 @@ function Reschedule() {
 
         if (data.message === 'Booking dates successfully updated') {
             alertCustom('Booking Rescheduled!','Booking dates have been successfully updated!');
+            rescheduleBookingAuditTrail();
             console.log(data.booking); 
-            window.location.href = `/User/LoggedIn/My-Bookings-View.html?id1=${refID}&id=${unitId}`;
+            setTimeout(() => {
+                window.location.href = `/User/LoggedIn/My-Bookings-View.html?id1=${refID}&id=${unitId}`;
+            }, 2000);
+            
         } else {
             alertCustom('Error: ' + data.message);
         }
@@ -162,3 +166,8 @@ function Reschedule() {
 
 
 document.getElementById('reschedule-btn').addEventListener('click', Reschedule)
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    logoutbtn();
+}
