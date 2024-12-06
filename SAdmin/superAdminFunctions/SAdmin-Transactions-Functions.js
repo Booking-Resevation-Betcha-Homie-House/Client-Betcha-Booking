@@ -57,7 +57,9 @@ async function loadTransactionData() {
             row.appendChild(dateCell);
 
             const paymentModeCell = document.createElement('td');
-            paymentModeCell.textContent = admin.PaymentId.Mop; 
+            const paymentMethod = admin.PaymentId && admin.PaymentId.Mop ? admin.PaymentId.Mop : 'N/A';
+
+            paymentModeCell.textContent = paymentMethod; 
             paymentModeCell.style.textAlign = 'center';
             row.appendChild(paymentModeCell);
             
@@ -128,7 +130,9 @@ async function loadTransactionData() {
             row.appendChild(dateCell);
 
             const paymentModeCell = document.createElement('td');
-            paymentModeCell.textContent = pendingItem.PaymentId.Mop; 
+            const paymentMethod = admin.PaymentId && admin.PaymentId.Mop ? admin.PaymentId.Mop : 'N/A';
+
+            paymentModeCell.textContent = paymentMethod; 
             paymentModeCell.style.textAlign = 'center';
             row.appendChild(paymentModeCell);
             

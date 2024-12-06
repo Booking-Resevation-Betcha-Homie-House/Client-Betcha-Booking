@@ -18,17 +18,32 @@ function loadBookingViewData() {
                 // Format Dates
                 const formatuserCI = user.CheckIn.split('T')[0];
                 document.getElementById('check-in').textContent = formatuserCI;
-
+                
                 const formatuserCO = user.CheckOut.split('T')[0];
                 document.getElementById('check-out').textContent = formatuserCO;
-
-                const differenceInMs = formatuserCI - formatuserCO;
-
+                
+                // Convert the date strings to Date objects
+                const checkInDate = new Date(formatuserCI);
+                const checkOutDate = new Date(formatuserCO);
+                
+                // Calculate the difference in milliseconds
+                const differenceInMs = checkOutDate - checkInDate;
+                
                 const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
-
+                
                 console.log(`Length of stay: ${differenceInDays} days`);
+                
+                // Store the length of stay in localStorage
+                localStorage.setItem('dayLength', differenceInDays.toString());
+                
+                // Retrieve the length of stay from localStorage
+                const days = parseFloat(localStorage.getItem('dayLength'));
+                console.log('local: ', days);                      
+                
+
 
                 const formatBookdate = user.Date.split('T')[0];
+
                 document.getElementById('date-book').textContent = formatBookdate;
 
                 // Payment Details
@@ -125,9 +140,22 @@ function Reschedule() {
     const reference = refID; 
     const checkIn = document.getElementById('input-start-date').value;
     const checkOut = document.getElementById('input-end-date').value;
+    const days = parseFloat(localStorage.getItem('dayLength'));
 
     if (!checkIn || !checkOut) {
         alert('Please fill in both check-in and check-out dates.');
+        return;
+    }
+
+    const newCheckInDate = new Date(checkIn);
+    const newCheckOutDate = new Date(checkOut);
+
+    const newDifferenceInMs = newCheckOutDate - newCheckInDate;
+    const newDifferenceInDays = (newDifferenceInMs / (1000 * 60 * 60 * 24)) +1;
+
+    console.log(days, newDifferenceInDays)
+    if (newDifferenceInDays !== days) {
+        alertCustom('Schedule not saved!', 'The length of date(s) selected are not applicable for this reschedule.\n' + `Day(s) target: ${days}`);
         return;
     }
 
@@ -151,13 +179,12 @@ function Reschedule() {
         closeLoading();
 
         if (data.message === 'Booking dates successfully updated') {
-            alertCustom('Booking Rescheduled!','Booking dates have been successfully updated!');
+            alertCustom('Booking Rescheduled!', 'Booking dates have been successfully updated!');
             rescheduleBookingAuditTrail();
             console.log(data.booking); 
             setTimeout(() => {
                 window.location.href = `/User/LoggedIn/My-Bookings-View.html?id1=${refID}&id=${unitId}`;
             }, 2000);
-            
         } else {
             alertCustom('Error: ' + data.message);
         }
@@ -171,9 +198,62 @@ function Reschedule() {
 }
 
 
+
 document.getElementById('reschedule-btn').addEventListener('click', Reschedule)
 
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     logoutbtn();
+}
+
+function getPaymentDetails() {
+    // Get the refID from the URL parameters
+    const urlParams1 = new URLSearchParams(window.location.search);
+    const refID1 = urlParams1.get('id1');
+    
+    console.log("Reference ID:", refID1); // Log the reference ID to ensure it's correct
+
+    const apiUrl = `https://betcha-booking-api-master.onrender.com/get/paymentlink/${refID1}`;
+    let payLink = null;
+
+    // First API call to get the payment link
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log("First API Response:", data); // Log the first API response
+
+            // Check if payments array exists and has data
+            if (data && Array.isArray(data) && data.length > 0) {
+                payLink = data[0].PayMongoLink; // Access the first element of the array
+                console.log('Payment Link:', payLink);
+
+                // Proceed to second API call to fetch payment details using the payLink
+                if (payLink) {
+                    return fetch(`https://betcha-booking-api-master.onrender.com/getPaymentDetails/${payLink}`);
+                } else {
+                    console.error('Payment link not found.');
+                    return Promise.reject('No payment link found.');
+                }
+            } else {
+                console.error('No payment details found.');
+                return Promise.reject('No payment details available.');
+            }
+        })
+        .then(response => response.json())
+        .then(paymentDetails => {
+            console.log("Second API Response:", paymentDetails); // Log the second API response
+
+            // Check if payment details are returned and handle them
+            if (paymentDetails) {
+                console.log('Payment details:', paymentDetails);
+
+                // Optionally, you can navigate to another page or display payment details
+                // For example:
+                // window.location.href = `My-Bookings-View.html?id1=${refID1}&id=${paymentDetails.UnitId}`;
+            }
+        })
+        .catch(error => {
+            // Catch any errors from the fetch calls
+            console.error('Error:', error);
+        });
 }
