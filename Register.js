@@ -94,6 +94,7 @@ function Register() {
             closeLoading();
             alertCustom('User registered successfully!');
             console.log('User Data:', data);
+
             setTimeout(() => {
                 window.location.href= 'Login.html';
             }, 2000);
@@ -236,7 +237,9 @@ function OTPVerify(){
         console.log('OTP verification successful:', data);
         otpModal.hide(); 
         otpModal.dispose();
-        Register();
+        setTimeout(()=>{
+            Register();
+        }, 1000)
     })
     .catch(error => {
         console.error('Error:', error);
