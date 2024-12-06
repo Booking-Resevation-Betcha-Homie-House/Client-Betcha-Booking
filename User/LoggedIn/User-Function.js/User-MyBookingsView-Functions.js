@@ -22,7 +22,7 @@ function loadBookingViewData() {
                 const formatuserCO = user.CheckOut.split('T')[0];
                 document.getElementById('check-out').textContent = formatuserCO;
 
-                const differenceInMs = checkOutDate - checkInDate;
+                const differenceInMs = formatuserCI - formatuserCO;
 
                 const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
 
