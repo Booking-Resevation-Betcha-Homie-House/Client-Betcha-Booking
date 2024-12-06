@@ -3,7 +3,7 @@ function setActiveTab() {
     tabs.forEach(tab => {
         tab.classList.remove('active');
     });
-    const activeTab = document.querySelector('.nav-link[href="#tab-1"]');
+    const activeTab = document.querySelector('.nav-link[href="#tab-1"]'); // Assuming Completed is the first tab
     activeTab.classList.add('active');
 }
 
@@ -12,11 +12,12 @@ async function myBookingsLoadData() {
         console.log(localStorage.getItem('id'));
 
         // Fetch bookings data
+        console.log('hii')
         const response = await fetch(`https://betcha-booking-api-master.onrender.com/booking/user/${localStorage.getItem('id')}`);
         if (!response.ok) {
             throw new Error('Failed to fetch booking data');
         }
-
+        console.log(response)
         const bookings = await response.json();
        
         const completedContainer = document.getElementById('completed-bookings-container');
@@ -36,23 +37,26 @@ async function myBookingsLoadData() {
         );
 
         console.log(pendingBookings.length, completedBookings.length);
-
+        
+        // Explicitly set the active tab (you can replace "#tab-1" with the appropriate selector for your active tab)
         setActiveTab();
-
+        
+        // Wait a little before rendering
         setTimeout(() => {
-
+            // Render Pending Bookings
             pendingBookings.forEach(booking => {
                 const imgurl = `https://drive.google.com/thumbnail?id=${booking.UnitId.UnitImages[0].fileId}&sz=w1920-h1080`
                 const card = createBookingCard(booking, imgurl, 'pending');
                 pendingContainer.appendChild(card);
             });
-
+            
+            // Render Completed Bookings
             completedBookings.forEach(booking => {
                 const imgurl = `https://drive.google.com/thumbnail?id=${booking.UnitId.UnitImages[0].fileId}&sz=w1920-h1080`
                 const card = createBookingCard(booking, imgurl, 'completed');
                 completedContainer.appendChild(card);
             });
-        }, 100);
+        }, 100); // delay to ensure tab is active before rendering
         
     } catch (error) {
         console.error('Error:', error);
