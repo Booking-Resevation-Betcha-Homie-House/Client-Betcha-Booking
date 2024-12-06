@@ -26,7 +26,14 @@
     <link rel="stylesheet" href="assetsv5/css/Spinner.css">
     <link rel="stylesheet" href="assetsv5/css/User.css">
 </head>
-
+<script>
+    window.onload = function(){
+        loadMonthPicks();
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = ''; 
+    }
+</script>
 <body>
     <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
         <div class="container-fluid"><a class="navbar-brand d-flex align-items-center">
@@ -65,65 +72,7 @@
                     <div class="container-featured-units2 gradient1">
                         <div class="row row-featured-unit2">
                             <div class="col p-3" id="popular-units">
-                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv5/img/pexels-photo-1010657.jpeg">
-                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
-                                        <div class="m-3">
-                                            <h5 id="unit-name" class="heading-unit">Unit Name</h5>
-                                        </div>
-                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
-                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col p-3" id="popular-units-4">
-                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv5/img/pexels-photo-1010657.jpeg">
-                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
-                                        <div class="m-3">
-                                            <h5 id="unit-name-9" class="heading-unit">Unit Name</h5>
-                                        </div>
-                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
-                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col p-3" id="popular-units-3">
-                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv5/img/pexels-photo-1010657.jpeg">
-                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
-                                        <div class="m-3">
-                                            <h5 id="unit-name-3" class="heading-unit">Unit Name</h5>
-                                        </div>
-                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
-                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col p-3" id="popular-units-2">
-                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv5/img/pexels-photo-1010657.jpeg">
-                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
-                                        <div class="m-3">
-                                            <h5 id="unit-name-2" class="heading-unit">Unit Name</h5>
-                                        </div>
-                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
-                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col p-3" id="popular-units-1">
-                                <div class="image-container"><img alt="Beautiful view of Santorini" class="featured-image" src="assetsv5/img/pexels-photo-1010657.jpeg">
-                                    <div class="d-flex justify-content-between align-items-end unit-overlay">
-                                        <div class="m-3">
-                                            <h5 id="unit-name-1" class="heading-unit">Unit Name</h5>
-                                        </div>
-                                        <div class="m-3 rounded-circle" style="background: #ffffff;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="svg-view">
-                                                <path d="M10.5253 5.49475L10.5206 7.49475L15.0782 7.50541L5.47473 17.0896L6.88752 18.5052L16.5173 8.89479L16.5065 13.5088L18.5065 13.5134L18.5253 5.51345L10.5253 5.49475Z" fill="currentColor"></path>
-                                            </svg></div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>   
                         </div>
                     </div>
                 </div>
@@ -247,6 +196,7 @@
     <script src="assetsv5/js/theme.js"></script>
     <script src="assetsv5/js/unit-images.js"></script>
     <script src="assetsv5/js/view-book-toggle.js"></script>
+    <script src="../User/LoggedIn/Landing-Page-Functions.js"></script>
 </body>
 
 </html>

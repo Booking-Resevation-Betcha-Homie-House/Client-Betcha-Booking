@@ -262,3 +262,8 @@ async function loadPopularPicks() {
         console.error('Error:', error);
     }
 }
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    logoutbtn();
+}

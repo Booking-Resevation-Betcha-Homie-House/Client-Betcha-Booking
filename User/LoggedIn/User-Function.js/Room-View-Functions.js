@@ -210,8 +210,11 @@ async function Book() {
         const confirmReservationURL = `/User/LoggedIn/Confirm-Reservation.html?Reference=${encodeURIComponent(
             Reference
         )}&Total=${encodeURIComponent(Total)}&UserId=${encodeURIComponent(UserId)}&UnitId=${encodeURIComponent(UnitId)}`;
+        bookUnitAuditTrail();
         alertCustom('Success', 'Booking successfully created!');
+        setTimeout(()=>{
         window.location.href = confirmReservationURL;
+        },2000);
     } catch (error) {
         closeLoading();
         console.error('Error creating booking:', error);
@@ -220,3 +223,7 @@ async function Book() {
 }
 
 document.getElementById('btn-book-now').addEventListener('click', Book);
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    logoutbtn();
+}

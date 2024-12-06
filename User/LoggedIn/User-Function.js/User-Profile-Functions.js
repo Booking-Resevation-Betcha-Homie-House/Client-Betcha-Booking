@@ -35,5 +35,5 @@ function userProfile(){
 
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
-    window.location.href ='../LogIn.html';
+    logoutbtn();
 }

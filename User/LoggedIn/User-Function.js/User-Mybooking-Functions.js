@@ -121,3 +121,8 @@ function createBookingCard(booking, imgurl, status) {
 
     return card;
 }
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    logoutbtn();
+}
