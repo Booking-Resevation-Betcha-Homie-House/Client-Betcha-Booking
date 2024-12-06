@@ -161,7 +161,7 @@ fetch(`https://betcha-booking-api-master.onrender.com/editUnit/${refID}`, {
     })
     .catch(error => {
         closeLoading();
-        console.error('Error during update:', error);
+        alertCustom('Error during update:', error);
     });
 }
 

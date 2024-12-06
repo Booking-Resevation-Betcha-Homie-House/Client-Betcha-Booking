@@ -1,4 +1,4 @@
-//need bumalik sa view unit
+
 
 
 function checkSuperAdmin(SuperAdmin){
@@ -17,10 +17,9 @@ function checkSuperAdmin(SuperAdmin){
     }
     else{
         console.log('no logged in user')
-        // window.location.href = "../landing page"; lagyan kapag meron na
+        window.location.href = 'Landing-Page.html'
     }
 }
-
 
 function SAdminAddUnit(){
     console.log('function called');
@@ -89,7 +88,7 @@ function SAdminAddUnit(){
         registerUnitData.append('maplink',maplink);
         registerUnitData.append('description',description);
         registerUnitData.append('amenities',JSON.stringify(items));
-        registerUnitData.append('otheramenities',otheramenities);
+        registerUnitData.append('otherAmenities',otheramenities);
         registerUnitData.append('unitPrice',unitPrice);
         registerUnitData.append('reservationFee',reservationFee);
         registerUnitData.append('packageCapacity',packCap);
@@ -114,6 +113,7 @@ function SAdminAddUnit(){
             console.log('Adding Unit successful: ', data.message);
             closeLoading();
             createUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            back();
         } else {
             console.log('Adding unit successful', 'but no message returned.');
             closeLoading();
@@ -121,7 +121,7 @@ function SAdminAddUnit(){
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        console.log('Failed to add Unit: ' + error.message);
+        alertCustom('Failed to add Unit: ' + error.message);
         closeLoading();
     });
 
