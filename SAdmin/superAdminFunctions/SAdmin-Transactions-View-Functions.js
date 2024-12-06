@@ -7,10 +7,6 @@ console.log('Unit ID from URL: ', refID);
 
 function loadTransactionViewData(){
 
-    const role = localStorage.getItem('role')
-    console.log(role);
-    checkSuperAdmin(role);
-
     fetch(`https://betcha-booking-api-master.onrender.com/booking/${refID}`)
     .then(response => response.json())
     .then(data => {
@@ -20,7 +16,7 @@ function loadTransactionViewData(){
             const user = data; 
 
             console.log(user.Status);
-            if(user.Status === 'Successful' || user.Status ==="Did not arrived" || user.Status === 'Unpaid' || user.Status === 'Cancelled'){
+            if(user.Status === 'Successful' || user.Status ==="Did not arrive" || user.Status === 'Unpaid' || user.Status === 'Cancelled'){
                 console.log("remove");
                 const cancelbtn = document.getElementById('cancel-booking');
                 const editbtn = document.getElementById('edit-button');
@@ -30,7 +26,7 @@ function loadTransactionViewData(){
 
             document.getElementById('view-transaction-reference').innerHTML = refID; 
 
-            document.getElementById('unit-name').innerHTML = user.UnitId.unitName; 
+            document.getElementById('view-transaction-unit-name').innerHTML = user.UnitId.unitName; 
 
             const userCI = user.CheckIn;
             const formatuserCI = userCI.split('T')[0];
@@ -51,7 +47,7 @@ function loadTransactionViewData(){
             document.getElementById('view-transaction-price-per-day').textContent = user.UnitId.unitPrice; // palitan id //span id kinuha ko  //view-transaction-price-per-day id ng p
 
             let DOS = user.BookDates.length;
-            document.getElementById('view-transaction-price-per-day-1').textContent = user.NumOfDays; 
+            document.getElementById('view-transaction-price-per-day-1').textContent = user.NumOfDays; ; 
 
             document.getElementById('view-transaction-price-per-pax').textContent = user.UnitId.pricePerPax; // palitan id /span id kinuha ko // view-transaction-price-per-day id ng p
 
@@ -60,11 +56,11 @@ function loadTransactionViewData(){
             document.getElementById('view-transaction-reservation-2').textContent = user.UnitId.reservation;
 
             document.getElementById('view-transaction-additional-pax-1').textContent = '₱'+user.Total; 
-       } 
+       }
     })
     .catch(error => {
         console.error('Error during display:', error);
-        console.log('Failed to display Transaction',error.message);
+        console.log('Failed to Load ', error.message);
     });
 
 }
@@ -82,7 +78,7 @@ function statusvalue() {
     var status;
 
     if (cb1.checked) {
-        status = 'Did not arrived';
+        status = 'Did not arrive';
         return status;
     } else if (cb2.checked) {
         status = 'Unpaid';
@@ -104,7 +100,6 @@ function cancelBooking(){
         Status: statusvalue()
         
     }
-    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/edit-status`,{
         method: 'PUT',
         headers: {
@@ -114,18 +109,18 @@ function cancelBooking(){
     })
     .then (respone => respone.json())
     .then(data =>{
-        closeLoading();
+
         const modal= document.getElementById('modal-transaction-cancel-booking')
-        console.log(data);
         cancelBookingAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
             window.location.reload();
-        }, 2000); 
+        }, 2000);
+        
+        console.log(data);
     })
     .catch(error => {
         console.log(error)
-        console.log('Failed to Cancel Booking', error.message)
-        closeLoading();
+        console.log('Failed to Cancel', error.message)
     });
 }
 
@@ -134,6 +129,5 @@ document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';
 }
-
 
 

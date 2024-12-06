@@ -38,7 +38,7 @@ async function loadAuditData(){
                 row.appendChild(adminNameCell);
 
                 const nameCell = document.createElement('td');
-                nameCell.textContent = admin.Username;
+                nameCell.textContent = admin.Username || 'deleted user';
                 nameCell.style.textAlign = 'center';
                 row.appendChild(nameCell);
 
