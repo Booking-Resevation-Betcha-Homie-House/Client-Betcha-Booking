@@ -94,7 +94,6 @@ function Register() {
             closeLoading();
             alertCustom('User registered successfully!');
             console.log('User Data:', data);
-
             setTimeout(() => {
                 window.location.href= 'Login.html';
             }, 2000);
@@ -218,7 +217,7 @@ function OTPVerify(){
 
     console.log('Request Body:', JSON.stringify(requestBody));
 
-    fetch('https://betcha-booking-api-master.onrender.com/otp/forgot/verify', {
+    fetch('https://betcha-booking-api-master.onrender.com/otp/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -237,9 +236,7 @@ function OTPVerify(){
         console.log('OTP verification successful:', data);
         otpModal.hide(); 
         otpModal.dispose();
-        setTimeout(()=>{
-            Register();
-        }, 1000)
+        Register();
     })
     .catch(error => {
         console.error('Error:', error);
