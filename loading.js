@@ -157,11 +157,11 @@ function openLoading() {
       }, 3000);
     }
   }
-  function closeLoading4() {
+  function closeLoading5() {
     const spinner = document.getElementById('container-spinner');
     if (spinner) {
       setTimeout(() => {
         spinner.remove();
-      }, 4000);
+      }, 5000);
     }
   }

@@ -69,7 +69,7 @@ function updateChart(labels, data, totalMonthEarned, isNoData) {
             datasets: [{
                 label: isNoData ? 'No data to display' : 'Total Earnings Per Unit',
                 data: data,
-                backgroundColor: isNoData ? '#d3d3d3' : '#b4cb68', // Gray for "No data"
+                backgroundColor: isNoData ? '#d3d3d3' : '#b4cb68', 
                 borderColor: isNoData ? '#d3d3d3' : '#b4cb68',
                 borderWidth: 1
             }]
@@ -126,8 +126,8 @@ document.getElementById('select-year').addEventListener('change', function() {
 
 populateYearOptions();
 
-const currentMonth = new Date().getMonth() + 1; // Get current month
-const currentYear = new Date().getFullYear(); // Get current year
+const currentMonth = new Date().getMonth() + 1;
+const currentYear = new Date().getFullYear();
 
 document.getElementById('select-month').value = currentMonth;
 document.getElementById('select-year').value = currentYear;

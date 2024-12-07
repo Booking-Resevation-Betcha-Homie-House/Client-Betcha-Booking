@@ -148,6 +148,7 @@ function FullPaymentFunction() {
 
             const paymongolink = data.paymentDetails.PayMongoLink;
             localStorage.setItem('payLink', paymongolink);
+            console.log(localStorage.getItem('payLink'));
 
             const Modal = new bootstrap.Modal(document.getElementById('modal-confirm-payment'));
             Modal.show();
