@@ -47,7 +47,8 @@ function loadBookingViewData() {
 
                 document.getElementById('date-book').textContent = formatBookdate;
 
-                document.getElementById('mbv-payment-mode').textContent = user.PaymentId.Mop;
+                document.getElementById('mbv-payment-mode').textContent = (user.PaymentId && user.PaymentId.Mop) || 'N/A';
+
 
                 document.getElementById('unit-price').textContent = user.UnitId.unitPrice;
                 document.getElementById('num-of-days').textContent = user.NumOfDays;
