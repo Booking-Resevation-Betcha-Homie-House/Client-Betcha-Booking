@@ -33,7 +33,7 @@ async function loadTransactionData() {
             row.appendChild(referenceNumberCell);
 
             const nameCell = document.createElement('td');
-            nameCell.textContent = admin.UserId.firstName + ' ' + admin.UserId.middleInitial + ' ' + admin.UserId.lastName;  
+            nameCell.textContent = admin.UserId.firstName + ' ' + admin.UserId.lastName;  
             nameCell.style.textAlign = 'center';
             row.appendChild(nameCell);
 
@@ -99,7 +99,7 @@ async function loadTransactionData() {
             row.appendChild(referenceNumberCell);
 
             const nameCell = document.createElement('td');
-            nameCell.textContent = pendingItem.UserId.firstName + ' ' + pendingItem.UserId.middleInitial + ' ' + pendingItem.UserId.lastName; 
+            nameCell.textContent = pendingItem.UserId.firstName + ' ' + pendingItem.UserId.lastName; 
             nameCell.style.textAlign = 'center';
             row.appendChild(nameCell);
 
