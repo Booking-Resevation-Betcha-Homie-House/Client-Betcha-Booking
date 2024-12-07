@@ -30,6 +30,9 @@
 <body>
     <script> 
         window.onload = function() {
+            const role = localStorage.getItem('role')
+            console.log(role);
+            checkCustomer(role);
             getPfp();
             filldata();
          }

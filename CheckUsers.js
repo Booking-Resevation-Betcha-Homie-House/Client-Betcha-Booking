@@ -7,11 +7,11 @@ function checkCustomer(CustomerRole){
     }
     else if (CustomerRole === 'Admin'){
         console.log('This is for admin page');
-        window.location.href = "../Admin/Dashboard.html";
+        window.location.href = "../../Admin/Dashboard.html";
     }
     else if (CustomerRole === 'SuperAdmin'){
         console.log('This is for Super Admin page');
-        window.location.href = "../SAdmin/Dashboard.html";
+        window.location.href = "../../SAdmin/Dashboard.html";
     }
     else{
         console.log('no logged in user')
@@ -87,7 +87,7 @@ function checkForAllUsersL(role){
     }
     else if (role === 'Customer'){
         console.log('This page is for customers');
-        // window.location.href = "../Customer/Dashboard"; lagyan kapag meron na
+        window.location.href = "../User/LoggedIn/Rooms.html";
     }
     else{
         console.log('no logged in user')

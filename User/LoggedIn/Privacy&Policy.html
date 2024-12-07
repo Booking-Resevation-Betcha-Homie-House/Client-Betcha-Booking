@@ -32,6 +32,9 @@
     <script> 
         window.onload = function() {
             getPfp();
+            const role = localStorage.getItem('role')
+            console.log(role);
+            checkCustomer(role);
          }
      </script>
     <div class="d-none" id="container-spinner">
