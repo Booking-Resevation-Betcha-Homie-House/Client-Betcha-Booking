@@ -14,6 +14,10 @@ function setUsername(){
 
 function openLoading() {
   setUsername();
+  if (document.getElementById('container-spinner')) {
+    console.log('Loading spinner already exists.');
+    return;
+}
   const spinnerHTML = `
     <div id="container-spinner">
       <div class="key">

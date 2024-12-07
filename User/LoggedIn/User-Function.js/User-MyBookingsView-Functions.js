@@ -4,6 +4,12 @@ const unitId = urlParams.get('id');
 console.log('Unit ID from URL: ', refID);
 
 function loadBookingViewData() {
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'PHP', 
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
     fetch(`https://betcha-booking-api-master.onrender.com/booking/${refID}`)
         .then(response => response.json())
         .then(data => {
@@ -14,29 +20,24 @@ function loadBookingViewData() {
                 document.getElementById('ref-id').textContent = refID;
                 document.getElementById('unit-name').textContent = user.UnitId.unitName;
                 document.getElementById('check-out-date-1').textContent = user.UnitId.location;
-                
-                // Format Dates
+
                 const formatuserCI = user.CheckIn.split('T')[0];
-                document.getElementById('check-in').textContent = formatuserCI;
+                document.getElementById('check-in').innerHTML = `<strong>${formatuserCI}</strong>`;
                 
                 const formatuserCO = user.CheckOut.split('T')[0];
-                document.getElementById('check-out').textContent = formatuserCO;
-                
-                // Convert the date strings to Date objects
+                document.getElementById('check-out').innerHTML = `<strong>${formatuserCO}</strong>`;                
+
                 const checkInDate = new Date(formatuserCI);
                 const checkOutDate = new Date(formatuserCO);
-                
-                // Calculate the difference in milliseconds
+
                 const differenceInMs = checkOutDate - checkInDate;
                 
                 const differenceInDays = differenceInMs / (1000 * 60 * 60 * 24);
                 
                 console.log(`Length of stay: ${differenceInDays} days`);
-                
-                // Store the length of stay in localStorage
+
                 localStorage.setItem('dayLength', differenceInDays.toString());
-                
-                // Retrieve the length of stay from localStorage
+
                 const days = parseFloat(localStorage.getItem('dayLength'));
                 console.log('local: ', days);                      
                 
@@ -46,15 +47,13 @@ function loadBookingViewData() {
 
                 document.getElementById('date-book').textContent = formatBookdate;
 
-                // Payment Details
                 document.getElementById('mbv-payment-mode').textContent = user.PaymentId.Mop;
 
-                // Pricing Details
                 document.getElementById('unit-price').textContent = user.UnitId.unitPrice;
                 document.getElementById('num-of-days').textContent = user.NumOfDays;
 
                 const totalUnitPrice = user.UnitId.unitPrice * user.NumOfDays;
-                document.getElementById('up-nod').textContent = totalUnitPrice;
+                document.getElementById('up-nod').textContent = formatter.format(totalUnitPrice);
 
                 document.getElementById('ppc').textContent = user.UnitId.pricePerPax;
                 document.getElementById('addpax').textContent = user.AdditionalPax;
@@ -63,9 +62,41 @@ function loadBookingViewData() {
                 document.getElementById('ppc-addpax').textContent = additionalPaxPrice;
 
                 document.getElementById('Status').textContent = user.Status
+                if (["Successful", "Cancelled", "Did not arrive"].includes(user.Status)) {
+                    const rescheduleButton = document.getElementById('reschedule-btn1');
+                    if (rescheduleButton) {
+                        rescheduleButton.remove();
+                    }
+                }
+                document.getElementById('reservationFee').textContent = formatter.format(user.UnitId.reservation);
 
-                document.getElementById('reservationFee').textContent = user.UnitId.reservation;
-                document.getElementById('total-price').textContent = `₱${user.Total}`;
+                const formattedPrice = formatter.format(user.Total);
+                if (user.Status === 'Reserved') {
+                    document.getElementById('up-nod').innerHTML = `
+                    <a href="#" id="pay-link" style="text-decoration: none; color: inherit;" title="Click for redirection to full payment link">
+                        ${formatter.format(totalUnitPrice)} <span id="click-to-pay" style="text-decoration: underline; color: inherit; cursor: pointer;">click to pay</span>
+                    </a>
+                `;
+                const payText = document.getElementById('click-to-pay');
+
+                payText.addEventListener('mouseover', function() {
+                    this.style.color = 'green'; 
+                });
+                
+                payText.addEventListener('mouseout', function() {
+                    this.style.color = 'inherit';
+                });
+                
+                document.getElementById('total-price').innerHTML = `<strong>${formatter.format(user.UnitId.reservation)}</strong>`;
+            
+                document.getElementById('pay-link').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    alert('Payment initiated!');
+
+                });
+                } else {
+                    document.getElementById('total-price').innerHTML = `<strong>${formattedPrice}</strong>`;
+                }                                              
 
                 const modalElements = document.querySelectorAll(
                     '#modal-reschedule .modal-body input, #modal-reschedule .modal-body textarea, #modal-reschedule .modal-body button'
@@ -110,17 +141,17 @@ function loadBookingViewData() {
 
                 const carouselInner = document.getElementById('imgs');
                 carouselInner.innerHTML = ''; 
-
+                
                 user.UnitId.UnitImages.forEach((image, index) => {
                     const item = document.createElement('div');
                     item.className = index === 0 ? 'carousel-item active' : 'carousel-item';
                     item.innerHTML = `<img class="w-100 d-block" src="https://drive.google.com/thumbnail?id=${image.fileId}&sz=w1920-h1080" alt="Slide Image">`;
                     carouselInner.appendChild(item);
                 });
-
+                
                 const indicatorContainer = document.getElementById('indicator');
                 indicatorContainer.innerHTML = ''; 
-
+                
                 user.UnitId.UnitImages.forEach((_, index) => {
                     const indicator = document.createElement('button');
                     indicator.type = 'button';
@@ -131,7 +162,28 @@ function loadBookingViewData() {
                     }
                     indicatorContainer.appendChild(indicator);
                 });
-            }
+                
+                // Automatic scrolling function
+                let currentIndex = 0;
+                const carouselItems = document.querySelectorAll('.carousel-item');
+                const carouselInterval = 2000; // Interval in milliseconds (e.g., 5 seconds)
+                
+                function autoScroll() {
+                    currentIndex = (currentIndex + 1) % carouselItems.length;
+                    // Trigger the next slide
+                    const carousel = new bootstrap.Carousel(document.querySelector('#carousel-1'));
+                    carousel.to(currentIndex);
+                }
+                
+                // Start auto-scroll
+                setInterval(autoScroll, carouselInterval);
+                
+                // Optional: Add event listener to stop auto-scroll when the user interacts
+                document.querySelector('#carousel-1').addEventListener('slide.bs.carousel', function() {
+                    clearInterval(autoScrollInterval);
+                    autoScrollInterval = setInterval(autoScroll, carouselInterval);
+                });
+            }   
         })
         .catch(error => console.error('Error loading booking data:', error));
 }

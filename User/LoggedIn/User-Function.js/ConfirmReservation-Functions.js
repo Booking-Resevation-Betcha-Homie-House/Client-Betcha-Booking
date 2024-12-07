@@ -204,7 +204,7 @@ function sendEmail(Amount){
         if (data) {
             console.log(data);
             const user = data;
-
+            
             document.getElementById('unit-name').innerHTML = `<strong>${user.UnitId.unitName}</strong>`;
             document.getElementById('unit-loc').textContent = user.UnitId.location;
 
