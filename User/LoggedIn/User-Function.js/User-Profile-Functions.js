@@ -8,7 +8,6 @@ function userProfile(){
         const user = data.data; 
         if (data) {
 
-
             console.log(data);
             document.getElementById('profile-fullname').textContent = `${user.firstName}`; 
             document.getElementById('profile-mname-3').textContent = user.middleInitial 

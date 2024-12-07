@@ -160,7 +160,6 @@ function FullPaymentFunction() {
     .then(response => response.json())
     .then(data => {
         if (data.paymentLink) {
-
             console.log('Payment link created:', data.paymentLink);
             window.open(data.paymentLink, '_blank');
 
