@@ -119,7 +119,7 @@ async function loadTransactionData() {
             row.appendChild(dateCell);
 
             const paymentModeCell = document.createElement('td');
-            paymentModeCell.textContent = (admin.PaymentId && admin.PaymentId.Mop) || 'N/A';
+            paymentModeCell.textContent = (pendingItem.PaymentId && pendingItem.PaymentId.Mop) || 'N/A';
             paymentModeCell.style.textAlign = 'center';
             row.appendChild(paymentModeCell);
             

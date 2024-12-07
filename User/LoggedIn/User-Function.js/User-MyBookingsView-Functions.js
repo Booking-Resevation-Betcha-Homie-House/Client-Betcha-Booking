@@ -49,7 +49,6 @@ function loadBookingViewData() {
 
                 document.getElementById('mbv-payment-mode').textContent = (user.PaymentId && user.PaymentId.Mop) || 'N/A';
 
-
                 document.getElementById('unit-price').textContent = user.UnitId.unitPrice;
                 document.getElementById('num-of-days').textContent = user.NumOfDays;
 
@@ -92,8 +91,7 @@ function loadBookingViewData() {
             
                 document.getElementById('pay-link').addEventListener('click', function(event) {
                     event.preventDefault();
-                    alert('Payment initiated!');
-
+                    alertCustom('We are working on it', 'This feature is still under production');
                 });
                 } else {
                     document.getElementById('total-price').innerHTML = `<strong>${formattedPrice}</strong>`;
