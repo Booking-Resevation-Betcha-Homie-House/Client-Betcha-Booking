@@ -42,6 +42,7 @@ document.getElementById('cancel-btn').addEventListener('click', function() {
 
 
 function updateUserInfo() {
+    openLoading()
     console.log('update called');
     const pfp = document.getElementById('file-input').files[0];
     const email = document.getElementById('profile-email-2').value;
@@ -53,7 +54,7 @@ function updateUserInfo() {
     const confirmpw = document.getElementById('edit-confirm-password').value;
 
     const newimg = new FormData();
-    newimg.append('profileImage', pfp); // Corrected to append with a key
+    newimg.append('profileImage', pfp);
     const userData = {};
 
     if (email) {
@@ -103,6 +104,7 @@ function updateUserInfo() {
 
     })
     .catch(error => {
+        closeLoading();
         console.log(error);
         console.log('Failed to Update the info', error.message);
     });
@@ -117,6 +119,7 @@ function updateUserInfo() {
                 editProfileAuditTrail()
             }
             if (!response.ok) {
+                closeLoading();
                 console.log('Error img:', data);
                 //closeLoading(); // Assuming closeLoading() exists
                 throw new Error(`Failed updating Img: ${data.message || 'Unknown error'}`);
@@ -125,8 +128,10 @@ function updateUserInfo() {
         });
     })
     .then(data => {
+        closeLoading()
         alertCustom('User registered successfully!');
         console.log('User Data:', data);
+        window.location.href = "/User/LoggedIn/Profile.html";
     })
 }
 }

@@ -1,4 +1,4 @@
-function otptimer() {
+function otptimer_f() {
     const resendOtp = document.getElementById("resend-otp");
     let countdownDuration = 2 * 60; // 2 minutes in seconds
 
@@ -20,7 +20,7 @@ function otptimer() {
                 resendOtp.style.cursor = "pointer";
 
                 resendOtp.addEventListener("click", () => {
-                    OTPSend();
+                    resetButton();
                     countdownDuration = 2 * 60;
                     startCountdown(); 
                 }, { once: true });
@@ -37,4 +37,4 @@ function otptimer() {
     startCountdown();
 }
 
-document.getElementById('btn-register-1').addEventListener('click', otptimer);
+document.getElementById('reset').addEventListener('click', otptimer_f);

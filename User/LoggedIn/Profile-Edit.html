@@ -30,11 +30,24 @@
 <body>
     <script> 
         window.onload = function() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'none';
+            errorMessage.textContent = ''; 
+            const errorMessage1 = document.getElementById('error-message1');
+            errorMessage1.style.display = 'none';
+            errorMessage1.textContent = ''; 
+            const errorMessage2 = document.getElementById('error-message2');
+            errorMessage2.style.display = 'none';
+            errorMessage2.textContent = ''; 
+            
+            openLoading();
+            closeLoading();
             const role = localStorage.getItem('role')
             console.log(role);
             checkCustomer(role);
             getPfp();
             filldata();
+
          }
      </script>
     <div class="d-none" id="container-spinner">
@@ -95,7 +108,7 @@
                 <div class="w-100"><label class="form-label">Email</label><input type="text" id="profile-email-2" class="form-control" placeholder="Email"></div>
             </div>
             <div class="d-flex justify-content-center visible w-100 mb-3 align-items-center">
-                <p class="text-center error" id="error-message">Error Message</p>
+                <p class="text-center error" id="error-message1">Error Message</p>
             </div>
             <div id="line" class="line-div line-div3 mb-3"></div>
             <h5 class="manrope mb-3"><strong>Password</strong></h5>
@@ -120,7 +133,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center visible w-100 mb-3 align-items-center">
-                <p class="text-center error" id="error-message">Error Message</p>
+                <p class="text-center error" id="error-message2">Error Message</p>
             </div>
             <div id="line" class="line-div line-div3 mb-3"></div>
             <h5 class="manrope mb-3"><strong>Valid ID</strong></h5>

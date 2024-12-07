@@ -106,7 +106,7 @@ function resetButton() {
     const email = document.querySelector('#modal-forgot-pass .modal-body input').value;
 
     if (!email) {
-        alert('Please enter an email address.');
+        alertCustom('error!','Please enter an email address.');
         return;
     }
 
@@ -135,7 +135,7 @@ function resetButton() {
         .catch(error => {
             closeLoading()
             console.error('Error:', error);
-            alert('Failed to send OTP. Please try again later.');
+            alertCustom('Too many request','Failed to send OTP. Please try again later.');
         });
 }
 function confirmOtp() {

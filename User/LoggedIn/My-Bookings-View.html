@@ -30,7 +30,9 @@
 <body>
     <script> 
         window.onload = function() {
+            openLoading();
             getPfp();
+            closeLoading();
             loadBookingViewData();
             getPaymentDetails();
             const role = localStorage.getItem('role')

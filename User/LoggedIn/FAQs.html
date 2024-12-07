@@ -28,8 +28,10 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading()
         getPfp();
         loadFAQsData();
+        closeLoading();
      }
  </script>
 <body>
@@ -202,6 +204,7 @@
     <script src="../../assetsv4.5/js/view-book-toggle.js"></script>
     <script src="../LoggedIn/User-Function.js/FAQs-Functions.js"></script>
     <script src="User-Function.js/profile-picture.js"></script>
+    <script src="/loading.js"></script>
     
 </body>
 

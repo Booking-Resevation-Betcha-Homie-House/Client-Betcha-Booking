@@ -28,10 +28,13 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading()
+        updateTop();
         getPfp();
         loadRoomsData();
         loadMonthPicks();
         loadPopularPicks();
+        closeLoading();
         const role = localStorage.getItem('role')
         console.log(role);
         checkCustomer(role);

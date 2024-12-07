@@ -202,7 +202,6 @@ async function loadMonthPicks() {
 
             featuredUnit.appendChild(imageContainer);
 
-            // Add the click functionality to redirect to the room view
             featuredUnit.onclick = () => {
                 window.location.href = `Room-View.html?id=${unit.unitId}`;
             };
@@ -217,4 +216,20 @@ async function loadMonthPicks() {
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     logoutbtn();
+}
+
+function updateTop() {
+    fetch('https://betcha-booking-api-master.onrender.com/updateTopUnits')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Or response.text() depending on the response type
+        })
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }

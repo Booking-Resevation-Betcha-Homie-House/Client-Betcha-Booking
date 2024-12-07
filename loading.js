@@ -1,23 +1,25 @@
-function setUsername(){
+function setUsername() {
   const username = localStorage.getItem('username');
   console.log(username);
   const usernameElement = document.getElementById('Username');
-  
+
   if (username && usernameElement) {
-      usernameElement.textContent = username;
+    usernameElement.textContent = username;
   } else if (!usernameElement) {
-      console.log('Element with id "Username" not found');
+    console.log('Element with id "Username" not found');
   } else {
-      console.log('Username not found in localStorage');
+    console.log('Username not found in localStorage');
   }
 }
 
 function openLoading() {
+  // Check if a loading spinner already exists and remove it if present
+  const existingSpinner = document.getElementById('container-spinner');
+  if (existingSpinner) {
+    existingSpinner.remove();
+  }
+
   setUsername();
-  if (document.getElementById('container-spinner')) {
-    console.log('Loading spinner already exists.');
-    return;
-}
   const spinnerHTML = `
     <div id="container-spinner">
       <div class="key">
@@ -144,28 +146,29 @@ function openLoading() {
   document.head.appendChild(style);
 }
 
+function closeLoading() {
+  const spinner = document.getElementById('container-spinner');
+  if (spinner) {
+    setTimeout(() => {
+      spinner.remove();
+    }, 1000);
+  }
+}
 
-  function closeLoading() {
-    const spinner = document.getElementById('container-spinner');
-    if (spinner) {
-      setTimeout(() => {
-        spinner.remove();
-      }, 1000);
-    }
+function closeLoading3() {
+  const spinner = document.getElementById('container-spinner');
+  if (spinner) {
+    setTimeout(() => {
+      spinner.remove();
+    }, 3000);
   }
-  function closeLoading3() {
-    const spinner = document.getElementById('container-spinner');
-    if (spinner) {
-      setTimeout(() => {
-        spinner.remove();
-      }, 3000);
-    }
+}
+
+function closeLoading5() {
+  const spinner = document.getElementById('container-spinner');
+  if (spinner) {
+    setTimeout(() => {
+      spinner.remove();
+    }, 5000);
   }
-  function closeLoading5() {
-    const spinner = document.getElementById('container-spinner');
-    if (spinner) {
-      setTimeout(() => {
-        spinner.remove();
-      }, 5000);
-    }
-  }
+}

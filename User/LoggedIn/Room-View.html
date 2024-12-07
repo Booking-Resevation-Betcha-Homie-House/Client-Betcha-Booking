@@ -30,6 +30,9 @@
 </head>
 <script> 
     window.onload = function() {
+        openLoading();
+        closeLoading();
+        checkVerified();
         const role = localStorage.getItem('role')
         console.log(role);
         checkCustomer(role);
@@ -319,6 +322,7 @@
     <script src="../../loading.js"></script>
     <script src="../../AuditTrail-User-Functions.js"></script>
     <script src="../../logout-function.js"></script>
+    <script src="../../unverified.js"></script>
 </body>
 
 </html>
