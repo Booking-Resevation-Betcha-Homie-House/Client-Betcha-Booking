@@ -5,6 +5,16 @@ async function loadAuditData() {
     checkSuperAdmin(role);
 
     console.log('function called!');
+
+    // Check if the required elements exist
+    const tbodycompleted = document.getElementById('table-body-completed');
+    const tbodycustomer = document.getElementById('table-body-customer');
+
+    if (!tbodycompleted || !tbodycustomer) {
+        console.log('Required table body elements are missing');
+        return; // If elements don't exist, exit the function early
+    }
+
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/auit/all');
         if (!response.ok) {
@@ -13,88 +23,71 @@ async function loadAuditData() {
 
         const admins = await response.json();
 
-        const tbodycompleted = document.getElementById('table-body-completed');
-        const tbodycustomer = document.getElementById('table-body-customer');
         tbodycompleted.innerHTML = '';
         tbodycustomer.innerHTML = '';
 
         const data = admins.data;
         console.log(data);
 
+        // Check if data exists before processing it
+        if (!data || data.length === 0) {
+            console.log('No data available');
+            return; // Exit early if no data is available
+        }
+
         admins.data.forEach(admin => {
-            if(admin.Role === 'Admin' || admin.Role === 'SuperAdmin') {
-                const row = document.createElement('tr');
+            const row = document.createElement('tr');
 
-                const referenceNumberCell = document.createElement('td');
-                referenceNumberCell.textContent = admin.Reference;
-                referenceNumberCell.style.textAlign = 'center';
-                row.appendChild(referenceNumberCell);
+            // Check if admin data exists before processing
+            if (!admin.Reference || !admin.Date || !admin.Username || !admin.Activity || !admin.Role) {
+                console.log('Missing data for admin:', admin);
+                return; // Skip this admin if any required data is missing
+            }
 
-                const adminNameCell = document.createElement('td');
-                const formatdate = admin.Date;
-                const datedited = formatdate.split('T')[0];
-                adminNameCell.style.textAlign = 'center';
-                adminNameCell.textContent = datedited;
-                row.appendChild(adminNameCell);
+            const referenceNumberCell = document.createElement('td');
+            referenceNumberCell.textContent = admin.Reference;
+            referenceNumberCell.style.textAlign = 'center';
+            row.appendChild(referenceNumberCell);
 
-                const nameCell = document.createElement('td');
-                nameCell.textContent = admin.Username || 'Deactivated User';
-                nameCell.style.textAlign = 'center';
-                row.appendChild(nameCell);
+            const adminNameCell = document.createElement('td');
+            const formatdate = admin.Date;
+            const datedited = formatdate.split('T')[0];
+            adminNameCell.style.textAlign = 'center';
+            adminNameCell.textContent = datedited;
+            row.appendChild(adminNameCell);
 
-                const activityCell = document.createElement('td');
-                activityCell.textContent = admin.Activity;
-                activityCell.style.textAlign = 'center';
-                row.appendChild(activityCell);
+            const nameCell = document.createElement('td');
+            nameCell.textContent = admin.Username || 'Deactivated User';
+            nameCell.style.textAlign = 'center';
+            row.appendChild(nameCell);
 
-                const roleCell = document.createElement('td');
-                roleCell.textContent = admin.Role;
-                roleCell.style.textAlign = 'center';
-                row.appendChild(roleCell);
+            const activityCell = document.createElement('td');
+            activityCell.textContent = admin.Activity;
+            activityCell.style.textAlign = 'center';
+            row.appendChild(activityCell);
 
+            const roleCell = document.createElement('td');
+            roleCell.textContent = admin.Role;
+            roleCell.style.textAlign = 'center';
+            row.appendChild(roleCell);
+
+            // Append row to the correct table based on role
+            if (admin.Role === 'Admin' || admin.Role === 'SuperAdmin') {
                 tbodycompleted.appendChild(row);
             } else if (admin.Role === 'Customer') {
-                const row = document.createElement('tr');
-
-                const referenceNumberCell = document.createElement('td');
-                referenceNumberCell.textContent = admin.Reference;
-                referenceNumberCell.style.textAlign = 'center';
-                row.appendChild(referenceNumberCell);
-
-                const adminNameCell = document.createElement('td');
-                const formatdate = admin.Date;
-                const datedited = formatdate.split('T')[0];
-                adminNameCell.style.textAlign = 'center';
-                adminNameCell.textContent = datedited;
-                row.appendChild(adminNameCell);
-
-                const nameCell = document.createElement('td');
-                nameCell.textContent = admin.Username || 'Deactivated User';
-                nameCell.style.textAlign = 'center';
-                row.appendChild(nameCell);
-
-                const activityCell = document.createElement('td');
-                activityCell.textContent = admin.Activity;
-                activityCell.style.textAlign = 'center';
-                row.appendChild(activityCell);
-
-                const roleCell = document.createElement('td');
-                roleCell.textContent = admin.Role;
-                roleCell.style.textAlign = 'center';
-                row.appendChild(roleCell);
-
                 tbodycustomer.appendChild(row);
             }
         });
     } catch (error) {
         console.error('Error:', error);
-        console.log('Error', 'Failed to load audit data.');
+        console.log('Failed to load audit data.');
     }
 }
 
+// Call loadAuditData every 3 seconds and on initial load
 setInterval(loadAuditData, 3000);
-
 loadAuditData();
+
 
 function createUnitAuditTrail(userId,role){
 
