@@ -11,70 +11,77 @@
 		let selectedDates = { start: null, end: null };
 	
 		const urlParams = new URLSearchParams(window.location.search);
-		const unitId = urlParams.get('id');
-		const apiUrl = `https://betcha-booking-api-master.onrender.com/dates/${unitId}`;
-		let disabledDates = [];
-	
-		fetch(apiUrl)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			})
-			.then(data => {
-				disabledDates = data.dates;
-				console.log('Disabled dates:', disabledDates);
-				renderCalendars();
-			})
-			.catch(error => {
-				console.error('There was a problem with the fetch operation:', error);
-			});
-	
-		// Correctly initialize the calendars array
-		const calendars = [
-			{ el: $("#calendar_first"), month: month, year: year },
-			{ el: $("#calendar_second"), month: (month + 1) % 12, year: month === 11 ? year + 1 : year }
-		];
-	
-		const renderCalendar = (calendar) => {
-			console.log('Rendering calendar:', calendar);
-			const { el, month, year } = calendar;
-			const daysInMonth = new Date(year, month + 1, 0).getDate();
-			const firstDay = new Date(year, month, 1).getDay();
-	
-			const header = el.find(".calendar_header h2");
-			header.text(`${monthNames[month]} ${year}`);
-	
-			const weekLine = el.find(".calendar_weekdays");
-			weekLine.empty();
-			daysArray.forEach(day => weekLine.append(`<div>${day.substring(0, 3)}</div>`));
-	
-			const datesBody = el.find(".calendar_content");
-			datesBody.empty();
-	
-			for (let i = 0; i < firstDay; i++) datesBody.append('<div class="blank"></div>');
-			for (let day = 1; day <= daysInMonth; day++) {
-				const date = new Date(year, month, day);
-	
-				const adjustedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-				const formattedDate = adjustedDate.toISOString().split('T')[0];
-	
-				const isToday = date.toDateString() === today.toDateString();
-				const isPast = date < today;
-				const isDisabled = disabledDates.includes(formattedDate);
-	
-				console.log({ formattedDate, isDisabled });
-	
-				const classes = [
-					isDisabled ? "disabled past-date" : "",
-					isToday ? "today" : "",
-					isPast ? "past-date" : ""
-				].join(" ").trim();
-	
-				datesBody.append(`<div class="${classes}" ${!isDisabled ? `data-date="${formattedDate}"` : ""}>${day}</div>`);
-			}
-		};
+const unitId = urlParams.get('id');
+const apiUrl = `https://betcha-booking-api-master.onrender.com/dates/${unitId}`;
+let disabledDates = [];
+
+// Function to fetch disabled dates
+const fetchDisabledDates = () => {
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            disabledDates = data.dates;
+            console.log('Disabled dates:', disabledDates);
+            renderCalendars(); // Call renderCalendars after fetching updated data
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+};
+
+// Fetch disabled dates every 3 seconds
+setInterval(fetchDisabledDates, 3000);
+
+// Arrays and functions for rendering the calendar
+const calendars = [
+    { el: $("#calendar_first"), month: month, year: year },
+    { el: $("#calendar_second"), month: (month + 1) % 12, year: month === 11 ? year + 1 : year }
+];
+
+const renderCalendar = (calendar) => {
+    console.log('Rendering calendar:', calendar);
+    const { el, month, year } = calendar;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+
+    const header = el.find(".calendar_header h2");
+    header.text(`${monthNames[month]} ${year}`);
+
+    const weekLine = el.find(".calendar_weekdays");
+    weekLine.empty();
+    daysArray.forEach(day => weekLine.append(`<div>${day.substring(0, 3)}</div>`));
+
+    const datesBody = el.find(".calendar_content");
+    datesBody.empty();
+
+    for (let i = 0; i < firstDay; i++) datesBody.append('<div class="blank"></div>');
+    for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+
+        const adjustedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        const formattedDate = adjustedDate.toISOString().split('T')[0];
+
+        const isToday = date.toDateString() === today.toDateString();
+        const isPast = date < today;
+        const isDisabled = disabledDates.includes(formattedDate);
+
+        console.log({ formattedDate, isDisabled });
+
+        const classes = [
+            isDisabled ? "disabled past-date" : "",
+            isToday ? "today" : "",
+            isPast ? "past-date" : ""
+        ].join(" ").trim();
+
+        datesBody.append(`<div class="${classes}" ${!isDisabled ? `data-date="${formattedDate}"` : ""}>${day}</div>`);
+    }
+};
+
 	
 		const renderCalendars = () => {
 			console.log('Rendering calendars...');
