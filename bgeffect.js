@@ -1,39 +1,34 @@
-/* 
-
+/*
 let lastTime = 0;
-let trailElements = [];
+let trailElements = []; // Array to store the trail elements
 const trailContainer = document.createElement('div');
 trailContainer.className = 'trail-container';
 document.body.appendChild(trailContainer);
 
 document.addEventListener('mousemove', (event) => {
-    const currentTime = performance.now();
-    const timeInterval = 25; // Create a trail segment every 20ms
+  // Add a class to change text color when the mouse moves
+  document.body.classList.add('text-white');
 
-    if (currentTime - lastTime >= timeInterval) {
-        lastTime = currentTime;
+  const currentTime = performance.now();
+  const timeInterval = -1; // Minimum time interval between trail updates (in milliseconds)
 
-        const trailSegment = document.createElement('div');
-        trailSegment.className = 'trail-segment';
-        trailSegment.style.left = `${event.pageX}px`;
-        trailSegment.style.top = `${event.pageY}px`;
+  if (currentTime - lastTime >= timeInterval) {
+    lastTime = currentTime;
 
-        // Randomize the size slightly for variation
-        const size = Math.random() * 20 + 35;
-        trailSegment.style.width = `${size}px`;
-        trailSegment.style.height = `${size}px`;
+    // Create a new trail segment
+    const trailSegment = document.createElement('div');
+    trailSegment.className = 'trail-segment';
+    trailSegment.style.left = `${event.pageX}px`;
+    trailSegment.style.top = `${event.pageY}px`;
 
-        trailContainer.appendChild(trailSegment);
-        trailElements.push(trailSegment);
+    // Append to the container and add to the array
+    trailContainer.appendChild(trailSegment);
+    trailElements.push(trailSegment);
 
-        if (trailElements.length > 100) {
-            const oldSegment = trailElements.shift();
-            oldSegment.remove();
-        }
-
-        setTimeout(() => {
-            trailSegment.remove();
-        }, 1500); 
+    if (trailElements.length > 50) { // Adjust the number based on the desired length of the trail
+      const oldSegment = trailElements.shift();
+      oldSegment.remove();
     }
+  }
 });
-copy me then paste unitl the end*/
+*/
