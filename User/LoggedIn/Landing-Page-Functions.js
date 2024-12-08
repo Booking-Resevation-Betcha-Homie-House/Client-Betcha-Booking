@@ -51,7 +51,7 @@ async function loadMonthPicks() {
         
             featuredUnit.onclick = () => {
                 console.log(`Redirecting to Room-View for unit: ${unit._id}`);
-                window.location.href = `../User/LoggedIn/Room-View.html?id=${unit._id}`;
+                window.location.href = `../../Room-View-L.html?id=${unit._id}`;
             };
 
             container.appendChild(featuredUnit);
@@ -60,4 +60,3 @@ async function loadMonthPicks() {
         console.error('Error:', error);
     }
 }
-
