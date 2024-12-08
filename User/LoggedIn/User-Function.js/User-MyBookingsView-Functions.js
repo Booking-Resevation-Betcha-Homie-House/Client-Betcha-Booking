@@ -91,7 +91,7 @@ function loadBookingViewData() {
             
                 document.getElementById('pay-link').addEventListener('click', function(event) {
                     event.preventDefault();
-                    alertCustom('We are working on it', 'This feature is still under production');
+                    alertCustom('We are working on it', 'This feature is currently under development.');
                 });
                 } else {
                     document.getElementById('total-price').innerHTML = `<strong>${formattedPrice}</strong>`;
