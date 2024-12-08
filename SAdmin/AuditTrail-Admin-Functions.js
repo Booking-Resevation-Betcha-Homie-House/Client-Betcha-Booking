@@ -1,4 +1,5 @@
-async function loadAuditData(){
+// Function to load audit data
+async function loadAuditData() {
     const role = localStorage.getItem('role');
     console.log(role);
     checkSuperAdmin(role);
@@ -7,7 +8,7 @@ async function loadAuditData(){
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/auit/all');
         if (!response.ok) {
-            throw new Error('Failed to fetch admin data');
+            throw new Error('Failed to fetch audit data');
         }
 
         const admins = await response.json();
@@ -19,14 +20,13 @@ async function loadAuditData(){
 
         const data = admins.data;
         console.log(data);
-        
+
         admins.data.forEach(admin => {
-            if(admin.Role === 'Admin' || admin.Role === 'SuperAdmin'){
-                console.log(admins);
+            if(admin.Role === 'Admin' || admin.Role === 'SuperAdmin') {
                 const row = document.createElement('tr');
 
                 const referenceNumberCell = document.createElement('td');
-                referenceNumberCell.textContent = admin.Reference; 
+                referenceNumberCell.textContent = admin.Reference;
                 referenceNumberCell.style.textAlign = 'center';
                 row.appendChild(referenceNumberCell);
 
@@ -57,7 +57,7 @@ async function loadAuditData(){
                 const row = document.createElement('tr');
 
                 const referenceNumberCell = document.createElement('td');
-                referenceNumberCell.textContent = admin.Reference; 
+                referenceNumberCell.textContent = admin.Reference;
                 referenceNumberCell.style.textAlign = 'center';
                 row.appendChild(referenceNumberCell);
 
@@ -91,6 +91,10 @@ async function loadAuditData(){
         console.log('Error', 'Failed to load audit data.');
     }
 }
+
+setInterval(loadAuditData, 3000);
+
+loadAuditData();
 
 function createUnitAuditTrail(userId,role){
 
