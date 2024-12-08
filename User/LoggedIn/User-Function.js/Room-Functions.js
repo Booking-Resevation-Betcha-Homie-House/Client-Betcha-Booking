@@ -34,7 +34,7 @@ async function loadRoomsData() {
         image.alt = 'Beautiful view of Santorini';
 
         console.log(unit.UnitImages[0].fileId);
-        const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`; // img src
+        const imageUrl = `https://drive.google.com/thumbnail?id=${unit.UnitImages[0].fileId}&sz=w1920-h1080`;
         image.src = imageUrl; 
 
         imageContainer.appendChild(image);
