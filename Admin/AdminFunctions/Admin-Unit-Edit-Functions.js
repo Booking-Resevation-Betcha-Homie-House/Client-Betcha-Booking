@@ -10,7 +10,7 @@ async function loadUnitEditData(){
             throw new Error('Failed to fetch unit data');
         }
         const unit = await response.json();
-
+        console.log(unit);
         // Set unit data in the form fields
         document.getElementById('input-unit-name').value = unit.unitName;
         document.getElementById('input-unit-loc').value = unit.location;
@@ -142,7 +142,7 @@ function editData(){
 })
     .then(response => response.json())
     .then(data => {
-        console.log('Unit updated successfully', response);
+        console.log('Unit updated successfully', data);
         closeLoading();
         updateUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
@@ -152,7 +152,7 @@ function editData(){
     })
     .catch(error => {
         console.error('Error during update:', error);
-        console.log('Failed to update Unit: ', error.message);
+        alertCustom('Failed to update Unit: ', error.message);
         closeLoading();
     }); 
 }

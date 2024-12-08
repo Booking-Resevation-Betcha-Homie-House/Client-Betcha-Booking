@@ -90,7 +90,7 @@ function statusvalue() {
 }
 
 function cancelBooking(){
-
+    openLoading();
     console.log("called cancel")
     if(statusvalue() === '' || statusvalue() === null){
         throw new Error('Status is Null or Empty');
@@ -112,15 +112,17 @@ function cancelBooking(){
 
         const modal= document.getElementById('modal-transaction-cancel-booking')
         cancelBookingAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+        closeLoading();
         setTimeout(() => {
             window.location.reload();
-        }, 2000);
+        }, 1500);
         
         console.log(data);
     })
     .catch(error => {
         console.log(error)
-        console.log('Failed to Cancel', error.message)
+        closeLoading();
+        alertCustom('Failed to Cancel', error.message)
     });
 }
 

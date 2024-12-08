@@ -20,17 +20,18 @@ function checkSuperAdmin(SuperAdmin){
 
 function AddAdmin() {
     console.log('function called');
+    openLoading();
     const email = document.getElementById('input-admin-email').value;
     const password = document.getElementById('input-unit-num-pax').value;
     const adminName = document.getElementById('input-admin-name').value;
     const confirmpassword = document.getElementById('input-admin-confirm-password').value;
     
     if (!email || !password || !adminName) {
-        console.log('Missing Information', 'Please fill out all fields.');
+        alertCustom('Missing Information', 'Please fill out all fields.');
         return;
     }
     else if (password != confirmpassword){
-        console.log('Password Mismatch', 'Password and Confirm password do not match.');
+        alertCustom('Password Mismatch', 'Password and Confirm password do not match.');
         return;
     }
 
@@ -64,11 +65,14 @@ function AddAdmin() {
                 window.location.href = `Admin-List.html`;
             }, 2000); 
             console.log('Registration Successful', 'No message returned.');
+            closeLoading();
         }
     })
     .catch(error => {
         console.error('Error during registration:', error);
-        console.log('Registration Failed', error.message);
+        closeLoading();
+        alertCustom('Registration Failed', error.message);
+        
     });
 }
 

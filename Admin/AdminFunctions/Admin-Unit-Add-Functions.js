@@ -90,6 +90,10 @@ function AdminAddUnit(){
             console.log('Success', 'Adding Unit successful: ' + data.message);
             closeLoading();
             adminAddAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
+            setTimeout(()=>{
+                window.location.href = 'Units-List.html'
+            }
+            )
         } else {
             console.log('Success', 'Adding unit successful, but no message returned.');
             closeLoading();
@@ -97,7 +101,7 @@ function AdminAddUnit(){
     })
     .catch(error => {
         console.error('Error during adding unit:', error);
-        console.log('Error', 'Failed to register unit: ' + error.message);
+        alertCustom('Error', 'Failed to register unit: ' + error.message);
         closeLoading();
     });
 }

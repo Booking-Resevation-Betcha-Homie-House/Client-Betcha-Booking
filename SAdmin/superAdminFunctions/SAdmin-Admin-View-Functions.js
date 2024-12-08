@@ -25,12 +25,13 @@ async function adminViewLoadData(){
 
     document.getElementById('btn-admin-edit').onclick = () => {
         console.log(admin._id);
-        window.location.href = `Admin-Edit.html?email=${adminID}`;
+        window.location.href = `Admin-Edit.html?id=${adminID}`;
     };
 
 }
 
 function DelAdmin() {
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/deleteAdmin/${adminID}`, {
         method: 'DELETE',
         headers: {
@@ -56,7 +57,7 @@ function DelAdmin() {
         }, 2000); 
     })
     .catch(error => {
-        console.error('Error during delete:', error);
+        alertCustom('Error during delete:', error);
         closeLoading();
     })
 }

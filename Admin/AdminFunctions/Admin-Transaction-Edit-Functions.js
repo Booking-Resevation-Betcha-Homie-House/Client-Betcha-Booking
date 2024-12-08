@@ -152,7 +152,12 @@ function editTransactionData(){
 }
 
 
-document.getElementById('save-edit').addEventListener('click',editTransactionData);
+document.getElementById('save-edit').onclick = () => {
+    editTransactionData();
+    setTimeout(()=>{
+    window.location.href = `Transactions-View.html?id=${refID}`;
+    },2000)
+};
 
 function statusvalue() {
     var status;
@@ -173,7 +178,7 @@ function statusvalue() {
 }
 
 function back(){
-    window.location.href=`Transactions-Edit.html?id=${refID}`;
+    window.location.href=`Transactions-View.html?id=${refID}`;
 }
 
 document.getElementById('cnl-btn').addEventListener('click', back);

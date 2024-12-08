@@ -68,7 +68,7 @@ function loadTransactionViewData(){
 document.getElementById('edit-button').onclick = () => {
     window.location.href = `Transactions-Edit.html?id=${refID}`;
 }
-//di pa na seset kung san button or html to
+
 
 var cb1 = document.getElementById('formCheck-11');
 var cb2 = document.getElementById('formCheck-22');
@@ -121,10 +121,16 @@ function cancelBooking(){
     .catch(error => {
         console.log(error)
         console.log('Failed to Cancel', error.message)
+        alertCustom('Faled to Cancel', error.message);
     });
 }
 
-document.getElementById('btn-transaction-view-cancel').addEventListener('click',cancelBooking);
+document.getElementById('btn-transaction-view-cancel').onclick = () =>{
+    cancelBooking();
+    setTimeout(() =>{
+        window.location.href ='Transactions-List.html';
+    },2000)
+};
 document.getElementById('logout-btn').onclick = () => {
     localStorage.clear();
     window.location.href ='../LogIn.html';

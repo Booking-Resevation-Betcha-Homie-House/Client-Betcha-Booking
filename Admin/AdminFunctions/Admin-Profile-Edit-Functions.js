@@ -23,7 +23,7 @@ async function loadDataEdit() {
         document.getElementById('input-profile-username').value = admin.data.adminName;
         document.getElementById('input-profile-email').value = admin.data.email;
     } catch (error) {
-        console.error('Error loading admin data:', error);
+        alertCustom('Error loading admin data:', error);
     }
 }
 
@@ -77,7 +77,7 @@ function editadmin(){
     })
     .catch(error => {
         console.log(error)
-        console.log('Failed to Update the info', error.message)
+        alertCustom('Failed to Update the info', error.message);
     });
 }
 
@@ -89,6 +89,9 @@ document.getElementById('cancel-edit-btn').onclick = () =>{
     window.location.href = `Profile.html`
 }
 document.getElementById('edit-btn').onclick = () =>{
+    console.log('called edit btn');
     editadmin();
+    setTimeout(()=>{
     window.location.href = `Profile.html`
+    },2000);
 }

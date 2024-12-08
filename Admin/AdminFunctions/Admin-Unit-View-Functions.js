@@ -22,9 +22,9 @@ async function loadUnitData() {
         document.getElementById('view-unit-loc').innerHTML = unit.location;
         document.getElementById('view-unit-num-pax').innerHTML = unit.packageCapacity;
         document.getElementById('view-unit-max-pax').innerHTML = unit.maxPax;
-        document.getElementById('view-unit-price').innerHTML = unit.unitName;
-        document.getElementById('view-unit-reservation').innerHTML = unit.unitName;
-        document.getElementById('view-unit-price-per-pax').innerHTML = unit.unitName;
+        document.getElementById('view-unit-price').innerHTML = unit.unitPrice;
+        document.getElementById('view-unit-reservation').innerHTML = unit.reservation;
+        document.getElementById('view-unit-price-per-pax').innerHTML = unit.pricePerPax;
 
         const statuscell = document.getElementById('unit-status');
         statuscell.innerHTML = '';
@@ -115,7 +115,7 @@ function DelUnit() {
     .then(response => response.json())
     .then(data => {
         closeLoading();
-        console.log('Unit deleted successfully', response);
+        console.log('Unit deleted successfully', data);
         deleteUnitAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         setTimeout(() => {
             window.location.href = `Units-List.html`;
@@ -125,6 +125,7 @@ function DelUnit() {
         console.error('Error during delete:', error);
         console.log('Failed to delete unit: ', error.message);
         closeLoading();
+        alertCustom('Error during delete',error.message);
     })
 }
 

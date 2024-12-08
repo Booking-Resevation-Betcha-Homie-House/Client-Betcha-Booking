@@ -8,7 +8,7 @@ async function adminFill(){
     checkSuperAdmin(role);
 
     console.log('func called');
-
+    console.log(adminID);
     const response = await fetch(`https://betcha-booking-api-master.onrender.com/getAdminInfo/${adminID}`);
     const admin = await response.json();
     
@@ -20,27 +20,36 @@ async function adminFill(){
 function adminEdit(event) {
 
     //event.preventDefault(); 
-    //event.stopPropagation(); 
-
+    //event.stopPropagation() ; 
+   
     console.log('function called');
     const email = document.getElementById('input-admin-email').value;
     const password = document.getElementById('input-unit-num-pax').value;
     const adminName = document.getElementById('input-admin-name').value;
+    const cpassword = document.getElementById('input-admin-confirm-password').value;
 
     const updateData = {};
 
     if (email) {
         updateData.email = email;
     }
+
+    if(password === cpassword){
     if (password) {
         updateData.password = password;
+        
+    }
+    }
+    else {
+        alertCustom('Invalid Password','Password and Confirm Password is not the same');
+        return;
     }
     if (adminName) {
         updateData.adminName = adminName;
     }
 
     console.log(updateData);
-
+    openLoading();
     fetch(`https://betcha-booking-api-master.onrender.com/updateAdmin/${adminID}`, {
         method: 'PUT',
         headers: {
@@ -53,10 +62,15 @@ function adminEdit(event) {
         adminEditAuditTrail(localStorage.getItem('id'),localStorage.getItem('role'));
         console.log('Update Successful', 'Admin updated successfully');
         //location.reload();
+        closeLoading();
+        setTimeout(()=> {
+            window.location.href = `Admin-View.html?id=${adminID}`;
+        },2000)
     })
     .catch(error => {
         console.error('Error during update:', error);
-        console.log('Update Failed', 'Failed to update Admin: ' + error.message);
+        alertCustom('Update Failed', 'Failed to update Admin: ' + error.message);
+        closeLoading();
     }); 
 }
 
