@@ -1,4 +1,24 @@
-// Function to load audit data
+function formatDateTo12Hour(dateString) {
+    const date = new Date(dateString);  // Convert string to Date object
+
+    // Extract components of the date
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    
+    // Convert hours to 12-hour format
+    const hour12 = hours % 12;
+    const displayHour = hour12 ? hour12 : 12;  // 12 should be displayed for '0' hours (midnight or noon)
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+    // Format the full date in MM/DD/YYYY hh:mm:ss AM/PM format
+    const formattedDate = `${(date.getMonth() + 1)}/${date.getDate()}/${date.getFullYear()} ${displayHour}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+    
+    return formattedDate;
+}
+
 async function loadAuditData() {
     const role = localStorage.getItem('role');
     console.log(role);
@@ -6,13 +26,12 @@ async function loadAuditData() {
 
     console.log('function called!');
 
-    // Check if the required elements exist
     const tbodycompleted = document.getElementById('table-body-completed');
     const tbodycustomer = document.getElementById('table-body-customer');
 
     if (!tbodycompleted || !tbodycustomer) {
         console.log('Required table body elements are missing');
-        return; // If elements don't exist, exit the function early
+        return;
     }
 
     try {
@@ -29,19 +48,17 @@ async function loadAuditData() {
         const data = admins.data;
         console.log(data);
 
-        // Check if data exists before processing it
         if (!data || data.length === 0) {
             console.log('No data available');
-            return; // Exit early if no data is available
+            return;
         }
 
         admins.data.forEach(admin => {
             const row = document.createElement('tr');
 
-            // Check if admin data exists before processing
             if (!admin.Reference || !admin.Date || !admin.Username || !admin.Activity || !admin.Role) {
                 console.log('Missing data for admin:', admin);
-                return; // Skip this admin if any required data is missing
+                return;
             }
 
             const referenceNumberCell = document.createElement('td');
@@ -50,10 +67,9 @@ async function loadAuditData() {
             row.appendChild(referenceNumberCell);
 
             const adminNameCell = document.createElement('td');
-            const formatdate = admin.Date;
-            const datedited = formatdate.split('T')[0];
+            const formattedDate = formatDateTo12Hour(admin.Date);  // Use the new formatDateTo12Hour function
             adminNameCell.style.textAlign = 'center';
-            adminNameCell.textContent = datedited;
+            adminNameCell.textContent = formattedDate;
             row.appendChild(adminNameCell);
 
             const nameCell = document.createElement('td');
@@ -71,7 +87,6 @@ async function loadAuditData() {
             roleCell.style.textAlign = 'center';
             row.appendChild(roleCell);
 
-            // Append row to the correct table based on role
             if (admin.Role === 'Admin' || admin.Role === 'SuperAdmin') {
                 tbodycompleted.appendChild(row);
             } else if (admin.Role === 'Customer') {
@@ -84,9 +99,9 @@ async function loadAuditData() {
     }
 }
 
-// Call loadAuditData every 3 seconds and on initial load
 setInterval(loadAuditData, 3000);
 loadAuditData();
+
 
 
 function createUnitAuditTrail(userId,role){
