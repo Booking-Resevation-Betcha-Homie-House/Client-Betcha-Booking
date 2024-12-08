@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en" ng-app="myApp" ng-controller="AppCtrl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PPT View - Betcha</title>
+    <link rel="icon" href="../../icon2.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../assetsv4.5/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Manrope.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Nunito.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Calendar-1.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/block-animation.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Carousel.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Custom.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/LandingPage.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Login-Register.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Message-box.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/my-booking.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Notifcation.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Profile.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Scrollbar.compiled.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/Spinner.css">
+    <link rel="stylesheet" href="../../assetsv4.5/css/User.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex">
+        <div class="d-flex flex-column body-content left-panel mb-5">
+            <nav class="navbar navbar-expand-md mb-3 sticky-top user-navbar-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../LoggedIn/Rooms.html">
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <img src="../../assetsv4.5/img/Betcha-Logo-Green.svg" style="height: 30px;">
+                            <span id="Brand-name" style="color: #147b42;"><strong>BETCHA</strong></span>
+                        </div>
+                    </a>
+                    <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+                        <span class="visually-hidden">Toggle navigation</span>
+                        <span class="navbar-toggler-icon nav-toggle-menu"><span></span><span></span><span></span></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navcol-2"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <section>
+        <div class="text-center py-4">
+            <h1><strong></strong>Mini Capstone Presentation: Betcha Booking</strong></h1>
+            <button onclick="openFullscreen()">Fullscreen</button>
+            <div class="iframe-card">
+                <iframe id="pptIframe" src="https://docs.google.com/presentation/d/1giwsPvYwsZYx0WW7Zm6vOAkXe9ZXa1W-/embed?start=false&loop=false&delayms=3000" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+    <style>
+        .iframe-card {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 61%;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #185a27;
+            color: white;
+            border: none;
+            height: 60px;
+            width: 150px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838; 
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assetsv4.5/js/Calendario/jquery.min.js"></script>
+    <script src="../../assetsv4.5/js/Message-box.js"></script>
+    <script>
+        function openFullscreen() {
+            var iframe = document.getElementById("pptIframe");
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+
+</html>
