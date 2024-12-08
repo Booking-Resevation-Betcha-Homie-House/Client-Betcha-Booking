@@ -89,6 +89,7 @@ async function loadRoomsData() {
         displayUnit.onclick = () => {
             window.location.href = `Room-View.html?id=${unit._id}`; 
         }
+        displayUnit.style.cursor = 'pointer'; 
         displayUnit.appendChild(containerUnit);
 
         container.appendChild(displayUnit);
@@ -114,6 +115,7 @@ async function loadPopularPicks() {
 
         units.data.forEach(unit => {
             const featuredUnit = document.createElement('div');
+            
             featuredUnit.className = 'col p-3';
             featuredUnit.id = 'featured-units';
 
@@ -149,10 +151,11 @@ async function loadPopularPicks() {
 
             featuredUnit.appendChild(imageContainer);
 
-            // Add the click functionality to redirect to the room view
             featuredUnit.onclick = () => {
                 window.location.href = `Room-View.html?id=${unit.unitId}`;
             };
+            featuredUnit.style.cursor = 'pointer'; 
+
             container.appendChild(featuredUnit);
         });
     } catch (error) {
@@ -212,6 +215,7 @@ async function loadMonthPicks() {
             featuredUnit.onclick = () => {
                 window.location.href = `Room-View.html?id=${unit.unitId}`;
             };
+            featuredUnit.style.cursor = 'pointer'; 
             container.appendChild(featuredUnit);
         });
     } catch (error) {
