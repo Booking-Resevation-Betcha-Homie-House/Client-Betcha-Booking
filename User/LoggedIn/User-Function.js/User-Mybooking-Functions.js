@@ -61,7 +61,6 @@ function createBookingCard(booking, imgurl, status) {
     const card = document.createElement('div');
     card.className = 'd-flex align-items-center gap-5 my-bookings';
     card.id = `${status}-bookings`;
-
     card.style.cursor = 'pointer';
     card.onclick = () => {
         window.location.href = `../LoggedIn/My-Bookings-View.html?id1=${booking.Reference}&id=${booking.UnitId._id}`;

@@ -19,7 +19,7 @@
 }
 
 .my-bookings:hover {
-  background: rgba(180,203,104,0.27);
+  background: rgb(224, 235, 186);
   transition: all .5s ease;
   border: solid;
   border-width: 1px;
