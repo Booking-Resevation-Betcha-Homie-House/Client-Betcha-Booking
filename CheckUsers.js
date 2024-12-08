@@ -1,4 +1,3 @@
-// copy paste sa lahat ng page (if wala pa)
 function checkCustomer(CustomerRole){
     console.log('Checking Customer')
     if (CustomerRole === 'Customer'){

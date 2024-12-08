@@ -1,7 +1,5 @@
-// Finished function with 3 seconds automatic reload
 async function loadTransactionData() {
     try {
-        // Fetch completed transactions data
         const response = await fetch('https://betcha-booking-api-master.onrender.com/getCompleted');
         if (!response.ok) {
             throw new Error('Failed to fetch admin data');
@@ -9,7 +7,7 @@ async function loadTransactionData() {
 
         const admins = await response.json();
         const tbodycompleted = document.getElementById('table-body-completed');
-        tbodycompleted.innerHTML = ''; // Clear existing data
+        tbodycompleted.innerHTML = ''; 
 
         console.log(admins);
 

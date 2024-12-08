@@ -13,7 +13,6 @@ function setUsername() {
 }
 
 function openLoading() {
-  // Check if a loading spinner already exists and remove it if present
   const existingSpinner = document.getElementById('container-spinner');
   if (existingSpinner) {
     existingSpinner.remove();
