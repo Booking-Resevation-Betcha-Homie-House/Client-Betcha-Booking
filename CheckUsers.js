@@ -15,7 +15,7 @@ function checkCustomer(CustomerRole){
     }
     else{
         console.log('no logged in user')
-        window.location.href = "../Landing-Page.html";
+        window.location.href = "../../Landing-Page.html";
     }
 }
 

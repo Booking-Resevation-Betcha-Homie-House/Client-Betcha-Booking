@@ -1,5 +1,11 @@
 async function loadRoomsData() { 
     console.log('function called!');
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'PHP', 
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
     try {
         const response = await fetch('https://betcha-booking-api-master.onrender.com/units');
         if (!response.ok) {
@@ -45,7 +51,8 @@ async function loadRoomsData() {
         const priceHeading = document.createElement('h5');
         priceHeading.id = 'unit-price-5';
         priceHeading.className = 'm-0 p-unit';
-        priceHeading.innerHTML = `<strong>₱ ${unit.unitPrice}</strong>`; 
+        const unitPriceF = formatter.format(unit.unitPrice);
+        priceHeading.innerHTML = `<strong>${unitPriceF}</strong>`; 
 
         const priceSpan = document.createElement('span');
         priceSpan.className = 'text-gray-600';
