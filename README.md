@@ -16,7 +16,7 @@ Welcome to the **Client-end-Betcha-Booking-web-app**! This project is part of th
 
 This project is deployed on **Netlify** for easy access and continuous deployment.
 
-- **link**: [Website Link](betcha-booking.netlify.app)
+- **link**: [Website Link](https://betcha-booking.netlify.app/)
 
 ## Features
 
