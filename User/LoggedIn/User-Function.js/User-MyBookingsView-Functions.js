@@ -62,7 +62,7 @@ function loadBookingViewData() {
                 document.getElementById('ppc-addpax').textContent = additionalPaxPrice;
 
                 document.getElementById('Status').textContent = user.Status
-                if (["Successful", "Cancelled", "Did not arrive", "Unpaid"].includes(user.Status)) {
+                if (["Successful", "Cancelled", "Did not arrive", "Unpaid", "Arrived"].includes(user.Status)) {
                     const rescheduleButton = document.getElementById('reschedule-btn1');
                     if (rescheduleButton) {
                         rescheduleButton.remove();
