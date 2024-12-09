@@ -1,3 +1,4 @@
+var faqId;
 function createFAQ() {
 
     const question = document.getElementById('input-faqs-question').value;
@@ -22,14 +23,14 @@ function createFAQ() {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ created:", data.data);
-            
             createdFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             setTimeout(() => {
                 window.location.href='FAQs.html';
             }, 2000);
         } else {
-            
+            closeLoading();
             console.log("Error:", data.message);
+            
         }
     })
     .catch(error => {
@@ -40,6 +41,7 @@ function createFAQ() {
 
 function updateFAQ(faqId) {
     console.log('called update');
+    console.log(faqId);
     const question = document.getElementById('input-faqs-question-1').value;
     const answer = document.getElementById('input-faqs-answer-1').value;
 
@@ -63,19 +65,15 @@ function updateFAQ(faqId) {
         if (data.message === "FAQ created successfully") {
             closeLoading();
             console.log("FAQ Updated:", data.data);
-            console.log(getItem('id'));
             editFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             setTimeout(() => {
-                window.location.href='FAQs.html';
-            }, 2000);
-        } else {
-            closeLoading()
-            console.log("Error:", data.message);
-            setTimeout(() => {
-                window.location.href='FAQs.html';
-            }, 2000); 
-            
+             window.location.href='FAQs.html';
+            }, 2000);;
         }
+        setTimeout(() => {
+            window.location.href='FAQs.html';
+           }, 2000);;
+        closeLoading();
     })
     .catch(error => {
         closeLoading()
@@ -84,9 +82,10 @@ function updateFAQ(faqId) {
 }
 
 function deleteFAQ(faqId) {
+    console.log('called delete');
+    console.log(faqId);
     openLoading();
-    const url = `https://betcha-booking-api-master.onrender.com/faqs/delete/${faqId}`;  // Your API endpoint with the FAQ ID to delete
-
+    const url = `https://betcha-booking-api-master.onrender.com/faqs/delete/${faqId}`;
     fetch(url, {
         method: "DELETE",
         headers: {
@@ -101,13 +100,12 @@ function deleteFAQ(faqId) {
             deletedFAQTrail(localStorage.getItem('id'),localStorage.getItem('role'));
             setTimeout(() => {
                 window.location.reload();
-            }, 2000); 
-           
+            }, 2000);
         } else {
             closeLoading();
-            
             console.log("Error:", data.message);
-            window.location.reload();
+         
+            
         }
     })
     .catch(error => {
@@ -117,10 +115,7 @@ function deleteFAQ(faqId) {
 }
 async function displayQA(){
     
-    const role = localStorage.getItem('role');
-    console.log(role,localStorage.getItem('id'));
-    checkSuperAdmin(role);
-
+    
     const response = await fetch('https://betcha-booking-api-master.onrender.com/faqs/getAll');
     if (!response.ok) {
         throw new Error('Failed to fetch admin data');
@@ -160,6 +155,8 @@ async function displayQA(){
         const questionP = document.createElement('p');
         questionP.style.color = '#212529';
         questionP.innerHTML = `<strong>${faq.Question}</strong>`; // question
+        console.log(faq.Question);
+        
         col1.appendChild(questionP);
         row1.appendChild(col1);
 
@@ -171,6 +168,7 @@ async function displayQA(){
         col2.style.paddingLeft = '24px';
         const answerP = document.createElement('p');
         answerP.textContent = `${faq.Answer}`; // answer
+      
         col2.appendChild(answerP);
         row2.appendChild(col2);
 
@@ -188,17 +186,28 @@ async function displayQA(){
         deleteButton.type = 'button';
         deleteButton.setAttribute('data-bs-target', '#modal-remove');
         deleteButton.setAttribute('data-bs-toggle', 'modal');
+
+        
+        deleteButton.onclick = () => {
+            console.log(faq._id);
+            faqId = faq._id;
+            console.log(faqId);
+        }
         const deleteIcon = document.createElement('i');
         deleteIcon.className = 'fas fa-trash-alt';
         deleteButton.appendChild(deleteIcon); 
 
+        
        const removebtn = document.getElementById('delete-btn');
        removebtn.onclick = function(){
-        deleteFAQ(faq._id);
+        console.log(faqId);
+        deleteFAQ(faqId);
        }
+      
        const editbtn = document.getElementById('edi-btn');
        editbtn.onclick = function(){
-        updateFAQ(faq._id);
+        console.log(faqId);
+        updateFAQ(faqId);
        }
         const editButton = document.createElement('button');
         editButton.className = 'btn btn-primary btn-icon-only';
@@ -206,6 +215,15 @@ async function displayQA(){
         editButton.type = 'button';
         editButton.setAttribute('data-bs-target', '#modal-faq');
         editButton.setAttribute('data-bs-toggle', 'modal');
+        editButton.onclick = () => {
+            document.getElementById('input-faqs-question-1').value = faq.Question;
+            document.getElementById('input-faqs-answer-1').textContent = faq.Answer;
+            console.log(faq.Question);
+            console.log(faq.Answer);
+            console.log(faq._id);
+            faqId = faq._id;
+            console.log(faqId);
+        }
         
         const editIcon = document.createElement('i');
         editIcon.className = 'fas fa-pen';
@@ -234,4 +252,9 @@ async function displayQA(){
 }
 
 document.getElementById('crt-btn').addEventListener('click',createFAQ);
-//document.getElementById('btn-faq-edit').addEventListener
+//do    cument.getElementById('btn-faq-edit').addEventListener
+
+document.getElementById('logout-btn').onclick = () => {
+    localStorage.clear();
+    window.location.href ='../LogIn.html';
+}
